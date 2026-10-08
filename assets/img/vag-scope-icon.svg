@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" width="512" height="512">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="42%" r="75%">
+      <stop offset="0" stop-color="#14606F"/>
+      <stop offset="1" stop-color="#082B35"/>
+    </radialGradient>
+  </defs>
+  <rect width="108" height="108" fill="url(#bg)"/>
+  <!-- scope ring -->
+  <circle cx="54" cy="54" r="25" fill="none" stroke="#4DD0C4" stroke-width="4.2"/>
+  <circle cx="54" cy="54" r="17" fill="none" stroke="#4DD0C4" stroke-opacity="0.35" stroke-width="1.4"/>
+  <!-- crosshair ticks -->
+  <g stroke="#4DD0C4" stroke-width="3.4" stroke-linecap="round">
+    <path d="M54,20.5 V26"/><path d="M54,82 V87.5"/><path d="M20.5,54 H26"/><path d="M82,54 H87.5"/>
+  </g>
+  <!-- live pulse -->
+  <path d="M30,55 L43,55 L48,43 L55,68 L60,49 L64,55 L78,55" fill="none" stroke="#FFFFFF" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="78" cy="55" r="2.6" fill="#FFB74D"/>
+</svg>

@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-08T15:54:15.034Z",
+        "reason": "false positive: full-bleed colored sections (software, contact); inner .wrap inset by margin-inline gutter and vertical clamp padding; checked at 375px and 1440px"
+      }
+    ]
+  }
+}
