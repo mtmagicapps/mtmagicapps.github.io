@@ -7,6 +7,17 @@
     fr: {
       skip: 'Aller au contenu',
       nav_software: 'Logiciels', nav_principles: 'Principes', nav_contact: 'Contact',
+      nav_privacy: 'Confidentialité', nav_home: 'Accueil',
+      t_vs: 'VAG Scope – diagnostic OBD pour VW, Audi, Seat et Škoda | mtmagicapps',
+      t_priv: 'Politique de confidentialité – VAG Scope | mtmagicapps',
+      vs_h: 'Le diagnostic constructeur, dans votre poche.',
+      vs_p: 'VAG Scope lit les mesures, les codes défaut et le kilométrage de votre VW, Audi, Seat ou Škoda avec un adaptateur ELM327 Bluetooth. Aucun compte, aucun réseau.',
+      vs_priv_h: 'Vos données restent chez vous.',
+      vs_priv_p: 'VAG Scope n’a pas de permission internet, pas de compte, pas de publicité et pas d’analyse d’usage. Lisez la politique de confidentialité complète.',
+      vs_priv_link: 'Politique de confidentialité',
+      vs_back: 'Tous les logiciels', more_vs: 'Page de VAG Scope',
+      priv_back: '← Retour à VAG Scope', priv_loading: 'Chargement…',
+      priv_err: 'Impossible de charger la politique de confidentialité. Écrivez-nous à ' + EMAIL + '.',
       hero_h: 'Des petites applis, faites avec soin.',
       hero_p: 'mtmagicapps est un éditeur de logiciels indépendant. Notre première appli, VAG Scope, transforme votre téléphone en outil de diagnostic pour les Volkswagen, Audi, Seat et Škoda.',
       play_small: 'Disponible sur', hero_more: 'Découvrir VAG Scope',
@@ -57,11 +68,13 @@
   nodes.forEach(function (n) { en[n.dataset.i18n] = n.innerHTML; });
   altNodes.forEach(function (n) { enAlt[n.dataset.i18nAlt] = n.getAttribute('alt'); });
   var EN_UI = {
+    more_vs: 'VAG Scope page', vs_priv_link: 'Privacy policy',
     err_name: 'Please enter your name.', err_email: 'Please enter a valid email address.', err_msg: 'Please write your message.',
     ok: 'Your mail app should open. If not, write to ' + EMAIL + ' directly.',
     ct_copied: 'Copied', ct_copy: 'Copy', mail_subject: 'Message from the mtmagicapps website'
   };
   var lang = 'en';
+  var titleKeyed = !!document.querySelector('title[data-i18n]');
 
   function s(key) { return (lang === 'fr' && T.fr[key]) || EN_UI[key] || en[key] || ''; }
 
@@ -76,7 +89,7 @@
       var k = n.dataset.i18nAlt;
       n.setAttribute('alt', lang === 'fr' && T.fr[k] ? T.fr[k] : enAlt[k]);
     });
-    document.title = lang === 'fr' ? 'mtmagicapps – des petites applis, faites avec soin' : 'mtmagicapps – small apps, made with care';
+    if (!titleKeyed) document.title = lang === 'fr' ? 'mtmagicapps – des petites applis, faites avec soin' : 'mtmagicapps – small apps, made with care';
     document.querySelectorAll('.lang button').forEach(function (b) {
       b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
     });
@@ -96,7 +109,7 @@
 
   /* copy address */
   var copyBtn = document.getElementById('copy-btn');
-  copyBtn.addEventListener('click', function () {
+  if (copyBtn) copyBtn.addEventListener('click', function () {
     var done = function () {
       copyBtn.textContent = s('ct_copied');
       setTimeout(function () { copyBtn.textContent = s('ct_copy'); }, 1800);
@@ -119,7 +132,7 @@
     ['f-msg', function (v) { return v.trim().length > 0; }, 'err_msg']
   ];
 
-  form.addEventListener('submit', function (e) {
+  if (form) form.addEventListener('submit', function (e) {
     e.preventDefault();
     var bad = null;
     rules.forEach(function (r) {
@@ -140,7 +153,7 @@
     note.textContent = s('ok');
     window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(s('mail_subject')) + '&body=' + encodeURIComponent(body);
   });
-  form.addEventListener('input', function (e) {
+  if (form) form.addEventListener('input', function (e) {
     if (e.target.getAttribute('aria-invalid') === 'true') e.target.setAttribute('aria-invalid', 'false');
   });
 })();
