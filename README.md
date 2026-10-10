@@ -13,7 +13,7 @@ Plain HTML, CSS and a little JavaScript: no build step, no dependencies, no cook
 ## Before going public
 
 - Replace `REPLACE_WITH_PACKAGE_NAME` in the two Google Play links in `index.html` with the app's package id.
-- Add the registered company details to the legal footer if required in your country.
+- Add the registered company details to the legal footer if required in your country
 
 ## Files
 
