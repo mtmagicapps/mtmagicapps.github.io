@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0-rc2
+
+- Dashboards: Add value tells you to scan the control units when none has a value list yet.
+- Android Auto: never reconnects to the demo car, only to the last real adapter.
+- The app opens on a home screen with Connect, Mileage reports and Procedure runs: saved results of every car can be browsed offline, newest first, with search and filters.
+
 ## 1.0.0-rc1
 
 - Fix missing connection notification after permission approval.
