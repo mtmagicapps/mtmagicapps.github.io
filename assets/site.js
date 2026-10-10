@@ -7,9 +7,10 @@
     fr: {
       skip: 'Aller au contenu',
       nav_software: 'Logiciels', nav_principles: 'Principes', nav_contact: 'Contact',
-      nav_privacy: 'Confidentialité', nav_home: 'Accueil',
+      nav_privacy: 'Confidentialité', nav_changelog: 'Nouveautés', nav_home: 'Accueil',
       t_vs: 'VAG Scope – diagnostic OBD pour VW, Audi, Seat et Škoda | mtmagicapps',
       t_priv: 'Politique de confidentialité – VAG Scope | mtmagicapps',
+      t_changelog: 'Journal des modifications – VAG Scope | mtmagicapps',
       vs_h: 'Le diagnostic constructeur, dans votre poche.',
       vs_p: 'VAG Scope lit les mesures, les codes défaut et le kilométrage de votre VW, Audi, Seat ou Škoda avec un adaptateur ELM327 Bluetooth. Aucun compte, aucun réseau.',
       vs_priv_h: 'Vos données restent chez vous.',
