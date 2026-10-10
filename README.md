@@ -21,3 +21,4 @@ Plain HTML, CSS and a little JavaScript: no build step, no dependencies, no cook
 - `vag-scope/adapters.js`: the `RECOMMENDED_ADAPTERS` list (name, url, EN/FR note, affiliate flag) rendered on the VAG Scope page.
 - `assets/img/`: VAG Scope screenshots (status bars cropped, converted to WebP).
 - `assets/fonts/`: Bricolage Grotesque and Figtree (SIL Open Font License), self-hosted.
+- `.githooks/pre-commit`: copies `docs/CHANGELOG.md` and the `privacy_{en,fr}.md` and `terms_{en,fr}.md` legal assets from `../io.mtmagicapps.vagscope` into `vag-scope/` and stages them. Enable once per clone with `git config core.hooksPath .githooks`.
