@@ -1,0 +1,31 @@
+#!/bin/sh
+# Copies the VAG Scope changelog and privacy policies from the app repo
+# (../io.mtmagicapps.vagscope) into vag-scope/ and stages whatever changed.
+# Enable once per clone: git config core.hooksPath .githooks
+
+root=$(git rev-parse --show-toplevel) || exit 1
+src="$root/../io.mtmagicapps.vagscope"
+
+if [ ! -d "$src" ]; then
+  echo "pre-commit: $src not found, skipping VAG Scope sync" >&2
+  exit 0
+fi
+
+dest="$root/vag-scope"
+
+sync_file() { # <source path relative to app repo> <destination file name>
+  if [ ! -f "$src/$1" ]; then
+    echo "pre-commit: missing $src/$1, skipped" >&2
+    return
+  fi
+  if ! cmp -s "$src/$1" "$dest/$2"; then
+    cp "$src/$1" "$dest/$2" && git add -- "vag-scope/$2"
+    echo "pre-commit: updated vag-scope/$2"
+  fi
+}
+
+sync_file docs/CHANGELOG.md CHANGELOG.md
+sync_file app/src/main/assets/legal/privacy_en.md privacy_en.md
+sync_file app/src/main/assets/legal/privacy_fr.md privacy_fr.md
+# sync_file app/src/main/assets/legal/terms_en.md terms_en.md
+# sync_file app/src/main/assets/legal/terms_fr.md terms_fr.md
