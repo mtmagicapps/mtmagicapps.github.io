@@ -1,10 +1,10 @@
 # Politique de confidentialité
 
-Date d'effet : 8 octobre 2026 · Application : VAG Scope · Développeur : VAG Scope developer · Contact : via la page de l'application sur Google Play
+Date d'effet : 10 octobre 2026 · Application : VAG Scope · Développeur : VAG Scope developer · Contact : via la page de l'application sur Google Play
 
 ## En bref
 
-VAG Scope ne collecte, n'envoie ni ne vend aucune donnée. L'application n'a pas d'autorisation Internet, pas de compte, pas de publicité ni de mesure d'audience. Tout ce qu'elle lit ou enregistre reste sur votre téléphone, sauf si vous décidez de le partager.
+VAG Scope ne collecte, n'envoie ni ne vend aucune donnée. L'application n'a pas d'autorisation Internet, pas de compte, pas de publicité ni de mesure d'audience. Tout ce qu'elle lit ou enregistre reste sur votre téléphone, sauf si vous décidez de le partager. L'application elle-même ne se connecte jamais à Internet ; les seuls liens web qu'elle contient s'ouvrent dans votre navigateur quand vous les touchez (voir « Liens vers des boutiques en ligne »).
 
 ## Ce que l'application lit
 
@@ -18,6 +18,12 @@ Réglages, dernier adaptateur utilisé, groupes et noms choisis, tableaux de bor
 ## Quand des données quittent votre téléphone
 
 Uniquement quand vous touchez Partager ou Exporter. Le fichier ou le texte va alors à l'application que vous choisissez (e-mail, messagerie, stockage en ligne…), dont la politique de confidentialité s'applique. Les exports et rapports peuvent contenir votre VIN et les données de votre voiture : vérifiez-les avant de les partager. Réglages › Raccourcir le VIN à l'écran en masque la plus grande partie à l'écran.
+
+## Liens vers des boutiques en ligne
+
+La page « Adaptateurs recommandés » (écran de connexion, et Réglages › Adaptateur) présente des adaptateurs OBD-II avec des liens vers des boutiques en ligne. Un lien s'ouvre dans votre navigateur (ou l'application qui le gère) uniquement quand vous le touchez. L'application ne se connecte pas elle-même et n'ajoute rien de vous au lien : ni VIN, ni données de la voiture, ni données du téléphone. Le site de la boutique relève ensuite de sa propre politique de confidentialité et peut utiliser des cookies ou enregistrer votre visite.
+
+Certains de ces liens sont des liens de parrainage. Si vous achetez via l'un d'eux, le développeur peut recevoir une commission de la boutique, sans surcoût pour vous. Ce que le programme d'affiliation de la boutique communique au développeur sur un tel achat relève de la politique de la boutique ; le développeur ne reçoit pas votre identité via l'application.
 
 ## Autorisations
 
