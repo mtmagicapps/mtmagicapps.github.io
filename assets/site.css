@@ -80,6 +80,11 @@ h1,h2,h3{font-family:var(--display);font-optical-sizing:auto;text-wrap:balance;l
 .app-icon{width:5.5rem;height:5.5rem;border-radius:1.5rem;box-shadow:0 14px 24px -12px rgba(0,0,0,.6)}
 .app-head h2{font-size:clamp(2.4rem,5.5vw,4rem);font-weight:800;color:#fff}
 .app-tag{margin-top:.5rem;color:var(--on-deep-2);max-width:36rem;font-size:1.1rem}
+.software.compact{padding-block:clamp(2.25rem,5vw,3.5rem)}
+.learn{display:inline-flex;align-items:center;gap:.6rem;background:var(--mint);color:var(--teal-deep);text-decoration:none;font:700 1.1rem/1 var(--display);letter-spacing:-.01em;padding:1rem 1.5rem;min-height:3rem;border-radius:99px;box-shadow:0 10px 20px -10px rgba(0,0,0,.55);transition:transform .25s var(--ease),background .2s}
+.learn svg{width:1.25rem;height:1.25rem;flex:none;transition:transform .25s var(--ease)}
+.learn:hover{background:#fff;transform:translateY(-2px)}
+.learn:hover svg{transform:translateX(3px)}
 
 .features{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.5rem;margin-top:clamp(2.5rem,5vw,4rem);padding-top:2rem;border-top:1px solid rgba(232,247,245,.2)}
 .features dt{font:700 1.2rem/1.2 var(--display);color:var(--mint);letter-spacing:-.01em}
@@ -105,8 +110,21 @@ h1,h2,h3{font-family:var(--display);font-optical-sizing:auto;text-wrap:balance;l
 .mileage-copy p{margin-top:1.25rem;max-width:34rem;color:var(--ink-2)}
 .mileage-copy p:first-of-type{margin-top:1.5rem}
 
+/* recommended adapters */
+.adapters{padding-block:0 clamp(3.5rem,8vw,6rem)}
+.adapters[hidden]{display:none}
+.adapters h2{font-size:clamp(1.9rem,3.6vw,2.6rem);font-weight:800}
+.adapters-lead{margin-top:.9rem;max-width:40rem;color:var(--ink-2)}
+.adapter-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),24rem));gap:1.25rem;margin-top:1.75rem}
+.adapter{display:grid;gap:.6rem;align-content:start;justify-items:start;background:var(--surface);border:1px solid var(--line);border-radius:1.5rem;padding:1.5rem}
+.adapter h3{font-size:1.5rem;font-weight:700}
+.adapter p{color:var(--ink-2)}
+.adapter .ghost{margin-top:.4rem}
+.adapter-tag{font-size:.8rem;font-weight:700;color:var(--ink-2);background:var(--mint-wash);border-radius:99px;padding:.2rem .65rem}
+
 /* principles */
 .principles{padding-block:0 clamp(3.5rem,8vw,6rem)}
+.software.compact+.principles{padding-top:clamp(3rem,6vw,4.5rem)}
 .principles h2{font-size:clamp(1.9rem,3.6vw,2.6rem);font-weight:800}
 .pr-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1.5rem,4vw,3rem);margin-top:1.75rem}
 .pr-grid>div{border-top:1px solid var(--teal);padding-top:1.25rem}
@@ -148,7 +166,7 @@ h1,h2,h3{font-family:var(--display);font-optical-sizing:auto;text-wrap:balance;l
   .js .stage .p2{animation-delay:.14s}
   @keyframes rise{from{opacity:0;transform:translateY(3.5rem) rotate(2deg)}to{opacity:1;transform:none}}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.play,.send{transition:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.play,.send,.learn,.learn svg{transition:none}}
 
 /* responsive */
 @media (max-width:62rem){
@@ -158,7 +176,7 @@ h1,h2,h3{font-family:var(--display);font-optical-sizing:auto;text-wrap:balance;l
   .hero,.mileage,.contact-in{grid-template-columns:1fr}
   .hero-art .stage{height:clamp(22rem,92vw,30rem)}
   .app-head{grid-template-columns:auto minmax(0,1fr)}
-  .app-head .play{grid-column:1/-1;justify-self:start}
+  .app-head .play,.app-head .learn{grid-column:1/-1;justify-self:start}
   .auto{grid-template-columns:1fr}
   .pr-grid{grid-template-columns:1fr}
   .mileage-art{max-width:24rem;margin-inline:auto}
