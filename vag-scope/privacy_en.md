@@ -1,10 +1,10 @@
 # Privacy policy
 
-Effective date: 8 October 2026 · App: VAG Scope · Developer: VAG Scope developer · Contact: through the Google Play store page
+Effective date: 10 October 2026 · App: VAG Scope · Developer: VAG Scope developer · Contact: through the Google Play store page
 
 ## In short
 
-VAG Scope does not collect, send or sell any data. The app has no internet permission, no account, no advertising and no analytics. Everything it reads or stores stays on your phone unless you decide to share it.
+VAG Scope does not collect, send or sell any data. The app has no internet permission, no account, no advertising and no analytics. Everything it reads or stores stays on your phone unless you decide to share it. The app itself never connects to the internet; the only web links in it open in your browser when you tap them (see "Links to online shops").
 
 ## What the app reads
 
@@ -18,6 +18,12 @@ Settings, the last adapter used, the groups and names you chose, dashboards, pro
 ## When data leaves your phone
 
 Only when you tap Share or Export. The file or text then goes to the app you choose (e-mail, messaging, cloud storage...), and that app's privacy policy applies. Exports and reports can contain your VIN and your car's data; check them before sharing. Settings › Shorten the VIN on screen hides most of it on screen.
+
+## Links to online shops
+
+The "Recommended adapters" page (Connect screen, and Settings › Adapter) lists OBD-II adapters with links to online shops. A link opens in your web browser (or the app that handles it) only when you tap it. The app makes no connection itself and adds nothing of yours to the link: no VIN, no car data, no phone data. The shop's website is then covered by its own privacy policy and may use cookies or log your visit.
+
+Some of these links are referral links. If you buy through one, the developer may receive a commission from the shop at no extra cost to you. What the shop's affiliate programme reports to the developer about such a purchase is governed by the shop's policy; the developer does not receive your identity from the app.
 
 ## Permissions
 
