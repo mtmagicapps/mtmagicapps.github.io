@@ -18,5 +18,6 @@ Plain HTML, CSS and a little JavaScript: no build step, no dependencies, no cook
 ## Files
 
 - `index.html`: the page. `assets/site.css`: styles. `assets/site.js`: EN/FR switch and the mailto contact form.
+- `vag-scope/adapters.js`: the `RECOMMENDED_ADAPTERS` list (name, url, EN/FR note, affiliate flag) rendered on the VAG Scope page.
 - `assets/img/`: VAG Scope screenshots (status bars cropped, converted to WebP).
 - `assets/fonts/`: Bricolage Grotesque and Figtree (SIL Open Font License), self-hosted.

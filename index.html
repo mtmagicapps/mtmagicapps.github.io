@@ -47,10 +47,10 @@
         <p class="lead" data-i18n="hero_p">mtmagicapps is an independent software editor. Our first app, VAG Scope, turns your phone into a diagnostic tool for Volkswagen, Audi, Seat and Škoda cars.</p>
         <div class="actions">
           <a class="play" href="https://play.google.com/store/apps/details?id=io.mtmagicapps.vagscope" rel="noopener">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.2v17.6a.9.9 0 0 0 1.35.78l15-8.8a.9.9 0 0 0 0-1.56l-15-8.8A.9.9 0 0 0 5 3.2Z" fill="#4DD0C4"/><path d="M5 3.2 14.2 12 5 20.8" fill="none" stroke="#FFB74D" stroke-width="0"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#00c3ff" d="M1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924z"/><path fill="#00f076" d="M13.544 10.989l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973z"/><path fill="#ff3a44" d="M13.544 13.056l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/><path fill="#ffd500" d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594z"/></svg>
             <span><small data-i18n="play_small">Get it on</small><b>Google Play</b></span>
           </a>
-          <a class="ghost" href="#software" data-i18n="hero_more">See VAG Scope</a>
+          <a class="ghost" href="vag-scope/" data-i18n="hero_more">See VAG Scope</a>
         </div>
       </div>
       <div class="hero-art" aria-hidden="false">
@@ -62,7 +62,7 @@
     </section>
 
     <!-- SOFTWARE -->
-    <section class="software" id="software">
+    <section class="software compact" id="software">
       <div class="wrap">
         <div class="app-head">
           <img class="app-icon" src="assets/img/vag-scope-icon.svg" width="88" height="88" alt="">
@@ -70,56 +70,11 @@
             <h2 data-i18n="sw_h">VAG Scope</h2>
             <p class="app-tag" data-i18n="sw_tag">Real diagnostics for VW, Audi, Seat and Škoda, from a cheap Bluetooth adapter and your phone.</p>
           </div>
-          <a class="play on-dark" href="https://play.google.com/store/apps/details?id=io.mtmagicapps.vagscope" rel="noopener">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.2v17.6a.9.9 0 0 0 1.35.78l15-8.8a.9.9 0 0 0 0-1.56l-15-8.8A.9.9 0 0 0 5 3.2Z" fill="#4DD0C4"/></svg>
-            <span><small data-i18n="play_small">Get it on</small><b>Google Play</b></span>
+          <a class="learn" href="vag-scope/">
+            <span data-i18n="learn_more">Learn more</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
-
-        <dl class="features">
-          <div><dt data-i18n="f1_t">Live data</dt><dd data-i18n="f1_d">Up to nine measuring blocks at once, with min and max values, a 60-second chart and CSV logging.</dd></div>
-          <div><dt data-i18n="f2_t">Dashboards</dt><dd data-i18n="f2_d">Pin the single values you care about, on your phone or on the car screen through Android Auto.</dd></div>
-          <div><dt data-i18n="f3_t">Fault codes</dt><dd data-i18n="f3_d">Every control unit, with status, freeze frames and plain texts. Clearing only after a backup and your confirmation.</dd></div>
-          <div><dt data-i18n="f4_t">Guided procedures</dt><dd data-i18n="f4_d">Step-by-step tests written by the community: measure, compare, conclude, then share the report.</dd></div>
-        </dl>
-
-        <ul class="shots" aria-label="Screenshots">
-          <li>
-            <figure class="phone"><img src="assets/img/dashboard.webp" width="640" height="1313" loading="lazy" alt="Dashboard with a battery voltage tile" data-i18n-alt="alt_dash"></figure>
-            <figcaption data-i18n="cap_dash">Dashboards you build yourself</figcaption>
-          </li>
-          <li>
-            <figure class="phone"><img src="assets/img/faults.webp" width="640" height="1313" loading="lazy" alt="Fault code detail with freeze frame values" data-i18n-alt="alt_faults"></figure>
-            <figcaption data-i18n="cap_faults">Fault codes with freeze frames</figcaption>
-          </li>
-          <li>
-            <figure class="phone"><img src="assets/img/procedure.webp" width="640" height="1313" loading="lazy" alt="Result of a guided procedure marked within limits" data-i18n-alt="alt_proc"></figure>
-            <figcaption data-i18n="cap_proc">Procedures with a shareable report</figcaption>
-          </li>
-        </ul>
-
-        <figure class="auto">
-          <img src="assets/img/androidauto.webp" width="1200" height="716" loading="lazy" alt="VAG Scope on an Android Auto screen showing engine speed, coolant temperature and vehicle speed" data-i18n-alt="alt_auto">
-          <figcaption>
-            <h3 data-i18n="auto_h">On the car screen too</h3>
-            <p data-i18n="auto_p">Show up to four live values through Android Auto, each with its min and max.</p>
-          </figcaption>
-        </figure>
-
-        <p class="compat" data-i18n="compat">Works with a Bluetooth ELM327 adapter on cars using TP 2.0 (about 2004–2010) or UDS (about 2012 and later). Android 5.0+, English and French. Tested on an Audi RS6 C6; newer UDS cars are supported but still being verified, so feedback is welcome.</p>
-      </div>
-    </section>
-
-    <!-- MILEAGE -->
-    <section class="mileage wrap" id="mileage">
-      <div class="mileage-art">
-        <figure class="phone m1"><img src="assets/img/mileage1.webp" width="640" height="1313" loading="lazy" alt="Mileage check result with the odometer reading and a summary" data-i18n-alt="alt_m1"></figure>
-        <figure class="phone m2"><img src="assets/img/mileage2.webp" width="640" height="1313" loading="lazy" alt="Mileage check chart comparing readings from each control unit" data-i18n-alt="alt_m2"></figure>
-      </div>
-      <div class="mileage-copy">
-        <h2 data-i18n="mi_h">Check the odometer against the car’s own memory.</h2>
-        <p data-i18n="mi_p1">VAG Scope reads the distance stored in every control unit that keeps one, compares it with the dashboard, and shows its working: which units agree, which do not, and the margin it allowed.</p>
-        <p data-i18n="mi_p2">Handy before you buy a used car. The result is a guide, never a guarantee, and it will not tell you a car is “genuine”.</p>
       </div>
     </section>
 
