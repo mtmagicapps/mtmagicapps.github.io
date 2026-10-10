@@ -16,6 +16,7 @@
       vs_priv_h: 'Vos données restent chez vous.',
       vs_priv_p: 'VAG Scope n’a pas de permission internet, pas de compte, pas de publicité et pas d’analyse d’usage. Lisez la politique de confidentialité complète.',
       vs_priv_link: 'Politique de confidentialité',
+      vs_changelog_link: 'Journal des modifications',
       vs_back: 'Tous les logiciels', more_vs: 'Page de VAG Scope',
       adp_h: 'Adaptateurs recommandés',
       adp_p: 'VAG Scope dialogue avec votre voiture via un adaptateur ELM327 Bluetooth. Voici celui avec lequel elle a été testée.',
