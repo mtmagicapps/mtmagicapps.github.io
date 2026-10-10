@@ -1,8 +1,15 @@
 (function () {
   'use strict';
 
-  /* Renders privacy_en.md / privacy_fr.md (headings, paragraphs, lists, bold, italic, code, links). */
+  /* Renders a markdown file (headings, paragraphs, lists, bold, italic, code, links) into #doc-body.
+     Source comes from data-src on #doc ({lang} is replaced by en/fr); default is privacy_{lang}.md. */
+  var doc = document.getElementById('doc');
   var body = document.getElementById('doc-body');
+  var SRC = doc.dataset.src || 'privacy_{lang}.md';
+  var ERR = {
+    en: doc.dataset.errEn || 'The privacy policy could not be loaded. Open the site over http(s) (not file://) or read ',
+    fr: doc.dataset.errFr || 'Impossible de charger la politique de confidentialité. Ouvrez le site via http(s) (pas en file://) ou lisez '
+  };
   var cache = {};
 
   function esc(t) {
@@ -46,18 +53,22 @@
     if (h1) document.title = h1.textContent + ' – VAG Scope | mtmagicapps';
   }
 
-  function load() {
+  function current() {
     var lang = document.documentElement.lang === 'fr' ? 'fr' : 'en';
-    if (cache[lang]) { show(cache[lang]); return; }
-    fetch('privacy_' + lang + '.md')
+    return { lang: lang, file: SRC.replace('{lang}', lang) };
+  }
+
+  function load() {
+    var c = current(), file = c.file;
+    if (cache[file]) { show(cache[file]); return; }
+    fetch(file)
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
       .then(function (md) {
-        cache[lang] = render(md);
-        if (document.documentElement.lang === lang || (lang === 'en' && document.documentElement.lang !== 'fr')) show(cache[lang]);
+        cache[file] = render(md);
+        if (current().file === file) show(cache[file]);
       })
       .catch(function () {
-        var fr = lang === 'fr', f = 'privacy_' + lang + '.md';
-        body.innerHTML = '<p>' + (fr ? 'Impossible de charger la politique de confidentialité. Ouvrez le site via http(s) (pas en file://) ou lisez ' : 'The privacy policy could not be loaded. Open the site over http(s) (not file://) or read ') + '<a href="' + f + '">' + f + '</a>.</p>';
+        body.innerHTML = '<p>' + ERR[c.lang] + '<a href="' + file + '">' + file + '</a>.</p>';
       });
   }
 
