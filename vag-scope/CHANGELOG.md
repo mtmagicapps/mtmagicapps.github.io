@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.0-rc3
+
+- Android Auto: opens on the last opened dashboard (phone or car) and shows only its values enabled for Android Auto; the Back arrow goes to the list of dashboards. The phone's Dashboards screen also reopens on that dashboard.
+
 ## 1.0.0-rc2
 
 - Dashboards: Add value tells you to scan the control units when none has a value list yet.

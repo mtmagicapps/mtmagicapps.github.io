@@ -38,7 +38,7 @@
       mi_p1: 'VAG Scope lit la distance enregistrée dans chaque calculateur qui en garde une, la compare au tableau de bord et montre son raisonnement : quels calculateurs concordent, lesquels non, et la marge retenue.',
       mi_p2: 'Pratique avant d’acheter une occasion. Le résultat est un indice, jamais une garantie, et l’appli ne dira pas qu’une voiture est « authentique ».',
       pr_h: 'Notre manière de faire',
-      pr1_t: 'Elle lit, elle ne réécrit pas.', pr1_d: 'La seule exception est l’effacement des codes défaut, et seulement après une sauvegarde, un contrôle de la batterie et votre confirmation explicite.',
+      pr1_t: 'Prudente avec votre voiture.', pr1_d: 'Chaque écriture est protégée par une sauvegarde, un contrôle de la batterie et votre confirmation explicite. Le codage, les réglages de base et l’accès sécurité sont prévus à la feuille de route.',
       pr2_t: 'Privée par conception.', pr2_d: 'Pas de compte, pas d’analyse d’usage, pas de permission réseau. Ce que dit votre voiture reste sur votre téléphone.',
       pr3_t: 'Elle montre son raisonnement.', pr3_d: 'Chaque conclusion s’accompagne de ses preuves, pour que vous décidiez jusqu’où lui faire confiance.',
       soon_t: 'D’autres applis arrivent.', soon_d: 'Une idée, ou une voiture qui ne voulait pas vous parler ? Écrivez-nous ci-dessous.',
