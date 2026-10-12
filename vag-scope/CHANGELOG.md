@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.0-rc5
+
+- First Alpha release
+- Update for the latest adapter compatibility and minor bug fixes.
+
 ## 1.0.0-rc4
 
 - TP2.0 protocol fixes
