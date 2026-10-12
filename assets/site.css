@@ -119,7 +119,7 @@ h1,h2,h3{font-family:var(--display);font-optical-sizing:auto;text-wrap:balance;l
 .adapter{display:grid;gap:.6rem;align-content:start;justify-items:start;background:var(--surface);border:1px solid var(--line);border-radius:1.5rem;padding:1.5rem}
 .adapter h3{font-size:1.5rem;font-weight:700}
 .adapter p{color:var(--ink-2)}
-.adapter .ghost{margin-top:.4rem}
+.adapter-sellers{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;margin-top:.4rem}
 .adapter-tag{font-size:.8rem;font-weight:700;color:var(--ink-2);background:var(--mint-wash);border-radius:99px;padding:.2rem .65rem}
 
 /* principles */

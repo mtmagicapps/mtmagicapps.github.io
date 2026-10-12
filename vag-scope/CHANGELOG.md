@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.0.0-rc4
+
+- TP2.0 protocol fixes
+- Stability: fix a possible crash when the connection ended right after it was made (background service); sharing, opening Bluetooth or app settings and picking a file never crash the app any more on a phone that lacks the needed screen or storage.
+- Saved procedures, runs, mileage checks and fault backups are written safely: an app killed while saving keeps the previous version, and procedures whose list entry was lost are listed again (as imported).
+- Saved user data now using Jetpack DataStore. Existing settings, profiles, values and dashboards are moved over on the first start; nothing to do.
+- Harden file handling (procedures, values, fault-text files).
+- Fix issues in non-alphabetic locales.
+- UI performance improvements.
+- Plurals handling improvements.
+- Log traces improvements.
+- Various other stability, and privacy improvements.
+
 ## 1.0.0-rc3
 
 - Android Auto: opens on the last opened dashboard (phone or car) and shows only its values enabled for Android Auto; the Back arrow goes to the list of dashboards. The phone's Dashboards screen also reopens on that dashboard.

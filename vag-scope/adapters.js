@@ -1,13 +1,16 @@
 /* Recommended adapters: edit this list to add or change an entry.
-   `note` is shown in English, `noteFr` in French. Set `affiliate` to true for
-   affiliate links: they get rel="sponsored" and a visible disclosure. */
+   `note` is shown in English, `noteFr` in French. `sellers` lists where to buy
+   it, one button each. Set `affiliate` to true on a seller for affiliate links:
+   they get rel="sponsored" and a visible disclosure. */
 var RECOMMENDED_ADAPTERS = [
   {
-    name: 'vLinker MC-IOS',
-    url: 'https://fr.aliexpress.com/item/1005008234720729.html',
+    name: 'vLinker MC+',
+    sellers: [
+      { name: 'AliExpress', url: 'https://fr.aliexpress.com/item/1005008234720729.html', affiliate: false },
+      { name: 'Amazon', url: 'https://link.amazon/B0asIddnq', affiliate: true }
+    ],
     note: 'The adapter this app was tested with, over Bluetooth LE.',
-    noteFr: "L'adaptateur avec lequel l'application a été testée, en Bluetooth LE.",
-    affiliate: false
+    noteFr: "L'adaptateur avec lequel l'application a été testée, en Bluetooth LE."
   }
 ];
 
@@ -15,8 +18,8 @@ var RECOMMENDED_ADAPTERS = [
   'use strict';
 
   var UI = {
-    en: { view: 'View adapter', affiliate: 'Affiliate link' },
-    fr: { view: 'Voir l’adaptateur', affiliate: 'Lien affilié' }
+    en: { view: 'View on ', affiliate: 'Affiliate link' },
+    fr: { view: 'Voir sur ', affiliate: 'Lien affilié' }
   };
 
   var section = document.getElementById('adapters');
@@ -39,19 +42,24 @@ var RECOMMENDED_ADAPTERS = [
       p.textContent = (fr && a.noteFr) || a.note;
       li.appendChild(p);
 
-      var link = document.createElement('a');
-      link.className = 'ghost';
-      link.href = a.url;
-      link.rel = a.affiliate ? 'sponsored noopener noreferrer' : 'noopener noreferrer';
-      link.textContent = ui.view;
-      li.appendChild(link);
+      var sellers = document.createElement('div');
+      sellers.className = 'adapter-sellers';
+      (a.sellers || []).forEach(function (seller) {
+        var link = document.createElement('a');
+        link.className = 'ghost';
+        link.href = seller.url;
+        link.rel = seller.affiliate ? 'sponsored noopener noreferrer' : 'noopener noreferrer';
+        link.textContent = ui.view + seller.name;
+        sellers.appendChild(link);
 
-      if (a.affiliate) {
-        var tag = document.createElement('span');
-        tag.className = 'adapter-tag';
-        tag.textContent = ui.affiliate;
-        li.appendChild(tag);
-      }
+        if (seller.affiliate) {
+          var tag = document.createElement('span');
+          tag.className = 'adapter-tag';
+          tag.textContent = ui.affiliate;
+          sellers.appendChild(tag);
+        }
+      });
+      if (sellers.children.length) li.appendChild(sellers);
       list.appendChild(li);
     });
   }
