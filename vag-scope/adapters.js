@@ -9,8 +9,8 @@ var RECOMMENDED_ADAPTERS = [
       { name: 'AliExpress', url: 'https://fr.aliexpress.com/item/1005008234720729.html', affiliate: false },
       { name: 'Amazon', url: 'https://link.amazon/B0asIddnq', affiliate: true }
     ],
-    note: 'The adapter this app was tested with, over Bluetooth LE.',
-    noteFr: "L'adaptateur avec lequel l'application a été testée, en Bluetooth LE."
+    note: 'The adapter this app was built with',
+    noteFr: "L'adaptateur avec lequel l'application a été conçue"
   }
 ];
 
