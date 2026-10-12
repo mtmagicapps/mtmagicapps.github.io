@@ -11,7 +11,7 @@ var RECOMMENDED_ADAPTERS = [
     ],
     note: 'The adapter this app was built with',
     noteFr: "L'adaptateur avec lequel l'application a été conçue"
-  }
+  },
 ];
 
 (function () {
