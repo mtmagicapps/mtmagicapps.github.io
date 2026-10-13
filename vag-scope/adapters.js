@@ -12,6 +12,15 @@ var RECOMMENDED_ADAPTERS = [
     note: 'The adapter this app was built with',
     noteFr: "L'adaptateur avec lequel l'application a été conçue"
   },
+  {
+    name: 'vGate iCar Pro 2S',
+    sellers: [
+      { name: 'AliExpress', url: 'https://a.aliexpress.com/_EGpxdH0', affiliate: false },
+      { name: 'Amazon', url: 'https://amzn.to/4hJX0WM', affiliate: true }
+    ],
+    note: 'The affordable alternative',
+    noteFr: "L'alternative abordable"
+  },
 ];
 
 (function () {
