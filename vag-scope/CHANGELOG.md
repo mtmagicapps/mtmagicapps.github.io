@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.0-rc6
+
+- Procedures: new **Create with AI** entry in Add a procedure.
+- Procedures are available without a connection. Running them offline is not supported.
+- UDS compatibility fixes.
+- Recommended adapters: the vGate iCar Pro 2S is listed as an affordable alternative.
+- Improve strings for improved UX.
+
 ## 1.0.0-rc5
 
 - First Alpha release
