@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.0-rc7
+
+- Android Auto selection: The limit of 4 values now applies per dashboard, not to the whole app.
+- Android Auto selection: More realistic preview of the car screen with a dashboard selector.
+
 ## 1.0.0-rc6
 
 - Procedures: new **Create with AI** entry in Add a procedure.
