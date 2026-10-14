@@ -6,7 +6,7 @@ var RECOMMENDED_ADAPTERS = [
   {
     name: 'vLinker MC+',
     sellers: [
-      { name: 'AliExpress', url: 'https://fr.aliexpress.com/item/1005008234720729.html', affiliate: false },
+      { name: 'AliExpress', url: 'https://s.click.aliexpress.com/e/_Eu0ZYV4', affiliate: true },
       { name: 'Amazon', url: 'https://link.amazon/B0asIddnq', affiliate: true }
     ],
     note: 'The adapter this app was built with',
@@ -15,7 +15,7 @@ var RECOMMENDED_ADAPTERS = [
   {
     name: 'vGate iCar Pro 2S',
     sellers: [
-      { name: 'AliExpress', url: 'https://a.aliexpress.com/_EGpxdH0', affiliate: false },
+      { name: 'AliExpress', url: 'https://s.click.aliexpress.com/e/_EvCO9RM', affiliate: true },
       { name: 'Amazon', url: 'https://amzn.to/4hJX0WM', affiliate: true }
     ],
     note: 'The affordable alternative',
