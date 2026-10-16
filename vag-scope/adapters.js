@@ -21,7 +21,7 @@ var RECOMMENDED_ADAPTERS = [
     note: 'The affordable alternative',
     noteFr: "L'alternative abordable"
   },
-],
+]
 
 (function () {
   'use strict';

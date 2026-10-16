@@ -13,7 +13,7 @@ VAG Scope ne collecte, n'envoie ni ne vend aucune donnée. L'application n'a pas
 
 ## Ce qui est enregistré sur votre téléphone
 
-Réglages, dernier adaptateur utilisé, groupes et noms choisis, tableaux de bord, procédures et leurs rapports, enregistrements (CSV), sauvegardes des défauts faites avant un effacement, et cache du contrôle kilométrique. Ces données sont dans le stockage privé de l'application, exclues des sauvegardes Android dans le cloud et des transferts d'appareil, et supprimées quand vous désinstallez l'application ou effacez ses données. Plusieurs écrans permettent aussi de les supprimer.
+Réglages, dernier adaptateur utilisé, groupes et noms choisis, tableaux de bord, procédures et leurs rapports, enregistrements (CSV), sauvegardes des défauts faites avant un effacement et valeurs précédentes enregistrées avant un codage, une adaptation ou une remise à zéro de l'entretien, et cache du contrôle kilométrique. Ces données sont dans le stockage privé de l'application, exclues des sauvegardes Android dans le cloud et des transferts d'appareil, et supprimées quand vous désinstallez l'application ou effacez ses données. Plusieurs écrans permettent aussi de les supprimer.
 
 ## Quand des données quittent votre téléphone
 
