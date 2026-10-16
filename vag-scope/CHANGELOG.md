@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.0-rc8
+- New Control unit screen, paving the way for more features.
+- ALPHA: Guided functions are bundled for basic settings.
+- ALPHA: Output tests and basic settings (TP 2.0 units).
+- ALPHA: Coding and long coding (TP 2.0 units).
+- ALPHA: Adaptation (TP 2.0 units).
+- ALPHA: Service reset (TP 2.0 instrument clusters), on the home screen.
+- ALPHA: Login numbers (TP 2.0 units).
+- ALPHA: Security access (TP 2.0 units).
+
 ## 1.0.0-rc7
 
 - Android Auto selection: The limit of 4 values now applies per dashboard, not to the whole app.

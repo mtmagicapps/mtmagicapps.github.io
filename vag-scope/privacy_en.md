@@ -13,7 +13,7 @@ VAG Scope does not collect, send or sell any data. The app has no internet permi
 
 ## What is stored on your phone
 
-Settings, the last adapter used, the groups and names you chose, dashboards, procedures and their run reports, recordings (CSV), fault backups made before clearing, and the mileage-check cache. This data is kept in the app's private storage, is excluded from Android cloud backups and device transfer, and is deleted when you uninstall the app or clear its data. Several screens also let you delete it.
+Settings, the last adapter used, the groups and names you chose, dashboards, procedures and their run reports, recordings (CSV), fault backups made before clearing and the previous values saved before a coding, an adaptation or a service reset, and the mileage-check cache. This data is kept in the app's private storage, is excluded from Android cloud backups and device transfer, and is deleted when you uninstall the app or clear its data. Several screens also let you delete it.
 
 ## When data leaves your phone
 
