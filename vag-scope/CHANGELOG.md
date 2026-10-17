@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.0-rc9
+- UDS read ops compatibility fixes
+
 ## 1.0.0-rc8
 - New Control unit screen, paving the way for more features.
 - ALPHA: Guided functions are bundled for basic settings.
