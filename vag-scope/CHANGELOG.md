@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased
+- TP 2.0: Answers sent in several messages are read whole.
+- TP 2.0: Control units parallel scanning.
+- TP 2.0: Fault memory scan: a control unit that misses one request is asked again.
+- TP 2.0: SRI: Increase cluster values request timeouts
+- TP 2.0: Output tests: Improve live data display.
+- Demo RS6: closer to the real car (my own experience).
+
 ## 1.0.0-rc9
 - UDS read ops compatibility fixes
 
