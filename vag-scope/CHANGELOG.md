@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.0.0-rc10
 - TP 2.0: Answers sent in several messages are read whole.
 - TP 2.0: Control units parallel scanning.
 - TP 2.0: Fault memory scan: a control unit that misses one request is asked again.
