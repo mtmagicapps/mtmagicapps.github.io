@@ -1,5 +1,34 @@
 # Changelog
 
+## 1.0.0-rc14
+
+- Android Auto: Safety fixes
+- UDS Fixes
+- Adaptation: Allow writing the same value
+- Protocol log: Add VIN in file names
+
+## 1.0.0-rc13
+
+- UI/UX improvements
+- Labels logic updates
+
+## 1.0.0-rc12
+
+- Dashboards: Fix gauge display issue
+- ALPHA: Guided functions are bundled for basic settings.
+- ALPHA: Output tests and basic settings (UDS units).
+- ALPHA: Coding and long coding (UDS units).
+- ALPHA: Adaptation (UDS units).
+- ALPHA: SRI (UDS units).
+- ALPHA: Login numbers (UDS units).
+- ALPHA: Security access (UDS units).
+- SRI: Remove requirement for workshop code (use defaults if empty)
+- SRI/Procedures: Simplify units scan requirements
+
+## 1.0.0-rc11
+
+- Dashboards: Rich customization.
+
 ## 1.0.0-rc10
 - TP 2.0: Answers sent in several messages are read whole.
 - TP 2.0: Control units parallel scanning.
