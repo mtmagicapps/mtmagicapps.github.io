@@ -61,7 +61,15 @@
       alt_proc: 'Résultat d’une procédure guidée marqué conforme',
       alt_auto: 'VAG Scope sur un écran Android Auto avec régime moteur, température du liquide de refroidissement et vitesse',
       alt_m1: 'Résultat du contrôle du kilométrage avec le compteur et un résumé',
-      alt_m2: 'Graphique du contrôle du kilométrage comparant les relevés de chaque calculateur'
+      alt_m2: 'Graphique du contrôle du kilométrage comparant les relevés de chaque calculateur',
+      cod_h: 'Unités de commande & codage VAG',
+      cod_p: 'Scannez les calculateurs de votre véhicule et effectuez des codages, adaptations, réglages de base et tests actionneurs directement depuis votre téléphone.',
+      alt_controlunits: 'Liste des calculateurs scannés tels que Moteur, Boîte de vitesses, ABS et Combiné d’instruments',
+      cap_controlunits: 'Scannez et détectez tous les calculateurs installés',
+      alt_unitfunctions: 'Menu des options du calculateur affichant Codes défaut, Réglages de base, Adaptation, Tests actionneurs et Codage',
+      cap_unitfunctions: 'Accédez aux adaptations, réglages de base, tests actionneurs et codages',
+      alt_coding: 'Interface de codage du module ABS avec options pour crochet d’attelage et choix des disques de frein',
+      cap_coding: 'Personnalisez les fonctionnalités des modules grâce à des descriptions claires',
     }
   };
 
