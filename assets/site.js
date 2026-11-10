@@ -30,12 +30,12 @@
       sw_h: 'VAG Scope',
       sw_tag: 'Un vrai diagnostic VW, Audi, Seat et Škoda, avec un petit adaptateur Bluetooth et votre téléphone.',
       f1_t: 'Mesures en direct', f1_d: 'Jusqu’à neuf blocs de mesures à la fois, avec min et max, un graphique sur 60 secondes et export CSV.',
-      f2_t: 'Tableaux de bord', f2_d: 'Épinglez les valeurs qui vous intéressent, sur le téléphone ou sur l’écran de la voiture via Android Auto.',
+      f2_t: 'Tableaux de bord', f2_d: 'Épinglez les valeurs qui vous intéressent, sur le téléphone ou sur l’écran de la voiture via Android Auto ou Apple CarPlay.',
       f3_t: 'Codes défaut', f3_d: 'Tous les calculateurs, avec statut, données de contexte et textes clairs. Effacement seulement après sauvegarde et votre confirmation.',
       f4_t: 'Procédures guidées', f4_d: 'Des tests pas à pas écrits par la communauté : mesurer, comparer, conclure, puis partager le rapport.',
       cap_dash: 'Des tableaux de bord à votre main', cap_faults: 'Codes défaut avec données de contexte', cap_proc: 'Procédures avec rapport à partager',
-      auto_h: 'Aussi sur l’écran de la voiture', auto_p: 'Affichez jusqu’à quatre valeurs en direct via Android Auto, chacune avec son min et son max.',
-      compat: 'Fonctionne avec un adaptateur ELM327 Bluetooth sur les voitures en TP 2.0 (environ 2004–2010) ou en UDS (environ 2012 et après). Android 5.0+, français et anglais. Testée sur une Audi RS6 C6 ; les voitures UDS récentes sont prises en charge mais encore en cours de vérification, vos retours sont les bienvenus.',
+      auto_h: 'Aussi sur l’écran de la voiture', auto_p: 'Affichez jusqu’à quatre valeurs en direct via Android Auto ou Apple CarPlay, chacune avec son min et son max.',
+      compat: 'Fonctionne avec un adaptateur ELM327 Bluetooth sur les voitures en TP 2.0 (environ 2004–2010) ou en UDS (environ 2012 et après). Android 5.0+ et iOS, français et anglais. Testée sur une Audi RS6 C6 ; les voitures UDS récentes sont prises en charge mais encore en cours de vérification, vos retours sont les bienvenus.',
       mi_h: 'Comparez le compteur à la mémoire de la voiture.',
       mi_p1: 'VAG Scope lit la distance enregistrée dans chaque calculateur qui en garde une, la compare au tableau de bord et montre son raisonnement : quels calculateurs concordent, lesquels non, et la marge retenue.',
       mi_p2: 'Pratique avant d’acheter une occasion. Le résultat est un indice, jamais une garantie, et l’appli ne dira pas qu’une voiture est « authentique ».',
@@ -54,13 +54,14 @@
       mail_subject: 'Message depuis le site mtmagicapps',
       legal0: 'Édité par DS ECOM, SASU (société par actions simplifiée unipersonnelle) de droit français, SIREN 884 924 333. Site hébergé par GitHub, Inc.',
       legal1: 'VAG Scope est un produit indépendant. Il n’est ni affilié, ni approuvé, ni parrainé par Volkswagen AG, Audi AG, SEAT, S.A. ou ŠKODA AUTO a.s. Toutes les marques appartiennent à leurs propriétaires respectifs et ne servent qu’à désigner les véhicules compatibles.',
-      legal2: 'Google Play est une marque de Google LLC. VAG Scope est une aide au diagnostic et ne remplace pas un contrôle par un professionnel. Ne l’utilisez jamais en conduisant. Les résultats du contrôle du kilométrage sont indicatifs.',
+      legal2: 'Google Play et Android Auto sont des marques de Google LLC. Apple, App Store et CarPlay sont des marques d’Apple Inc. VAG Scope est une aide au diagnostic et ne remplace pas un contrôle par un professionnel. Ne l’utilisez jamais en conduisant. Les résultats du contrôle du kilométrage sont indicatifs.',
       legal3: 'Ce site n’utilise ni cookies, ni outil d’analyse, ni requêtes vers des services tiers.',
       alt_home: 'Écran d’accueil de VAG Scope avec un véhicule de démonstration connecté et les outils de diagnostic',
       alt_live: 'Écran de mesures en direct de VAG Scope avec des blocs de mesures du moteur',
       alt_dash: 'Tableau de bord avec une tuile de tension de batterie',
       alt_faults: 'Détail d’un code défaut avec les valeurs de contexte',
       alt_proc: 'Résultat d’une procédure guidée marqué conforme',
+      alt_carplay: 'VAG Scope sur un écran Apple CarPlay avec un tableau de bord affichant le régime moteur et la température du liquide de refroidissement',
       alt_auto: 'VAG Scope sur un écran Android Auto avec régime moteur, température du liquide de refroidissement et vitesse',
       alt_m1: 'Résultat du contrôle du kilométrage avec le compteur et un résumé',
       alt_m2: 'Graphique du contrôle du kilométrage comparant les relevés de chaque calculateur',
@@ -120,6 +121,38 @@
   try { saved = localStorage.getItem('lang'); } catch (e) {}
   var pref = saved || ((navigator.language || '').slice(0, 2) === 'fr' ? 'fr' : 'en');
   if (pref === 'fr') setLang('fr', false);
+
+  /* car screen carousel (Android Auto / Apple CarPlay) */
+  var track = document.getElementById('car-track');
+  if (track) {
+    var tabs = document.querySelectorAll('.car-tabs button');
+    var mark = function (i) {
+      tabs.forEach(function (b, k) { b.setAttribute('aria-selected', String(k === i)); });
+    };
+    tabs.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var i = +b.dataset.slide;
+        track.scrollTo({ left: i * track.clientWidth, behavior: 'smooth' });
+        mark(i);
+      });
+    });
+    var ticking = false;
+    track.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        mark(Math.round(track.scrollLeft / track.clientWidth));
+        ticking = false;
+      });
+    });
+    track.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      var i = Math.round(track.scrollLeft / track.clientWidth) + (e.key === 'ArrowRight' ? 1 : -1);
+      i = Math.max(0, Math.min(tabs.length - 1, i));
+      track.scrollTo({ left: i * track.clientWidth, behavior: 'smooth' });
+      e.preventDefault();
+    });
+  }
 
   /* copy address */
   var copyBtn = document.getElementById('copy-btn');
