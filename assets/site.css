@@ -85,6 +85,7 @@ h1,h2,h3{font-family:var(--display);font-optical-sizing:auto;text-wrap:balance;l
 .software ::selection{background:var(--amber);color:var(--ink)}
 .software :focus-visible{outline-color:var(--mint)}
 .app-head{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:1.25rem 1.75rem;align-items:center}
+.app-head>div:only-child{grid-column:1/-1}
 .app-icon{width:5.5rem;height:5.5rem;border-radius:1.5rem;box-shadow:0 14px 24px -12px rgba(0,0,0,.6)}
 .app-head h2{font-size:clamp(2.4rem,5.5vw,4rem);font-weight:800;color:#fff}
 .app-tag{margin-top:.5rem;color:var(--on-deep-2);max-width:36rem;font-size:1.1rem}
@@ -184,7 +185,7 @@ h1,h2,h3{font-family:var(--display);font-optical-sizing:auto;text-wrap:balance;l
   .hero,.mileage,.contact-in{grid-template-columns:1fr}
   .hero-art .stage{height:clamp(22rem,92vw,30rem)}
   .app-head{grid-template-columns:auto minmax(0,1fr)}
-  .app-head .play,.app-head .learn{grid-column:1/-1;justify-self:start}
+  .app-head .stores,.app-head .learn{grid-column:1/-1;justify-self:start}
   .auto{grid-template-columns:1fr}
   .pr-grid{grid-template-columns:1fr}
   .mileage-art{max-width:24rem;margin-inline:auto}
@@ -193,6 +194,7 @@ h1,h2,h3{font-family:var(--display);font-optical-sizing:auto;text-wrap:balance;l
   .shots li:nth-child(2){margin-top:0}
 }
 @media (max-width:34rem){
+  .promo{font-size:.84rem;padding:.4rem 0}
   .nav a{display:none}
   .features{grid-template-columns:1fr}
   .app-icon{width:4.25rem;height:4.25rem;border-radius:1.2rem}
