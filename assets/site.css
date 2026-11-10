@@ -22,7 +22,7 @@
 }
 
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:5rem;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;scroll-padding-top:7.5rem;-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--ground);color:var(--ink);font:400 1.0625rem/1.6 var(--body);-webkit-font-smoothing:antialiased;scrollbar-color:var(--teal) var(--ground)}
 img{max-width:100%;height:auto;display:block}
 h1,h2,h3,p,dl,dd,figure,ul{margin:0}
@@ -38,6 +38,10 @@ h1,h2,h3{font-family:var(--display);font-optical-sizing:auto;text-wrap:balance;l
 
 /* header */
 .top{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.promo{background:var(--mint);color:var(--teal-deep);text-align:center;font-size:.92rem;line-height:1.35;padding:.5rem 0}
+.promo .wrap{display:flex;flex-wrap:wrap;justify-content:center;gap:0 .4rem}
+.promo a{color:var(--teal-deep);font-weight:700;text-decoration-thickness:2px;text-underline-offset:3px}
+.promo a:hover{text-decoration-color:var(--teal)}
 .top-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:4.25rem}
 .brand{display:inline-flex;align-items:center;gap:.65rem;text-decoration:none;font:700 1.25rem/1 var(--display);letter-spacing:-.02em}
 .brand-mark{width:2rem;height:2rem}
@@ -60,6 +64,10 @@ h1,h2,h3{font-family:var(--display);font-optical-sizing:auto;text-wrap:balance;l
 .play b{font:700 1.2rem/1.15 var(--display);letter-spacing:-.01em}
 .play:hover{transform:translateY(-2px);box-shadow:0 16px 26px -12px rgba(10,42,50,.6)}
 .play.on-dark{background:var(--ground);color:var(--ink);box-shadow:0 10px 20px -10px rgba(0,0,0,.55)}
+.play.is-disabled{opacity:.5;cursor:not-allowed;box-shadow:none;pointer-events:none;filter:grayscale(.6)}
+.stores{display:flex;flex-wrap:wrap;gap:.75rem}
+.notify{margin-top:1.25rem;max-width:34rem;color:var(--ink-2);font-size:.97rem}
+.notify a{font-weight:600;color:var(--ink);text-decoration-color:var(--teal);text-decoration-thickness:2px;text-underline-offset:3px}
 .play.on-dark:hover{box-shadow:0 16px 26px -12px rgba(0,0,0,.65)}
 .ghost{font-weight:700;text-decoration:underline;text-decoration-color:var(--mint);text-decoration-thickness:3px;padding:.5rem 0}
 .ghost:hover{text-decoration-color:var(--amber)}

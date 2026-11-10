@@ -24,6 +24,8 @@
       priv_err: 'Impossible de charger la politique de confidentialité. Écrivez-nous à ' + EMAIL + '.',
       hero_h: 'Des petites applis, faites avec soin.',
       hero_p: 'mtmagicapps est un éditeur de logiciels indépendant. Notre première appli, VAG Scope, transforme votre téléphone en outil de diagnostic pour les Volkswagen, Audi, Seat et Škoda.',
+      notify_t: 'VAG Scope arrive bientôt!',
+      notify_a: 'Inscrivez-vous pour être prévenu dès sa sortie.',
       play_small: 'Disponible sur', hero_more: 'Découvrir VAG Scope', learn_more: 'En savoir plus',
       sw_h: 'VAG Scope',
       sw_tag: 'Un vrai diagnostic VW, Audi, Seat et Škoda, avec un petit adaptateur Bluetooth et votre téléphone.',
