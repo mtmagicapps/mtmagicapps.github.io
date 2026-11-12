@@ -6,11 +6,8 @@
 - UDS Fixes
 - Adaptation: Allow writing the same value
 - Protocol log: Add VIN in file names
-- Smart checks: the mileage check, the new VIN check and the procedures move from the hub and the launch home into one
-  Smart checks page.
-- VIN check: compares the VIN on the car's markings with the VIN stored in every control unit (label groups first on
-  TP 2.0, `F190` and the unit's own identity identifiers on UDS), plus original VIN, learned keys, immobiliser status
-  and component-protection faults; graded verdict, findings, saved reports and PDF.
+- Smart checks page.
+- VIN check: compares the VIN on the car's markings with the VIN stored in the control units.
 
 ## 1.0.0-rc13
 
