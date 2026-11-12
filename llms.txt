@@ -20,10 +20,18 @@
 - [Privacy policy | VAG Scope](https://mtmagicapps.github.io/vag-scope/privacy.html): Privacy policy of the VAG Scope Android and iOS app.
 - [Changelog | VAG Scope](https://mtmagicapps.github.io/vag-scope/changelog.html): Changelog of the VAG Scope Android and iOS app.
 
+## Guides
+
+- [How to check the mileage of a used VW, Audi, Seat or Škoda](https://mtmagicapps.github.io/vag-scope/guides/used-car-mileage-check/): Plug a Bluetooth OBD adapter into the car and compare the odometer with the distance that other control units store (engine, gearbox, ABS and others) and with the mileage logged with each fault code. Units that agree support the reading, and a logged value above the odometer is a strong warning, but no result proves that a mileage is genuine.
+- [Where to find the VIN on a VW, Audi, Seat or Škoda, and how to check it](https://mtmagicapps.github.io/vag-scope/guides/vin-check/): The VIN is on the plate under the windscreen, the vehicle data sticker in the boot, the stamping in the engine bay and the type plate, and many control units store it too. All of them should show the same 17 characters as the registration certificate. A control unit with another VIN usually means a used part; markings that disagree point to a changed identity.
+
 ## En français
 
-- [mtmagicapps – des petites applis, faites avec soin](https://mtmagicapps.github.io/fr/): mtmagicapps est un éditeur de logiciels indépendant. Notre première appli, VAG Scope, transforme votre téléphone en outil de diagnostic pour les Volkswagen, Audi, Seat et Škoda.
-- [Contrôle kilométrage et diagnostic OBD VW, Audi, Seat, Škoda | VAG Scope](https://mtmagicapps.github.io/fr/vag-scope/): Vérifiez une VW, Audi, Seat ou Škoda d’occasion avant achat : VAG Scope compare le compteur aux calculateurs, vérifie le VIN et lit les défauts.
+- [mtmagicapps – des petites applis, faites avec soin](https://mtmagicapps.github.io/fr/): mtmagicapps, éditeur de logiciels indépendant. Première appli : VAG Scope, le diagnostic des Volkswagen, Audi, Seat et Škoda depuis votre téléphone.
+- [Kilométrage et diagnostic OBD VW, Audi, Seat, Škoda | VAG Scope](https://mtmagicapps.github.io/fr/vag-scope/): Vérifiez une VW, Audi, Seat ou Škoda d’occasion avant achat : VAG Scope compare le compteur aux calculateurs, vérifie le VIN et lit les défauts.
 - [Vérifiez la voiture vous-même | VAG Scope](https://mtmagicapps.github.io/fr/vag-scope/check/): Un rapport VAG Scope vous a été transmis ? Vérifiez vous-même le kilométrage et le VIN de la voiture, avec votre téléphone et un adaptateur Bluetooth.
 - [Politique de confidentialité | VAG Scope](https://mtmagicapps.github.io/fr/vag-scope/privacy.html): Politique de confidentialité de l’appli VAG Scope pour Android et iOS.
 - [Journal des modifications | VAG Scope](https://mtmagicapps.github.io/fr/vag-scope/changelog.html): Journal des modifications de l’appli VAG Scope pour Android et iOS.
+- [Guides pour vérifier une VW, Audi, Seat ou Škoda | VAG Scope](https://mtmagicapps.github.io/fr/vag-scope/guides/): Des guides pratiques pour vérifier une VW, Audi, Seat ou Škoda d’occasion et lire ses calculateurs avec un téléphone et un adaptateur OBD Bluetooth.
+- [Vérifier le kilométrage d’une VW, Audi, Seat ou Škoda | VAG Scope](https://mtmagicapps.github.io/fr/vag-scope/guides/used-car-mileage-check/): Comparez le compteur à la distance gardée par les calculateurs, lisez le kilométrage noté avec les codes défaut, et sachez ce que le résultat prouve ou non.
+- [Trouver et vérifier le VIN d’une VW, Audi, Seat ou Škoda | VAG Scope](https://mtmagicapps.github.io/fr/vag-scope/guides/vin-check/): Où le VIN est marqué sur les voitures du groupe VW, comment lire ses 17 caractères, et ce que signifie un calculateur qui porte le VIN d’une autre voiture.

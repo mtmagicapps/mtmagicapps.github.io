@@ -11,4 +11,5 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: node tools/build.mjs --check
+      # guide sources are private (vagscope_growth), so CI audits the committed pages instead of rebuilding them
+      - run: node tools/build.mjs --audit

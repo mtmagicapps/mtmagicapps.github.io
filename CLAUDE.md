@@ -3,15 +3,26 @@
 Public website of mtmagicapps and VAG Scope, live on push to `main`. How it is built: `README.md`. The growth plan and
 the tasks behind this site live in the private sibling `../vagscope_growth` (`AGENTS.md` there).
 
+## Public by default
+
+This repository is public, history included, and every push to `main` goes live. Commit only what is published: guide
+sources live in `../vagscope_growth/content/guides/` (the build renders those with `status: published`), other drafts
+in `../vagscope_growth/drafts/`. Never commit or push a draft here, on any branch: removing it later means rewriting
+public history. GitHub Pages serves only the built site: `_config.yml` (written by the build from
+`UNPUBLISHED`) keeps sources, tools and notes off the website, and the build fails on any Markdown or script file left
+outside it.
+
 ## Quality bar (mandatory)
 
 Every change is held to it and checked in a browser before it is called done.
 
-- **Performance**: screenshots through `srcset` (`tools/images.sh` makes the 400/800 variants) with `width`/`height`;
-  only the hero images load eagerly; no layout shift; no third-party request, script, font or tracker; nothing shipped
+- **Performance**: no script on a page that does not need one (`site.js` only for the contact form and the carousel,
+  loaded with `defer`; language memory is inline in `<head>`); screenshots through `srcset` (`tools/images.sh` makes
+  the 400/800 variants) with `width`/`height`; only the hero images load eagerly; no layout shift; no third-party request, script, font or tracker; nothing shipped
   that a page does not use. Measure LCP and CLS on the page you changed.
-- **SEO**: one `h1`; a unique title under 60 characters, keyword first, ending `| VAG Scope`; a description under 155
-  characters; French copy through `i18n/fr.json` (never hand-edit `fr/`); internal links to and from new pages; every
+- **SEO** (the build audits every page: one `h1`, no skipped heading level, unique titles and descriptions, canonical,
+  hreflang, valid JSON-LD, alt text, internal links): a title under 60 characters, keyword first, ending
+  `| VAG Scope`; a description under 155 characters; French copy through `i18n/fr.json` (never hand-edit `fr/`); internal links to and from new pages; every
   new page listed in `site.config.json`, so it gets canonical, hreflang, Open Graph and the sitemap.
 - **GEO**: all text in the HTML, the direct answer first, the fixed product sentence and facts from `site.config.json`,
   structured data only for what the page shows (FAQ items are `<details data-faq>`).

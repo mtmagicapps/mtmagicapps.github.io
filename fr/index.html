@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title data-i18n="t_home">mtmagicapps – des petites applis, faites avec soin</title>
-  <meta name="description" content="mtmagicapps est un éditeur de logiciels indépendant. Notre première appli, VAG Scope, transforme votre téléphone en outil de diagnostic pour les Volkswagen, Audi, Seat et Škoda." data-i18n-content="d_home">
+  <meta name="description" content="mtmagicapps, éditeur de logiciels indépendant. Première appli : VAG Scope, le diagnostic des Volkswagen, Audi, Seat et Škoda depuis votre téléphone." data-i18n-content="d_home">
   <meta name="theme-color" content="#0b3f4b">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="/assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="/assets/site.css">
   <script>document.documentElement.classList.add('js')</script>
   <!-- build:head -->
-  <script>(function(){var a={"en":"/","fr":"/fr/"},l=document.documentElement.lang,s;try{s=localStorage.getItem('lang')}catch(e){}var w=s||(/^fr/i.test(navigator.language||'')?'fr':l);if(w!==l&&a[w])location.replace(a[w]+location.hash)})()</script>
+  <script>(function(){var a={"en":"/","fr":"/fr/"},l=document.documentElement.lang,s;try{s=localStorage.getItem('lang')}catch(e){}var w=s||(/^fr/i.test(navigator.language||'')?'fr':l);if(w!==l&&a[w])location.replace(a[w]+location.hash);document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('a[data-lang]');if(t)try{localStorage.setItem('lang',t.dataset.lang)}catch(x){}})})()</script>
   <link rel="canonical" href="https://mtmagicapps.github.io/fr/">
   <link rel="alternate" hreflang="en" href="https://mtmagicapps.github.io/">
   <link rel="alternate" hreflang="fr" href="https://mtmagicapps.github.io/fr/">
@@ -23,7 +23,7 @@
   <meta property="og:locale" content="fr_FR">
   <meta property="og:url" content="https://mtmagicapps.github.io/fr/">
   <meta property="og:title" content="mtmagicapps – des petites applis, faites avec soin">
-  <meta property="og:description" content="mtmagicapps est un éditeur de logiciels indépendant. Notre première appli, VAG Scope, transforme votre téléphone en outil de diagnostic pour les Volkswagen, Audi, Seat et Škoda.">
+  <meta property="og:description" content="mtmagicapps, éditeur de logiciels indépendant. Première appli : VAG Scope, le diagnostic des Volkswagen, Audi, Seat et Škoda depuis votre téléphone.">
   <meta property="og:image" content="https://mtmagicapps.github.io/assets/img/og-vag-scope-fr.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -156,6 +156,7 @@
       <nav class="foot-nav" aria-label="Footer">
         <a href="/fr/vag-scope/">VAG Scope</a>
         <a href="/fr/vag-scope/check/" data-i18n="nav_check">Vérifier une voiture</a>
+        <a href="/fr/vag-scope/guides/" data-i18n="nav_guides">Guides</a>
         <a href="/fr/vag-scope/privacy.html" data-i18n="nav_privacy">Confidentialité</a>
         <a href="/fr/vag-scope/changelog.html" data-i18n="nav_changelog">Nouveautés</a>
         <a href="#contact" data-i18n="nav_contact">Contact</a>
@@ -167,6 +168,6 @@
     </div>
   </footer>
 
-  <script src="/assets/site.js"></script>
+  <script src="/assets/site.js" defer></script>
 </body>
 </html>

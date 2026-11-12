@@ -5,8 +5,8 @@
      assembled when a visitor sends the contact form */
   function address() { return atob('bW9jLmxpYW1nQG1vY2Uuc2QubHJhcw==').split('').reverse().join(''); }
 
-  /* Pages are translated at build time (tools/build.mjs writes the French copies under /fr/).
-     Only the messages this script shows itself are here. */
+  /* Loaded only by the pages that need it (car-screen carousel, contact form). Pages are translated at build time;
+     only the messages this script shows itself are here. The EN/FR choice is handled by the inline script in <head>. */
   var lang = document.documentElement.lang === 'fr' ? 'fr' : 'en';
   var UI = {
     en: {
@@ -21,11 +21,6 @@
     }
   };
   function s(key) { return UI[lang][key]; }
-
-  /* a click on EN/FR is remembered; the inline script in <head> applies it on the next visit */
-  document.querySelectorAll('.lang a[data-lang]').forEach(function (a) {
-    a.addEventListener('click', function () { try { localStorage.setItem('lang', a.dataset.lang); } catch (e) {} });
-  });
 
   /* car screen carousel (Android Auto / Apple CarPlay) */
   var track = document.getElementById('car-track');

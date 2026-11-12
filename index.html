@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="assets/site.css">
   <script>document.documentElement.classList.add('js')</script>
   <!-- build:head -->
-  <script>(function(){var a={"en":"/","fr":"/fr/"},l=document.documentElement.lang,s;try{s=localStorage.getItem('lang')}catch(e){}var w=s||(/^fr/i.test(navigator.language||'')?'fr':l);if(w!==l&&a[w])location.replace(a[w]+location.hash)})()</script>
+  <script>(function(){var a={"en":"/","fr":"/fr/"},l=document.documentElement.lang,s;try{s=localStorage.getItem('lang')}catch(e){}var w=s||(/^fr/i.test(navigator.language||'')?'fr':l);if(w!==l&&a[w])location.replace(a[w]+location.hash);document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('a[data-lang]');if(t)try{localStorage.setItem('lang',t.dataset.lang)}catch(x){}})})()</script>
   <link rel="canonical" href="https://mtmagicapps.github.io/">
   <link rel="alternate" hreflang="en" href="https://mtmagicapps.github.io/">
   <link rel="alternate" hreflang="fr" href="https://mtmagicapps.github.io/fr/">
@@ -155,6 +155,7 @@
       <nav class="foot-nav" aria-label="Footer">
         <a href="vag-scope/">VAG Scope</a>
         <a href="vag-scope/check/" data-i18n="nav_check">Check a car</a>
+        <a href="vag-scope/guides/" data-i18n="nav_guides">Guides</a>
         <a href="vag-scope/privacy.html" data-i18n="nav_privacy">Privacy</a>
         <a href="vag-scope/changelog.html" data-i18n="nav_changelog">Changelog</a>
         <a href="#contact" data-i18n="nav_contact">Contact</a>
@@ -166,6 +167,6 @@
     </div>
   </footer>
 
-  <script src="assets/site.js"></script>
+  <script src="assets/site.js" defer></script>
 </body>
 </html>

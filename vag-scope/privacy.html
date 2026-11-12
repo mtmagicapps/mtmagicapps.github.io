@@ -10,10 +10,9 @@
   <link rel="preload" href="../assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../assets/site.css">
-  <link rel="stylesheet" href="privacy.css">
   <script>document.documentElement.classList.add('js')</script>
   <!-- build:head -->
-  <script>(function(){var a={"en":"/vag-scope/privacy.html","fr":"/fr/vag-scope/privacy.html"},l=document.documentElement.lang,s;try{s=localStorage.getItem('lang')}catch(e){}var w=s||(/^fr/i.test(navigator.language||'')?'fr':l);if(w!==l&&a[w])location.replace(a[w]+location.hash)})()</script>
+  <script>(function(){var a={"en":"/vag-scope/privacy.html","fr":"/fr/vag-scope/privacy.html"},l=document.documentElement.lang,s;try{s=localStorage.getItem('lang')}catch(e){}var w=s||(/^fr/i.test(navigator.language||'')?'fr':l);if(w!==l&&a[w])location.replace(a[w]+location.hash);document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('a[data-lang]');if(t)try{localStorage.setItem('lang',t.dataset.lang)}catch(x){}})})()</script>
   <link rel="canonical" href="https://mtmagicapps.github.io/vag-scope/privacy.html">
   <link rel="alternate" hreflang="en" href="https://mtmagicapps.github.io/vag-scope/privacy.html">
   <link rel="alternate" hreflang="fr" href="https://mtmagicapps.github.io/fr/vag-scope/privacy.html">
@@ -44,6 +43,7 @@
       </a>
       <nav class="nav" aria-label="Main">
         <a href="./">VAG Scope</a>
+        <a href="./guides/" data-i18n="nav_guides">Guides</a>
         <a href="privacy.html" data-i18n="nav_privacy">Privacy</a>
         <a href="changelog.html" data-i18n="nav_changelog">Changelog</a>
         <a href="../#contact" data-i18n="nav_contact">Contact</a>
@@ -106,6 +106,7 @@
       <nav class="foot-nav" aria-label="Footer">
         <a href="./">VAG Scope</a>
         <a href="./check/" data-i18n="nav_check">Check a car</a>
+        <a href="./guides/" data-i18n="nav_guides">Guides</a>
         <a href="./privacy.html" data-i18n="nav_privacy">Privacy</a>
         <a href="./changelog.html" data-i18n="nav_changelog">Changelog</a>
         <a href="../#contact" data-i18n="nav_contact">Contact</a>
@@ -117,6 +118,5 @@
     </div>
   </footer>
 
-  <script src="../assets/site.js"></script>
 </body>
 </html>

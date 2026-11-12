@@ -1,0 +1,11 @@
+# Written by tools/build.mjs (UNPUBLISHED): what GitHub Pages must not serve.
+exclude:
+  - README.md
+  - CLAUDE.md
+  - tools
+  - i18n
+  - site.config.json
+  - vag-scope/CHANGELOG.md
+  - vag-scope/privacy_en.md
+  - vag-scope/privacy_fr.md
+  - vag-scope/adapters.json

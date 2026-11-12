@@ -5,7 +5,7 @@
   "nav_contact": "Contact",
   "nav_privacy": "Confidentialité",
   "nav_changelog": "Nouveautés",
-  "t_vs": "Contrôle kilométrage et diagnostic OBD VW, Audi, Seat, Škoda | VAG Scope",
+  "t_vs": "Kilométrage et diagnostic OBD VW, Audi, Seat, Škoda | VAG Scope",
   "t_priv": "Politique de confidentialité | VAG Scope",
   "t_changelog": "Journal des modifications | VAG Scope",
   "vs_h": "Vérifiez une VW, Audi, Seat ou Škoda d’occasion avant de l’acheter.",
@@ -82,7 +82,7 @@
   "alt_coding": "Interface de codage du module ABS avec options pour crochet d’attelage et choix des disques de frein",
   "cap_coding": "Personnalisez les fonctionnalités des modules grâce à des descriptions claires",
   "t_home": "mtmagicapps – des petites applis, faites avec soin",
-  "d_home": "mtmagicapps est un éditeur de logiciels indépendant. Notre première appli, VAG Scope, transforme votre téléphone en outil de diagnostic pour les Volkswagen, Audi, Seat et Škoda.",
+  "d_home": "mtmagicapps, éditeur de logiciels indépendant. Première appli : VAG Scope, le diagnostic des Volkswagen, Audi, Seat et Škoda depuis votre téléphone.",
   "d_vs": "Vérifiez une VW, Audi, Seat ou Škoda d’occasion avant achat : VAG Scope compare le compteur aux calculateurs, vérifie le VIN et lit les défauts.",
   "d_priv": "Politique de confidentialité de l’appli VAG Scope pour Android et iOS.",
   "d_changelog": "Journal des modifications de l’appli VAG Scope pour Android et iOS.",
@@ -122,5 +122,10 @@
   "ck_compat": "Fonctionne sur les Volkswagen, Audi, Seat et Škoda en TP 2.0 (environ 2004–2010) ou en UDS (environ 2012 et après). Pas sur les voitures qui n’utilisent que des identifiants de diagnostic 29 bits, comme les modèles électriques ID. et la génération Golf 8.",
   "play_soon": "Bientôt sur",
   "cta_notify": "Être prévenu de la sortie",
-  "nav_check": "Vérifier une voiture"
+  "nav_check": "Vérifier une voiture",
+  "gcta_h": "Faites la vérification sur votre voiture",
+  "gcta_p": "VAG Scope la fait depuis votre téléphone et un adaptateur ELM327 Bluetooth : aucun compte, aucun réseau, et chaque résultat montre ses preuves.",
+  "nav_guides": "Guides",
+  "mi_guide": "Le guide : vérifier le kilométrage d’une occasion",
+  "ck_guide_link": "Comment lire le résultat"
 }

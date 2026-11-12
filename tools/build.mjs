@@ -20,6 +20,15 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const CHECK = process.argv.includes('--check');
+// --audit (public CI): audit the committed site without the private guide sources, generating nothing.
+const AUDIT = process.argv.includes('--audit');
+// Guide sources, drafts included, live in the private growth repository and never in this public one (history too).
+const CONTENT = path.resolve(process.env.VAGSCOPE_CONTENT || path.join(ROOT, '..', 'vagscope_growth', 'content', 'guides'));
+if (!AUDIT && !fs.existsSync(CONTENT)) {
+  console.error(`build: guide sources not found at ${CONTENT}. Check out vagscope_growth next to this repository ` +
+    '(or set VAGSCOPE_CONTENT), or run --audit.');
+  process.exit(1);
+}
 const cfg = readJson('site.config.json');
 const FR = readJson('i18n/fr.json');
 const BASE = cfg.url.replace(/\/$/, '');
@@ -29,7 +38,9 @@ const errors = [];
 
 function read(p) { return fs.readFileSync(path.join(ROOT, p), 'utf8'); }
 function readJson(p) { return JSON.parse(read(p)); }
+const OUT = new Map(); // every file the build writes, for the audit
 function write(p, content) {
+  OUT.set(p, content);
   const abs = path.join(ROOT, p);
   const old = fs.existsSync(abs) ? fs.readFileSync(abs, 'utf8') : null;
   if (old === content) return;
@@ -46,7 +57,37 @@ function text(html) {
 
 // ---- URLs -------------------------------------------------------------------------------------------------------
 
-const PAGES = cfg.pages.map((p) => p.path);
+// ---- guides -----------------------------------------------------------------------------------------------------
+// One guide = <slug>.en.md + <slug>.fr.md in vagscope_growth/content/guides, each opening with a front matter block:
+// status (draft or published), title (the h1), seo_title (optional, the <title> before " | VAG Scope"), description,
+// answer (the one- or two-sentence direct answer shown first), published and updated (YYYY-MM-DD). Only guides
+// published in both languages become /vag-scope/guides/<slug>/ and join the list page; drafts never reach this repo.
+
+function frontMatter(file) {
+  const m = /^---\n([\s\S]*?)\n---\n([\s\S]*)$/.exec(fs.readFileSync(path.join(CONTENT, file), 'utf8'));
+  if (!m) { errors.push(`${file}: no front matter`); return { meta: {}, body: '' }; }
+  const meta = {};
+  for (const line of m[1].split('\n')) { const k = /^(\w+):\s*(.*)$/.exec(line); if (k) meta[k[1]] = k[2].trim(); }
+  return { meta, body: m[2] };
+}
+const GUIDES = AUDIT ? [] : [...new Set(fs.readdirSync(CONTENT)
+  .map((f) => (/^([a-z0-9-]+)\.(en|fr)\.md$/.exec(f) || [])[1]).filter(Boolean))].sort().map((slug) => {
+  const g = { slug, path: `vag-scope/guides/${slug}/index.html`, generated: 'guide', jsonld: ['TechArticle', 'BreadcrumbList'], lang: {} };
+  for (const l of LANGS) {
+    const file = `${slug}.${l}.md`;
+    if (!fs.existsSync(path.join(CONTENT, file))) { g.missing = true; continue; }
+    g.lang[l] = frontMatter(file);
+  }
+  return g;
+}).filter((g) => !g.missing && LANGS.every((l) => g.lang[l].meta.status === 'published')).map((g) => {
+  for (const l of LANGS) for (const k of ['title', 'description', 'answer', 'published', 'updated']) {
+    if (!g.lang[l].meta[k]) errors.push(`content/guides/${g.slug}.${l}.md: no "${k}" in the front matter`);
+  }
+  return g;
+});
+const ALL = [...cfg.pages,
+  ...(GUIDES.length ? [{ path: 'vag-scope/guides/index.html', generated: 'guides', jsonld: ['BreadcrumbList'] }] : []), ...GUIDES];
+const PAGES = ALL.map((p) => p.path);
 // "vag-scope/index.html" -> "/vag-scope/", "vag-scope/privacy.html" -> "/vag-scope/privacy.html"
 function urlPath(file, lang) { return (lang === 'fr' ? '/fr/' : '/') + file.replace(/(^|\/)index\.html$/, '$1'); }
 function absUrl(file, lang) { return BASE + urlPath(file, lang); }
@@ -124,7 +165,8 @@ function inlineMd(t) {
     .replace(/`([^`]+)`/g, '<code>$1</code>')
     .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
     .replace(/(^|[^*])\*([^*\s][^*]*)\*/g, '$1<em>$2</em>')
-    .replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '<a href="$2" rel="noopener">$1</a>');
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '<a href="$2" rel="noopener">$1</a>')
+    .replace(/\[([^\]]+)\]\((\/[^)\s]*)\)/g, '<a href="$2">$1</a>');
 }
 function renderMd(md) {
   const out = []; let para = [], list = false;
@@ -139,6 +181,91 @@ function renderMd(md) {
   }
   flush(); closeList();
   return out.join('\n');
+}
+
+// Guides: ## and ### headings (with ids), paragraphs, - and 1. lists, > notes, | tables.
+const slugify = (t) => t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+function renderGuideMd(md) {
+  const out = []; let para = [], list = null, quote = [], table = [];
+  const flush = () => { if (para.length) { out.push('      <p>' + inlineMd(para.join(' ')) + '</p>'); para = []; } };
+  const closeList = () => { if (list) { out.push(`      </${list}>`); list = null; } };
+  const closeQuote = () => { if (quote.length) { out.push('      <aside class="note"><p>' + inlineMd(quote.join(' ')) + '</p></aside>'); quote = []; } };
+  const closeTable = () => {
+    if (!table.length) return;
+    const rows = table.filter((r) => !/^\|?\s*:?-{3,}/.test(r)).map((r) => r.replace(/^\||\|$/g, '').split('|').map((c) => c.trim()));
+    out.push('      <div class="table-wrap"><table>\n        <thead><tr>' + rows[0].map((c) => `<th scope="col">${inlineMd(c)}</th>`).join('') +
+      '</tr></thead>\n        <tbody>\n' + rows.slice(1).map((r) => '          <tr>' + r.map((c, i) => `<td data-label="${esc(text(inlineMd(rows[0][i] || '')))}">${inlineMd(c)}</td>`).join('') + '</tr>').join('\n') +
+      '\n        </tbody>\n      </table></div>');
+    table = [];
+  };
+  const closeAll = () => { flush(); closeList(); closeQuote(); closeTable(); };
+  for (const line of md.replace(/\r\n?/g, '\n').split('\n')) {
+    let m;
+    if ((m = /^(#{2,3})\s+(.*)$/.exec(line))) { closeAll(); const n = m[1].length; out.push(`      <h${n} id="${slugify(m[2])}">${inlineMd(m[2])}</h${n}>`); }
+    else if (/^\|/.test(line)) { flush(); closeList(); closeQuote(); table.push(line.trim()); }
+    else if ((m = /^>\s?(.*)$/.exec(line))) { flush(); closeList(); closeTable(); quote.push(m[1]); }
+    else if ((m = /^\s*([-*]|\d+\.)\s+(.*)$/.exec(line))) {
+      flush(); closeQuote(); closeTable();
+      const t = /\d/.test(m[1]) ? 'ol' : 'ul';
+      if (list !== t) { closeList(); out.push(`      <${t}>`); list = t; }
+      out.push('        <li>' + inlineMd(m[2]) + '</li>');
+    }
+    else if (!line.trim()) closeAll();
+    else { closeList(); closeQuote(); closeTable(); para.push(line.trim()); }
+  }
+  closeAll();
+  return out.join('\n');
+}
+
+const GUIDE_UI = {
+  en: { guides: 'Guides', all: '← All guides', updated: 'Updated', h1: 'VAG Scope guides',
+    seo: 'Guides to checking a VW, Audi, Seat or Škoda',
+    intro: 'Practical guides to checking a used VW, Audi, Seat or Škoda and reading its control units with a phone and a Bluetooth OBD adapter.' },
+  fr: { guides: 'Guides', all: '← Tous les guides', updated: 'Mis à jour le', h1: 'Guides VAG Scope',
+    seo: 'Guides pour vérifier une VW, Audi, Seat ou Škoda',
+    intro: 'Des guides pratiques pour vérifier une VW, Audi, Seat ou Škoda d’occasion et lire ses calculateurs avec un téléphone et un adaptateur OBD Bluetooth.' },
+};
+const fmtDate = (d, lang) => new Date(d + 'T00:00:00Z').toLocaleDateString(lang === 'fr' ? 'fr-FR' : 'en-GB',
+  { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+
+function renderGenerated(page, lang) {
+  const ui = GUIDE_UI[lang];
+  let title, desc, main;
+  if (page.generated === 'guide') {
+    const { meta, body } = page.lang[lang];
+    title = `${meta.seo_title || meta.title} | VAG Scope`;
+    desc = meta.description;
+    const badges = read('tools/templates/stores.html').replace(/\{\{utm\}\}/g, 'guide_' + page.slug.replace(/-/g, '_'));
+    main = `    <article class="wrap doc guide">
+      <p class="doc-back"><a href="/vag-scope/guides/">${ui.all}</a></p>
+      <h1>${esc(meta.title)}</h1>
+      <p class="guide-meta">${ui.updated} <time datetime="${meta.updated}">${fmtDate(meta.updated, lang)}</time></p>
+      <p class="answer">${inlineMd(meta.answer)}</p>
+${renderGuideMd(body)}
+      <aside class="guide-cta" aria-labelledby="guide-cta-h">
+        <h2 id="guide-cta-h" data-i18n="gcta_h">Run the check on your own car</h2>
+        <p data-i18n="gcta_p">VAG Scope does it from your phone and a Bluetooth ELM327 adapter: no account, no network, and every result shows its evidence.</p>
+        <div class="actions">
+          <a class="cta" href="${cfg.waitlist}" target="_blank" rel="noopener" data-until-live="play" data-i18n="cta_notify">Get notified at launch</a>
+${badges}        </div>
+      </aside>
+    </article>`;
+  } else {
+    title = `${ui.seo} | VAG Scope`;
+    desc = ui.intro;
+    const items = GUIDES.filter((g) => g.lang[lang])
+      .sort((a, b) => b.lang[lang].meta.updated.localeCompare(a.lang[lang].meta.updated) || a.slug.localeCompare(b.slug));
+    main = `    <section class="wrap doc guides">
+      <p class="doc-back"><a href="/vag-scope/">← VAG Scope</a></p>
+      <h1>${ui.h1}</h1>
+      <p class="answer">${ui.intro}</p>
+      <ul class="guide-list">${items.map((g) => `
+        <li><a href="/vag-scope/guides/${g.slug}/"><h2>${esc(g.lang[lang].meta.title)}</h2><p>${esc(g.lang[lang].meta.description)}</p></a></li>`).join('')}
+      </ul>
+    </section>`;
+  }
+  return read('tools/templates/page.html').replace(/^<!-- Shell of generated pages[^\n]*\n/m, '')
+    .replace('{{title}}', esc(title)).replace('{{description}}', esc(desc)).replace('{{main}}', () => main);
 }
 
 // ---- regions ----------------------------------------------------------------------------------------------------
@@ -191,10 +318,23 @@ function jsonLd(page, lang, html) {
       out.push(app);
     }
     if (type === 'BreadcrumbList') {
-      const name = text((/<title[^>]*>([\s\S]*?)<\/title>/.exec(html) || [])[1] || '').split(' | ')[0];
-      out.push({ '@type': 'BreadcrumbList', itemListElement: [
-        { '@type': 'ListItem', position: 1, name: cfg.app.name, item: absUrl('vag-scope/index.html', lang) },
-        { '@type': 'ListItem', position: 2, name, item: absUrl(page.path, lang) }] });
+      const crumbs = [[cfg.app.name, 'vag-scope/index.html']];
+      if (page.path.startsWith('vag-scope/guides/')) crumbs.push([GUIDE_UI[lang].guides, 'vag-scope/guides/index.html']);
+      if (page.generated === 'guide') crumbs.push([page.lang[lang].meta.title, page.path]);
+      else if (page.generated !== 'guides') {
+        crumbs.push([text((/<title[^>]*>([\s\S]*?)<\/title>/.exec(html) || [])[1] || '').split(' | ')[0], page.path]);
+      }
+      out.push({ '@type': 'BreadcrumbList', itemListElement: crumbs.map(([name, p], i) =>
+        ({ '@type': 'ListItem', position: i + 1, name, item: absUrl(p, lang) })) });
+    }
+    if (type === 'TechArticle') {
+      const { meta } = page.lang[lang];
+      out.push({ '@type': 'TechArticle', headline: meta.title, description: meta.description, inLanguage: lang,
+        datePublished: meta.published, dateModified: meta.updated, url: absUrl(page.path, lang),
+        image: BASE + '/' + (cfg.ogImage[lang] || cfg.ogImage.en).src,
+        author: { '@type': 'Organization', name: cfg.org.name, url: BASE + '/' },
+        publisher: { '@type': 'Organization', name: cfg.org.name, logo: { '@type': 'ImageObject', url: BASE + '/' + cfg.org.logo } },
+        about: { '@type': 'SoftwareApplication', name: cfg.app.name, url: absUrl('vag-scope/index.html', lang) } });
     }
     if (type === 'FAQPage') {
       const items = faqItems(html);
@@ -212,17 +352,24 @@ function head(page, lang, html) {
   const desc = (/<meta name="description" content="([^"]*)"/.exec(html) || [])[1] || '';
   const url = absUrl(page.path, lang);
   const og = cfg.ogImage[lang] || cfg.ogImage.en;
+  // search results cut longer titles and descriptions
+  if (title.length > 70) errors.push(`${outFile(page.path, lang)}: title has ${title.length} characters (70 at most)`);
+  if (text(desc).length > 160) errors.push(`${outFile(page.path, lang)}: description has ${text(desc).length} characters (160 at most)`);
   // Runs before the first paint: a remembered EN/FR choice, or a French browser on its first visit, opens the right
   // copy. Without a remembered choice it only ever goes towards French, so crawlers (English, no storage) stay put.
   const alts = JSON.stringify(Object.fromEntries(LANGS.map((l) => [l, urlPath(page.path, l)])));
   const redirect = `<script>(function(){var a=${alts},l=document.documentElement.lang,s;try{s=localStorage.getItem('lang')}` +
-    `catch(e){}var w=s||(/^fr/i.test(navigator.language||'')?'fr':l);if(w!==l&&a[w])location.replace(a[w]+location.hash)})()</script>`;
+    `catch(e){}var w=s||(/^fr/i.test(navigator.language||'')?'fr':l);if(w!==l&&a[w])location.replace(a[w]+location.hash);` +
+    // a click on EN/FR is remembered for the next visit (no other script needed on most pages)
+    `document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('a[data-lang]');` +
+    `if(t)try{localStorage.setItem('lang',t.dataset.lang)}catch(x){}})})()</script>`;
   const lines = [
     redirect,
     `<link rel="canonical" href="${url}">`,
     ...LANGS.map((l) => `<link rel="alternate" hreflang="${l}" href="${absUrl(page.path, l)}">`),
     `<link rel="alternate" hreflang="x-default" href="${absUrl(page.path, 'en')}">`,
-    `<meta property="og:type" content="website">`,
+    `<meta property="og:type" content="${page.generated === 'guide' ? 'article' : 'website'}">`,
+    ...(page.generated === 'guide' ? [`<meta property="article:modified_time" content="${page.lang[lang].meta.updated}">`] : []),
     `<meta property="og:site_name" content="${esc(cfg.org.name)}">`,
     `<meta property="og:locale" content="${lang === 'fr' ? 'fr_FR' : 'en_GB'}">`,
     `<meta property="og:url" content="${url}">`,
@@ -248,10 +395,28 @@ function langSwitch(page, lang) {
 
 const GENERATED = (file) => `<!-- Generated by tools/build.mjs from ${file}: edit that page or i18n/fr.json, then run node tools/build.mjs. -->\n`;
 
-for (const page of cfg.pages) {
-  const src = read(page.path).replace(/^<!-- Generated by[^\n]*\n/, '');
+// GitHub Pages runs Jekyll on this repository: it skips dotfiles and everything listed here, so only the built site is
+// served (no Markdown, tools, notes or config). Pages and assets have no front matter, so Jekyll copies them as they
+// are. Any other Markdown or script file fails the build.
+const UNPUBLISHED = ['README.md', 'CLAUDE.md', 'tools', 'i18n', 'site.config.json', 'vag-scope/CHANGELOG.md',
+  'vag-scope/privacy_en.md', 'vag-scope/privacy_fr.md', 'vag-scope/adapters.json'];
+const unpublished = (rel) => UNPUBLISHED.some((u) => rel === u || rel.startsWith(u + '/'));
+(function checkUnpublished(dir) {
+  for (const e of fs.readdirSync(path.join(ROOT, dir), { withFileTypes: true })) {
+    const rel = path.posix.join(dir, e.name).replace(/^\.\//, '');
+    if (e.name.startsWith('.') || unpublished(rel)) continue;
+    if (e.isDirectory()) checkUnpublished(rel);
+    else if (/\.(md|mjs|py|sh|yml|yaml)$/.test(e.name) && rel !== '_config.yml') errors.push(`${rel}: would be published; move it or add it to UNPUBLISHED`);
+    else if (AUDIT && rel.endsWith('.html') && rel !== '404.html') OUT.set(rel, read(rel));
+  }
+})('.');
+
+if (!AUDIT) {
+for (const page of ALL) {
+  const src = page.generated ? null : read(page.path).replace(/^<!-- Generated by[^\n]*\n/, '');
   for (const lang of LANGS) {
-    let html = lang === 'fr' ? localizeUrls(translate(src, page.path), page.path) : src;
+    let html = page.generated ? renderGenerated(page, lang) : src;
+    if (lang === 'fr') html = localizeUrls(translate(html, page.path), page.path);
     if (page.md) {
       const md = read(page.md.replace('{lang}', lang));
       html = region(html, 'md', '\n' + renderMd(md), page.path);
@@ -270,7 +435,8 @@ for (const page of cfg.pages) {
     html = stores(html, lang);
     html = region(html, 'lang', langSwitch(page, lang), page.path);
     html = region(html, 'head', head(page, lang, html), page.path);
-    if (lang === 'fr') html = html.replace(/^<!doctype html>\n/i, (d) => d + GENERATED(page.path));
+    const from = page.generated === 'guide' ? `the guide ${page.slug} (vagscope_growth)` : page.generated ? 'the guides' : page.path;
+    if (lang === 'fr' || page.generated) html = html.replace(/^<!doctype html>\n/i, (d) => d + GENERATED(from));
     write(outFile(page.path, lang), html);
   }
 }
@@ -279,9 +445,13 @@ for (const page of cfg.pages) {
 
 write('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n' +
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' +
-  cfg.pages.flatMap((p) => LANGS.map((lang) => '  <url>\n    <loc>' + absUrl(p.path, lang) + '</loc>\n' +
+  ALL.flatMap((p) => LANGS.map((lang) => '  <url>\n    <loc>' + absUrl(p.path, lang) + '</loc>\n' +
+    (p.generated === 'guide' ? `    <lastmod>${p.lang[lang].meta.updated}</lastmod>\n` : '') +
     LANGS.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${absUrl(p.path, l)}"/>\n`).join('') +
     '  </url>\n')).join('') + '</urlset>\n');
+
+write('_config.yml', '# Written by tools/build.mjs (UNPUBLISHED): what GitHub Pages must not serve.\n' +
+  'exclude:\n' + UNPUBLISHED.map((p) => `  - ${p}\n`).join(''));
 
 write('robots.txt', `# Every crawler is welcome, AI assistants included.\nUser-agent: *\nAllow: /\n\nSitemap: ${BASE}/sitemap.xml\n`);
 
@@ -293,9 +463,56 @@ function pageInfo(file, lang) {
 if (!CHECK || !changed.length) {
   write('llms.txt', `# ${cfg.app.name}\n\n> ${cfg.app.description.en}\n\n` +
     cfg.llms.facts.map((f) => `- ${f}`).join('\n') + '\n\n## Pages\n\n' +
-    PAGES.map((f) => { const i = pageInfo(f, 'en'); return `- [${i.title}](${absUrl(f, 'en')}): ${i.desc}`; }).join('\n') +
+    cfg.pages.map((p) => { const i = pageInfo(p.path, 'en'); return `- [${i.title}](${absUrl(p.path, 'en')}): ${i.desc}`; }).join('\n') +
+    (GUIDES.length ? '\n\n## Guides\n\n' + GUIDES.map((g) =>
+      `- [${g.lang.en.meta.title}](${absUrl(g.path, 'en')}): ${text(inlineMd(g.lang.en.meta.answer))}`).join('\n') : '') +
     '\n\n## En français\n\n' +
     PAGES.map((f) => { const i = pageInfo(f, 'fr'); return `- [${i.title}](${absUrl(f, 'fr')}): ${i.desc}`; }).join('\n') + '\n');
+}
+
+}
+
+// ---- page audit -------------------------------------------------------------------------------------------------
+// What search engines and AI crawlers read: one h1, no skipped heading level, unique titles and descriptions,
+// self-canonical, reciprocal hreflang, valid JSON-LD, alt text, and internal links that resolve to published files.
+
+const seenTitles = new Map(), seenDescs = new Map();
+for (const [file, html] of OUT) {
+  if (!file.endsWith('.html')) continue;
+  const bad = (m) => errors.push(`${file}: ${m}`);
+  const h1 = (html.match(/<h1\b/g) || []).length;
+  if (h1 !== 1) bad(`${h1} h1 elements (one expected)`);
+  let prev = 1;
+  for (const m of html.replace(/<script[\s\S]*?<\/script>/g, '').matchAll(/<h([1-6])\b/g)) {
+    const lvl = +m[1];
+    if (lvl > prev + 1) bad(`heading jumps from h${prev} to h${lvl}`);
+    prev = lvl;
+  }
+  const title = text((/<title[^>]*>([\s\S]*?)<\/title>/.exec(html) || [])[1] || '');
+  const desc = (/<meta name="description" content="([^"]*)"/.exec(html) || [])[1] || '';
+  if (seenTitles.has(title)) bad(`same title as ${seenTitles.get(title)}`); else seenTitles.set(title, file);
+  if (seenDescs.has(desc)) bad(`same description as ${seenDescs.get(desc)}`); else seenDescs.set(desc, file);
+  const page = ALL.find((p) => outFile(p.path, file.startsWith('fr/') ? 'fr' : 'en') === file);
+  if (page) {
+    const lang = file.startsWith('fr/') ? 'fr' : 'en';
+    if (!html.includes(`<html lang="${lang}"`)) bad(`html lang is not ${lang}`);
+    if (!html.includes(`<link rel="canonical" href="${absUrl(page.path, lang)}">`)) bad('canonical is not this page');
+    for (const l of LANGS) if (!html.includes(`hreflang="${l}" href="${absUrl(page.path, l)}"`)) bad(`no hreflang ${l}`);
+  }
+  for (const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+    try { JSON.parse(m[1]); } catch { bad('invalid JSON-LD'); }
+  }
+  for (const m of html.matchAll(/<img\b[^>]*>/g)) if (!/\salt="/.test(m[0])) bad('image without alt');
+  const dir = '/' + path.posix.dirname(file).replace(/^\.$/, '');
+  for (const m of html.matchAll(/\s(?:href|src)="([^"]+)"/g)) {
+    const v = m[1];
+    if (/^([a-z]+:|\/\/|#)/i.test(v)) continue;
+    let p = (v.startsWith('/') ? v : path.posix.join(dir, v)).replace(/[?#].*$/, '');
+    if (p.endsWith('/')) p += 'index.html';
+    p = p.replace(/^\//, '');
+    const published = !unpublished(p);
+    if (!published || (!OUT.has(p) && !fs.existsSync(path.join(ROOT, p)))) bad(`broken or unpublished link ${v}`);
+  }
 }
 
 // ---- brand guard ------------------------------------------------------------------------------------------------

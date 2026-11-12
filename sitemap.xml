@@ -50,4 +50,38 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://mtmagicapps.github.io/vag-scope/changelog.html"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://mtmagicapps.github.io/fr/vag-scope/changelog.html"/>
   </url>
+  <url>
+    <loc>https://mtmagicapps.github.io/vag-scope/guides/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mtmagicapps.github.io/vag-scope/guides/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mtmagicapps.github.io/fr/vag-scope/guides/"/>
+  </url>
+  <url>
+    <loc>https://mtmagicapps.github.io/fr/vag-scope/guides/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mtmagicapps.github.io/vag-scope/guides/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mtmagicapps.github.io/fr/vag-scope/guides/"/>
+  </url>
+  <url>
+    <loc>https://mtmagicapps.github.io/vag-scope/guides/used-car-mileage-check/</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mtmagicapps.github.io/vag-scope/guides/used-car-mileage-check/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mtmagicapps.github.io/fr/vag-scope/guides/used-car-mileage-check/"/>
+  </url>
+  <url>
+    <loc>https://mtmagicapps.github.io/fr/vag-scope/guides/used-car-mileage-check/</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mtmagicapps.github.io/vag-scope/guides/used-car-mileage-check/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mtmagicapps.github.io/fr/vag-scope/guides/used-car-mileage-check/"/>
+  </url>
+  <url>
+    <loc>https://mtmagicapps.github.io/vag-scope/guides/vin-check/</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mtmagicapps.github.io/vag-scope/guides/vin-check/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mtmagicapps.github.io/fr/vag-scope/guides/vin-check/"/>
+  </url>
+  <url>
+    <loc>https://mtmagicapps.github.io/fr/vag-scope/guides/vin-check/</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mtmagicapps.github.io/vag-scope/guides/vin-check/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mtmagicapps.github.io/fr/vag-scope/guides/vin-check/"/>
+  </url>
 </urlset>

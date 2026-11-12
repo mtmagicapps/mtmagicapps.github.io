@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="../../assets/site.css">
   <script>document.documentElement.classList.add('js')</script>
   <!-- build:head -->
-  <script>(function(){var a={"en":"/vag-scope/check/","fr":"/fr/vag-scope/check/"},l=document.documentElement.lang,s;try{s=localStorage.getItem('lang')}catch(e){}var w=s||(/^fr/i.test(navigator.language||'')?'fr':l);if(w!==l&&a[w])location.replace(a[w]+location.hash)})()</script>
+  <script>(function(){var a={"en":"/vag-scope/check/","fr":"/fr/vag-scope/check/"},l=document.documentElement.lang,s;try{s=localStorage.getItem('lang')}catch(e){}var w=s||(/^fr/i.test(navigator.language||'')?'fr':l);if(w!==l&&a[w])location.replace(a[w]+location.hash);document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('a[data-lang]');if(t)try{localStorage.setItem('lang',t.dataset.lang)}catch(x){}})})()</script>
   <link rel="canonical" href="https://mtmagicapps.github.io/vag-scope/check/">
   <link rel="alternate" hreflang="en" href="https://mtmagicapps.github.io/vag-scope/check/">
   <link rel="alternate" hreflang="fr" href="https://mtmagicapps.github.io/fr/vag-scope/check/">
@@ -44,6 +44,7 @@
       </a>
       <nav class="nav" aria-label="Main">
         <a href="../">VAG Scope</a>
+        <a href="../guides/" data-i18n="nav_guides">Guides</a>
         <a href="../privacy.html" data-i18n="nav_privacy">Privacy</a>
         <a href="../changelog.html" data-i18n="nav_changelog">Changelog</a>
         <a href="../../#contact" data-i18n="nav_contact">Contact</a>
@@ -71,6 +72,7 @@
               <span><small data-i18n="ios_small">Coming later to the</small><b>App Store</b></span>
             </a>
           </div>
+          <a class="ghost" href="../guides/used-car-mileage-check/" data-i18n="ck_guide_link">How to read the result</a>
           <a class="ghost" href="../#faq" data-i18n="ck_faq_link">Questions before you buy</a>
         </div>
       </div>
@@ -132,6 +134,7 @@
       <nav class="foot-nav" aria-label="Footer">
         <a href="../">VAG Scope</a>
         <a href="../check/" data-i18n="nav_check">Check a car</a>
+        <a href="../guides/" data-i18n="nav_guides">Guides</a>
         <a href="../privacy.html" data-i18n="nav_privacy">Privacy</a>
         <a href="../changelog.html" data-i18n="nav_changelog">Changelog</a>
         <a href="../../#contact" data-i18n="nav_contact">Contact</a>
@@ -143,6 +146,5 @@
     </div>
   </footer>
 
-  <script src="../../assets/site.js"></script>
   </body>
 </html>
