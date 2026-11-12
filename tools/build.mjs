@@ -292,6 +292,22 @@ function stores(html, lang) {
   });
 }
 
+// Waitlist links carry the page language and where the click came from into the form's hidden fields (lang, source),
+// so sign-ups can be counted per page and written to in the right language: source is <page>_<cta|bar|link>.
+function pageId(page) {
+  if (page.generated === 'guide') return 'guide_' + page.slug.replace(/-/g, '_');
+  return page.path.replace(/(^|\/)index\.html$/, '').replace(/\.html$/, '').replace(/[/-]+/g, '_').replace(/_$/, '') || 'home';
+}
+function waitlistLinks(html, page, lang) {
+  const base = cfg.waitlist.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return html.replace(new RegExp(`<a\\b([^>]*?)\\shref="${base}(?:\\?[^"]*)?"([^>]*)>`, 'g'), (all, a, b) => {
+    const cls = (/\sclass="([^"]*)"/.exec(a + b) || [])[1] || '';
+    const where = /\bcta\b/.test(cls) ? 'cta' : /data-i18n="notify_a"/.test(a + b) ? 'bar' : 'link';
+    const q = new URLSearchParams({ lang, source: `${pageId(page)}_${where}` });
+    return `<a${a} href="${cfg.waitlist}?${esc(q.toString())}"${b}>`;
+  });
+}
+
 function faqItems(html) {
   return [...html.matchAll(/<details\b[^>]*\sdata-faq\b[^>]*>\s*<summary[^>]*>([\s\S]*?)<\/summary>([\s\S]*?)<\/details>/g)]
     .map((m) => ({ q: text(m[1]), a: text(m[2]) }));
@@ -433,6 +449,7 @@ for (const page of ALL) {
         </li>`).join(''), page.path);
     }
     html = stores(html, lang);
+    html = waitlistLinks(html, page, lang);
     html = region(html, 'lang', langSwitch(page, lang), page.path);
     html = region(html, 'head', head(page, lang, html), page.path);
     const from = page.generated === 'guide' ? `the guide ${page.slug} (vagscope_growth)` : page.generated ? 'the guides' : page.path;
