@@ -1,13 +1,26 @@
 #!/bin/sh
 # Copies the VAG Scope changelog and privacy policies from the app repo
-# (../io.mtmagicapps.vagscope) into vag-scope/ and stages whatever changed.
+# (../io.mtmagicapps.vagscope) into vag-scope/, then runs the site build
+# (French pages, SEO tags, sitemap) and stages whatever changed.
 # Enable once per clone: git config core.hooksPath .githooks
 
 root=$(git rev-parse --show-toplevel) || exit 1
 src="$root/../io.mtmagicapps.vagscope"
 
+build() {
+  if ! command -v node >/dev/null 2>&1; then
+    echo "pre-commit: node not found, run node tools/build.mjs before pushing" >&2
+    return
+  fi
+  out=$(node "$root/tools/build.mjs") || exit 1
+  printf '%s\n' "$out" | while IFS= read -r f; do
+    if [ -n "$f" ]; then git add -- "$root/$f" && echo "pre-commit: built $f"; fi
+  done
+}
+
 if [ ! -d "$src" ]; then
   echo "pre-commit: $src not found, skipping VAG Scope sync" >&2
+  build
   exit 0
 fi
 
@@ -29,3 +42,6 @@ sync_file app/src/main/assets/legal/privacy_en.md privacy_en.md
 sync_file app/src/main/assets/legal/privacy_fr.md privacy_fr.md
 # sync_file app/src/main/assets/legal/terms_en.md terms_en.md
 # sync_file app/src/main/assets/legal/terms_fr.md terms_fr.md
+
+build
+exit 0

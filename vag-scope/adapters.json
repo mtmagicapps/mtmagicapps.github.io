@@ -1,0 +1,40 @@
+[
+  {
+    "name": "vLinker MC+",
+    "note": {
+      "en": "The adapter this app was built with",
+      "fr": "L’adaptateur avec lequel l’appli a été conçue"
+    },
+    "sellers": [
+      {
+        "name": "AliExpress",
+        "url": "https://s.click.aliexpress.com/e/_Eu0ZYV4",
+        "affiliate": true
+      },
+      {
+        "name": "Amazon",
+        "url": "https://link.amazon/B0asIddnq",
+        "affiliate": true
+      }
+    ]
+  },
+  {
+    "name": "vGate iCar Pro 2S",
+    "note": {
+      "en": "The affordable alternative",
+      "fr": "L’alternative abordable"
+    },
+    "sellers": [
+      {
+        "name": "AliExpress",
+        "url": "https://s.click.aliexpress.com/e/_EvCO9RM",
+        "affiliate": true
+      },
+      {
+        "name": "Amazon",
+        "url": "https://amzn.to/4hJX0WM",
+        "affiliate": true
+      }
+    ]
+  }
+]

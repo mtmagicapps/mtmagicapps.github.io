@@ -1,0 +1,29 @@
+# VAG Scope
+
+> VAG Scope is an Android app by mtmagicapps that reads VW, Audi, Seat and Škoda cars through a Bluetooth ELM327 adapter and checks their mileage against the control units.
+
+- Cars: Volkswagen, Audi, Seat and Škoda using TP 2.0 (about 2004–2010) or UDS on 11-bit CAN ids (about 2012 and later); mixed cars work unit by unit. Not supported: cars with 29-bit diagnostic ids only (MEB electric cars such as the ID. models, and MQB evo cars such as the Golf 8 generation).
+- Adapter: any Bluetooth ELM327 adapter (Classic or BLE on Android, BLE only on iPhone). Tested with a vLinker MC+.
+- Features: mileage check (odometer against the distance stored in each control unit), VIN check, control-unit scan, fault codes with freeze frames, live data, dashboards (also on Android Auto), coding, long coding, adaptation, basic settings with guided functions, output tests, community procedures, demo cars.
+- Results are indicative: the app never says a car is genuine or that its mileage is correct.
+- Privacy: no network permission, no account, no advertising, no analytics.
+- Platforms: Android 9 or later. An iPhone version with Apple CarPlay is planned.
+- Languages: English and French.
+- Price: one payment on Google Play (€9.99 in the euro zone), no subscription, no in-app purchase.
+- Publisher: mtmagicapps, published by DS ECOM (France). Not affiliated with Volkswagen AG, Audi AG, SEAT, S.A. or ŠKODA AUTO a.s.
+
+## Pages
+
+- [mtmagicapps – small apps, made with care](https://mtmagicapps.github.io/): mtmagicapps is an independent software editor. Our first app, VAG Scope, turns your phone into a diagnostic tool for Volkswagen, Audi, Seat and Škoda cars.
+- [Mileage check and OBD app for VW, Audi, Seat, Škoda | VAG Scope](https://mtmagicapps.github.io/vag-scope/): Check a used VW, Audi, Seat or Škoda before you buy: VAG Scope compares the odometer with the control units, checks the VIN and reads fault codes.
+- [Check the car yourself | VAG Scope](https://mtmagicapps.github.io/vag-scope/check/): Someone shared a VAG Scope report with you? Run the same mileage and VIN check on the car yourself, with your phone and a Bluetooth ELM327 adapter.
+- [Privacy policy | VAG Scope](https://mtmagicapps.github.io/vag-scope/privacy.html): Privacy policy of the VAG Scope Android and iOS app.
+- [Changelog | VAG Scope](https://mtmagicapps.github.io/vag-scope/changelog.html): Changelog of the VAG Scope Android and iOS app.
+
+## En français
+
+- [mtmagicapps – des petites applis, faites avec soin](https://mtmagicapps.github.io/fr/): mtmagicapps est un éditeur de logiciels indépendant. Notre première appli, VAG Scope, transforme votre téléphone en outil de diagnostic pour les Volkswagen, Audi, Seat et Škoda.
+- [Contrôle kilométrage et diagnostic OBD VW, Audi, Seat, Škoda | VAG Scope](https://mtmagicapps.github.io/fr/vag-scope/): Vérifiez une VW, Audi, Seat ou Škoda d’occasion avant achat : VAG Scope compare le compteur aux calculateurs, vérifie le VIN et lit les défauts.
+- [Vérifiez la voiture vous-même | VAG Scope](https://mtmagicapps.github.io/fr/vag-scope/check/): Un rapport VAG Scope vous a été transmis ? Vérifiez vous-même le kilométrage et le VIN de la voiture, avec votre téléphone et un adaptateur Bluetooth.
+- [Politique de confidentialité | VAG Scope](https://mtmagicapps.github.io/fr/vag-scope/privacy.html): Politique de confidentialité de l’appli VAG Scope pour Android et iOS.
+- [Journal des modifications | VAG Scope](https://mtmagicapps.github.io/fr/vag-scope/changelog.html): Journal des modifications de l’appli VAG Scope pour Android et iOS.

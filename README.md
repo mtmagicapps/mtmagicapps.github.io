@@ -1,24 +1,42 @@
 # mtmagicapps.github.io
 
-Placeholder website of the **mtmagicapps** organization, served for free by GitHub Pages.
-Plain HTML, CSS and a little JavaScript: no build step, no dependencies, no cookies, no analytics.
+Website of **mtmagicapps** and of the VAG Scope app, served by GitHub Pages from `main` (folder `/`).
+Plain HTML, CSS and a little JavaScript; no cookies, no analytics, no third-party requests.
 
-## Publish
+## Build
 
-1. Create a repository named exactly `mtmagicapps.github.io` in the `mtmagicapps` organization.
-2. Push this folder to the `main` branch.
-3. Repository **Settings → Pages → Build and deployment**: source **Deploy from a branch**, branch `main`, folder `/ (root)`.
-4. The site goes live at <https://mtmagicapps.github.io> within a minute or two.
+```bash
+node tools/build.mjs           # after any change; prints the files it wrote
+node tools/build.mjs --check   # fails if a generated file is out of date (CI runs this)
+```
 
-## Before going public
+Node 18 or later, no dependencies. The English pages listed in `site.config.json` are the sources. The build:
 
-- Replace `REPLACE_WITH_PACKAGE_NAME` in the two Google Play links in `index.html` with the app's package id.
-- Add the registered company details to the legal footer if required in your country
+- writes the French copy of each page under `fr/` from `i18n/fr.json` (keys in `data-i18n`, `data-i18n-alt`,
+  `data-i18n-content`; a missing key fails the build). Never edit `fr/` by hand.
+- fills the `<!-- build:head -->` (canonical, hreflang, Open Graph, JSON-LD), `<!-- build:lang -->` (EN/FR links)
+  and `<!-- build:md -->` (privacy policy, changelog) regions of the English pages in place.
+- turns the store badges (`data-store`, `data-utm`) into links with a UTM campaign once `app.play.live` or
+  `app.appStore.live` is set in `site.config.json`.
+- writes `sitemap.xml`, `robots.txt` and `llms.txt` (facts from `site.config.json`).
+- fails if any file contains a denied brand name (the list is hashed in the script).
+
+The pre-commit hook runs the build and stages its output. Enable it once per clone:
+`git config core.hooksPath .githooks`. It also copies `docs/CHANGELOG.md` and `privacy_{en,fr}.md` from
+`../io.mtmagicapps.vagscope` into `vag-scope/`.
+
+## Moving to a custom domain
+
+Set `url` in `site.config.json`, add a `CNAME` file with the domain, run the build, then set the domain in the
+repository's Pages settings. GitHub redirects the old `mtmagicapps.github.io` addresses to the new domain, so links
+already printed in reports keep working.
 
 ## Files
 
-- `index.html`: the page. `assets/site.css`: styles. `assets/site.js`: EN/FR switch and the mailto contact form.
-- `vag-scope/adapters.js`: the `RECOMMENDED_ADAPTERS` list (name, url, EN/FR note, affiliate flag) rendered on the VAG Scope page.
-- `assets/img/`: VAG Scope screenshots (status bars cropped, converted to WebP).
-- `assets/fonts/`: Bricolage Grotesque and Figtree (SIL Open Font License), self-hosted.
-- `.githooks/pre-commit`: copies `docs/CHANGELOG.md` and the `privacy_{en,fr}.md` and `terms_{en,fr}.md` legal assets from `../io.mtmagicapps.vagscope` into `vag-scope/` and stages them. Enable once per clone with `git config core.hooksPath .githooks`.
+- `index.html`, `vag-scope/index.html`: the pages. `vag-scope/check/`: landing page for the QR code on shared reports.
+- `assets/site.css`: styles. `assets/site.js`: language preference, car-screen carousel, mailto contact form.
+- `vag-scope/adapters.json`: recommended adapters (name, EN/FR note, sellers with an affiliate flag), rendered by the
+  build; affiliate links get `rel="sponsored"` and a visible label.
+- `tools/images.sh`: 400/800 px variants of the phone screenshots. `tools/og-card.py`: the EN/FR link-preview cards
+  (`assets/img/og-vag-scope-{en,fr}.jpg`).
+- `assets/img/`: screenshots (WebP). `assets/fonts/`: Bricolage Grotesque and Figtree (SIL Open Font License).

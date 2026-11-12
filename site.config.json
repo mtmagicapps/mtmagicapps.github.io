@@ -1,0 +1,92 @@
+{
+  "url": "https://mtmagicapps.github.io",
+  "ogImage": {
+    "en": {
+      "src": "assets/img/og-vag-scope-en.jpg",
+      "width": 1200,
+      "height": 630,
+      "alt": "VAG Scope: check a used VW, Audi, Seat or Škoda before you buy"
+    },
+    "fr": {
+      "src": "assets/img/og-vag-scope-fr.jpg",
+      "width": 1200,
+      "height": 630,
+      "alt": "VAG Scope : vérifiez une VW, Audi, Seat ou Škoda d’occasion avant de l’acheter"
+    }
+  },
+  "waitlist": "https://tally.so/r/6DjJ6k",
+  "org": {
+    "name": "mtmagicapps",
+    "legalName": "DS ECOM",
+    "logo": "favicon.svg"
+  },
+  "app": {
+    "name": "VAG Scope",
+    "icon": "assets/img/vag-scope-icon.svg",
+    "description": {
+      "en": "VAG Scope is an Android app by mtmagicapps that reads VW, Audi, Seat and Škoda cars through a Bluetooth ELM327 adapter and checks their mileage against the control units.",
+      "fr": "VAG Scope est une application Android de mtmagicapps qui lit les voitures VW, Audi, Seat et Škoda avec un adaptateur ELM327 Bluetooth et compare leur kilométrage aux calculateurs."
+    },
+    "operatingSystem": "Android 9 or later",
+    "price": "9.99",
+    "currency": "EUR",
+    "play": {
+      "package": "io.mtmagicapps.vagscope",
+      "live": false
+    },
+    "appStore": {
+      "url": "",
+      "live": false
+    }
+  },
+  "pages": [
+    {
+      "path": "index.html",
+      "jsonld": [
+        "Organization"
+      ]
+    },
+    {
+      "path": "vag-scope/index.html",
+      "jsonld": [
+        "SoftwareApplication",
+        "FAQPage"
+      ],
+      "adapters": "vag-scope/adapters.json"
+    },
+    {
+      "path": "vag-scope/check/index.html",
+      "jsonld": [
+        "SoftwareApplication",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "path": "vag-scope/privacy.html",
+      "md": "vag-scope/privacy_{lang}.md",
+      "jsonld": [
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "path": "vag-scope/changelog.html",
+      "md": "vag-scope/CHANGELOG.md",
+      "jsonld": [
+        "BreadcrumbList"
+      ]
+    }
+  ],
+  "llms": {
+    "facts": [
+      "Cars: Volkswagen, Audi, Seat and Škoda using TP 2.0 (about 2004–2010) or UDS on 11-bit CAN ids (about 2012 and later); mixed cars work unit by unit. Not supported: cars with 29-bit diagnostic ids only (MEB electric cars such as the ID. models, and MQB evo cars such as the Golf 8 generation).",
+      "Adapter: any Bluetooth ELM327 adapter (Classic or BLE on Android, BLE only on iPhone). Tested with a vLinker MC+.",
+      "Features: mileage check (odometer against the distance stored in each control unit), VIN check, control-unit scan, fault codes with freeze frames, live data, dashboards (also on Android Auto), coding, long coding, adaptation, basic settings with guided functions, output tests, community procedures, demo cars.",
+      "Results are indicative: the app never says a car is genuine or that its mileage is correct.",
+      "Privacy: no network permission, no account, no advertising, no analytics.",
+      "Platforms: Android 9 or later. An iPhone version with Apple CarPlay is planned.",
+      "Languages: English and French.",
+      "Price: one payment on Google Play (€9.99 in the euro zone), no subscription, no in-app purchase.",
+      "Publisher: mtmagicapps, published by DS ECOM (France). Not affiliated with Volkswagen AG, Audi AG, SEAT, S.A. or ŠKODA AUTO a.s."
+    ]
+  }
+}

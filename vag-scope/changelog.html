@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title data-i18n="t_changelog">Changelog – VAG Scope | mtmagicapps</title>
-  <meta name="description" content="Changelog of the VAG Scope Android and iOS app.">
+  <title data-i18n="t_changelog">Changelog | VAG Scope</title>
+  <meta name="description" content="Changelog of the VAG Scope Android and iOS app." data-i18n-content="d_changelog">
   <meta name="theme-color" content="#0b3f4b">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="preload" href="../assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
@@ -12,12 +12,31 @@
   <link rel="stylesheet" href="../assets/site.css">
   <link rel="stylesheet" href="privacy.css">
   <script>document.documentElement.classList.add('js')</script>
+  <!-- build:head -->
+  <script>(function(){var a={"en":"/vag-scope/changelog.html","fr":"/fr/vag-scope/changelog.html"},l=document.documentElement.lang,s;try{s=localStorage.getItem('lang')}catch(e){}var w=s||(/^fr/i.test(navigator.language||'')?'fr':l);if(w!==l&&a[w])location.replace(a[w]+location.hash)})()</script>
+  <link rel="canonical" href="https://mtmagicapps.github.io/vag-scope/changelog.html">
+  <link rel="alternate" hreflang="en" href="https://mtmagicapps.github.io/vag-scope/changelog.html">
+  <link rel="alternate" hreflang="fr" href="https://mtmagicapps.github.io/fr/vag-scope/changelog.html">
+  <link rel="alternate" hreflang="x-default" href="https://mtmagicapps.github.io/vag-scope/changelog.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="mtmagicapps">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:url" content="https://mtmagicapps.github.io/vag-scope/changelog.html">
+  <meta property="og:title" content="Changelog | VAG Scope">
+  <meta property="og:description" content="Changelog of the VAG Scope Android and iOS app.">
+  <meta property="og:image" content="https://mtmagicapps.github.io/assets/img/og-vag-scope-en.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="VAG Scope: check a used VW, Audi, Seat or Škoda before you buy">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"VAG Scope","item":"https://mtmagicapps.github.io/vag-scope/"},{"@type":"ListItem","position":2,"name":"Changelog","item":"https://mtmagicapps.github.io/vag-scope/changelog.html"}]}</script>
+  <!-- /build:head -->
 </head>
 <body>
   <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 
   <header class="top">
-    <div class="promo"><div class="wrap"><span data-i18n="notify_t">VAG Scope is coming soon!</span> <a href="https://tally.so/r/6DjJ6k" target="_blank" rel="noopener" data-i18n="notify_a">Sign up to get notified as soon as it’s released.</a></div></div>
+    <div class="promo" data-until-live="play"><div class="wrap"><span data-i18n="notify_t">VAG Scope is coming soon!</span> <a href="https://tally.so/r/6DjJ6k" target="_blank" rel="noopener" data-i18n="notify_a">Sign up to get notified as soon as it’s released.</a></div></div>
     <div class="wrap top-in">
       <a class="brand" href="../" aria-label="mtmagicapps">
         <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#14606F"/><path d="M8 22v-7.5a3.5 3.5 0 0 1 7 0V22m0-7.5a3.5 3.5 0 0 1 7 0V22" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24.5" cy="8.5" r="2.2" fill="#FFB74D"/></svg>
@@ -28,18 +47,130 @@
         <a href="privacy.html" data-i18n="nav_privacy">Privacy</a>
         <a href="changelog.html" data-i18n="nav_changelog">Changelog</a>
         <a href="../#contact" data-i18n="nav_contact">Contact</a>
-        <div class="lang" role="group" aria-label="Language">
-          <button type="button" data-lang="en" aria-pressed="true">EN</button>
-          <button type="button" data-lang="fr" aria-pressed="false">FR</button>
-        </div>
+        <!-- build:lang -->
+          <div class="lang" role="group" aria-label="Language"><a href="/vag-scope/changelog.html" hreflang="en" lang="en" data-lang="en" aria-label="English" aria-current="true">EN</a><a href="/fr/vag-scope/changelog.html" hreflang="fr" lang="fr" data-lang="fr" aria-label="Français">FR</a></div>
+        <!-- /build:lang -->
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <article class="wrap doc" id="doc" aria-live="polite" data-src="CHANGELOG.md" data-err-en="The changelog could not be loaded. Open the site over http(s) (not file://) or read " data-err-fr="Impossible de charger le journal des modifications. Ouvrez le site via http(s) (pas en file://) ou lisez ">
+    <article class="wrap doc" id="doc">
       <p class="doc-back"><a href="./" data-i18n="priv_back">← Back to VAG Scope</a></p>
-      <div id="doc-body"><p data-i18n="priv_loading">Loading…</p></div>
+      <div id="doc-body"><!-- build:md -->
+<h1>Changelog</h1>
+<h2>1.0.0-rc15</h2>
+<ul>
+<li>Android Auto: Safety fixes</li>
+<li>UDS Fixes</li>
+<li>Adaptation: Allow writing the same value</li>
+<li>Protocol log: Add VIN in file names</li>
+<li>Smart checks: the mileage check, the new VIN check and the procedures move from the hub and the launch home into one</li>
+</ul>
+<p>Smart checks page.</p>
+<ul>
+<li>VIN check: compares the VIN on the car's markings with the VIN stored in every control unit (label groups first on</li>
+</ul>
+<p>TP 2.0, <code>F190</code> and the unit's own identity identifiers on UDS), plus original VIN, learned keys, immobiliser status and component-protection faults; graded verdict, findings, saved reports and PDF.</p>
+<h2>1.0.0-rc13</h2>
+<ul>
+<li>UI/UX improvements</li>
+<li>Labels logic updates</li>
+</ul>
+<h2>1.0.0-rc12</h2>
+<ul>
+<li>Dashboards: Fix gauge display issue</li>
+<li>ALPHA: Guided functions are bundled for basic settings.</li>
+<li>ALPHA: Output tests and basic settings (UDS units).</li>
+<li>ALPHA: Coding and long coding (UDS units).</li>
+<li>ALPHA: Adaptation (UDS units).</li>
+<li>ALPHA: SRI (UDS units).</li>
+<li>ALPHA: Login numbers (UDS units).</li>
+<li>ALPHA: Security access (UDS units).</li>
+<li>SRI: Remove requirement for workshop code (use defaults if empty)</li>
+<li>SRI/Procedures: Simplify units scan requirements</li>
+</ul>
+<h2>1.0.0-rc11</h2>
+<ul>
+<li>Dashboards: Rich customization.</li>
+</ul>
+<h2>1.0.0-rc10</h2>
+<ul>
+<li>TP 2.0: Answers sent in several messages are read whole.</li>
+<li>TP 2.0: Control units parallel scanning.</li>
+<li>TP 2.0: Fault memory scan: a control unit that misses one request is asked again.</li>
+<li>TP 2.0: SRI: Increase cluster values request timeouts</li>
+<li>TP 2.0: Output tests: Improve live data display.</li>
+<li>Demo RS6: closer to the real car (my own experience).</li>
+</ul>
+<h2>1.0.0-rc9</h2>
+<ul>
+<li>UDS read ops compatibility fixes</li>
+</ul>
+<h2>1.0.0-rc8</h2>
+<ul>
+<li>New Control unit screen, paving the way for more features.</li>
+<li>ALPHA: Guided functions are bundled for basic settings.</li>
+<li>ALPHA: Output tests and basic settings (TP 2.0 units).</li>
+<li>ALPHA: Coding and long coding (TP 2.0 units).</li>
+<li>ALPHA: Adaptation (TP 2.0 units).</li>
+<li>ALPHA: Service reset (TP 2.0 instrument clusters), on the home screen.</li>
+<li>ALPHA: Login numbers (TP 2.0 units).</li>
+<li>ALPHA: Security access (TP 2.0 units).</li>
+</ul>
+<h2>1.0.0-rc7</h2>
+<ul>
+<li>Android Auto selection: The limit of 4 values now applies per dashboard, not to the whole app.</li>
+<li>Android Auto selection: More realistic preview of the car screen with a dashboard selector.</li>
+</ul>
+<h2>1.0.0-rc6</h2>
+<ul>
+<li>Procedures: new <strong>Create with AI</strong> entry in Add a procedure.</li>
+<li>Procedures are available without a connection. Running them offline is not supported.</li>
+<li>UDS compatibility fixes.</li>
+<li>Recommended adapters: the vGate iCar Pro 2S is listed as an affordable alternative.</li>
+<li>Improve strings for improved UX.</li>
+</ul>
+<h2>1.0.0-rc5</h2>
+<ul>
+<li>First Alpha release</li>
+<li>Update for the latest adapter compatibility and minor bug fixes.</li>
+</ul>
+<h2>1.0.0-rc4</h2>
+<ul>
+<li>TP2.0 protocol fixes</li>
+<li>Stability: fix a possible crash when the connection ended right after it was made (background service); sharing, opening Bluetooth or app settings and picking a file never crash the app any more on a phone that lacks the needed screen or storage.</li>
+<li>Saved procedures, runs, mileage checks and fault backups are written safely: an app killed while saving keeps the previous version, and procedures whose list entry was lost are listed again (as imported).</li>
+<li>Saved user data now using Jetpack DataStore. Existing settings, profiles, values and dashboards are moved over on the first start; nothing to do.</li>
+<li>Harden file handling (procedures, values, fault-text files).</li>
+<li>Fix issues in non-alphabetic locales.</li>
+<li>UI performance improvements.</li>
+<li>Plurals handling improvements.</li>
+<li>Log traces improvements.</li>
+<li>Various other stability, and privacy improvements.</li>
+</ul>
+<h2>1.0.0-rc3</h2>
+<ul>
+<li>Android Auto: opens on the last opened dashboard (phone or car) and shows only its values enabled for Android Auto; the Back arrow goes to the list of dashboards. The phone's Dashboards screen also reopens on that dashboard.</li>
+</ul>
+<h2>1.0.0-rc2</h2>
+<ul>
+<li>Dashboards: Add value tells you to scan the control units when none has a value list yet.</li>
+<li>Android Auto: never reconnects to the demo car, only to the last real adapter.</li>
+<li>The app opens on home screen with Connect, Mileage reports and Procedure runs: saved results of every car can be browsed offline, newest first, with search and filters.</li>
+</ul>
+<h2>1.0.0-rc1</h2>
+<ul>
+<li>Fix missing connection notification after permission approval.</li>
+<li>Fix wrong gear value and fuel pressure in the RS6 example procedure.</li>
+<li>Fault scan: fix progress label when the control unit list has not been scanned yet.</li>
+<li>Keep screen on while scanning faults.</li>
+<li>Add a Recommended adapters page, opened from the Connect screen and Settings.</li>
+<li>Procedures: hide the ones that do not fit the connected car by default; none are listed until the control units are scanned.</li>
+<li>Keep the adapter connection for 5 minutes (was 30 s) when the app is in the background.</li>
+<li>Settings: More readable.</li>
+</ul>
+<!-- /build:md --></div>
     </article>
   </main>
 
@@ -52,14 +183,20 @@
         </a>
         <p>© 2026 mtmagicapps</p>
       </div>
+      <nav class="foot-nav" aria-label="Footer">
+        <a href="./">VAG Scope</a>
+        <a href="./check/" data-i18n="nav_check">Check a car</a>
+        <a href="./privacy.html" data-i18n="nav_privacy">Privacy</a>
+        <a href="./changelog.html" data-i18n="nav_changelog">Changelog</a>
+        <a href="../#contact" data-i18n="nav_contact">Contact</a>
+      </nav>
       <p class="legal" data-i18n="legal0">Published by DS ECOM, a French SASU (single-shareholder simplified joint-stock company), SIREN 884 924 333. Website hosted by GitHub, Inc.</p>
       <p class="legal" data-i18n="legal1">VAG Scope is an independent product. It is not affiliated with, endorsed by or sponsored by Volkswagen AG, Audi AG, SEAT, S.A. or ŠKODA AUTO a.s. All brand names are trademarks of their respective owners and are used only to describe compatible vehicles.</p>
-      <p class="legal" data-i18n="legal2">Google Play is a trademark of Google LLC. VAG Scope is a diagnostic aid and does not replace a qualified inspection. Never use it while driving. Mileage check results are indicative only.</p>
-      <p class="legal" data-i18n="legal3">This website uses no cookies, no analytics and no third-party requests.</p>
+      <p class="legal" data-i18n="legal2">Google Play and Android Auto are trademarks of Google LLC. Apple, App Store and CarPlay are trademarks of Apple Inc. VAG Scope is a diagnostic aid and does not replace a qualified inspection. Never use it while driving. Mileage check results are indicative only.</p>
+      <p class="legal" data-i18n="legal3">This website uses no cookies, no analytics and no third-party requests. The release sign-up form opens on Tally (tally.so), which receives what you enter there.</p>
     </div>
   </footer>
 
   <script src="../assets/site.js"></script>
-  <script src="privacy.js"></script>
 </body>
 </html>

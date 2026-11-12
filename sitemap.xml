@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://mtmagicapps.github.io/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mtmagicapps.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mtmagicapps.github.io/fr/"/>
+  </url>
+  <url>
+    <loc>https://mtmagicapps.github.io/fr/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mtmagicapps.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mtmagicapps.github.io/fr/"/>
+  </url>
+  <url>
+    <loc>https://mtmagicapps.github.io/vag-scope/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mtmagicapps.github.io/vag-scope/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mtmagicapps.github.io/fr/vag-scope/"/>
+  </url>
+  <url>
+    <loc>https://mtmagicapps.github.io/fr/vag-scope/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mtmagicapps.github.io/vag-scope/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mtmagicapps.github.io/fr/vag-scope/"/>
+  </url>
+  <url>
+    <loc>https://mtmagicapps.github.io/vag-scope/check/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mtmagicapps.github.io/vag-scope/check/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mtmagicapps.github.io/fr/vag-scope/check/"/>
+  </url>
+  <url>
+    <loc>https://mtmagicapps.github.io/fr/vag-scope/check/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mtmagicapps.github.io/vag-scope/check/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mtmagicapps.github.io/fr/vag-scope/check/"/>
+  </url>
+  <url>
+    <loc>https://mtmagicapps.github.io/vag-scope/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mtmagicapps.github.io/vag-scope/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mtmagicapps.github.io/fr/vag-scope/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://mtmagicapps.github.io/fr/vag-scope/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mtmagicapps.github.io/vag-scope/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mtmagicapps.github.io/fr/vag-scope/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://mtmagicapps.github.io/vag-scope/changelog.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mtmagicapps.github.io/vag-scope/changelog.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mtmagicapps.github.io/fr/vag-scope/changelog.html"/>
+  </url>
+  <url>
+    <loc>https://mtmagicapps.github.io/fr/vag-scope/changelog.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mtmagicapps.github.io/vag-scope/changelog.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://mtmagicapps.github.io/fr/vag-scope/changelog.html"/>
+  </url>
+</urlset>

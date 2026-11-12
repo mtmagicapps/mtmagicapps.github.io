@@ -3,25 +3,40 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>mtmagicapps – small apps, made with care</title>
-  <meta name="description" content="mtmagicapps is an independent software editor. Our first app, VAG Scope, turns your phone into a diagnostic tool for Volkswagen, Audi, Seat and Škoda cars.">
+  <title data-i18n="t_home">mtmagicapps – small apps, made with care</title>
+  <meta name="description" content="mtmagicapps is an independent software editor. Our first app, VAG Scope, turns your phone into a diagnostic tool for Volkswagen, Audi, Seat and Škoda cars." data-i18n-content="d_home">
   <meta name="theme-color" content="#0b3f4b">
-  <meta property="og:title" content="mtmagicapps – small apps, made with care">
-  <meta property="og:description" content="Independent software editor. First app: VAG Scope, diagnostics for VW, Audi, Seat and Škoda cars.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/img/home.webp">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/site.css">
   <script>document.documentElement.classList.add('js')</script>
+  <!-- build:head -->
+  <script>(function(){var a={"en":"/","fr":"/fr/"},l=document.documentElement.lang,s;try{s=localStorage.getItem('lang')}catch(e){}var w=s||(/^fr/i.test(navigator.language||'')?'fr':l);if(w!==l&&a[w])location.replace(a[w]+location.hash)})()</script>
+  <link rel="canonical" href="https://mtmagicapps.github.io/">
+  <link rel="alternate" hreflang="en" href="https://mtmagicapps.github.io/">
+  <link rel="alternate" hreflang="fr" href="https://mtmagicapps.github.io/fr/">
+  <link rel="alternate" hreflang="x-default" href="https://mtmagicapps.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="mtmagicapps">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:url" content="https://mtmagicapps.github.io/">
+  <meta property="og:title" content="mtmagicapps – small apps, made with care">
+  <meta property="og:description" content="mtmagicapps is an independent software editor. Our first app, VAG Scope, turns your phone into a diagnostic tool for Volkswagen, Audi, Seat and Škoda cars.">
+  <meta property="og:image" content="https://mtmagicapps.github.io/assets/img/og-vag-scope-en.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="VAG Scope: check a used VW, Audi, Seat or Škoda before you buy">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"mtmagicapps","legalName":"DS ECOM","url":"https://mtmagicapps.github.io/","logo":"https://mtmagicapps.github.io/favicon.svg"}</script>
+  <!-- /build:head -->
   <meta name="google-site-verification" content="m27zQg2Y2rS--3GcDbWi5QRCnIsaM31C8f73LM1poVQ" />
 </head>
 <body>
   <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 
   <header class="top">
-    <div class="promo"><div class="wrap"><span data-i18n="notify_t">VAG Scope is coming soon!</span> <a href="https://tally.so/r/6DjJ6k" target="_blank" rel="noopener" data-i18n="notify_a">Sign up to get notified as soon as it’s released.</a></div></div>
+    <div class="promo" data-until-live="play"><div class="wrap"><span data-i18n="notify_t">VAG Scope is coming soon!</span> <a href="https://tally.so/r/6DjJ6k" target="_blank" rel="noopener" data-i18n="notify_a">Sign up to get notified as soon as it’s released.</a></div></div>
     <div class="wrap top-in">
       <a class="brand" href="#top" aria-label="mtmagicapps">
         <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#14606F"/><path d="M8 22v-7.5a3.5 3.5 0 0 1 7 0V22m0-7.5a3.5 3.5 0 0 1 7 0V22" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24.5" cy="8.5" r="2.2" fill="#FFB74D"/></svg>
@@ -32,10 +47,9 @@
         <a href="#software" data-i18n="nav_software">Software</a>
         <a href="#principles" data-i18n="nav_principles">Principles</a>
         <a href="#contact" data-i18n="nav_contact">Contact</a>
-        <div class="lang" role="group" aria-label="Language">
-          <button type="button" data-lang="en" aria-pressed="true">EN</button>
-          <button type="button" data-lang="fr" aria-pressed="false">FR</button>
-        </div>
+        <!-- build:lang -->
+          <div class="lang" role="group" aria-label="Language"><a href="/" hreflang="en" lang="en" data-lang="en" aria-label="English" aria-current="true">EN</a><a href="/fr/" hreflang="fr" lang="fr" data-lang="fr" aria-label="Français">FR</a></div>
+        <!-- /build:lang -->
       </nav>
     </div>
   </header>
@@ -47,22 +61,24 @@
         <h1 data-i18n="hero_h">Small apps, made with care.</h1>
         <p class="lead" data-i18n="hero_p">mtmagicapps is an independent software editor. Our first app, VAG Scope, turns your phone into a diagnostic tool for Volkswagen, Audi, Seat and Škoda cars.</p>
         <div class="actions">
-          <span class="play is-disabled" aria-disabled="true">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#00c3ff" d="M1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924z"/><path fill="#00f076" d="M13.544 10.989l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973z"/><path fill="#ff3a44" d="M13.544 13.056l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/><path fill="#ffd500" d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594z"/></svg>
-            <span><small data-i18n="play_small">Get it on</small><b>Google Play</b></span>
-          </span>
-          <span class="play is-disabled" aria-disabled="true">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.37 12.6c-.03-2.67 2.18-3.95 2.28-4.01-1.24-1.82-3.17-2.07-3.86-2.1-1.64-.17-3.2.97-4.04.97-.83 0-2.12-.95-3.49-.92-1.8.03-3.45 1.04-4.37 2.65-1.86 3.23-.48 8.01 1.34 10.63.89 1.28 1.95 2.72 3.34 2.67 1.34-.05 1.85-.87 3.47-.87 1.62 0 2.08.87 3.5.84 1.44-.03 2.36-1.3 3.24-2.59 1.02-1.49 1.44-2.93 1.47-3-.03-.01-2.82-1.08-2.85-4.27zM13.7 4.7c.74-.9 1.24-2.14 1.1-3.38-1.06.04-2.35.71-3.11 1.6-.68.79-1.28 2.05-1.12 3.26 1.18.09 2.39-.6 3.13-1.48z"/></svg>
-            <span><small data-i18n="ios_small">Coming later to the</small><b>App Store</b></span>
-          </span>
+          <a class="cta" href="https://tally.so/r/6DjJ6k" target="_blank" rel="noopener" data-until-live="play" data-i18n="cta_notify">Get notified at launch</a>
+          <div class="stores">
+            <a class="play is-disabled" data-store="play" data-utm="home_hero" aria-disabled="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#00c3ff" d="M1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924z"/><path fill="#00f076" d="M13.544 10.989l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973z"/><path fill="#ff3a44" d="M13.544 13.056l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/><path fill="#ffd500" d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594z"/></svg>
+              <span><small class="when-live" data-i18n="play_small">Get it on</small><small class="when-soon" data-i18n="play_soon">Coming soon to</small><b>Google Play</b></span>
+            </a>
+            <a class="play is-disabled" data-store="appstore" data-utm="home_hero" aria-disabled="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.37 12.6c-.03-2.67 2.18-3.95 2.28-4.01-1.24-1.82-3.17-2.07-3.86-2.1-1.64-.17-3.2.97-4.04.97-.83 0-2.12-.95-3.49-.92-1.8.03-3.45 1.04-4.37 2.65-1.86 3.23-.48 8.01 1.34 10.63.89 1.28 1.95 2.72 3.34 2.67 1.34-.05 1.85-.87 3.47-.87 1.62 0 2.08.87 3.5.84 1.44-.03 2.36-1.3 3.24-2.59 1.02-1.49 1.44-2.93 1.47-3-.03-.01-2.82-1.08-2.85-4.27zM13.7 4.7c.74-.9 1.24-2.14 1.1-3.38-1.06.04-2.35.71-3.11 1.6-.68.79-1.28 2.05-1.12 3.26 1.18.09 2.39-.6 3.13-1.48z"/></svg>
+              <span><small data-i18n="ios_small">Coming later to the</small><b>App Store</b></span>
+            </a>
+          </div>
           <a class="ghost" href="vag-scope/" data-i18n="hero_more">See VAG Scope</a>
         </div>
-        <p class="notify"><span data-i18n="notify_t">VAG Scope is coming soon!</span> <a href="https://tally.so/r/6DjJ6k" target="_blank" rel="noopener" data-i18n="notify_a">Sign up to get notified as soon as it’s released.</a></p>
       </div>
       <div class="hero-art" aria-hidden="false">
         <div class="stage">
-          <figure class="phone p1"><img src="assets/img/home.webp" width="640" height="1313" alt="VAG Scope home screen showing a connected demo vehicle and the diagnostic tools" data-i18n-alt="alt_home"></figure>
-          <figure class="phone p2"><img src="assets/img/livedata.webp" width="640" height="1313" alt="VAG Scope live data screen with engine measuring blocks" data-i18n-alt="alt_live" loading="eager"></figure>
+          <figure class="phone p1"><img src="assets/img/home-800.webp" srcset="assets/img/home-400.webp 400w, assets/img/home-800.webp 800w" sizes="(max-width: 52rem) 42vw, 14rem" width="800" height="1624" decoding="async" alt="VAG Scope home screen showing a connected demo vehicle and the diagnostic tools" data-i18n-alt="alt_home"></figure>
+          <figure class="phone p2"><img src="assets/img/livedata-800.webp" srcset="assets/img/livedata-400.webp 400w, assets/img/livedata-800.webp 800w" sizes="(max-width: 52rem) 42vw, 14rem" width="800" height="1624" decoding="async" alt="VAG Scope live data screen with engine measuring blocks" data-i18n-alt="alt_live"></figure>
         </div>
       </div>
     </section>
@@ -112,10 +128,6 @@
         <div class="contact-copy">
           <h2 data-i18n="ct_h">Say hello.</h2>
           <p data-i18n="ct_p">Questions, bug reports, results from your car: write to us. The form opens your mail app with the message ready to send.</p>
-          <p class="mail-row">
-            <a class="mail" id="mail-link" href="mailto:REDACTED">REDACTED</a>
-            <button type="button" class="copy" id="copy-btn" data-i18n="ct_copy">Copy</button>
-          </p>
         </div>
         <form class="form" id="contact-form" novalidate>
           <label for="f-name"><span data-i18n="ct_name">Your name</span></label>
@@ -124,7 +136,7 @@
           <input id="f-email" name="email" type="email" autocomplete="email" required>
           <label for="f-msg"><span data-i18n="ct_msg">Message</span></label>
           <textarea id="f-msg" name="message" rows="5" required></textarea>
-          <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
+          <p class="form-note" id="form-note" role="status"></p>
           <button class="send" type="submit" data-i18n="ct_send">Open in my mail app</button>
         </form>
       </div>
@@ -140,6 +152,13 @@
         </a>
         <p>© 2026 mtmagicapps</p>
       </div>
+      <nav class="foot-nav" aria-label="Footer">
+        <a href="vag-scope/">VAG Scope</a>
+        <a href="vag-scope/check/" data-i18n="nav_check">Check a car</a>
+        <a href="vag-scope/privacy.html" data-i18n="nav_privacy">Privacy</a>
+        <a href="vag-scope/changelog.html" data-i18n="nav_changelog">Changelog</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
+      </nav>
       <p class="legal" data-i18n="legal0">Published by DS ECOM, a French SASU (single-shareholder simplified joint-stock company), SIREN 884 924 333. Website hosted by GitHub, Inc.</p>
       <p class="legal" data-i18n="legal1">VAG Scope is an independent product. It is not affiliated with, endorsed by or sponsored by Volkswagen AG, Audi AG, SEAT, S.A. or ŠKODA AUTO a.s. All brand names are trademarks of their respective owners and are used only to describe compatible vehicles.</p>
       <p class="legal" data-i18n="legal2">Google Play and Android Auto are trademarks of Google LLC. Apple, App Store and CarPlay are trademarks of Apple Inc. VAG Scope is a diagnostic aid and does not replace a qualified inspection. Never use it while driving. Mileage check results are indicative only.</p>
