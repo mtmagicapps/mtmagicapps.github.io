@@ -1,11 +1,17 @@
 # Changelog
 
-## 1.0.0-rc14
+## 1.0.0-rc15
 
 - Android Auto: Safety fixes
 - UDS Fixes
 - Adaptation: Allow writing the same value
 - Protocol log: Add VIN in file names
+- Smart checks: the mileage check, the new VIN check and the procedures move from the hub and the launch home into one
+  Smart checks page.
+- VIN check: compares the VIN on the car's markings with the VIN stored in every control unit (label groups first on
+  TP 2.0, `F190` and the unit's own identity identifiers on UDS), plus original VIN, learned keys, immobiliser status
+  and component-protection faults; graded verdict, findings, saved reports and PDF. TP 2.0 side to be checked on the
+  owner's RS6; UDS on the simulator only.
 
 ## 1.0.0-rc13
 
