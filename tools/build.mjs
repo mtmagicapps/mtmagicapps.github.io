@@ -434,7 +434,8 @@ for (const page of ALL) {
     let html = page.generated ? renderGenerated(page, lang) : src;
     if (lang === 'fr') html = localizeUrls(translate(html, page.path), page.path);
     if (page.md) {
-      const md = read(page.md.replace('{lang}', lang));
+      // a release still in preparation ("## Unreleased" in the app's changelog) is not published before it ships
+      const md = read(page.md.replace('{lang}', lang)).replace(/^## Unreleased\b[\s\S]*?(?=^## |(?![\s\S]))/m, '');
       html = region(html, 'md', '\n' + renderMd(md), page.path);
     }
     if (page.adapters) {

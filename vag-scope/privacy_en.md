@@ -1,6 +1,6 @@
 # Privacy policy
 
-Effective date: 10 October 2026 · App: VAG Scope · Developer: VAG Scope developer · Contact: through the Google Play store page
+Effective date: 14 November 2026 · App: VAG Scope · Developer: VAG Scope developer · Contact: through the Google Play store page
 
 ## In short
 
@@ -13,11 +13,11 @@ VAG Scope does not collect, send or sell any data. The app has no internet permi
 
 ## What is stored on your phone
 
-Settings, the last adapter used, the groups and names you chose, dashboards, procedures and their run reports, recordings (CSV), fault backups made before clearing and the previous values saved before a coding, an adaptation or a service reset, and the mileage-check cache. This data is kept in the app's private storage, is excluded from Android cloud backups and device transfer, and is deleted when you uninstall the app or clear its data. Several screens also let you delete it.
+Settings, the last adapter used, the groups and names you chose, dashboards, procedures and their run reports, recordings (CSV), fault backups made before clearing and the previous values saved before a coding, an adaptation or a service reset, the journal of changes sent to the car, the protocol log, and your saved mileage and VIN checks. This data is kept in the app's private storage, is excluded from Android cloud backups and device transfer, and is deleted when you uninstall the app or clear its data. Several screens also let you delete it.
 
 ## When data leaves your phone
 
-Only when you tap Share or Export. The file or text then goes to the app you choose (e-mail, messaging, cloud storage...), and that app's privacy policy applies. Exports and reports can contain your VIN and your car's data; check them before sharing. Settings › Shorten the VIN on screen hides most of it on screen.
+Only when you tap Share or Export. The file or text then goes to the app you choose (e-mail, messaging, cloud storage...), and that app's privacy policy applies. Exports and reports can contain your VIN and your car's data. PDF reports always show the VIN in full, and their digital signature names the app version and the phone model that made them. Check them before sharing. Settings › Shorten the VIN on screen hides most of it on screen.
 
 ## Links to online shops
 

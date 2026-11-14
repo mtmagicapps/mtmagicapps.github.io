@@ -1,13 +1,24 @@
 # Changelog
 
+## Unreleased
+
+- Fault codes: Reoganize exports
+- Reports updates
+
+## 1.0.0-rc17
+
+- Smart checks page.
+- VIN check: compares the VIN on the car's markings with the VIN stored in the control units.
+- Fix incorrect MVBs formats in some cases.
+- Commonize code & pave the way for an iOS version.
+- Control unit: Allow loading a custom mapping in lab mode.
+
 ## 1.0.0-rc15
 
 - Android Auto: Safety fixes
 - UDS Fixes
 - Adaptation: Allow writing the same value
 - Protocol log: Add VIN in file names
-- Smart checks page.
-- VIN check: compares the VIN on the car's markings with the VIN stored in the control units.
 
 ## 1.0.0-rc13
 

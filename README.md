@@ -43,7 +43,8 @@ already printed in reports keep working.
   published, updated. The build renders published ones into `tools/templates/page.html` at `/vag-scope/guides/<slug>/`,
   with a list page, article structured data and sitemap dates. Titles stop at 70 characters, descriptions at 160.
 - `index.html`, `vag-scope/index.html`: the pages. `vag-scope/check/`: landing page for the QR code on shared reports.
-- `assets/site.css`: styles. `assets/site.js`: language preference, car-screen carousel, mailto contact form.
+- `assets/site.css`: styles. `assets/site.js`: car-screen carousel and mailto contact form (the EN/FR choice is
+  remembered by a small script the build writes inline in each page's `<head>`).
 - `vag-scope/adapters.json`: recommended adapters (name, EN/FR note, sellers with an affiliate flag), rendered by the
   build; affiliate links get `rel="sponsored"` and a visible label.
 - `tools/images.sh`: 400/800 px variants of the phone screenshots. `tools/og-card.py`: the EN/FR link-preview cards

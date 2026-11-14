@@ -1,6 +1,6 @@
 # Politique de confidentialité
 
-Date d'effet : 10 octobre 2026 · Application : VAG Scope · Développeur : VAG Scope developer · Contact : via la page de l'application sur Google Play
+Date d'effet : 14 novembre 2026 · Application : VAG Scope · Développeur : VAG Scope developer · Contact : via la page de l'application sur Google Play
 
 ## En bref
 
@@ -13,11 +13,11 @@ VAG Scope ne collecte, n'envoie ni ne vend aucune donnée. L'application n'a pas
 
 ## Ce qui est enregistré sur votre téléphone
 
-Réglages, dernier adaptateur utilisé, groupes et noms choisis, tableaux de bord, procédures et leurs rapports, enregistrements (CSV), sauvegardes des défauts faites avant un effacement et valeurs précédentes enregistrées avant un codage, une adaptation ou une remise à zéro de l'entretien, et cache du contrôle kilométrique. Ces données sont dans le stockage privé de l'application, exclues des sauvegardes Android dans le cloud et des transferts d'appareil, et supprimées quand vous désinstallez l'application ou effacez ses données. Plusieurs écrans permettent aussi de les supprimer.
+Réglages, dernier adaptateur utilisé, groupes et noms choisis, tableaux de bord, procédures et leurs rapports, enregistrements (CSV), sauvegardes des défauts faites avant un effacement et valeurs précédentes enregistrées avant un codage, une adaptation ou une remise à zéro de l'entretien, journal des modifications envoyées à la voiture, journal du protocole, et vos contrôles kilométriques et contrôles du VIN enregistrés. Ces données sont dans le stockage privé de l'application, exclues des sauvegardes Android dans le cloud et des transferts d'appareil, et supprimées quand vous désinstallez l'application ou effacez ses données. Plusieurs écrans permettent aussi de les supprimer.
 
 ## Quand des données quittent votre téléphone
 
-Uniquement quand vous touchez Partager ou Exporter. Le fichier ou le texte va alors à l'application que vous choisissez (e-mail, messagerie, stockage en ligne…), dont la politique de confidentialité s'applique. Les exports et rapports peuvent contenir votre VIN et les données de votre voiture : vérifiez-les avant de les partager. Réglages › Raccourcir le VIN à l'écran en masque la plus grande partie à l'écran.
+Uniquement quand vous touchez Partager ou Exporter. Le fichier ou le texte va alors à l'application que vous choisissez (e-mail, messagerie, stockage en ligne…), dont la politique de confidentialité s'applique. Les exports et rapports peuvent contenir votre VIN et les données de votre voiture. Les rapports PDF affichent toujours le VIN en entier, et leur signature numérique indique la version de l'application et le modèle du téléphone qui les ont produits. Vérifiez-les avant de les partager. Réglages › Raccourcir le VIN à l'écran en masque la plus grande partie à l'écran.
 
 ## Liens vers des boutiques en ligne
 
