@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.0.0-rc19
 
 - Introduced Control units Advanced Identification screen
 - Coding: Fix TP 2.0 units without service 1A (e.g. some instrument clusters) now open and write their long and short coding.
