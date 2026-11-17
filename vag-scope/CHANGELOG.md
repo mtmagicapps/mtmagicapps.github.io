@@ -2,8 +2,19 @@
 
 ## Unreleased
 
-- Fault codes: Reoganize exports
-- Reports updates
+- Introduced Control units Advanced Identification screen
+- Coding: Fix TP 2.0 units without service 1A (e.g. some instrument clusters) now open and write their long and short coding.
+- UDS compatibility fixes.
+
+## 1.0.0-rc18
+
+- Commonize PDF exports
+- Share VAG Scope: in Settings › About, and after a finished mileage check, VIN check or procedure.
+- Mileage check: past checks are hidden while a check runs.
+- Introduce health check, in Smart checks.
+- Smart checks: each check shows how many times it ran on this car instead of its last result.
+- Charts: UX improvements.
+- Fault codes: UX improvements.
 
 ## 1.0.0-rc17
 
@@ -23,7 +34,7 @@
 ## 1.0.0-rc13
 
 - UI/UX improvements
-- Labels logic updates
+- Mappings logic updates
 
 ## 1.0.0-rc12
 
