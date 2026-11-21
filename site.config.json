@@ -78,9 +78,9 @@
   ],
   "llms": {
     "facts": [
-      "Cars: Volkswagen, Audi, Seat and Škoda using TP 2.0 (about 2004–2010) or UDS on 11-bit CAN ids (about 2012 and later); mixed cars work unit by unit. Not supported: cars with 29-bit diagnostic ids only (MEB electric cars such as the ID. models, and MQB evo cars such as the Golf 8 generation).",
+      "Cars: Volkswagen, Audi, Seat and Škoda using TP 2.0 (about 2004–2010) or UDS on 11-bit and 29-bit CAN ids (about 2012 and later, including MEB electric models and MQB-evo cars such as the Golf 8 generation); mixed cars work unit by unit.",
       "Adapter: any Bluetooth ELM327 adapter (Classic or BLE on Android, BLE only on iPhone). Tested with a vLinker MC+.",
-      "Features: mileage check (odometer against the distance stored in each control unit), VIN check, control-unit scan, fault codes with freeze frames, live data, dashboards (also on Android Auto), coding, long coding, adaptation, basic settings with guided functions, output tests, community procedures, demo cars.",
+      "Features: health check (fault codes, mileage and VIN in one run and one signed PDF report), mileage check (odometer against the distance stored in each control unit), VIN check, control-unit scan and advanced identification, fault codes with freeze frames and where to look, live data, dashboards (also on Android Auto), coding, long coding, gateway installation list, adaptation, basic settings with guided functions, output tests, community procedures, four demo cars.",
       "Results are indicative: the app never says a car is genuine or that its mileage is correct.",
       "Privacy: no network permission, no account, no advertising, no analytics.",
       "Platforms: Android 9 or later. An iPhone version with Apple CarPlay is planned.",
