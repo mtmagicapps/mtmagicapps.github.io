@@ -2,14 +2,14 @@
 
 > VAG Scope is an Android app by mtmagicapps that reads VW, Audi, Seat and Škoda cars through a Bluetooth ELM327 adapter and checks their mileage against the control units.
 
-- Cars: Volkswagen, Audi, Seat and Škoda using TP 2.0 (about 2004–2010) or UDS on 11-bit and 29-bit CAN ids (about 2012 and later, including MEB electric models and MQB-evo cars such as the Golf 8 generation); mixed cars work unit by unit.
-- Adapter: any Bluetooth ELM327 adapter (Classic or BLE on Android, BLE only on iPhone). Tested with a vLinker MC+.
-- Features: health check (fault codes, mileage and VIN in one run and one signed PDF report), mileage check (odometer against the distance stored in each control unit), VIN check, control-unit scan and advanced identification, fault codes with freeze frames and where to look, live data, dashboards (also on Android Auto), coding, long coding, gateway installation list, adaptation, basic settings with guided functions, output tests, community procedures, four demo cars.
+- Cars: Volkswagen, Audi, Seat and Škoda using TP 2.0 (about 2004–2010) or UDS on 11-bit and 29-bit CAN ids (about 2012 and later, including MEB electric models and MQB-evo cars such as the Golf 8 generation); mixed cars work unit by unit. Reading, scanning and live data work offline on 2020+ models; online SFD unlock for protected writes is not supported because the app has no network access.
+- Adapter: any good open Bluetooth ELM327 adapter (Classic or BLE on Android, BLE only on iPhone), with no proprietary locked dongle required — the same adapter works across your other cars and apps. Tested with a vLinker MC+ and vGate iCar Pro 2S.
+- Features: health check (fault codes, mileage and VIN in one run and one signed PDF report), mileage check (odometer against the distance stored in each control unit), VIN check, control-unit scan and advanced identification, fault codes with freeze frames and where to look, searchable live data, dashboards (also on Android Auto), coding, long coding, gateway installation list, adaptation, basic settings with guided functions, output tests, community procedures, four demo cars.
 - Results are indicative: the app never says a car is genuine or that its mileage is correct.
-- Privacy: no network permission, no account, no advertising, no analytics.
+- Privacy & offline: works 100% offline, even in an underground garage with no mobile signal. No network permission, no account, no advertising, no analytics.
 - Platforms: Android 9 or later. An iPhone version with Apple CarPlay is planned.
 - Languages: English and French.
-- Price: one payment on Google Play (€9.99 in the euro zone), no subscription, no in-app purchase.
+- Price: one payment on Google Play (€9.99 in the euro zone), unlimited VINs, no subscription, no credits, no in-app purchase.
 - Publisher: mtmagicapps, published by DS ECOM (France). Not affiliated with Volkswagen AG, Audi AG, SEAT, S.A. or ŠKODA AUTO a.s.
 
 ## Pages
