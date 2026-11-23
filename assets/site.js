@@ -78,7 +78,7 @@
       document.getElementById(bad[0]).focus();
       return;
     }
-    var body = document.getElementById('f-msg').value.trim() + '\n\n—\n' +
+    var body = document.getElementById('f-msg').value.trim() + '\n\n-\n' +
       document.getElementById('f-name').value.trim() + '\n' + document.getElementById('f-email').value.trim();
     note.className = 'form-note';
     note.textContent = s('ok');

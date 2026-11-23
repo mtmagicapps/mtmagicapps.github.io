@@ -65,14 +65,14 @@
       <p class="answer">Pick a genuine, well-built open Bluetooth ELM327 adapter such as the vLinker MC+ (fast, reliable for coding and live data) or the vGate iCar Pro 2S (compact, affordable alternative). Avoid €5–€10 generic clones: they drop frames on VW-group TP 2.0 and UDS protocols, whereas an open ELM327 works across cars and apps without locking you into one vendor’s subscription.</p>
       <h2 id="why-the-adapter-matters-on-vw-group-cars">Why the adapter matters on VW-group cars</h2>
       <p>Generic OBD-II apps only ask the engine control unit a handful of standard emissions questions. Almost any cheap plug can do that.</p>
-      <p>Diagnosing a Volkswagen, Audi, Seat or Škoda properly is much more demanding. Reading all installed control units — engine, gearbox, ABS, instrument cluster, gateway, comfort modules — running a <a href="/vag-scope/guides/used-car-mileage-check/">mileage check</a>, checking the <a href="/vag-scope/guides/vin-check/">VIN across modules</a>, or changing coding requires VW-group protocols: <strong>TP 2.0</strong> (roughly 2004–2010) and <strong>UDS</strong> on 11-bit and 29-bit CAN ids (roughly 2012 onwards, including MQB-evo and MEB electric models).</p>
+      <p>Diagnosing a Volkswagen, Audi, Seat or Škoda properly is much more demanding. Reading all installed control units - engine, gearbox, ABS, instrument cluster, gateway, comfort modules - running a <a href="/vag-scope/guides/used-car-mileage-check/">mileage check</a>, checking the <a href="/vag-scope/guides/vin-check/">VIN across modules</a>, or changing coding requires VW-group protocols: <strong>TP 2.0</strong> (roughly 2004–2010) and <strong>UDS</strong> on 11-bit and 29-bit CAN ids (roughly 2012 onwards, including MQB-evo and MEB electric models).</p>
       <p>Those protocols rely on raw CAN framing, custom CAN headers and filters, and multi-frame ISO-TP exchanges. A good adapter handles them cleanly and consistently; a poor clone drops frames, stalls halfway through a scan or refuses to talk to half the car.</p>
       <h2 id="open-elm327-vs-proprietary-locked-dongles">Open ELM327 vs proprietary locked dongles</h2>
       <p>Many phone diagnostic tools require their own proprietary dongle. That dongle only works with one app, often ties you to an annual subscription or credit system, and sits useless in a drawer if you change cars or stop paying.</p>
       <p>An <strong>open Bluetooth ELM327 adapter</strong> avoids that lock-in:</p>
       <ul>
         <li><strong>One adapter, many apps.</strong> You can use it with <a href="/vag-scope/">VAG Scope</a> for VW, Audi, Seat and Škoda diagnostics, and reuse the exact same adapter with other OBD apps on a partner’s car, a second vehicle from another brand or a motorcycle.</li>
-        <li><strong>No account or cloud dependency.</strong> The adapter speaks straight to your phone over Bluetooth, so it works 100% offline — including in an underground garage with no mobile signal.</li>
+        <li><strong>No account or cloud dependency.</strong> The adapter speaks straight to your phone over Bluetooth, so it works 100% offline - including in an underground garage with no mobile signal.</li>
         <li><strong>Lower total cost.</strong> A solid open adapter costs roughly €30–€60 once and outlasts several cars.</li>
       </ul>
       <h2 id="recommended-adapters-tested-with-vag-scope">Recommended adapters tested with VAG Scope</h2>
@@ -89,7 +89,7 @@
       <p>Online marketplaces are full of translucent blue or black mini-adapters labelled &quot;ELM327 v2.1&quot; or &quot;v1.5&quot; for a few euros. They cause most connection headaches on VW-group cars:</p>
       <ul>
         <li><strong>Stripped command sets.</strong> Many v2.1 clones remove or misimplement raw CAN commands (<code>AT SH</code>, <code>AT CRA</code>, flow control) that TP 2.0 and UDS depend on.</li>
-        <li><strong>Tiny buffers.</strong> Multi-frame responses — such as fault code lists with freeze-frame mileage or long coding strings — get truncated or corrupted.</li>
+        <li><strong>Tiny buffers.</strong> Multi-frame responses - such as fault code lists with freeze-frame mileage or long coding strings - get truncated or corrupted.</li>
         <li><strong>Unstable timing.</strong> TP 2.0 channels require steady keep-alive timing; a sluggish clone drops the session mid-scan.</li>
         <li><strong>No true sleep mode.</strong> Leaving an always-on clone plugged into the OBD socket can slowly drain a weak 12 V battery overnight.</li>
       </ul>
@@ -102,7 +102,7 @@
       <p>Both the <strong>vLinker MC+</strong> and the <strong>vGate iCar Pro 2S</strong> include BLE. Picking a dual-mode adapter today means you will not need to buy a second dongle if you switch phones or share it with someone on iOS.</p>
       <h2 id="what-an-elm327-adapter-can-and-cannot-do-on-2020-cars">What an ELM327 adapter can and cannot do on 2020+ cars</h2>
       <p>On newer 2020+ MQB-evo and MEB cars (such as Golf 8, Octavia 4, Cupra Formentor or ID.3/ID.4), a good ELM327 adapter over 29-bit UDS lets VAG Scope scan control units, read fault codes, monitor live data, and run health, mileage and VIN checks completely offline.</p>
-      <p>However, Volkswagen Group protects write access on many 2020+ modules with <strong>SFD / SFD2</strong> (server-signed diagnostic unlock). Because VAG Scope has no internet permission by design, online SFD write unlock is not supported — no ELM327 adapter can bypass that offline.</p>
+      <p>However, Volkswagen Group protects write access on many 2020+ modules with <strong>SFD / SFD2</strong> (server-signed diagnostic unlock). Because VAG Scope has no internet permission by design, online SFD write unlock is not supported - no ELM327 adapter can bypass that offline.</p>
       <h2 id="practical-tips-before-you-plug-in">Practical tips before you plug in</h2>
       <ul>
         <li><strong>Locate the OBD socket</strong> under the dashboard on the driver’s side, near the steering column or behind a small trim cover.</li>
