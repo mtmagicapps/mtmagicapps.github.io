@@ -63,10 +63,10 @@
       <p class="doc-back"><a href="/vag-scope/guides/">← All guides</a></p>
       <h1>Best ELM327 Bluetooth adapter for VW, Audi, Seat and Škoda</h1>
       <p class="guide-meta">Updated <time datetime="2026-11-21">21 November 2026</time></p>
-      <p class="answer">Pick a genuine, well-built open Bluetooth ELM327 adapter such as the vLinker MC+ (fast, reliable for coding and live data) or the vGate iCar Pro 2S (compact, affordable alternative). Avoid €5–€10 generic clones: they drop frames on VW-group TP 2.0 and UDS protocols, whereas an open ELM327 works across cars and apps without locking you into one vendor’s subscription.</p>
+      <p class="answer">Pick a genuine, well-built open Bluetooth ELM327 adapter such as the vLinker MC+ (fast, reliable for coding and live data) or the vGate iCar Pro 2S (compact, affordable alternative). Avoid €5-€10 generic clones: they drop frames on VW-group TP 2.0 and UDS protocols, whereas an open ELM327 works across cars and apps without locking you into one vendor’s subscription.</p>
       <h2 id="why-the-adapter-matters-on-vw-group-cars">Why the adapter matters on VW-group cars</h2>
       <p>Generic OBD-II apps only ask the engine control unit a handful of standard emissions questions. Almost any cheap plug can do that.</p>
-      <p>Diagnosing a Volkswagen, Audi, Seat or Škoda properly is much more demanding. Reading all installed control units - engine, gearbox, ABS, instrument cluster, gateway, comfort modules - running a <a href="/vag-scope/guides/used-car-mileage-check/">mileage check</a>, checking the <a href="/vag-scope/guides/vin-check/">VIN across modules</a>, or changing coding requires VW-group protocols: <strong>TP 2.0</strong> (roughly 2004–2010) and <strong>UDS</strong> on 11-bit and 29-bit CAN ids (roughly 2012 onwards, including MQB-evo and MEB electric models).</p>
+      <p>Diagnosing a Volkswagen, Audi, Seat or Škoda properly is much more demanding. Reading all installed control units - engine, gearbox, ABS, instrument cluster, gateway, comfort modules - running a <a href="/vag-scope/guides/used-car-mileage-check/">mileage check</a>, checking the <a href="/vag-scope/guides/vin-check/">VIN across modules</a>, or changing coding requires VW-group protocols: <strong>TP 2.0</strong> (roughly 2004-2010) and <strong>UDS</strong> on 11-bit and 29-bit CAN ids (roughly 2012 onwards, including MQB-evo and MEB electric models).</p>
       <p>Those protocols rely on raw CAN framing, custom CAN headers and filters, and multi-frame ISO-TP exchanges. A good adapter handles them cleanly and consistently; a poor clone drops frames, stalls halfway through a scan or refuses to talk to half the car.</p>
       <h2 id="open-elm327-vs-proprietary-locked-dongles">Open ELM327 vs proprietary locked dongles</h2>
       <p>Many phone diagnostic tools require their own proprietary dongle. That dongle only works with one app, often ties you to an annual subscription or credit system, and sits useless in a drawer if you change cars or stop paying.</p>
@@ -74,7 +74,7 @@
       <ul>
         <li><strong>One adapter, many apps.</strong> You can use it with <a href="/vag-scope/">VAG Scope</a> for VW, Audi, Seat and Škoda diagnostics, and reuse the exact same adapter with other OBD apps on a partner’s car, a second vehicle from another brand or a motorcycle.</li>
         <li><strong>No account or cloud dependency.</strong> The adapter speaks straight to your phone over Bluetooth, so it works 100% offline - including in an underground garage with no mobile signal.</li>
-        <li><strong>Lower total cost.</strong> A solid open adapter costs roughly €30–€60 once and outlasts several cars.</li>
+        <li><strong>Lower total cost.</strong> A solid open adapter costs roughly €30-€60 once and outlasts several cars.</li>
       </ul>
       <h2 id="recommended-adapters-tested-with-vag-scope">Recommended adapters tested with VAG Scope</h2>
       <p>VAG Scope was built and tested on real cars with two open Bluetooth ELM327 adapters. Both support Classic Bluetooth and BLE, include automatic sleep mode to protect your car’s battery, and handle TP 2.0 as well as 11-bit and 29-bit UDS.</p>
@@ -86,7 +86,7 @@
         </tbody>
       </table></div>
       <p>You can find current links on the <a href="/vag-scope/#adapters">VAG Scope adapters section</a>.</p>
-      <h2 id="why-cheap-5-10-elm327-clones-fail">Why cheap €5–€10 ELM327 clones fail</h2>
+      <h2 id="why-cheap-5-10-elm327-clones-fail">Why cheap €5-€10 ELM327 clones fail</h2>
       <p>Online marketplaces are full of translucent blue or black mini-adapters labelled &quot;ELM327 v2.1&quot; or &quot;v1.5&quot; for a few euros. They cause most connection headaches on VW-group cars:</p>
       <ul>
         <li><strong>Stripped command sets.</strong> Many v2.1 clones remove or misimplement raw CAN commands (<code>AT SH</code>, <code>AT CRA</code>, flow control) that TP 2.0 and UDS depend on.</li>
@@ -94,7 +94,7 @@
         <li><strong>Unstable timing.</strong> TP 2.0 channels require steady keep-alive timing; a sluggish clone drops the session mid-scan.</li>
         <li><strong>No true sleep mode.</strong> Leaving an always-on clone plugged into the OBD socket can slowly drain a weak 12 V battery overnight.</li>
       </ul>
-      <p>Spending €25–€45 more once saves hours of troubleshooting false connection errors.</p>
+      <p>Spending €25-€45 more once saves hours of troubleshooting false connection errors.</p>
       <h2 id="android-vs-iphone-classic-bluetooth-or-ble">Android vs iPhone: Classic Bluetooth or BLE?</h2>
       <ul>
         <li><strong>On Android</strong>, VAG Scope works with both <strong>Classic Bluetooth (SPP)</strong> and <strong>Bluetooth Low Energy (BLE)</strong> adapters.</li>

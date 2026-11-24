@@ -233,7 +233,7 @@ const GUIDE_UI = {
       buying: { title: 'Used-car mileage & VIN checks', desc: 'How to verify odometer readings and control-unit VINs before you buy.' },
       adapters: { title: 'Open ELM327 adapters & setup', desc: 'Which Bluetooth adapters handle VW-group protocols cleanly and why open hardware beats locked dongles.' },
       diy: { title: 'Offline DIY diagnostics & coding', desc: 'Scanning, live data, coding and service resets without subscriptions, credits or laptops.' },
-      performance: { title: 'Live data, procedures & Performance Hub', desc: 'Measuring blocks, guided procedures, 0–500 km/h timing and virtual dyno.' },
+      performance: { title: 'Live data, procedures & Performance Hub', desc: 'Measuring blocks, guided procedures, 0-500 km/h timing and virtual dyno.' },
       general: { title: 'More guides', desc: '' },
     } },
   fr: { guides: 'Guides', all: '← Tous les guides', updated: 'Mis à jour le', h1: 'Guides VAG Scope',
@@ -247,7 +247,7 @@ const GUIDE_UI = {
       buying: { title: 'Achat d’occasion : kilométrage et VIN', desc: 'Comparer le compteur aux calculateurs et vérifier le VIN avant de signer.' },
       adapters: { title: 'Adaptateurs ELM327 ouverts', desc: 'Quels boîtiers Bluetooth tiennent la route en TP 2.0 et UDS, et pourquoi éviter les clones et boîtiers verrouillés.' },
       diy: { title: 'Diagnostic et codage hors ligne', desc: 'Scan complet, mesures en direct, codage et entretien sans abonnement, sans crédits et sans PC portable.' },
-      performance: { title: 'Mesures en direct, procédures et Performance Hub', desc: 'Blocs de mesures, procédures guidées, chronos 0–500 km/h et banc virtuel.' },
+      performance: { title: 'Mesures en direct, procédures et Performance Hub', desc: 'Blocs de mesures, procédures guidées, chronos 0-500 km/h et banc virtuel.' },
       general: { title: 'Autres guides', desc: '' },
     } },
 };
@@ -260,7 +260,7 @@ const MODEL_UI = {
     searchLabel: 'Filter by model, year or platform',
     searchPh: 'e.g. Golf 7, A4 B8, Octavia, MQB, 2016…',
     allBrands: 'All brands',
-    empty: 'No matching generation in this list yet. Any 2004–2010 TP 2.0 or 2012+ UDS VW-group car is supported by protocol.',
+    empty: 'No matching generation in this list yet. Any 2004-2010 TP 2.0 or 2012+ UDS VW-group car is supported by protocol.',
     cols: ['Model', 'Years', 'Platform', 'Protocol', 'SFD / Status'],
     proto: {
       tp20: 'CAN TP 2.0',
@@ -294,7 +294,7 @@ const MODEL_UI = {
     searchLabel: 'Filtrer par modèle, année ou plateforme',
     searchPh: 'ex. Golf 7, A4 B8, Octavia, MQB, 2016…',
     allBrands: 'Toutes les marques',
-    empty: 'Aucune génération correspondante dans cette liste. Toute voiture du groupe VW en TP 2.0 (2004–2010) ou UDS (2012+) est prise en charge par protocole.',
+    empty: 'Aucune génération correspondante dans cette liste. Toute voiture du groupe VW en TP 2.0 (2004-2010) ou UDS (2012+) est prise en charge par protocole.',
     cols: ['Modèle', 'Années', 'Plateforme', 'Protocole', 'SFD / Statut'],
     proto: {
       tp20: 'CAN TP 2.0',
@@ -441,7 +441,7 @@ ${rows}
       'Bilan de santé avant achat : codes défaut, comparaison du kilométrage entre calculateurs et contrôle du VIN dans un rapport PDF signé.',
       'Scan complet des calculateurs et identification avancée, effacement des défauts après sauvegarde et confirmation.',
       'Mesures en direct (blocs de mesures / DIDs), graphiques sur 60 s, export CSV, tableaux de bord sur téléphone et Android Auto.',
-      'Performance Hub : chronos 0–500 km/h (fusion OBD + capteurs téléphone 100 Hz), banc virtuel et fiches PNG/PDF signées sans GPS.',
+      'Performance Hub : chronos 0-500 km/h (fusion OBD + capteurs téléphone 100 Hz), banc virtuel et fiches PNG/PDF signées sans GPS.',
       m.sfd
         ? 'Écriture et codage : possibles hors ligne sur les calculateurs non verrouillés SFD ; le déverrouillage SFD en ligne n’est pas géré (aucune permission réseau).'
         : 'Codage, codage long, liste d’installation passerelle, adaptations, réglages de base, tests actionneurs et remise à zéro d’entretien (sauvegarde et relecture automatiques).',
@@ -449,7 +449,7 @@ ${rows}
       'Pre-purchase health check: fault codes, cross-module mileage comparison and VIN check in one signed PDF report.',
       'Full control-unit scan, advanced identification and fault clearing with automatic backup and confirmation.',
       'Searchable live data (measuring blocks / UDS DIDs), 60-second charts, CSV logging and Android Auto dashboards.',
-      'Performance Hub: 0–500 km/h timing (100 Hz OBD + phone IMU fusion), virtual dyno and signed PNG/PDF proof cards without GPS permission.',
+      'Performance Hub: 0-500 km/h timing (100 Hz OBD + phone IMU fusion), virtual dyno and signed PNG/PDF proof cards without GPS permission.',
       m.sfd
         ? 'Coding and adaptations: offline writes work on non-SFD modules; online SFD unlock for protected 2020+ modules is not supported because the app has no network permission.'
         : 'Coding, long coding, gateway installation list, adaptations, basic settings, output tests and service reset with automatic backup and read-back.',
