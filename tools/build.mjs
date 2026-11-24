@@ -86,11 +86,12 @@ const GUIDES = AUDIT ? [] : [...new Set(fs.readdirSync(CONTENT)
   return g;
 });
 const MODELS = AUDIT || !fs.existsSync(path.join(ROOT, 'vag-scope/models.json')) ? [] : readJson('vag-scope/models.json').map((m) => ({
-  ...m, path: `vag-scope/models/${m.slug}/index.html`, generated: 'model', jsonld: ['TechArticle', 'BreadcrumbList'],
+  ...m, path: `vag-scope/models/${m.slug}/index.html`, generated: 'model', jsonld: ['TechArticle', 'BreadcrumbList', 'FAQPage'],
 }));
+const MODEL_PAGES = MODELS.filter((m) => m.page);
 const ALL = [...cfg.pages,
   ...(GUIDES.length ? [{ path: 'vag-scope/guides/index.html', generated: 'guides', jsonld: ['BreadcrumbList'] }] : []), ...GUIDES,
-  ...(MODELS.length ? [{ path: 'vag-scope/models/index.html', generated: 'models', jsonld: ['BreadcrumbList'] }] : []), ...MODELS];
+  ...(MODELS.length ? [{ path: 'vag-scope/models/index.html', generated: 'models', jsonld: ['ItemList', 'BreadcrumbList', 'FAQPage'] }] : []), ...MODEL_PAGES];
 const PAGES = ALL.map((p) => p.path);
 // "vag-scope/index.html" -> "/vag-scope/", "vag-scope/privacy.html" -> "/vag-scope/privacy.html"
 function urlPath(file, lang) { return (lang === 'fr' ? '/fr/' : '/') + file.replace(/(^|\/)index\.html$/, '$1'); }
@@ -256,9 +257,10 @@ const MODEL_UI = {
     hub: 'Compatible models', all: '← All compatible models',
     h1: 'Compatible VW, Audi, Seat and Škoda models',
     seo: 'Compatible VW, Audi, Seat & Škoda models',
-    intro: 'Check which diagnostic protocol your Volkswagen, Audi, Seat, Škoda or Cupra uses (TP 2.0, 11-bit UDS or 29-bit UDS), whether SFD write protection applies, and which Bluetooth ELM327 adapter to use.',
-    searchLabel: 'Filter by model, year or platform',
-    searchPh: 'e.g. Golf 7, A4 B8, Octavia, MQB, 2016…',
+    hubDesc: 'Check VAG Scope compatibility by VW, Audi, Seat, Škoda or Cupra generation: TP 2.0, 11-bit and 29-bit UDS protocols, SFD status and ELM327 setup.',
+    intro: 'Check which diagnostic protocol your Volkswagen, Audi, Seat, Škoda or Cupra uses (TP 2.0, 11-bit UDS or 29-bit UDS), whether SFD write protection applies, and which open Bluetooth ELM327 adapter to use.',
+    searchLabel: 'Filter by model, chassis code, year or platform',
+    searchPh: 'e.g. Golf 7, 5G, A4 B8, 8K, Octavia, MQB, 2016…',
     allBrands: 'All brands',
     empty: 'No matching generation in this list yet. Any 2004-2010 TP 2.0 or 2012+ UDS VW-group car is supported by protocol.',
     cols: ['Model', 'Years', 'Platform', 'Protocol', 'SFD / Status'],
@@ -277,11 +279,50 @@ const MODEL_UI = {
     sfdNo: 'No SFD write lock (offline reading and coding supported)',
     sfdShortYes: 'Read/scan offline · SFD write lock',
     sfdShortNo: 'Full offline read & coding',
-    whatWorksH: 'What works on this generation',
-    notesH: 'Generation notes',
+    siblingLink: 'See platform guide:',
+    eraH: 'VAG diagnostic protocols by era',
+    eraIntro: 'Volkswagen Group vehicles moved through four main CAN diagnostic eras. Knowing your car’s era tells you immediately what VAG Scope can read and write.',
+    eraCols: ['Era', 'Protocol', 'Example platforms', 'What VAG Scope supports'],
+    eraRows: [
+      ['Before 2004', 'K-Line (KWP1281 / KWP2000)', 'Golf 4 (1J), A3 8L, A4 B5/B6', 'Not supported on CAN-only ELM327 paths.'],
+      ['2004-2010', 'CAN TP 2.0', 'PQ35 (Golf 5, A3 8P), C6 (4F)', 'Full offline scan, measuring blocks, coding, adaptations, mileage/VIN checks and Performance Hub.'],
+      ['2009-2014', 'Mixed TP 2.0 + 11-bit UDS', 'Golf 6, Passat B7, A1 8X, Octavia 2 FL', 'Automatic unit-by-unit protocol switching across both old and new modules.'],
+      ['2012-2020', '11-bit CAN UDS', 'MQB (Golf 7, A3 8V, Leon 5F), MLB / B9', 'Full offline scan, rich multi-unit mileage/VIN checks, live data, coding and Performance Hub with no SFD lock.'],
+      ['2020+', '11-bit & 29-bit CAN UDS (4-hex)', 'MQB-evo (Golf 8, Leon KL), MEB (ID.3, ID.4)', 'Offline scan, 29-bit EV/hybrid modules, live data, health/mileage/VIN checks and Performance Hub. Online SFD write unlock is not supported.'],
+    ],
+    hubFaqH: 'Common compatibility questions',
+    hubFaqs: [
+      {
+        q: 'My exact VW, Audi, Seat or Škoda model is not in the table. Will it still work?',
+        a: 'Yes, if it uses CAN TP 2.0 (roughly 2004-2010) or UDS on 11-bit or 29-bit CAN ids (roughly 2012 onwards). You can also preview the four built-in demo cars (Audi RS6 C6, Audi S3 8V, Audi A1 8X, VW ID.4 GTX) straight from the home screen before buying an adapter.',
+      },
+      {
+        q: 'Does VAG Scope work on pre-2004 K-line cars like a Golf 4 or Audi A4 B6?',
+        a: 'No. VAG Scope targets CAN TP 2.0 (2004+) and UDS (2012+) vehicles. Pre-2004 K-line-only cars (and some K-line-only comfort modules on early A4 B7s) are not supported over CAN-only ELM327 paths.',
+      },
+      {
+        q: 'What does SFD protection change on 2020+ MQB-evo and MEB cars?',
+        a: 'SFD/SFD2 requires an online server-signed token to unlock protected write commands. Because VAG Scope has zero network permission by design, it works 100% offline for scanning, fault codes, live data, mileage/VIN checks and Performance Hub, and deliberately does not perform online SFD unlocks.',
+      },
+      {
+        q: 'Which adapter works on Android vs iPhone?',
+        a: 'On Android, both Classic Bluetooth (SPP) and Bluetooth Low Energy (BLE) ELM327 adapters work; VAG Scope is built and tested with the vLinker MC+ and vGate iCar Pro 2S. The upcoming iPhone version requires a BLE adapter (both recommended models include BLE).',
+      },
+      {
+        q: 'How can I help verify a model on a real car?',
+        a: 'Use the Contact form at the bottom of the site or share an exported protocol log from your car so we can confirm exact control-unit coverage and add your chassis to the verified list.',
+      },
+    ],
     specH: 'Technical overview',
-    specRows: ['Brand & model', 'Model years', 'Platform', 'Protocol', 'Verification status', 'SFD write protection', 'Recommended adapter'],
+    specCols: ['Item', 'Detail'],
+    specRows: ['Brand & model', 'Chassis / type codes', 'Model years', 'Platform', 'Protocol', 'Verification status', 'SFD write protection', 'Recommended adapter'],
     adapterVal: 'Open Bluetooth ELM327 (vLinker MC+ or vGate iCar Pro 2S; Classic or BLE on Android, BLE on iPhone)',
+    obdH: 'Where is the OBD-II port?',
+    mileageH: 'Mileage & VIN check on this generation',
+    checkH: 'What to check before buying or maintaining',
+    whatWorksH: 'What VAG Scope supports on this chassis',
+    faqH: 'Frequently asked questions',
+    platformPeersH: 'Same-platform siblings',
     peersH: 'Other models from',
     guidesH: 'Helpful guides for this car',
     updated: '2026-11-24',
@@ -290,9 +331,10 @@ const MODEL_UI = {
     hub: 'Modèles compatibles', all: '← Tous les modèles compatibles',
     h1: 'Modèles VW, Audi, Seat et Škoda compatibles',
     seo: 'Modèles VW, Audi, Seat et Škoda compatibles',
-    intro: 'Vérifiez le protocole de diagnostic de votre Volkswagen, Audi, Seat, Škoda ou Cupra (TP 2.0, UDS 11 bits ou UDS 29 bits), la présence éventuelle de SFD et l’adaptateur ELM327 Bluetooth adapté.',
-    searchLabel: 'Filtrer par modèle, année ou plateforme',
-    searchPh: 'ex. Golf 7, A4 B8, Octavia, MQB, 2016…',
+    hubDesc: 'Vérifiez la compatibilité de VAG Scope par génération VW, Audi, Seat, Škoda ou Cupra : TP 2.0, UDS 11 et 29 bits, statut SFD et adaptateur ELM327.',
+    intro: 'Vérifiez le protocole de diagnostic de votre Volkswagen, Audi, Seat, Škoda ou Cupra (TP 2.0, UDS 11 bits ou UDS 29 bits), la présence éventuelle de SFD et l’adaptateur ELM327 Bluetooth ouvert adapté.',
+    searchLabel: 'Filtrer par modèle, code châssis, année ou plateforme',
+    searchPh: 'ex. Golf 7, 5G, A4 B8, 8K, Octavia, MQB, 2016…',
     allBrands: 'Toutes les marques',
     empty: 'Aucune génération correspondante dans cette liste. Toute voiture du groupe VW en TP 2.0 (2004-2010) ou UDS (2012+) est prise en charge par protocole.',
     cols: ['Modèle', 'Années', 'Plateforme', 'Protocole', 'SFD / Statut'],
@@ -311,11 +353,50 @@ const MODEL_UI = {
     sfdNo: 'Pas de verrouillage SFD (lecture et codage hors ligne)',
     sfdShortYes: 'Lecture/scan hors ligne · SFD en écriture',
     sfdShortNo: 'Lecture et codage hors ligne',
-    whatWorksH: 'Ce qui fonctionne sur cette génération',
-    notesH: 'Notes techniques sur ce modèle',
+    siblingLink: 'Voir le guide plateforme :',
+    eraH: 'Les protocoles de diagnostic VAG par génération',
+    eraIntro: 'L’électronique du groupe Volkswagen a traversé quatre grandes générations CAN. Connaître celle de votre voiture indique tout de suite ce que VAG Scope lit et écrit.',
+    eraCols: ['Période', 'Protocole', 'Plateformes types', 'Prise en charge VAG Scope'],
+    eraRows: [
+      ['Avant 2004', 'Ligne K (KWP1281 / KWP2000)', 'Golf 4 (1J), A3 8L, A4 B5/B6', 'Non pris en charge sur les chemins ELM327 CAN uniquement.'],
+      ['2004-2010', 'CAN TP 2.0', 'PQ35 (Golf 5, A3 8P), C6 (4F)', 'Scan complet hors ligne, blocs de mesures, codage, adaptations, contrôles kilométrage/VIN et Performance Hub.'],
+      ['2009-2014', 'Mixte TP 2.0 + UDS 11 bits', 'Golf 6, Passat B7, A1 8X, Octavia 2 FL', 'Bascule automatique calculateur par calculateur entre les deux protocoles.'],
+      ['2012-2020', 'UDS CAN 11 bits', 'MQB (Golf 7, A3 8V, Leon 5F), MLB / B9', 'Scan complet hors ligne, nombreux relevés kilométrage/VIN, mesures en direct, codage et Performance Hub sans SFD.'],
+      ['2020+', 'UDS CAN 11 et 29 bits (4 hexa)', 'MQB-evo (Golf 8, Leon KL), MEB (ID.3, ID.4)', 'Scan hors ligne, modules électriques/hybrides 29 bits, mesures en direct, bilans santé/kilométrage/VIN et Performance Hub. Pas de déverrouillage SFD en ligne.'],
+    ],
+    hubFaqH: 'Questions fréquentes sur la compatibilité',
+    hubFaqs: [
+      {
+        q: 'Mon modèle VW, Audi, Seat ou Škoda n’est pas dans le tableau, est-il compatible ?',
+        a: 'Oui s’il utilise CAN TP 2.0 (environ 2004-2010) ou UDS sur CAN 11 ou 29 bits (environ 2012 et après). Vous pouvez aussi tester les quatre voitures de démonstration intégrées (Audi RS6 C6, Audi S3 8V, Audi A1 8X, VW ID.4 GTX) dès l’écran d’accueil.',
+      },
+      {
+        q: 'VAG Scope fonctionne-t-elle sur une voiture d’avant 2004 en ligne K (Golf 4, A4 B6) ?',
+        a: 'Non. VAG Scope cible les voitures en CAN TP 2.0 (2004+) et UDS (2012+). Les anciens véhicules uniquement en ligne K (et certains modules confort en ligne K des premières A4 B7) ne passent pas.',
+      },
+      {
+        q: 'Que change la protection SFD sur les modèles 2020+ (MQB-evo et MEB) ?',
+        a: 'SFD/SFD2 impose un jeton signé par les serveurs du constructeur pour débloquer certaines écritures. Comme VAG Scope n’a aucune permission réseau par conception, la lecture, le scan, le bilan de santé, le kilométrage, le VIN et le Performance Hub fonctionnent 100 % hors ligne, mais le déverrouillage SFD en ligne n’est pas géré.',
+      },
+      {
+        q: 'Quel adaptateur faut-il sur Android et sur iPhone ?',
+        a: 'Sur Android, Bluetooth classique (SPP) et BLE fonctionnent tous les deux (testée avec vLinker MC+ et vGate iCar Pro 2S). La future version iPhone demandera impérativement un adaptateur BLE : les deux modèles recommandés gèrent déjà le BLE.',
+      },
+      {
+        q: 'Comment aider à valider un modèle sur une vraie voiture ?',
+        a: 'Écrivez-nous via le formulaire Contact en bas du site avec un retour ou un journal de protocole exporté depuis l’appli pour confirmer la prise en charge exacte de votre génération.',
+      },
+    ],
     specH: 'Fiche technique',
-    specRows: ['Marque et modèle', 'Années', 'Plateforme', 'Protocole', 'Statut de vérification', 'Protection SFD', 'Adaptateur recommandé'],
+    specCols: ['Élément', 'Détail'],
+    specRows: ['Marque et modèle', 'Codes châssis', 'Années', 'Plateforme', 'Protocole', 'Statut de vérification', 'Protection SFD', 'Adaptateur recommandé'],
     adapterVal: 'ELM327 Bluetooth ouvert (vLinker MC+ ou vGate iCar Pro 2S ; Classique ou BLE sur Android, BLE sur iPhone)',
+    obdH: 'Où se trouve la prise OBD ?',
+    mileageH: 'Contrôle du kilométrage et du VIN sur cette génération',
+    checkH: 'Points à vérifier avant achat ou à l’entretien',
+    whatWorksH: 'Ce que VAG Scope gère sur cette voiture',
+    faqH: 'Questions fréquentes',
+    platformPeersH: 'Modèles sur la même plateforme',
     peersH: 'Autres modèles',
     guidesH: 'Guides utiles pour cette voiture',
     updated: '2026-11-24',
@@ -389,21 +470,29 @@ ${sections}
     </section>`;
   } else if (page.generated === 'models') {
     title = `${mui.seo} | VAG Scope`;
-    desc = mui.intro.slice(0, 155);
+    desc = mui.hubDesc;
     extraScript = '\n  <script src="/assets/models.js" defer></script>';
+    const badges = read('tools/templates/stores.html').replace(/\{\{utm\}\}/g, 'models_hub');
     const brands = [...new Set(MODELS.map((m) => m.brand))];
     const pills = `<button type="button" class="pill-btn" data-brand-filter="all" aria-pressed="true">${esc(mui.allBrands)}</button>` +
       brands.map((b) => `<button type="button" class="pill-btn" data-brand-filter="${esc(b)}" aria-pressed="false">${esc(b)}</button>`).join('');
     const rows = MODELS.map((m) => {
-      const search = `${m.brand} ${m.model} ${m.years} ${m.platform} ${mui.proto[m.protocol]}`;
+      const codesStr = (m.codes || []).join(', ');
+      const search = `${m.brand} ${m.model} ${codesStr} ${m.years} ${m.platform} ${mui.proto[m.protocol]}`;
+      const siblingObj = m.sibling ? MODEL_PAGES.find((x) => x.slug === m.sibling) : null;
+      const modelCell = m.page
+        ? `<a href="/vag-scope/models/${m.slug}/">${esc(m.brand)} ${esc(m.model)}</a><span class="model-codes">${esc(codesStr)}</span>`
+        : `<strong>${esc(m.brand)} ${esc(m.model)}</strong><span class="model-codes">${esc(codesStr)}</span><span class="model-note">${esc(m.note[lang] || m.note.en)}${siblingObj ? ` <a href="/vag-scope/models/${siblingObj.slug}/">${esc(mui.siblingLink)} ${esc(siblingObj.brand)} ${esc(siblingObj.model)}</a>` : ''}</span>`;
       return `          <tr data-model-row data-brand="${esc(m.brand)}" data-search="${esc(search)}">
-            <td data-label="${esc(mui.cols[0])}"><a href="/vag-scope/models/${m.slug}/">${esc(m.brand)} ${esc(m.model)}</a></td>
+            <td data-label="${esc(mui.cols[0])}">${modelCell}</td>
             <td data-label="${esc(mui.cols[1])}">${esc(m.years)}</td>
             <td data-label="${esc(mui.cols[2])}">${esc(m.platform)}</td>
             <td data-label="${esc(mui.cols[3])}">${esc(mui.proto[m.protocol])}</td>
             <td data-label="${esc(mui.cols[4])}">${esc(m.sfd ? mui.sfdShortYes : mui.sfdShortNo)}</td>
           </tr>`;
     }).join('\n');
+    const eraRowsHtml = mui.eraRows.map((r) => `          <tr>${r.map((c, i) => `<td data-label="${esc(mui.eraCols[i])}">${esc(c)}</td>`).join('')}</tr>`).join('\n');
+    const hubFaqHtml = mui.hubFaqs.map((f) => `        <details data-faq><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join('\n');
     main = `    <section class="wrap doc models-hub">
       <p class="doc-back"><a href="/vag-scope/">← VAG Scope</a></p>
       <h1>${esc(mui.h1)}</h1>
@@ -420,23 +509,35 @@ ${rows}
         </tbody>
       </table></div>
       <p id="model-empty" class="note" hidden>${esc(mui.empty)}</p>
+      <h2>${esc(mui.eraH)}</h2>
+      <p>${esc(mui.eraIntro)}</p>
+      <div class="table-wrap"><table>
+        <thead><tr>${mui.eraCols.map((c) => `<th scope="col">${esc(c)}</th>`).join('')}</tr></thead>
+        <tbody>
+${eraRowsHtml}
+        </tbody>
+      </table></div>
+      <h2>${esc(mui.hubFaqH)}</h2>
+      <div class="faq-list">
+${hubFaqHtml}
+      </div>
+      <aside class="guide-cta" aria-labelledby="guide-cta-h">
+        <h2 id="guide-cta-h" data-i18n="gcta_h">Run the check on your own car</h2>
+        <p data-i18n="gcta_p">VAG Scope does it from your phone and a Bluetooth ELM327 adapter: no account, no network, and every result shows its evidence.</p>
+        <div class="actions">
+          <a class="cta" href="${cfg.waitlist}" target="_blank" rel="noopener" data-until-live="play" data-i18n="cta_notify">Get notified at launch</a>
+${badges}        </div>
+      </aside>
     </section>`;
   } else if (page.generated === 'model') {
     const m = page;
     const car = `${m.brand} ${m.model}`;
+    const codesStr = (m.codes || []).join(', ');
+    const shortCodes = (m.codes || []).slice(0, 2).join(' / ');
     const proto = mui.proto[m.protocol];
     const badges = read('tools/templates/stores.html').replace(/\{\{utm\}\}/g, 'model_' + m.slug.replace(/-/g, '_'));
-    if (lang === 'fr') {
-      title = `${car} (${m.years}) : diagnostic | VAG Scope`;
-      desc = `Compatibilité VAG Scope sur ${car} (${m.years}, ${m.platform}) : protocole ${proto}, kilométrage, codes défaut, codage hors ligne et adaptateur ELM327.`;
-    } else {
-      title = `${car} (${m.years}) diagnostics | VAG Scope`;
-      desc = `VAG Scope compatibility for ${car} (${m.years}, ${m.platform}): ${proto} protocol, mileage check, fault codes, offline coding and ELM327 adapter.`;
-    }
-    if (desc.length > 158) desc = desc.slice(0, 155).replace(/\s+\S*$/, '') + '.';
-    const answer = lang === 'fr'
-      ? `Oui : VAG Scope prend en charge la ${car} (${m.years}, plateforme ${m.platform}) en ${proto} avec un adaptateur ELM327 Bluetooth ouvert, 100 % hors ligne et sans abonnement.${m.sfd ? ' Sur cette génération récente, le scan, les codes défaut, les mesures en direct et les bilans kilométrage/VIN fonctionnent hors ligne ; les écritures protégées par SFD ne sont pas déverrouillées en ligne.' : ' Scan complet, contrôle du kilométrage, VIN, mesures en direct, codage et adaptations fonctionnent hors ligne.'}`
-      : `Yes: VAG Scope supports the ${car} (${m.years}, ${m.platform} platform) over ${proto} with an open Bluetooth ELM327 adapter, 100% offline with no subscription.${m.sfd ? ' On this generation, scanning, fault codes, live data and mileage/VIN health checks work offline; online SFD unlock for protected writes is not supported.' : ' Full control-unit scans, mileage and VIN checks, live data, coding and adaptations work offline.'}`;
+    title = `${m.seoTitle[lang]} | VAG Scope`;
+    desc = m.metaDesc[lang];
     const worksList = lang === 'fr' ? [
       'Bilan de santé avant achat : codes défaut, comparaison du kilométrage entre calculateurs et contrôle du VIN dans un rapport PDF signé.',
       'Scan complet des calculateurs et identification avancée, effacement des défauts après sauvegarde et confirmation.',
@@ -454,34 +555,49 @@ ${rows}
         ? 'Coding and adaptations: offline writes work on non-SFD modules; online SFD unlock for protected 2020+ modules is not supported because the app has no network permission.'
         : 'Coding, long coding, gateway installation list, adaptations, basic settings, output tests and service reset with automatic backup and read-back.',
     ];
-    const peers = MODELS.filter((x) => x.brand === m.brand && x.slug !== m.slug).slice(0, 6);
-    const specVals = [car, m.years, m.platform, proto, mui.status[m.status], m.sfd ? mui.sfdYes : mui.sfdNo, mui.adapterVal];
-    const specRows = mui.specRows.map((k, i) => `          <tr><td data-label="Spec">${esc(k)}</td><td data-label="Value">${esc(specVals[i])}</td></tr>`).join('\n');
+    const platformPeers = MODEL_PAGES.filter((x) => x.platform === m.platform && x.slug !== m.slug);
+    const brandPeers = MODEL_PAGES.filter((x) => x.brand === m.brand && x.slug !== m.slug && x.platform !== m.platform).slice(0, 5);
+    const specVals = [car, codesStr, m.years, m.platform, proto, mui.status[m.status], m.sfd ? mui.sfdYes : mui.sfdNo, mui.adapterVal];
+    const specRows = mui.specRows.map((k, i) => `          <tr><td data-label="${esc(mui.specCols[0])}">${esc(k)}</td><td data-label="${esc(mui.specCols[1])}">${esc(specVals[i])}</td></tr>`).join('\n');
+    const faqHtml = (m.faqs[lang] || []).map((f) => `        <details data-faq><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join('\n');
+    const whatH = lang === 'fr' ? `Ce que VAG Scope gère sur ${m.frName || car}` : mui.whatWorksH;
     main = `    <article class="wrap doc model-page">
       <p class="doc-back"><a href="/vag-scope/models/">${esc(mui.all)}</a></p>
-      <h1>${esc(car)} (${esc(m.years)})</h1>
+      <h1>${esc(car)} (${esc(shortCodes)}, ${esc(m.years)})</h1>
       <p class="guide-meta">${ui.updated} <time datetime="${mui.updated}">${fmtDate(mui.updated, lang)}</time></p>
-      <p class="answer">${esc(answer)}</p>
+      <p class="answer">${esc(m.answer[lang])}</p>
       <h2>${esc(mui.specH)}</h2>
       <div class="table-wrap"><table>
-        <thead><tr><th scope="col">${lang === 'fr' ? 'Élément' : 'Item'}</th><th scope="col">${lang === 'fr' ? 'Détail' : 'Detail'}</th></tr></thead>
+        <thead><tr><th scope="col">${esc(mui.specCols[0])}</th><th scope="col">${esc(mui.specCols[1])}</th></tr></thead>
         <tbody>
 ${specRows}
         </tbody>
       </table></div>
-      <h2>${esc(mui.notesH)}</h2>
+      <h2>${esc(mui.obdH)}</h2>
+      <p>${esc(m.obdPort[lang])}</p>
+      <h2>${esc(mui.mileageH)}</h2>
+      <p>${esc(m.mileageReality[lang])} <a href="/vag-scope/guides/used-car-mileage-check/">${lang === 'fr' ? 'Lire le guide du contrôle kilométrique' : 'Read the mileage check guide'}</a> · <a href="/vag-scope/guides/vin-check/">${lang === 'fr' ? 'Guide de vérification du VIN' : 'VIN check guide'}</a></p>
+      <h2>${esc(mui.checkH)}</h2>
+      <ul>
+${(m.checkpoints[lang] || []).map((c) => `        <li>${esc(c)}</li>`).join('\n')}
+      </ul>
+      <h2>${esc(whatH)}</h2>
       <p>${esc(m.note[lang] || m.note.en)}</p>
-      <h2>${esc(mui.whatWorksH)}</h2>
       <ul>
 ${worksList.map((w) => `        <li>${esc(w)}</li>`).join('\n')}
       </ul>
+      <h2>${esc(mui.faqH)}</h2>
+      <div class="faq-list">
+${faqHtml}
+      </div>${platformPeers.length ? `\n      <h2>${esc(mui.platformPeersH)} (${esc(m.platform)})</h2>
+      <p class="peer-links">${platformPeers.map((p) => `<a href="/vag-scope/models/${p.slug}/">${esc(p.brand)} ${esc(p.model)} (${esc(p.years)})</a>`).join(' · ')}</p>` : ''}${brandPeers.length ? `\n      <h2>${esc(mui.peersH)} ${esc(m.brand)}</h2>
+      <p class="peer-links">${brandPeers.map((p) => `<a href="/vag-scope/models/${p.slug}/">${esc(p.brand)} ${esc(p.model)} (${esc(p.years)})</a>`).join(' · ')}</p>` : ''}
       <h2>${esc(mui.guidesH)}</h2>
       <ul>
         <li><a href="/vag-scope/guides/best-elm327-adapter-vw-audi/">${lang === 'fr' ? 'Quel adaptateur ELM327 Bluetooth choisir' : 'Best ELM327 Bluetooth adapter for VW, Audi, Seat and Škoda'}</a></li>
         <li><a href="/vag-scope/guides/used-car-mileage-check/">${lang === 'fr' ? 'Comment vérifier le kilométrage d’une occasion' : 'How to check the mileage of a used VW, Audi, Seat or Škoda'}</a></li>
         <li><a href="/vag-scope/guides/vin-check/">${lang === 'fr' ? 'Où trouver et vérifier le VIN' : 'Where to find and check the VIN'}</a></li>
-      </ul>${peers.length ? `\n      <h2>${esc(mui.peersH)} ${esc(m.brand)}</h2>
-      <p class="peer-links">${peers.map((p) => `<a href="/vag-scope/models/${p.slug}/">${esc(p.brand)} ${esc(p.model)} (${esc(p.years)})</a>`).join(' · ')}</p>` : ''}
+      </ul>
       <aside class="guide-cta" aria-labelledby="guide-cta-h">
         <h2 id="guide-cta-h" data-i18n="gcta_h">Run the check on your own car</h2>
         <p data-i18n="gcta_p">VAG Scope does it from your phone and a Bluetooth ELM327 adapter: no account, no network, and every result shows its evidence.</p>
@@ -580,12 +696,21 @@ function jsonLd(page, lang, html) {
       const desc = isModel ? ((/<meta name="description" content="([^"]*)"/.exec(html) || [])[1] || '') : page.lang[lang].meta.description;
       const published = isModel ? MODEL_UI[lang].updated : page.lang[lang].meta.published;
       const updated = isModel ? MODEL_UI[lang].updated : page.lang[lang].meta.updated;
+      const appAbout = { '@type': 'SoftwareApplication', name: cfg.app.name, url: absUrl('vag-scope/index.html', lang) };
+      const about = isModel
+        ? [appAbout, { '@type': 'Car', name: `${page.brand} ${page.model}`, brand: { '@type': 'Brand', name: page.brand }, vehicleModelDate: page.years }]
+        : appAbout;
       out.push({ '@type': 'TechArticle', headline, description: desc, inLanguage: lang,
         datePublished: published, dateModified: updated, url: absUrl(page.path, lang),
         image: BASE + '/' + (cfg.ogImage[lang] || cfg.ogImage.en).src,
         author: { '@type': 'Organization', name: cfg.org.name, url: BASE + '/' },
         publisher: { '@type': 'Organization', name: cfg.org.name, logo: { '@type': 'ImageObject', url: BASE + '/' + cfg.org.logo } },
-        about: { '@type': 'SoftwareApplication', name: cfg.app.name, url: absUrl('vag-scope/index.html', lang) } });
+        about });
+    }
+    if (type === 'ItemList') {
+      out.push({ '@type': 'ItemList', name: MODEL_UI[lang].h1, itemListElement: MODEL_PAGES.map((m, i) => ({
+        '@type': 'ListItem', position: i + 1, name: `${m.brand} ${m.model} (${m.years})`, url: absUrl(m.path, lang),
+      })) });
     }
     if (type === 'FAQPage') {
       const items = faqItems(html);
@@ -723,6 +848,8 @@ if (!CHECK || !changed.length) {
     [...cfg.pages, ...(MODELS.length ? [{ path: 'vag-scope/models/index.html' }] : [])].map((p) => { const i = pageInfo(p.path, 'en'); return `- [${i.title}](${absUrl(p.path, 'en')}): ${i.desc}`; }).join('\n') +
     (GUIDES.length ? '\n\n## Guides\n\n' + GUIDES.map((g) =>
       `- [${g.lang.en.meta.title}](${absUrl(g.path, 'en')}): ${text(inlineMd(g.lang.en.meta.answer))}`).join('\n') : '') +
+    (MODEL_PAGES.length ? '\n\n## Compatible models (flagship guides)\n\n' + MODEL_PAGES.map((m) =>
+      `- [${m.brand} ${m.model} (${(m.codes || []).slice(0, 2).join('/')}, ${m.years})](${absUrl(m.path, 'en')}): ${m.platform}, ${MODEL_UI.en.proto[m.protocol]}. ${m.sfd ? 'Offline reads/scans work; online SFD unlock not supported.' : 'Full offline read & coding, no SFD lock.'}`).join('\n') : '') +
     '\n\n## En français\n\n' +
     PAGES.filter((f) => !/^vag-scope\/models\/[^/]+\/index\.html$/.test(f)).map((f) => { const i = pageInfo(f, 'fr'); return `- [${i.title}](${absUrl(f, 'fr')}): ${i.desc}`; }).join('\n') + '\n');
 }

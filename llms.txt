@@ -19,13 +19,32 @@
 - [Check the car yourself | VAG Scope](https://mtmagicapps.github.io/vag-scope/check/): Someone shared a VAG Scope report with you? Run the same mileage and VIN check on the car yourself, with your phone and a Bluetooth ELM327 adapter.
 - [Privacy policy | VAG Scope](https://mtmagicapps.github.io/vag-scope/privacy.html): Privacy policy of the VAG Scope Android and iOS app.
 - [Changelog | VAG Scope](https://mtmagicapps.github.io/vag-scope/changelog.html): Changelog of the VAG Scope Android and iOS app.
-- [Compatible VW, Audi, Seat & Škoda models | VAG Scope](https://mtmagicapps.github.io/vag-scope/models/): Check which diagnostic protocol your Volkswagen, Audi, Seat, Škoda or Cupra uses (TP 2.0, 11-bit UDS or 29-bit UDS), whether SFD write protection applies,
+- [Compatible VW, Audi, Seat & Škoda models | VAG Scope](https://mtmagicapps.github.io/vag-scope/models/): Check VAG Scope compatibility by VW, Audi, Seat, Škoda or Cupra generation: TP 2.0, 11-bit and 29-bit UDS protocols, SFD status and ELM327 setup.
 
 ## Guides
 
-- [Best ELM327 Bluetooth adapter for VW, Audi, Seat and Škoda](https://mtmagicapps.github.io/vag-scope/guides/best-elm327-adapter-vw-audi/): Pick a genuine, well-built open Bluetooth ELM327 adapter such as the vLinker MC+ (fast, reliable for coding and live data) or the vGate iCar Pro 2S (compact, affordable alternative). Avoid €5-€10 generic clones: they drop frames on VW-group TP 2.0 and UDS protocols, whereas an open ELM327 works across cars and apps without locking you into one vendor’s subscription.
+- [Best ELM327 Bluetooth adapter for VW, Audi, Seat and Škoda](https://mtmagicapps.github.io/vag-scope/guides/best-elm327-adapter-vw-audi/): Pick a genuine, well-built open Bluetooth ELM327 adapter such as the vLinker MC+ (fast, reliable for coding and live data) or the vGate iCar Pro 2S (compact, affordable alternative). Avoid €5–€10 generic clones: they drop frames on VW-group TP 2.0 and UDS protocols, whereas an open ELM327 works across cars and apps without locking you into one vendor’s subscription.
 - [How to check the mileage of a used VW, Audi, Seat or Škoda](https://mtmagicapps.github.io/vag-scope/guides/used-car-mileage-check/): Plug a Bluetooth OBD adapter into the car and compare the odometer with the distance that other control units store (engine, gearbox, ABS and others) and with the mileage logged with each fault code. Units that agree support the reading, and a logged value above the odometer is a strong warning, but no result proves that a mileage is genuine.
 - [Where to find the VIN on a VW, Audi, Seat or Škoda, and how to check it](https://mtmagicapps.github.io/vag-scope/guides/vin-check/): The VIN is on the plate under the windscreen, the vehicle data sticker in the boot, the stamping in the engine bay and the type plate, and many control units store it too. All of them should show the same 17 characters as the registration certificate. A control unit with another VIN usually means a used part; markings that disagree point to a changed identity.
+
+## Compatible models (flagship guides)
+
+- [Volkswagen Golf 5 (Mk5/1K, 2004-2008)](https://mtmagicapps.github.io/vag-scope/models/vw-golf-5/): PQ35, CAN TP 2.0. Full offline read & coding, no SFD lock.
+- [Volkswagen Golf 6 (Mk6/5K, 2009-2012)](https://mtmagicapps.github.io/vag-scope/models/vw-golf-6/): PQ35, Mixed TP 2.0 + 11-bit UDS. Full offline read & coding, no SFD lock.
+- [Volkswagen Golf 7 (Mk7/Mk7.5, 2013-2020)](https://mtmagicapps.github.io/vag-scope/models/vw-golf-7/): MQB, 11-bit CAN UDS. Full offline read & coding, no SFD lock.
+- [Volkswagen Golf 8 (Mk8/CD, 2020-)](https://mtmagicapps.github.io/vag-scope/models/vw-golf-8/): MQB-evo, 11-bit & 29-bit CAN UDS. Offline reads/scans work; online SFD unlock not supported.
+- [Volkswagen Passat B8 (B8/3G, 2015-2023)](https://mtmagicapps.github.io/vag-scope/models/vw-passat-b8/): MQB, 11-bit CAN UDS. Full offline read & coding, no SFD lock.
+- [Volkswagen ID.4 (E2/E21, 2021-)](https://mtmagicapps.github.io/vag-scope/models/vw-id4/): MEB, 11-bit & 29-bit CAN UDS. Offline reads/scans work; online SFD unlock not supported.
+- [Audi Audi A1 (8X) (8X/8X1, 2010-2018)](https://mtmagicapps.github.io/vag-scope/models/audi-a1-8x/): PQ25, Mixed TP 2.0 + 11-bit UDS. Full offline read & coding, no SFD lock.
+- [Audi Audi A3 (8P) (8P/8P1, 2004-2012)](https://mtmagicapps.github.io/vag-scope/models/audi-a3-8p/): PQ35, CAN TP 2.0. Full offline read & coding, no SFD lock.
+- [Audi Audi A3 / S3 (8V) (8V/8V1, 2012-2020)](https://mtmagicapps.github.io/vag-scope/models/audi-a3-8v/): MQB, 11-bit CAN UDS. Full offline read & coding, no SFD lock.
+- [Audi Audi A4 (B8) (B8/B8.5, 2008-2015)](https://mtmagicapps.github.io/vag-scope/models/audi-a4-b8/): MLB, 11-bit CAN UDS. Full offline read & coding, no SFD lock.
+- [Audi Audi A4 (B9) (B9/8W, 2016-2023)](https://mtmagicapps.github.io/vag-scope/models/audi-a4-b9/): MLB-evo, 11-bit CAN UDS. Full offline read & coding, no SFD lock.
+- [Audi Audi A6 / RS6 (C6) (C6/4F, 2004-2011)](https://mtmagicapps.github.io/vag-scope/models/audi-a6-c6/): C6 (4F), CAN TP 2.0. Full offline read & coding, no SFD lock.
+- [Audi Audi A6 (C7) (C7/C7.5, 2011-2018)](https://mtmagicapps.github.io/vag-scope/models/audi-a6-c7/): C7 (4G), 11-bit CAN UDS. Full offline read & coding, no SFD lock.
+- [Škoda Octavia 3 (5E/Mk3, 2013-2020)](https://mtmagicapps.github.io/vag-scope/models/skoda-octavia-3/): MQB, 11-bit CAN UDS. Full offline read & coding, no SFD lock.
+- [Seat Leon 3 (5F/Mk3, 2012-2020)](https://mtmagicapps.github.io/vag-scope/models/seat-leon-3/): MQB, 11-bit CAN UDS. Full offline read & coding, no SFD lock.
+- [Seat Leon 4 & Cupra (KL/KL1, 2020-)](https://mtmagicapps.github.io/vag-scope/models/seat-leon-4/): MQB-evo, 11-bit & 29-bit CAN UDS. Offline reads/scans work; online SFD unlock not supported.
 
 ## En français
 
@@ -38,4 +57,4 @@
 - [Quel adaptateur ELM327 pour VW, Audi, Seat et Škoda | VAG Scope](https://mtmagicapps.github.io/fr/vag-scope/guides/best-elm327-adapter-vw-audi/): Quel ELM327 Bluetooth choisir pour diagnostiquer une VW, Audi, Seat ou Škoda (TP 2.0 et UDS), éviter les clones instables et garder un boîtier ouvert.
 - [Vérifier le kilométrage d’une VW, Audi, Seat ou Škoda | VAG Scope](https://mtmagicapps.github.io/fr/vag-scope/guides/used-car-mileage-check/): Comparez le compteur à la distance gardée par les calculateurs, lisez le kilométrage noté avec les codes défaut, et sachez ce que le résultat prouve ou non.
 - [Trouver et vérifier le VIN d’une VW, Audi, Seat ou Škoda | VAG Scope](https://mtmagicapps.github.io/fr/vag-scope/guides/vin-check/): Où le VIN est marqué sur les voitures du groupe VW, comment lire ses 17 caractères, et ce que signifie un calculateur qui porte le VIN d’une autre voiture.
-- [Modèles VW, Audi, Seat et Škoda compatibles | VAG Scope](https://mtmagicapps.github.io/fr/vag-scope/models/): Vérifiez le protocole de diagnostic de votre Volkswagen, Audi, Seat, Škoda ou Cupra (TP 2.0, UDS 11 bits ou UDS 29 bits), la présence éventuelle de SFD et
+- [Modèles VW, Audi, Seat et Škoda compatibles | VAG Scope](https://mtmagicapps.github.io/fr/vag-scope/models/): Vérifiez la compatibilité de VAG Scope par génération VW, Audi, Seat, Škoda ou Cupra : TP 2.0, UDS 11 et 29 bits, statut SFD et adaptateur ELM327.

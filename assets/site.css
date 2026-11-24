@@ -282,4 +282,13 @@ h1,h2,h3{font-family:var(--display);font-optical-sizing:auto;text-wrap:balance;l
 .pill-btn{padding:.45rem .95rem;font:600 .9rem/1.2 inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;cursor:pointer}
 .pill-btn[aria-pressed=true]{background:var(--teal);color:#fff;border-color:var(--teal)}
 .peer-links{line-height:1.8}
+.model-codes{display:block;font-size:.82rem;font-weight:500;color:var(--ink-2);margin-top:.15rem}
+.model-note{display:block;font-size:.88rem;font-weight:400;color:var(--ink-2);margin-top:.3rem;line-height:1.45}
+.doc .faq-list{margin-top:1.25rem;border-top:1px solid var(--line)}
+.doc .faq-list details{border-bottom:1px solid var(--line)}
+.doc .faq-list summary{position:relative;cursor:pointer;list-style:none;font:700 1.12rem/1.35 var(--display);letter-spacing:-.01em;padding:1rem 2.4rem 1rem 0}
+.doc .faq-list summary::-webkit-details-marker{display:none}
+.doc .faq-list summary::after{content:"+";position:absolute;right:.4rem;top:50%;transform:translateY(-50%);color:var(--teal);font-size:1.5rem;font-weight:500}
+.doc .faq-list details[open] summary::after{content:"\2212"}
+.doc .faq-list details p{margin-top:0;padding-bottom:1.15rem;color:var(--ink-2)}
 @media (prefers-reduced-motion:reduce){.guide-list a{transition:none}}

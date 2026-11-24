@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Volkswagen Golf 5 (Mk5) (2004-2008) diagnostics | VAG Scope</title>
-  <meta name="description" content="VAG Scope compatibility for Volkswagen Golf 5 (Mk5) (2004-2008, PQ35): CAN TP 2.0 protocol, mileage check, fault codes, offline coding and ELM327 adapter.">
+  <title>VW Golf 5 (Mk5, 1K) OBD diagnostics | VAG Scope</title>
+  <meta name="description" content="VAG Scope on the VW Golf 5 (Mk5, 1K, 2004-2008): full CAN TP 2.0 scan, DSG and TFSI/TDI measuring blocks, mileage check, coding and open ELM327 setup.">
   <meta name="theme-color" content="#0b3f4b">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="/assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
@@ -23,15 +23,16 @@
   <meta property="og:site_name" content="mtmagicapps">
   <meta property="og:locale" content="en_GB">
   <meta property="og:url" content="https://mtmagicapps.github.io/vag-scope/models/vw-golf-5/">
-  <meta property="og:title" content="Volkswagen Golf 5 (Mk5) (2004-2008) diagnostics | VAG Scope">
-  <meta property="og:description" content="VAG Scope compatibility for Volkswagen Golf 5 (Mk5) (2004-2008, PQ35): CAN TP 2.0 protocol, mileage check, fault codes, offline coding and ELM327 adapter.">
+  <meta property="og:title" content="VW Golf 5 (Mk5, 1K) OBD diagnostics | VAG Scope">
+  <meta property="og:description" content="VAG Scope on the VW Golf 5 (Mk5, 1K, 2004-2008): full CAN TP 2.0 scan, DSG and TFSI/TDI measuring blocks, mileage check, coding and open ELM327 setup.">
   <meta property="og:image" content="https://mtmagicapps.github.io/assets/img/og-vag-scope-en.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="VAG Scope: check a used VW, Audi, Seat or Škoda before you buy">
   <meta name="twitter:card" content="summary_large_image">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Volkswagen Golf 5 (Mk5) (2004-2008)","description":"VAG Scope compatibility for Volkswagen Golf 5 (Mk5) (2004-2008, PQ35): CAN TP 2.0 protocol, mileage check, fault codes, offline coding and ELM327 adapter.","inLanguage":"en","datePublished":"2026-11-24","dateModified":"2026-11-24","url":"https://mtmagicapps.github.io/vag-scope/models/vw-golf-5/","image":"https://mtmagicapps.github.io/assets/img/og-vag-scope-en.jpg","author":{"@type":"Organization","name":"mtmagicapps","url":"https://mtmagicapps.github.io/"},"publisher":{"@type":"Organization","name":"mtmagicapps","logo":{"@type":"ImageObject","url":"https://mtmagicapps.github.io/favicon.svg"}},"about":{"@type":"SoftwareApplication","name":"VAG Scope","url":"https://mtmagicapps.github.io/vag-scope/"}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"VAG Scope","item":"https://mtmagicapps.github.io/vag-scope/"},{"@type":"ListItem","position":2,"name":"Compatible models","item":"https://mtmagicapps.github.io/vag-scope/models/"},{"@type":"ListItem","position":3,"name":"Volkswagen Golf 5 (Mk5) (2004-2008)","item":"https://mtmagicapps.github.io/vag-scope/models/vw-golf-5/"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Volkswagen Golf 5 (2004-2008)","description":"VAG Scope on the VW Golf 5 (Mk5, 1K, 2004-2008): full CAN TP 2.0 scan, DSG and TFSI/TDI measuring blocks, mileage check, coding and open ELM327 setup.","inLanguage":"en","datePublished":"2026-11-24","dateModified":"2026-11-24","url":"https://mtmagicapps.github.io/vag-scope/models/vw-golf-5/","image":"https://mtmagicapps.github.io/assets/img/og-vag-scope-en.jpg","author":{"@type":"Organization","name":"mtmagicapps","url":"https://mtmagicapps.github.io/"},"publisher":{"@type":"Organization","name":"mtmagicapps","logo":{"@type":"ImageObject","url":"https://mtmagicapps.github.io/favicon.svg"}},"about":[{"@type":"SoftwareApplication","name":"VAG Scope","url":"https://mtmagicapps.github.io/vag-scope/"},{"@type":"Car","name":"Volkswagen Golf 5","brand":{"@type":"Brand","name":"Volkswagen"},"vehicleModelDate":"2004-2008"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"VAG Scope","item":"https://mtmagicapps.github.io/vag-scope/"},{"@type":"ListItem","position":2,"name":"Compatible models","item":"https://mtmagicapps.github.io/vag-scope/models/"},{"@type":"ListItem","position":3,"name":"Volkswagen Golf 5 (2004-2008)","item":"https://mtmagicapps.github.io/vag-scope/models/vw-golf-5/"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Where is the OBD-II port on a VW Golf 5?","acceptedAnswer":{"@type":"Answer","text":"It sits in the driver's footwell under the lower dashboard trim, on the outer left side above the bonnet release handle."}},{"@type":"Question","name":"Why do cheap ELM327 clones fail on a Golf 5?","acceptedAnswer":{"@type":"Answer","text":"The Golf 5 uses VW's CAN TP 2.0 transport protocol, which needs continuous keep-alive timing and raw CAN filtering. Cheap v2.1 clones drop the channel mid-scan; a vLinker MC+ or vGate iCar Pro 2S holds TP 2.0 cleanly."}},{"@type":"Question","name":"Can VAG Scope code a Golf 5 without a Windows laptop?","acceptedAnswer":{"@type":"Answer","text":"Yes. Short coding, long coding, adaptations, basic settings, output tests and service interval resets run directly on your phone over Bluetooth, with an automatic backup and read-back after confirmation."}},{"@type":"Question","name":"How many modules store mileage on a Golf 5?","acceptedAnswer":{"@type":"Answer","text":"Fewer than on newer MQB cars: the cluster, certain TDI ECUs and fault freeze frames may store distance, while some petrol ECUs report none. If the app says data are limited, lean on service records and inspection history."}}]}</script>
   <!-- /build:head -->
 </head>
 <body>
@@ -61,25 +62,36 @@
   <main id="main">
     <article class="wrap doc model-page">
       <p class="doc-back"><a href="/vag-scope/models/">← All compatible models</a></p>
-      <h1>Volkswagen Golf 5 (Mk5) (2004-2008)</h1>
+      <h1>Volkswagen Golf 5 (Mk5 / 1K, 2004-2008)</h1>
       <p class="guide-meta">Updated <time datetime="2026-11-24">24 November 2026</time></p>
-      <p class="answer">Yes: VAG Scope supports the Volkswagen Golf 5 (Mk5) (2004-2008, PQ35 platform) over CAN TP 2.0 with an open Bluetooth ELM327 adapter, 100% offline with no subscription. Full control-unit scans, mileage and VIN checks, live data, coding and adaptations work offline.</p>
+      <p class="answer">Yes: VAG Scope supports the Volkswagen Golf 5 (Mk5 / 1K, 2004-2008) over CAN TP 2.0 with an open Bluetooth ELM327 adapter, 100% offline. Where generic OBD-II apps only see basic engine emissions, VAG Scope reads all TP 2.0 control units, measuring blocks, coding and adaptations from your phone.</p>
       <h2>Technical overview</h2>
       <div class="table-wrap"><table>
         <thead><tr><th scope="col">Item</th><th scope="col">Detail</th></tr></thead>
         <tbody>
-          <tr><td data-label="Spec">Brand &amp; model</td><td data-label="Value">Volkswagen Golf 5 (Mk5)</td></tr>
-          <tr><td data-label="Spec">Model years</td><td data-label="Value">2004-2008</td></tr>
-          <tr><td data-label="Spec">Platform</td><td data-label="Value">PQ35</td></tr>
-          <tr><td data-label="Spec">Protocol</td><td data-label="Value">CAN TP 2.0</td></tr>
-          <tr><td data-label="Spec">Verification status</td><td data-label="Value">Protocol supported (testers welcome)</td></tr>
-          <tr><td data-label="Spec">SFD write protection</td><td data-label="Value">No SFD write lock (offline reading and coding supported)</td></tr>
-          <tr><td data-label="Spec">Recommended adapter</td><td data-label="Value">Open Bluetooth ELM327 (vLinker MC+ or vGate iCar Pro 2S; Classic or BLE on Android, BLE on iPhone)</td></tr>
+          <tr><td data-label="Item">Brand &amp; model</td><td data-label="Detail">Volkswagen Golf 5</td></tr>
+          <tr><td data-label="Item">Chassis / type codes</td><td data-label="Detail">Mk5, 1K, 1K1, 1K5</td></tr>
+          <tr><td data-label="Item">Model years</td><td data-label="Detail">2004-2008</td></tr>
+          <tr><td data-label="Item">Platform</td><td data-label="Detail">PQ35</td></tr>
+          <tr><td data-label="Item">Protocol</td><td data-label="Detail">CAN TP 2.0</td></tr>
+          <tr><td data-label="Item">Verification status</td><td data-label="Detail">Protocol supported (testers welcome)</td></tr>
+          <tr><td data-label="Item">SFD write protection</td><td data-label="Detail">No SFD write lock (offline reading and coding supported)</td></tr>
+          <tr><td data-label="Item">Recommended adapter</td><td data-label="Detail">Open Bluetooth ELM327 (vLinker MC+ or vGate iCar Pro 2S; Classic or BLE on Android, BLE on iPhone)</td></tr>
         </tbody>
       </table></div>
-      <h2>Generation notes</h2>
-      <p>Uses CAN TP 2.0 across engine, DSG, ABS, instrument cluster and comfort units. Generic OBD apps only see basic engine emissions on a Mk5; VAG Scope reads all control units, measuring blocks, coding and adaptations from a phone.</p>
-      <h2>What works on this generation</h2>
+      <h2>Where is the OBD-II port?</h2>
+      <p>Look in the driver's footwell on the left side, just above the bonnet release lever behind the lower dash trim (no cover to unclip on most LHD and RHD cars).</p>
+      <h2>Mileage &amp; VIN check on this generation</h2>
+      <p>On 2004-2008 PQ35 TP 2.0 cars, many control units do not expose a standalone odometer block, though the instrument cluster, EDC16 diesel ECU and fault-code freeze frames often record distance. VAG Scope compares whatever units answer and shows the evidence, though agreement is only one clue alongside service invoices and MOT/inspection history. <a href="/vag-scope/guides/used-car-mileage-check/">Read the mileage check guide</a> · <a href="/vag-scope/guides/vin-check/">VIN check guide</a></p>
+      <h2>What to check before buying or maintaining</h2>
+      <ul>
+        <li>Scan the 02 Transmission (DQ250 6-speed DSG) and 01 Engine units for mechatronic pressure faults, clutch temperature warnings or misfire counters on 2.0 TFSI and 1.4 TSI engines.</li>
+        <li>Check 03 ABS/ESP for the well-known G201 brake pressure sensor fault on Teves MK60 units, which often triggers a permanent ESP light.</li>
+        <li>On 1.9 TDI and 2.0 TDI (PD / early DPF) engines, inspect injector deviation blocks and soot loading in measuring blocks while the engine idles warm.</li>
+        <li>Read 46 Central Convenience and 09 Central Electronics for door-lock microswitch faults, rear wiper motor errors or gateway battery-drain issues after aftermarket head-unit swaps.</li>
+      </ul>
+      <h2>What VAG Scope supports on this chassis</h2>
+      <p>Full CAN TP 2.0 across engine, DSG, ABS, instrument cluster and comfort units. Generic OBD apps miss almost every module on a Mk5.</p>
       <ul>
         <li>Pre-purchase health check: fault codes, cross-module mileage comparison and VIN check in one signed PDF report.</li>
         <li>Full control-unit scan, advanced identification and fault clearing with automatic backup and confirmation.</li>
@@ -87,14 +99,23 @@
         <li>Performance Hub: 0-500 km/h timing (100 Hz OBD + phone IMU fusion), virtual dyno and signed PNG/PDF proof cards without GPS permission.</li>
         <li>Coding, long coding, gateway installation list, adaptations, basic settings, output tests and service reset with automatic backup and read-back.</li>
       </ul>
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list">
+        <details data-faq><summary>Where is the OBD-II port on a VW Golf 5?</summary><p>It sits in the driver's footwell under the lower dashboard trim, on the outer left side above the bonnet release handle.</p></details>
+        <details data-faq><summary>Why do cheap ELM327 clones fail on a Golf 5?</summary><p>The Golf 5 uses VW's CAN TP 2.0 transport protocol, which needs continuous keep-alive timing and raw CAN filtering. Cheap v2.1 clones drop the channel mid-scan; a vLinker MC+ or vGate iCar Pro 2S holds TP 2.0 cleanly.</p></details>
+        <details data-faq><summary>Can VAG Scope code a Golf 5 without a Windows laptop?</summary><p>Yes. Short coding, long coding, adaptations, basic settings, output tests and service interval resets run directly on your phone over Bluetooth, with an automatic backup and read-back after confirmation.</p></details>
+        <details data-faq><summary>How many modules store mileage on a Golf 5?</summary><p>Fewer than on newer MQB cars: the cluster, certain TDI ECUs and fault freeze frames may store distance, while some petrol ECUs report none. If the app says data are limited, lean on service records and inspection history.</p></details>
+      </div>
+      <h2>Same-platform siblings (PQ35)</h2>
+      <p class="peer-links"><a href="/vag-scope/models/vw-golf-6/">Volkswagen Golf 6 (2009-2012)</a> · <a href="/vag-scope/models/audi-a3-8p/">Audi Audi A3 (8P) (2004-2012)</a></p>
+      <h2>Other models from Volkswagen</h2>
+      <p class="peer-links"><a href="/vag-scope/models/vw-golf-7/">Volkswagen Golf 7 (2013-2020)</a> · <a href="/vag-scope/models/vw-golf-8/">Volkswagen Golf 8 (2020-)</a> · <a href="/vag-scope/models/vw-passat-b8/">Volkswagen Passat B8 (2015-2023)</a> · <a href="/vag-scope/models/vw-id4/">Volkswagen ID.4 (2021-)</a></p>
       <h2>Helpful guides for this car</h2>
       <ul>
         <li><a href="/vag-scope/guides/best-elm327-adapter-vw-audi/">Best ELM327 Bluetooth adapter for VW, Audi, Seat and Škoda</a></li>
         <li><a href="/vag-scope/guides/used-car-mileage-check/">How to check the mileage of a used VW, Audi, Seat or Škoda</a></li>
         <li><a href="/vag-scope/guides/vin-check/">Where to find and check the VIN</a></li>
       </ul>
-      <h2>Other models from Volkswagen</h2>
-      <p class="peer-links"><a href="/vag-scope/models/vw-golf-6/">Volkswagen Golf 6 (Mk6) (2009-2012)</a> · <a href="/vag-scope/models/vw-golf-7/">Volkswagen Golf 7 (Mk7) (2013-2020)</a> · <a href="/vag-scope/models/vw-golf-8/">Volkswagen Golf 8 (Mk8) (2020-)</a> · <a href="/vag-scope/models/vw-passat-b6/">Volkswagen Passat B6 (2005-2010)</a> · <a href="/vag-scope/models/vw-passat-b7/">Volkswagen Passat B7 (2010-2014)</a> · <a href="/vag-scope/models/vw-passat-b8/">Volkswagen Passat B8 (2015-2023)</a></p>
       <aside class="guide-cta" aria-labelledby="guide-cta-h">
         <h2 id="guide-cta-h" data-i18n="gcta_h">Run the check on your own car</h2>
         <p data-i18n="gcta_p">VAG Scope does it from your phone and a Bluetooth ELM327 adapter: no account, no network, and every result shows its evidence.</p>

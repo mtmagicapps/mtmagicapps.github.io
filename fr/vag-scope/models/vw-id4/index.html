@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Volkswagen ID.4 (2021-) : diagnostic | VAG Scope</title>
-  <meta name="description" content="Compatibilité VAG Scope sur Volkswagen ID.4 (2021-, MEB) : protocole UDS CAN 11 et 29 bits, kilométrage, codes défaut, codage hors ligne et adaptateur ELM327.">
+  <title>Diagnostic VW ID.4 (MEB, UDS 29 bits) | VAG Scope</title>
+  <meta name="description" content="VAG Scope sur VW ID.4 (MEB, 2021+) : diagnostic électrique UDS 29 bits, contrôle convertisseur 12 V DC/DC, voiture de démo intégrée et SFD.">
   <meta name="theme-color" content="#0b3f4b">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="/assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
@@ -23,15 +23,16 @@
   <meta property="og:site_name" content="mtmagicapps">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:url" content="https://mtmagicapps.github.io/fr/vag-scope/models/vw-id4/">
-  <meta property="og:title" content="Volkswagen ID.4 (2021-) : diagnostic | VAG Scope">
-  <meta property="og:description" content="Compatibilité VAG Scope sur Volkswagen ID.4 (2021-, MEB) : protocole UDS CAN 11 et 29 bits, kilométrage, codes défaut, codage hors ligne et adaptateur ELM327.">
+  <meta property="og:title" content="Diagnostic VW ID.4 (MEB, UDS 29 bits) | VAG Scope">
+  <meta property="og:description" content="VAG Scope sur VW ID.4 (MEB, 2021+) : diagnostic électrique UDS 29 bits, contrôle convertisseur 12 V DC/DC, voiture de démo intégrée et SFD.">
   <meta property="og:image" content="https://mtmagicapps.github.io/assets/img/og-vag-scope-fr.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="VAG Scope : vérifiez une VW, Audi, Seat ou Škoda d’occasion avant de l’acheter">
   <meta name="twitter:card" content="summary_large_image">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Volkswagen ID.4 (2021-)","description":"Compatibilité VAG Scope sur Volkswagen ID.4 (2021-, MEB) : protocole UDS CAN 11 et 29 bits, kilométrage, codes défaut, codage hors ligne et adaptateur ELM327.","inLanguage":"fr","datePublished":"2026-11-24","dateModified":"2026-11-24","url":"https://mtmagicapps.github.io/fr/vag-scope/models/vw-id4/","image":"https://mtmagicapps.github.io/assets/img/og-vag-scope-fr.jpg","author":{"@type":"Organization","name":"mtmagicapps","url":"https://mtmagicapps.github.io/"},"publisher":{"@type":"Organization","name":"mtmagicapps","logo":{"@type":"ImageObject","url":"https://mtmagicapps.github.io/favicon.svg"}},"about":{"@type":"SoftwareApplication","name":"VAG Scope","url":"https://mtmagicapps.github.io/fr/vag-scope/"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Volkswagen ID.4 (2021-)","description":"VAG Scope sur VW ID.4 (MEB, 2021+) : diagnostic électrique UDS 29 bits, contrôle convertisseur 12 V DC/DC, voiture de démo intégrée et SFD.","inLanguage":"fr","datePublished":"2026-11-24","dateModified":"2026-11-24","url":"https://mtmagicapps.github.io/fr/vag-scope/models/vw-id4/","image":"https://mtmagicapps.github.io/assets/img/og-vag-scope-fr.jpg","author":{"@type":"Organization","name":"mtmagicapps","url":"https://mtmagicapps.github.io/"},"publisher":{"@type":"Organization","name":"mtmagicapps","logo":{"@type":"ImageObject","url":"https://mtmagicapps.github.io/favicon.svg"}},"about":[{"@type":"SoftwareApplication","name":"VAG Scope","url":"https://mtmagicapps.github.io/fr/vag-scope/"},{"@type":"Car","name":"Volkswagen ID.4","brand":{"@type":"Brand","name":"Volkswagen"},"vehicleModelDate":"2021-"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"VAG Scope","item":"https://mtmagicapps.github.io/fr/vag-scope/"},{"@type":"ListItem","position":2,"name":"Modèles compatibles","item":"https://mtmagicapps.github.io/fr/vag-scope/models/"},{"@type":"ListItem","position":3,"name":"Volkswagen ID.4 (2021-)","item":"https://mtmagicapps.github.io/fr/vag-scope/models/vw-id4/"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Puis-je tester l'interface ID.4 dans VAG Scope sans boîtier OBD ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Une VW ID.4 GTX 2023 est intégrée en voiture de démonstration dès l'écran d'accueil, avec ses calculateurs UDS 29 bits et la procédure 12 V DC/DC."}},{"@type":"Question","name":"Pourquoi VAG Scope ne déverrouille-t-elle pas SFD sur l'ID.4 ?","acceptedAnswer":{"@type":"Answer","text":"Le déverrouillage SFD/SFD2 impose une connexion aux serveurs constructeurs. VAG Scope est conçue sans aucune permission réseau pour rester 100 % privée et hors ligne."}},{"@type":"Question","name":"Un adaptateur ELM327 lit-il vraiment une voiture électrique MEB ?","acceptedAnswer":{"@type":"Answer","text":"Oui, s'il gère proprement les trames CAN 29 bits. C'est le cas du vLinker MC+ et du vGate iCar Pro 2S."}},{"@type":"Question","name":"Est-ce identique sur ID.3, Škoda Enyaq ou Audi Q4 e-tron ?","acceptedAnswer":{"@type":"Answer","text":"Oui, tous reposent sur la même architecture MEB en UDS 29 bits."}}]}</script>
   <!-- /build:head -->
 </head>
 <body>
@@ -61,25 +62,36 @@
   <main id="main">
     <article class="wrap doc model-page">
       <p class="doc-back"><a href="/fr/vag-scope/models/">← Tous les modèles compatibles</a></p>
-      <h1>Volkswagen ID.4 (2021-)</h1>
+      <h1>Volkswagen ID.4 (E2 / E21, 2021-)</h1>
       <p class="guide-meta">Mis à jour le <time datetime="2026-11-24">24 novembre 2026</time></p>
-      <p class="answer">Oui : VAG Scope prend en charge la Volkswagen ID.4 (2021-, plateforme MEB) en UDS CAN 11 et 29 bits avec un adaptateur ELM327 Bluetooth ouvert, 100 % hors ligne et sans abonnement. Sur cette génération récente, le scan, les codes défaut, les mesures en direct et les bilans kilométrage/VIN fonctionnent hors ligne ; les écritures protégées par SFD ne sont pas déverrouillées en ligne.</p>
+      <p class="answer">Oui pour le diagnostic électrique, les mesures en direct et le bilan avant achat : VAG Scope gère le Volkswagen ID.4 (MEB, 2021+) en UDS CAN 29 bits avec adresses à 4 chiffres hexa, et intègre même un ID.4 GTX 2023 en voiture de démo. Lecture, scan et procédures guidées marchent hors ligne ; le déverrouillage SFD en ligne pour l'écriture protégée n'est pas géré.</p>
       <h2>Fiche technique</h2>
       <div class="table-wrap"><table>
         <thead><tr><th scope="col">Élément</th><th scope="col">Détail</th></tr></thead>
         <tbody>
-          <tr><td data-label="Spec">Marque et modèle</td><td data-label="Value">Volkswagen ID.4</td></tr>
-          <tr><td data-label="Spec">Années</td><td data-label="Value">2021-</td></tr>
-          <tr><td data-label="Spec">Plateforme</td><td data-label="Value">MEB</td></tr>
-          <tr><td data-label="Spec">Protocole</td><td data-label="Value">UDS CAN 11 et 29 bits</td></tr>
-          <tr><td data-label="Spec">Statut de vérification</td><td data-label="Value">Voiture de démo intégrée + protocole</td></tr>
-          <tr><td data-label="Spec">Protection SFD</td><td data-label="Value">Protection SFD sur certains modules 2020+ (lecture/scan hors ligne OK ; pas de déverrouillage SFD en ligne)</td></tr>
-          <tr><td data-label="Spec">Adaptateur recommandé</td><td data-label="Value">ELM327 Bluetooth ouvert (vLinker MC+ ou vGate iCar Pro 2S ; Classique ou BLE sur Android, BLE sur iPhone)</td></tr>
+          <tr><td data-label="Élément">Marque et modèle</td><td data-label="Détail">Volkswagen ID.4</td></tr>
+          <tr><td data-label="Élément">Codes châssis</td><td data-label="Détail">E2, E21, GTX, MEB</td></tr>
+          <tr><td data-label="Élément">Années</td><td data-label="Détail">2021-</td></tr>
+          <tr><td data-label="Élément">Plateforme</td><td data-label="Détail">MEB</td></tr>
+          <tr><td data-label="Élément">Protocole</td><td data-label="Détail">UDS CAN 11 et 29 bits</td></tr>
+          <tr><td data-label="Élément">Statut de vérification</td><td data-label="Détail">Voiture de démo intégrée + protocole</td></tr>
+          <tr><td data-label="Élément">Protection SFD</td><td data-label="Détail">Protection SFD sur certains modules 2020+ (lecture/scan hors ligne OK ; pas de déverrouillage SFD en ligne)</td></tr>
+          <tr><td data-label="Élément">Adaptateur recommandé</td><td data-label="Détail">ELM327 Bluetooth ouvert (vLinker MC+ ou vGate iCar Pro 2S ; Classique ou BLE sur Android, BLE sur iPhone)</td></tr>
         </tbody>
       </table></div>
-      <h2>Notes techniques sur ce modèle</h2>
-      <p>Présente en voiture de démonstration intégrée (VW ID.4 GTX 2023) avec une procédure guidée dédiée au convertisseur 12 V DC/DC. En UDS 29 bits : lecture, scan, mesures en direct et bilan de santé hors ligne ; pas de déverrouillage SFD en ligne.</p>
-      <h2>Ce qui fonctionne sur cette génération</h2>
+      <h2>Où se trouve la prise OBD ?</h2>
+      <p>Sous le tableau de bord côté conducteur, à gauche de la colonne de direction.</p>
+      <h2>Contrôle du kilométrage et du VIN sur cette génération</h2>
+      <p>Sur la plateforme électrique MEB, plusieurs calculateurs UDS 29 bits publient distance et trames figées de défauts. Le bilan de santé avant achat rassemble défauts, kilométrage et VIN dans un rapport PDF signé hors ligne. <a href="/fr/vag-scope/guides/used-car-mileage-check/">Lire le guide du contrôle kilométrique</a> · <a href="/fr/vag-scope/guides/vin-check/">Guide de vérification du VIN</a></p>
+      <h2>Points à vérifier avant achat ou à l’entretien</h2>
+      <ul>
+        <li>Lancez la procédure guidée intégrée du convertisseur 12 V DC/DC (testable dès l'écran d'accueil sur l'ID.4 GTX de démo) pour vérifier la bonne charge de la batterie auxiliaire.</li>
+        <li>Scannez les calculateurs électriques en UDS 29 bits (adresses 800B à C003 et passerelle F1B7) pour repérer d'éventuels défauts sur la batterie haute tension ou les vannes thermiques.</li>
+        <li>Surveillez l'historique de sous-tension 12 V, souvent responsable d'alertes en cascade sur les premiers millésimes MEB.</li>
+        <li>Contrôlez les modules de pompe à chaleur et de compresseur de climatisation avant achat, deux organes coûteux hors garantie sur MEB.</li>
+      </ul>
+      <h2>Ce que VAG Scope gère sur le Volkswagen ID.4</h2>
+      <p>Voiture de démo intégrée (ID.4 GTX 2023) avec procédure guidée convertisseur 12 V DC/DC ; lecture UDS 29 bits hors ligne, pas de déverrouillage SFD en ligne.</p>
       <ul>
         <li>Bilan de santé avant achat : codes défaut, comparaison du kilométrage entre calculateurs et contrôle du VIN dans un rapport PDF signé.</li>
         <li>Scan complet des calculateurs et identification avancée, effacement des défauts après sauvegarde et confirmation.</li>
@@ -87,14 +99,21 @@
         <li>Performance Hub : chronos 0-500 km/h (fusion OBD + capteurs téléphone 100 Hz), banc virtuel et fiches PNG/PDF signées sans GPS.</li>
         <li>Écriture et codage : possibles hors ligne sur les calculateurs non verrouillés SFD ; le déverrouillage SFD en ligne n’est pas géré (aucune permission réseau).</li>
       </ul>
+      <h2>Questions fréquentes</h2>
+      <div class="faq-list">
+        <details data-faq><summary>Puis-je tester l'interface ID.4 dans VAG Scope sans boîtier OBD ?</summary><p>Oui. Une VW ID.4 GTX 2023 est intégrée en voiture de démonstration dès l'écran d'accueil, avec ses calculateurs UDS 29 bits et la procédure 12 V DC/DC.</p></details>
+        <details data-faq><summary>Pourquoi VAG Scope ne déverrouille-t-elle pas SFD sur l'ID.4 ?</summary><p>Le déverrouillage SFD/SFD2 impose une connexion aux serveurs constructeurs. VAG Scope est conçue sans aucune permission réseau pour rester 100 % privée et hors ligne.</p></details>
+        <details data-faq><summary>Un adaptateur ELM327 lit-il vraiment une voiture électrique MEB ?</summary><p>Oui, s'il gère proprement les trames CAN 29 bits. C'est le cas du vLinker MC+ et du vGate iCar Pro 2S.</p></details>
+        <details data-faq><summary>Est-ce identique sur ID.3, Škoda Enyaq ou Audi Q4 e-tron ?</summary><p>Oui, tous reposent sur la même architecture MEB en UDS 29 bits.</p></details>
+      </div>
+      <h2>Autres modèles Volkswagen</h2>
+      <p class="peer-links"><a href="/fr/vag-scope/models/vw-golf-5/">Volkswagen Golf 5 (2004-2008)</a> · <a href="/fr/vag-scope/models/vw-golf-6/">Volkswagen Golf 6 (2009-2012)</a> · <a href="/fr/vag-scope/models/vw-golf-7/">Volkswagen Golf 7 (2013-2020)</a> · <a href="/fr/vag-scope/models/vw-golf-8/">Volkswagen Golf 8 (2020-)</a> · <a href="/fr/vag-scope/models/vw-passat-b8/">Volkswagen Passat B8 (2015-2023)</a></p>
       <h2>Guides utiles pour cette voiture</h2>
       <ul>
         <li><a href="/fr/vag-scope/guides/best-elm327-adapter-vw-audi/">Quel adaptateur ELM327 Bluetooth choisir</a></li>
         <li><a href="/fr/vag-scope/guides/used-car-mileage-check/">Comment vérifier le kilométrage d’une occasion</a></li>
         <li><a href="/fr/vag-scope/guides/vin-check/">Où trouver et vérifier le VIN</a></li>
       </ul>
-      <h2>Autres modèles Volkswagen</h2>
-      <p class="peer-links"><a href="/fr/vag-scope/models/vw-golf-5/">Volkswagen Golf 5 (Mk5) (2004-2008)</a> · <a href="/fr/vag-scope/models/vw-golf-6/">Volkswagen Golf 6 (Mk6) (2009-2012)</a> · <a href="/fr/vag-scope/models/vw-golf-7/">Volkswagen Golf 7 (Mk7) (2013-2020)</a> · <a href="/fr/vag-scope/models/vw-golf-8/">Volkswagen Golf 8 (Mk8) (2020-)</a> · <a href="/fr/vag-scope/models/vw-passat-b6/">Volkswagen Passat B6 (2005-2010)</a> · <a href="/fr/vag-scope/models/vw-passat-b7/">Volkswagen Passat B7 (2010-2014)</a></p>
       <aside class="guide-cta" aria-labelledby="guide-cta-h">
         <h2 id="guide-cta-h" data-i18n="gcta_h">Faites la vérification sur votre voiture</h2>
         <p data-i18n="gcta_p">VAG Scope la fait depuis votre téléphone et un adaptateur ELM327 Bluetooth : aucun compte, aucun réseau, et chaque résultat montre ses preuves.</p>

@@ -2,449 +2,1713 @@
   {
     "slug": "vw-golf-5",
     "brand": "Volkswagen",
-    "model": "Golf 5 (Mk5)",
+    "model": "Golf 5",
+    "codes": ["Mk5", "1K", "1K1", "1K5"],
     "years": "2004-2008",
     "platform": "PQ35",
     "protocol": "tp20",
     "sfd": false,
     "status": "protocol",
+    "page": true,
+    "frName": "la Volkswagen Golf 5",
+    "seoTitle": {
+      "en": "VW Golf 5 (Mk5, 1K) OBD diagnostics",
+      "fr": "Diagnostic VW Golf 5 (1K, 2004-2008)"
+    },
+    "metaDesc": {
+      "en": "VAG Scope on the VW Golf 5 (Mk5, 1K, 2004-2008): full CAN TP 2.0 scan, DSG and TFSI/TDI measuring blocks, mileage check, coding and open ELM327 setup.",
+      "fr": "Compatibilité VAG Scope sur VW Golf 5 (1K, 2004-2008) : scan complet en CAN TP 2.0, blocs de mesures TFSI/TDI/DSG, kilométrage, codage et ELM327."
+    },
+    "answer": {
+      "en": "Yes: VAG Scope supports the Volkswagen Golf 5 (Mk5 / 1K, 2004-2008) over CAN TP 2.0 with an open Bluetooth ELM327 adapter, 100% offline. Where generic OBD-II apps only see basic engine emissions, VAG Scope reads all TP 2.0 control units, measuring blocks, coding and adaptations from your phone.",
+      "fr": "Oui : VAG Scope prend en charge la Volkswagen Golf 5 (type 1K, 2004-2008) en CAN TP 2.0 avec un adaptateur ELM327 Bluetooth ouvert, 100 % hors ligne. Là où une appli OBD générique s'arrête aux codes moteur antipollution, VAG Scope lit tous les calculateurs TP 2.0, les blocs de mesures, les codages et les adaptations."
+    },
     "note": {
-      "en": "Uses CAN TP 2.0 across engine, DSG, ABS, instrument cluster and comfort units. Generic OBD apps only see basic engine emissions on a Mk5; VAG Scope reads all control units, measuring blocks, coding and adaptations from a phone.",
-      "fr": "La Golf 5 dialogue en CAN TP 2.0 sur le moteur, la boîte DSG, l’ABS, le combiné et les modules de confort. Là où une appli OBD générique ne voit que la dépollution moteur, VAG Scope accède à tous les calculateurs, blocs de mesures, codages et adaptations depuis un téléphone."
+      "en": "Full CAN TP 2.0 across engine, DSG, ABS, instrument cluster and comfort units. Generic OBD apps miss almost every module on a Mk5.",
+      "fr": "CAN TP 2.0 sur le moteur, la boîte DSG, l'ABS, le combiné et les modules confort. Les applis OBD génériques passent à côté de presque toute la voiture."
+    },
+    "obdPort": {
+      "en": "Look in the driver's footwell on the left side, just above the bonnet release lever behind the lower dash trim (no cover to unclip on most LHD and RHD cars).",
+      "fr": "La prise OBD se trouve côté conducteur, en bas à gauche sous le tableau de bord, juste au-dessus de la tirette d'ouverture du capot."
+    },
+    "mileageReality": {
+      "en": "On 2004-2008 PQ35 TP 2.0 cars, many control units do not expose a standalone odometer block, though the instrument cluster, EDC16 diesel ECU and fault-code freeze frames often record distance. VAG Scope compares whatever units answer and shows the evidence, though agreement is only one clue alongside service invoices and MOT/inspection history.",
+      "fr": "Sur les Golf 5 en TP 2.0 (2004-2008), tous les calculateurs ne gardent pas un compteur indépendant, mais le combiné d'instruments, certains calculateurs TDI EDC16 et les trames figées de défauts enregistrent souvent le kilométrage. Le contrôle croise les valeurs disponibles pour vous donner un indice concret, sans jamais remplacer factures et contrôle technique."
+    },
+    "checkpoints": {
+      "en": [
+        "Scan the 02 Transmission (DQ250 6-speed DSG) and 01 Engine units for mechatronic pressure faults, clutch temperature warnings or misfire counters on 2.0 TFSI and 1.4 TSI engines.",
+        "Check 03 ABS/ESP for the well-known G201 brake pressure sensor fault on Teves MK60 units, which often triggers a permanent ESP light.",
+        "On 1.9 TDI and 2.0 TDI (PD / early DPF) engines, inspect injector deviation blocks and soot loading in measuring blocks while the engine idles warm.",
+        "Read 46 Central Convenience and 09 Central Electronics for door-lock microswitch faults, rear wiper motor errors or gateway battery-drain issues after aftermarket head-unit swaps."
+      ],
+      "fr": [
+        "Scannez les calculateurs 01 Moteur et 02 Boîte automatique (DSG DQ250 à 6 rapports) pour repérer d'anciens défauts de mécatronique, de température d'huile ou de ratés d'allumage sur les 2.0 TFSI et 1.4 TSI.",
+        "Surveillez le calculateur 03 ABS/ESP : le capteur de pression de freinage G201 des blocs Teves MK60 est un grand classique sur Golf 5 et allume le voyant ESP.",
+        "Sur les 1.9 TDI et 2.0 TDI à injecteurs-pompes, consultez les blocs de mesures de correction d'injecteurs à chaud et la charge du filtre à particules sur les versions FAP.",
+        "Vérifiez 09 Centrale électrique et 46 Module confort pour détecter les serrures de porte capricieuses ou un défaut de passerelle CAN après montage d'un autoradio récent."
+      ]
+    },
+    "faqs": {
+      "en": [
+        {
+          "q": "Where is the OBD-II port on a VW Golf 5?",
+          "a": "It sits in the driver's footwell under the lower dashboard trim, on the outer left side above the bonnet release handle."
+        },
+        {
+          "q": "Why do cheap ELM327 clones fail on a Golf 5?",
+          "a": "The Golf 5 uses VW's CAN TP 2.0 transport protocol, which needs continuous keep-alive timing and raw CAN filtering. Cheap v2.1 clones drop the channel mid-scan; a vLinker MC+ or vGate iCar Pro 2S holds TP 2.0 cleanly."
+        },
+        {
+          "q": "Can VAG Scope code a Golf 5 without a Windows laptop?",
+          "a": "Yes. Short coding, long coding, adaptations, basic settings, output tests and service interval resets run directly on your phone over Bluetooth, with an automatic backup and read-back after confirmation."
+        },
+        {
+          "q": "How many modules store mileage on a Golf 5?",
+          "a": "Fewer than on newer MQB cars: the cluster, certain TDI ECUs and fault freeze frames may store distance, while some petrol ECUs report none. If the app says data are limited, lean on service records and inspection history."
+        }
+      ],
+      "fr": [
+        {
+          "q": "Où se trouve la prise OBD sur une Golf 5 ?",
+          "a": "Sous le tableau de bord côté conducteur, tout à gauche au-dessus de la poignée d'ouverture du capot."
+        },
+        {
+          "q": "Pourquoi mon boîtier ELM327 à 8 € ne lit-il que le moteur sur Golf 5 ?",
+          "a": "Parce que la Golf 5 utilise le protocole TP 2.0 du groupe VW, qui demande des filtres CAN précis et un maintien de session régulier. Les clones bas de gamme décrochent ; un vLinker MC+ ou vGate iCar Pro 2S gère TP 2.0 sans coupure."
+        },
+        {
+          "q": "Peut-on coder ou remettre l'entretien à zéro sans PC Windows ?",
+          "a": "Oui. Codage court, codage long, adaptations, réglages de base, tests actionneurs et remise à zéro d'entretien se font sur téléphone, avec sauvegarde avant écriture et relecture après confirmation."
+        },
+        {
+          "q": "Le contrôle kilométrique fonctionne-t-il sur toutes les Golf 5 ?",
+          "a": "Les moteurs TDI EDC16 et les trames figées de défauts donnent souvent de bonnes indications, alors que certains calculateurs essence de 2004-2007 ne publient pas de distance. Le résultat reste toujours indicatif."
+        }
+      ]
     }
   },
   {
     "slug": "vw-golf-6",
     "brand": "Volkswagen",
-    "model": "Golf 6 (Mk6)",
+    "model": "Golf 6",
+    "codes": ["Mk6", "5K", "5K1", "AJ5"],
     "years": "2009-2012",
     "platform": "PQ35",
     "protocol": "mixed",
     "sfd": false,
     "status": "protocol",
+    "page": true,
+    "frName": "la Volkswagen Golf 6",
+    "seoTitle": {
+      "en": "VW Golf 6 (Mk6, 5K) OBD diagnostics",
+      "fr": "Diagnostic VW Golf 6 (5K, 2009-2012)"
+    },
+    "metaDesc": {
+      "en": "VAG Scope on the VW Golf 6 (Mk6, 5K, 2009-2012): mixed TP 2.0 and 11-bit UDS support, TDI DPF & TSI timing checks, mileage verification and coding.",
+      "fr": "Compatibilité VAG Scope sur VW Golf 6 (5K, 2009-2012) : mixte TP 2.0 et UDS 11 bits, suivi FAP TDI et chaîne TSI, kilométrage et codage hors ligne."
+    },
+    "answer": {
+      "en": "Yes: VAG Scope supports the Volkswagen Golf 6 (Mk6 / 5K, 2009-2012) across both TP 2.0 and 11-bit CAN UDS modules using an open Bluetooth ELM327 adapter. Because the Golf 6 mixes older and newer protocols unit by unit, VAG Scope switches automatically without configuration.",
+      "fr": "Oui : VAG Scope gère la Volkswagen Golf 6 (5K, 2009-2012) sur l'ensemble de ses calculateurs, qu'ils soient encore en TP 2.0 ou déjà passés en UDS CAN 11 bits. L'application bascule automatiquement de protocole module par module avec un simple ELM327 Bluetooth ouvert."
+    },
     "note": {
-      "en": "Transition generation: some control units (such as newer TDI/TSI engine ECUs and instrument clusters) use 11-bit UDS while others remain on TP 2.0. VAG Scope switches protocol automatically unit by unit.",
-      "fr": "Génération charnière : certains calculateurs (moteurs TDI/TSI récents, combiné) parlent déjà en UDS 11 bits tandis que d’autres restent en TP 2.0. VAG Scope bascule automatiquement de protocole calculateur par calculateur."
+      "en": "Transition generation mixing 11-bit UDS (newer CR TDI / TSI ECUs and clusters) with TP 2.0 chassis and comfort modules.",
+      "fr": "Génération charnière mélangeant UDS 11 bits (moteurs TDI CR / TSI, combiné) et TP 2.0 sur les modules châssis et confort."
+    },
+    "obdPort": {
+      "en": "Located under the driver's side dashboard in the left footwell, right above the bonnet release lever.",
+      "fr": "Sous le tableau de bord côté conducteur, à gauche au-dessus de la poignée d'ouverture du capot."
+    },
+    "mileageReality": {
+      "en": "Golf 6 models with UDS engine ECUs (1.6 TDI / 2.0 TDI Common Rail and newer TSI) and DSG gearboxes generally expose mileage both in measuring data and in fault freeze frames, making cross-checks much richer than on the Mk5. Always treat agreement as indicative alongside service history.",
+      "fr": "Grâce aux calculateurs moteur UDS (1.6 TDI, 2.0 TDI Common Rail, TSI récents) et aux boîtes DSG, la Golf 6 expose nettement plus souvent le kilométrage dans les mesures et les trames figées de défauts que la Golf 5. Comme toujours, c'est un faisceau d'indices à croiser avec les factures."
+    },
+    "checkpoints": {
+      "en": [
+        "On 1.6 TDI and 2.0 TDI Common Rail cars, check DPF ash mass, differential pressure at idle and last regeneration distance, plus EGR valve fault history.",
+        "On 1.2 TSI and 1.4 TSI twincharger or EA111 engines, inspect camshaft phase/adaptation values and misfire counters on cold start.",
+        "If fitted with the 7-speed dry-clutch DQ200 DSG, scan 02 Transmission for hydraulic pump pressure warnings, clutch slip faults and selector lever errors.",
+        "Check 19 CAN Gateway and 09 Central Electronics for coding mismatches or quiescent current faults caused by aftermarket radios or retrofitted cameras."
+      ],
+      "fr": [
+        "Sur 1.6 TDI et 2.0 TDI Common Rail, contrôlez la masse de cendres d'huile du FAP, la pression différentielle au ralenti, la distance depuis la dernière régénération et les défauts de vanne EGR.",
+        "Sur les moteurs 1.2 TSI et 1.4 TSI EA111, vérifiez l'absence de ratés d'allumage et les valeurs de déphasage liées à la distribution.",
+        "Sur boîte DSG7 DQ200 (carter sec), interrogez 02 Boîte automatique pour repérer d'éventuelles alertes de pression hydraulique ou de mécatronique.",
+        "Contrôlez 19 Passerelle CAN et 09 Centrale électrique pour vérifier l'état du codage et l'absence de fuite de courant après ajout d'accessoires."
+      ]
+    },
+    "faqs": {
+      "en": [
+        {
+          "q": "Does VAG Scope handle both TP 2.0 and UDS on a Golf 6?",
+          "a": "Yes. A 2010 Golf 6 often has an UDS engine ECU and instrument cluster alongside TP 2.0 ABS or comfort modules. VAG Scope probes and communicates with each unit automatically."
+        },
+        {
+          "q": "Can I reset the oil and inspection service lights on a Golf 6?",
+          "a": "Yes. Both TP 2.0 and UDS instrument clusters support service interval reset from your phone after explicit confirmation."
+        },
+        {
+          "q": "Is SFD write protection active on the Golf 6?",
+          "a": "No. SFD was introduced roughly a decade later on 2020+ MQB-evo cars, so all supported reading, coding and adaptation functions run 100% offline on a Golf 6."
+        },
+        {
+          "q": "Where do I plug in the ELM327 adapter on a Golf 6?",
+          "a": "Under the lower dash on the driver's side, just above the bonnet release lever."
+        }
+      ],
+      "fr": [
+        {
+          "q": "VAG Scope gère-t-elle le mélange TP 2.0 et UDS de la Golf 6 ?",
+          "a": "Oui. Une Golf 6 a souvent un moteur et un combiné en UDS 11 bits mais un ABS ou des modules de portes en TP 2.0 : l'appli gère les deux protocoles dans le même scan."
+        },
+        {
+          "q": "Puis-je remettre à zéro l'indicateur de vidange et d'entretien ?",
+          "a": "Oui, directement depuis le téléphone sur les combinés TP 2.0 comme UDS, avec confirmation avant écriture."
+        },
+        {
+          "q": "La Golf 6 a-t-elle le verrouillage SFD ?",
+          "a": "Non. SFD n'est arrivé qu'à partir de 2020 sur la génération Golf 8. Sur Golf 6, lecture, codage et adaptations se font librement hors ligne."
+        },
+        {
+          "q": "Quel adaptateur prendre pour une Golf 6 sur Android ou iPhone ?",
+          "a": "Un vLinker MC+ ou un vGate iCar Pro 2S. Les deux gèrent le Bluetooth classique et le BLE (indispensable pour la future version iPhone)."
+        }
+      ]
     }
   },
   {
     "slug": "vw-golf-7",
     "brand": "Volkswagen",
-    "model": "Golf 7 (Mk7)",
+    "model": "Golf 7",
+    "codes": ["Mk7", "Mk7.5", "5G", "5G1", "BA5"],
     "years": "2013-2020",
     "platform": "MQB",
     "protocol": "uds11",
     "sfd": false,
     "status": "protocol",
+    "page": true,
+    "frName": "la Volkswagen Golf 7",
+    "seoTitle": {
+      "en": "VW Golf 7 (Mk7, 5G) OBD diagnostics",
+      "fr": "Diagnostic VW Golf 7 (5G, 2013-2020)"
+    },
+    "metaDesc": {
+      "en": "VAG Scope on the VW Golf 7 (Mk7/7.5, 5G, 2013-2020): 11-bit UDS diagnostics, multi-module mileage check, TDI/GTI/R live data and offline coding.",
+      "fr": "VAG Scope sur VW Golf 7 et 7.5 (5G, 2013-2020) : diagnostic complet en UDS 11 bits, contrôle kilométrage multi-calculateurs, mesures TDI/GTI et codage."
+    },
+    "answer": {
+      "en": "Yes: VAG Scope supports the Volkswagen Golf 7 and 7.5 (5G, 2013-2020) over 11-bit CAN UDS with any open Bluetooth ELM327 adapter, 100% offline. Full control-unit scans, multi-module mileage and VIN checks, live data, coding and adaptations work without subscriptions or SFD locks.",
+      "fr": "Oui : VAG Scope prend en charge les Volkswagen Golf 7 et 7.5 (5G, 2013-2020) en UDS CAN 11 bits avec un adaptateur ELM327 Bluetooth ouvert, 100 % hors ligne. Scan complet, contrôle du kilométrage multi-calculateurs, VIN, mesures en direct, codage et adaptations fonctionnent sans abonnement ni SFD."
+    },
     "note": {
-      "en": "Full 11-bit CAN UDS architecture with rich mileage storage across engine, DSG, ABS and gateway modules, making pre-purchase mileage and VIN checks especially informative. No SFD write lock on Mk7/Mk7.5.",
-      "fr": "Architecture complète en UDS CAN 11 bits, avec un kilométrage souvent mémorisé dans plusieurs calculateurs (moteur, DSG, ABS, passerelle) : idéal pour un bilan avant achat. Pas de verrouillage SFD sur Golf 7 et 7.5."
+      "en": "Full 11-bit MQB UDS architecture with rich mileage storage across engine, DSG, ABS and gateway modules, and no SFD write lock.",
+      "fr": "Plateforme MQB 100 % UDS 11 bits, très riche en relevés kilométriques dans plusieurs calculateurs et sans verrouillage SFD."
+    },
+    "obdPort": {
+      "en": "Under the dashboard on the driver's side, to the left of the steering column just above the bonnet release lever.",
+      "fr": "Sous la planche de bord côté conducteur, à gauche de la colonne de direction, au-dessus de la tirette de capot."
+    },
+    "mileageReality": {
+      "en": "The MQB Golf 7 is one of the best VAG generations for pre-purchase checks because the engine ECU, DSG gearbox, ABS unit, instrument cluster and CAN gateway frequently expose distance or fault freeze-frame mileage. A discrepancy above the dashboard reading is a strong red flag, though agreement remains indicative rather than proof.",
+      "fr": "La Golf 7 MQB est l'une des générations les plus parlantes avant achat : calculateur moteur, boîte DSG, bloc ABS, combiné et passerelle conservent souvent une distance ou des kilométrages en trame figée de défauts. Un écart au-dessus du compteur est un signal fort, mais un accord reste toujours indicatif."
+    },
+    "checkpoints": {
+      "en": [
+        "Run the one-tap Health Check before test-driving to capture pre-existing fault codes, cross-module mileage and VIN consistency in a signed PDF.",
+        "On EA888 Gen 3 petrol engines (GTI, R, 1.8/2.0 TSI), monitor coolant temperature stability (thermostat housing leaks), boost actual vs specified and knock/timing pull.",
+        "On 1.6 TDI and 2.0 TDI (including GTD), check DPF soot mass, oil ash volume and AdBlue/SCR dosing faults on later Euro 6 cars.",
+        "On DSG-equipped cars (DQ200, DQ250 or 7-speed DQ381), read gearbox oil temperature, clutch adaptation/slip faults and mechatronic pressure warnings."
+      ],
+      "fr": [
+        "Lancez le bilan de santé complet avant l'essai routier pour figer les défauts présents, la comparaison du kilométrage et le VIN de chaque module dans un PDF signé.",
+        "Sur les blocs essence EA888 Gen 3 (GTI, R, 1.8/2.0 TSI), surveillez la stabilité de température moteur (boîtier thermostat), la pression de suralimentation et les corrections d'avance.",
+        "Sur 1.6 TDI et 2.0 TDI / GTD, vérifiez la masse de cendres du FAP, l'historique de régénération et les éventuels défauts AdBlue/SCR sur les Euro 6.",
+        "Sur DSG (DQ200, DQ250 ou DQ381 7 rapports), lisez la température d'huile de boîte et l'absence de défauts d'embrayage ou de mécatronique."
+      ]
+    },
+    "faqs": {
+      "en": [
+        {
+          "q": "Does the Golf 7 have SFD protection?",
+          "a": "No. Both Golf 7 (2013-2016) and Golf 7.5 facelift (2017-2020) are pre-SFD MQB cars, so VAG Scope can read and write supported coding, long coding and adaptations offline."
+        },
+        {
+          "q": "Can I time 0-100 km/h or 100-200 km/h on a Golf GTI / R without a GPS box?",
+          "a": "Yes. VAG Scope's Performance Hub fuses OBD vehicle speed with your phone's 100 Hz IMU sensors to time pulls and estimate power on a virtual dyno, with zero GPS permission."
+        },
+        {
+          "q": "Which adapter works fastest on a Golf 7?",
+          "a": "The vLinker MC+ offers the highest polling speed and buffer size for full MQB module scans and 100 Hz Performance Hub logging; the vGate iCar Pro 2S is a solid compact alternative."
+        },
+        {
+          "q": "Can VAG Scope verify if a Golf 7 instrument cluster or ECU was swapped?",
+          "a": "Yes. The VIN check compares the 17-character VIN stored inside engine, cluster, gateway and other modules against the car's markings and flags any donor-unit mismatch."
+        }
+      ],
+      "fr": [
+        {
+          "q": "La Golf 7 ou 7.5 est-elle bloquée par SFD ?",
+          "a": "Non. Les Golf 7 (2013-2016) et 7.5 restylées (2017-2020) sont antérieures au verrouillage SFD : lecture, codage long et adaptations passent hors ligne."
+        },
+        {
+          "q": "Peut-on mesurer un 0-100 ou 100-200 km/h sur une Golf GTI ou R ?",
+          "a": "Oui. Le Performance Hub fusionne la vitesse lue sur la prise OBD avec les capteurs 100 Hz du téléphone pour chronométrer vos accélérations et tracer un passage au banc virtuel, sans permission GPS."
+        },
+        {
+          "q": "Où est la prise OBD sur une Golf 7 ?",
+          "a": "Sous le tableau de bord côté conducteur, à gauche de la colonne de direction, juste au-dessus du levier d'ouverture du capot."
+        },
+        {
+          "q": "Pourquoi choisir VAG Scope plutôt qu'un boîtier à abonnement sur Golf 7 ?",
+          "a": "Vous payez l'appli une fois (~10 €) avec VIN illimités et un ELM327 ouvert qui ressert sur d'autres marques, sans crédits ni connexion internet requise dans votre garage."
+        }
+      ]
     }
   },
   {
     "slug": "vw-golf-8",
     "brand": "Volkswagen",
-    "model": "Golf 8 (Mk8)",
+    "model": "Golf 8",
+    "codes": ["Mk8", "CD", "CD1", "CG5"],
     "years": "2020-",
     "platform": "MQB-evo",
     "protocol": "uds29",
     "sfd": true,
     "status": "protocol",
+    "page": true,
+    "frName": "la Volkswagen Golf 8",
+    "seoTitle": {
+      "en": "VW Golf 8 (Mk8, CD) OBD & SFD support",
+      "fr": "Diagnostic VW Golf 8 (CD, 2020+) et SFD"
+    },
+    "metaDesc": {
+      "en": "VAG Scope on the VW Golf 8 (MQB-evo, 2020+): 29-bit CAN UDS offline scan, fault codes, live data, mileage/VIN health check and honest SFD boundary.",
+      "fr": "VAG Scope sur VW Golf 8 (MQB-evo, 2020+) : scan UDS 29 bits hors ligne, codes défaut, mesures en direct, contrôle kilométrage/VIN et vérité sur SFD."
+    },
+    "answer": {
+      "en": "Yes for reading, scanning, live data and pre-purchase checks: VAG Scope supports the Volkswagen Golf 8 (CD, 2020+) over 11-bit and 29-bit CAN UDS completely offline. However, many Golf 8 control units protect write access with SFD/SFD2, and VAG Scope does not perform online SFD unlock because it has zero network permission.",
+      "fr": "Oui pour le scan, la lecture de défauts, les mesures en direct et le bilan avant achat : VAG Scope gère la Golf 8 (CD, 2020+) en UDS CAN 11 et 29 bits, 100 % hors ligne. En revanche, l'écriture sur les calculateurs protégés par SFD/SFD2 exige un déverrouillage serveur en ligne que VAG Scope ne fait pas (aucune permission réseau)."
+    },
     "note": {
-      "en": "Uses 11-bit and 29-bit CAN UDS with 4-hex module addresses. Scanning, fault codes, live data, health, mileage and VIN checks work offline; protected writes on SFD-locked units require online unlock, which VAG Scope does not perform.",
-      "fr": "Fonctionne en UDS CAN 11 bits et 29 bits avec adresses sur 4 caractères hexadécimaux. Le scan, les codes défaut, les mesures en direct et les contrôles de santé, kilométrage et VIN marchent hors ligne ; l’écriture sur les modules verrouillés SFD demande un déverrouillage en ligne non géré par VAG Scope."
-    }
-  },
-  {
-    "slug": "vw-passat-b6",
-    "brand": "Volkswagen",
-    "model": "Passat B6",
-    "years": "2005-2010",
-    "platform": "PQ46",
-    "protocol": "tp20",
-    "sfd": false,
-    "status": "protocol",
-    "note": {
-      "en": "TP 2.0 platform covering engine, DSG, electronic parking brake (EPB), ABS and comfort modules. Useful for checking EPB faults, TDI boost/DPF measuring blocks and service resets without carrying a Windows laptop.",
-      "fr": "Plateforme TP 2.0 couvrant moteur, DSG, frein de parking électrique (EPB), ABS et modules de confort. Pratique pour lire les défauts d’EPB, suivre le FAP ou la pression de turbo d’un TDI et remettre l’entretien à zéro sans PC portable."
-    }
-  },
-  {
-    "slug": "vw-passat-b7",
-    "brand": "Volkswagen",
-    "model": "Passat B7",
-    "years": "2010-2014",
-    "platform": "PQ46",
-    "protocol": "mixed",
-    "sfd": false,
-    "status": "protocol",
-    "note": {
-      "en": "Mixes 11-bit UDS (engine, cluster) and TP 2.0 (older chassis and comfort units). VAG Scope handles both transparently in a single scan and health check.",
-      "fr": "Mélange UDS 11 bits (moteur, combiné) et TP 2.0 (châssis et confort plus anciens). VAG Scope gère les deux dans le même scan et le même bilan de santé."
+      "en": "MQB-evo 11-bit and 29-bit CAN UDS with 4-hex module addresses. Offline read/scan/health/live data work; online SFD unlock for protected writes is not supported.",
+      "fr": "MQB-evo en UDS CAN 11 et 29 bits (adresses à 4 chiffres hexa). Lecture, scan, santé et mesures en direct hors ligne ; pas de déverrouillage SFD en ligne."
+    },
+    "obdPort": {
+      "en": "In the driver's footwell under the lower dash trim on the left side, near the bonnet release.",
+      "fr": "Dans le bas du tableau de bord côté conducteur, tout à gauche près de la poignée de capot."
+    },
+    "mileageReality": {
+      "en": "MQB-evo cars expose distance across multiple UDS modules and fault freeze frames. Even when SFD restricts write operations, read-only mileage, VIN and fault scans run completely offline on a Golf 8, making VAG Scope well suited for used Golf 8 inspections.",
+      "fr": "Les plateformes MQB-evo conservent le kilométrage dans plusieurs calculateurs UDS et trames figées. Même lorsque SFD bloque l'écriture, toute la lecture (bilan de santé, kilométrage, VIN et défauts) reste accessible hors ligne avant d'acheter une Golf 8 d'occasion."
+    },
+    "checkpoints": {
+      "en": [
+        "Expect sporadic communication or driver-assistance soft faults on early 2020-2021 Golf 8 builds; check whether control units have accumulated recent 12 V low-voltage warnings.",
+        "On 1.5 eTSI mild-hybrid models, scan 48 V belt-starter generator and DC/DC converter modules (using 29-bit UDS 4-hex addresses) for thermal or charging faults.",
+        "On Golf 8 GTI / R and GTE plug-in hybrids, inspect high-voltage battery cell balance or boost/coolant temperatures in live data.",
+        "Confirm which modules are SFD-protected before buying if your goal is heavy coding rather than diagnostics and pre-purchase checks."
+      ],
+      "fr": [
+        "Sur les premiers millésimes 2020-2021, vérifiez la présence de défauts récurrents d'aides à la conduite ou de sous-tension 12 V dans l'historique.",
+        "Sur les 1.5 eTSI micro-hybrides 48 V, contrôlez les modules haute/basse tension (adresses UDS 29 bits à 4 caractères) pour vérifier l'alterno-démarreur et le convertisseur DC/DC.",
+        "Sur GTI, R ou hybride rechargeable GTE, observez les mesures en direct de température, pression de turbo ou gestion batterie.",
+        "Gardez en tête la limite SFD : parfaite pour diagnostiquer, contrôler une occasion et suivre les mesures en direct, mais pas faite pour du codage intensif sur modules verrouillés SFD2."
+      ]
+    },
+    "faqs": {
+      "en": [
+        {
+          "q": "Can VAG Scope code a Golf 8?",
+          "a": "Many Golf 8 modules are protected by SFD (and SFD2 on late builds), which requires an online manufacturer-signed token to unlock writes. Because VAG Scope has no internet permission by design, it does not unlock SFD-protected writes."
+        },
+        {
+          "q": "Does VAG Scope still scan all 29-bit Golf 8 modules offline?",
+          "a": "Yes. VAG Scope probes both 11-bit and 29-bit CAN UDS modules (including 4-hex addresses and F1B7 wide gateway lists) completely offline for faults, live data, mileage and VIN checks."
+        },
+        {
+          "q": "Why does an ordinary ELM327 app miss half of a Golf 8?",
+          "a": "Older apps only query 11-bit CAN IDs (7E0/700 range). MQB-evo places key modules on 29-bit extended CAN addresses, which VAG Scope supports natively."
+        },
+        {
+          "q": "Can I clear fault codes on a Golf 8?",
+          "a": "Fault clearing works on modules that do not require an SFD unlock for clear-DTC; SFD-locked modules will refuse protected writes."
+        }
+      ],
+      "fr": [
+        {
+          "q": "Puis-je coder une Golf 8 avec VAG Scope ?",
+          "a": "La plupart des calculateurs d'une Golf 8 sont protégés par SFD (voire SFD2 sur les plus récentes), ce qui impose un jeton en ligne signé par les serveurs VW. VAG Scope n'ayant aucune permission réseau, le déverrouillage SFD en ligne n'est pas géré."
+        },
+        {
+          "q": "Le scan complet des modules UDS 29 bits fonctionne-t-il quand même hors ligne ?",
+          "a": "Oui. VAG Scope interroge les calculateurs 11 bits et 29 bits (adresses hexa à 4 caractères et passerelle F1B7) entièrement hors ligne pour lire défauts, mesures en direct, kilométrage et VIN."
+        },
+        {
+          "q": "Pourquoi d'autres applis ELM327 ne voient-elles pas tous les calculateurs de la Golf 8 ?",
+          "a": "Beaucoup d'applis restent limitées au CAN 11 bits classique. L'architecture MQB-evo utilise des identifiants CAN étendus sur 29 bits que VAG Scope prend en charge."
+        },
+        {
+          "q": "VAG Scope vaut-elle le coup sur une Golf 8 malgré SFD ?",
+          "a": "Oui si vous voulez vérifier une Golf 8 d'occasion (bilan de santé PDF, kilométrage, VIN), lire les défauts détaillés, suivre les données en direct sur Android Auto ou utiliser le Performance Hub sans abonnement."
+        }
+      ]
     }
   },
   {
     "slug": "vw-passat-b8",
     "brand": "Volkswagen",
     "model": "Passat B8",
+    "codes": ["B8", "3G", "3G2", "3G5"],
     "years": "2015-2023",
     "platform": "MQB",
     "protocol": "uds11",
     "sfd": false,
     "status": "protocol",
+    "page": true,
+    "frName": "la Volkswagen Passat B8",
+    "seoTitle": {
+      "en": "VW Passat B8 (3G) OBD diagnostics",
+      "fr": "Diagnostic VW Passat B8 (3G, 2015-2023)"
+    },
+    "metaDesc": {
+      "en": "VAG Scope on the VW Passat B8 (3G, 2015-2023): 11-bit UDS diagnostics, fleet mileage verification, TDI/GTE checks, coding and open ELM327 support.",
+      "fr": "VAG Scope sur VW Passat B8 (3G, 2015-2023) : diagnostic UDS 11 bits, contrôle kilométrage avant achat, suivi TDI/GTE, codage hors ligne et ELM327."
+    },
+    "answer": {
+      "en": "Yes: VAG Scope supports the Volkswagen Passat B8 (3G, 2015-2023) over 11-bit CAN UDS with an open Bluetooth ELM327 adapter, 100% offline. It is particularly useful for inspecting high-mileage ex-fleet Passat B8 diesels and GTE hybrids before buying.",
+      "fr": "Oui : VAG Scope gère la Volkswagen Passat B8 (3G, 2015-2023) en UDS CAN 11 bits avec un adaptateur ELM327 Bluetooth ouvert, 100 % hors ligne. C'est un allié précieux avant d'acheter une Passat B8 TDI ou GTE souvent issue de flottes ou de longs trajets autoroutiers."
+    },
     "note": {
-      "en": "MQB 11-bit UDS platform with broad multi-unit mileage and VIN coverage. Full offline diagnostics, adaptations, coding, basic settings and service resets work with an open ELM327 adapter.",
-      "fr": "Plateforme MQB en UDS 11 bits avec de nombreux calculateurs qui conservent kilométrage et VIN. Diagnostic complet, adaptations, codage, réglages de base et remises à zéro d’entretien fonctionnent hors ligne avec un ELM327 ouvert."
-    }
-  },
-  {
-    "slug": "vw-polo-6r",
-    "brand": "Volkswagen",
-    "model": "Polo 6R / 6C",
-    "years": "2009-2017",
-    "platform": "PQ25",
-    "protocol": "mixed",
-    "sfd": false,
-    "status": "protocol",
-    "note": {
-      "en": "Polo 6R mixes TP 2.0 and 11-bit UDS depending on engine and model year; the 6C facelift moves largely to UDS. Both work unit by unit with VAG Scope.",
-      "fr": "La Polo 6R mélange TP 2.0 et UDS 11 bits selon le moteur et l’année, puis la phase 6C passe majoritairement en UDS. Les deux sont pris en charge calculateur par calculateur."
-    }
-  },
-  {
-    "slug": "vw-polo-aw",
-    "brand": "Volkswagen",
-    "model": "Polo AW",
-    "years": "2017-",
-    "platform": "MQB-A0",
-    "protocol": "uds11",
-    "sfd": false,
-    "status": "protocol",
-    "note": {
-      "en": "MQB-A0 11-bit UDS platform. Late facelift cars may protect selected modules with SFD; reading, scanning, health checks and live data remain 100% offline.",
-      "fr": "Plateforme MQB-A0 en UDS 11 bits. Certains exemplaires restylés récents peuvent activer SFD sur quelques calculateurs ; la lecture, le scan, le bilan de santé et les mesures en direct restent 100 % hors ligne."
-    }
-  },
-  {
-    "slug": "vw-tiguan-1",
-    "brand": "Volkswagen",
-    "model": "Tiguan 1 (5N)",
-    "years": "2007-2016",
-    "platform": "PQ35",
-    "protocol": "mixed",
-    "sfd": false,
-    "status": "protocol",
-    "note": {
-      "en": "Early 5N models use TP 2.0 and later facelifts mix TP 2.0 with 11-bit UDS, including Haldex AWD and EPB modules. VAG Scope reads both protocols automatically.",
-      "fr": "Les premiers 5N sont en TP 2.0 et les restylés mélangent TP 2.0 et UDS 11 bits, y compris sur les modules Haldex et frein de parking électrique. VAG Scope gère les deux sans réglage."
-    }
-  },
-  {
-    "slug": "vw-tiguan-2",
-    "brand": "Volkswagen",
-    "model": "Tiguan 2 (AD)",
-    "years": "2016-2023",
-    "platform": "MQB",
-    "protocol": "uds11",
-    "sfd": false,
-    "status": "protocol",
-    "note": {
-      "en": "MQB 11-bit UDS SUV with full multi-unit scanning, mileage/VIN checks, live data, adaptations and coding offline with an open ELM327 adapter.",
-      "fr": "SUV MQB en UDS 11 bits : scan complet des calculateurs, contrôles kilométrage et VIN, mesures en direct, adaptations et codage hors ligne avec un ELM327 ouvert."
-    }
-  },
-  {
-    "slug": "vw-id3",
-    "brand": "Volkswagen",
-    "model": "ID.3",
-    "years": "2020-",
-    "platform": "MEB",
-    "protocol": "uds29",
-    "sfd": true,
-    "status": "protocol",
-    "note": {
-      "en": "Electric MEB platform using 29-bit CAN UDS and 4-hex module addresses (including HV battery and DC/DC units). Offline scanning, fault reading, live EV telemetry and health checks work; online SFD unlock for protected writes is not supported.",
-      "fr": "Plateforme électrique MEB en UDS CAN 29 bits avec adresses sur 4 caractères hexadécimaux (batterie haute tension, convertisseur DC/DC). Scan, codes défaut, données batterie en direct et bilan de santé fonctionnent hors ligne ; pas de déverrouillage SFD en ligne."
+      "en": "MQB 11-bit UDS platform with broad multi-unit mileage and VIN coverage; pre-2022 builds have no SFD lock.",
+      "fr": "Plateforme MQB en UDS 11 bits avec de nombreux relevés kilométriques multi-calculateurs et sans verrouillage SFD avant les tout derniers millésimes."
+    },
+    "obdPort": {
+      "en": "Located under the left side of the dashboard in the driver's footwell, directly above the bonnet release.",
+      "fr": "Sous le tableau de bord côté conducteur, à gauche au-dessus de la tirette d'ouverture du capot."
+    },
+    "mileageReality": {
+      "en": "Passat B8 cars are heavily used by fleets and long-distance drivers, making mileage verification high value. Engine, DSG, ABS, cluster and gateway modules store cross-checkable distances on MQB 11-bit UDS, though clean results never replace official service records.",
+      "fr": "Beaucoup de Passat B8 parcourent de gros kilométrages en flotte d'entreprise. Les calculateurs moteur, DSG, ABS, combiné et passerelle en UDS 11 bits fournissent de nombreux points de comparaison pour détecter une incohérence avant achat, en complément de l'historique d'entretien."
+    },
+    "checkpoints": {
+      "en": [
+        "On 2.0 TDI (150, 190 and 240 PS BiTDI) cars, read DPF soot/ash mass, SCR AdBlue pump/NOx sensor faults and dual-mass flywheel or DSG clutch warnings.",
+        "On Passat GTE plug-in hybrids, inspect hybrid battery and charging module fault memory for isolation or high-voltage heater errors.",
+        "Check 03 ABS / EPB rear caliper actuators and DCC adaptive damper modules if equipped.",
+        "Compare VINs across engine, gearbox and instrument cluster to confirm no major donor control units were fitted."
+      ],
+      "fr": [
+        "Sur 2.0 TDI (150, 190 et 240 ch BiTDI), vérifiez la charge en cendres du FAP, les éventuels défauts de pompe AdBlue / sonde NOx et la santé de la boîte DSG.",
+        "Sur Passat GTE hybride rechargeable, lisez la mémoire des calculateurs haute tension (chargeur, chauffage HV, défauts d'isolement).",
+        "Contrôlez les étriers de frein de parking électrique (EPB) et les capteurs de suspension pilotée DCC si la voiture en est équipée.",
+        "Comparez les VIN enregistrés dans les calculateurs pour vérifier qu'aucun module majeur n'a été remplacé sans trace."
+      ]
+    },
+    "faqs": {
+      "en": [
+        {
+          "q": "Does VAG Scope work on a Passat B8 2.0 TDI or GTE?",
+          "a": "Yes. Both TDI/TSI and GTE plug-in hybrid Passat B8 variants use 11-bit CAN UDS across their main drivetrain and chassis modules."
+        },
+        {
+          "q": "Is SFD active on the Passat B8?",
+          "a": "Most 2015-2021 Passat B8 models have no SFD lock at all. Very late 2022-2023 cars may protect selected modules with SFD, where offline reading and scanning still work normally."
+        },
+        {
+          "q": "Can I reset the service interval on a Passat B8?",
+          "a": "Yes. Oil and inspection service resets work directly from your phone after confirmation."
+        },
+        {
+          "q": "Do I need internet in an underground car park to check a used Passat B8?",
+          "a": "No. VAG Scope has zero network permission and runs 100% offline via Bluetooth."
+        }
+      ],
+      "fr": [
+        {
+          "q": "VAG Scope fonctionne-t-elle sur Passat B8 2.0 TDI et GTE ?",
+          "a": "Oui. Les versions TDI, TSI et hybride rechargeable GTE dialoguent en UDS CAN 11 bits sur l'ensemble de leurs calculateurs principaux."
+        },
+        {
+          "q": "Y a-t-il du SFD sur la Passat B8 ?",
+          "a": "Non sur la grande majorité des millésimes 2015-2021. Seuls quelques exemplaires de toute fin de carrière (2022-2023) peuvent verrouiller certains modules en écriture, tout en restant lisibles hors ligne."
+        },
+        {
+          "q": "Peut-on remettre l'entretien à zéro sur Passat B8 ?",
+          "a": "Oui, directement depuis le téléphone avec sauvegarde et confirmation."
+        },
+        {
+          "q": "Faut-il du réseau mobile pour faire un bilan avant achat dans un parking ?",
+          "a": "Non. VAG Scope fonctionne 100 % hors ligne par Bluetooth."
+        }
+      ]
     }
   },
   {
     "slug": "vw-id4",
     "brand": "Volkswagen",
     "model": "ID.4",
+    "codes": ["E2", "E21", "GTX", "MEB"],
     "years": "2021-",
     "platform": "MEB",
     "protocol": "uds29",
     "sfd": true,
     "status": "demo",
+    "page": true,
+    "frName": "le Volkswagen ID.4",
+    "seoTitle": {
+      "en": "VW ID.4 (MEB) 29-bit UDS OBD diagnostics",
+      "fr": "Diagnostic VW ID.4 (MEB, UDS 29 bits)"
+    },
+    "metaDesc": {
+      "en": "VAG Scope on the VW ID.4 (MEB, 2021+): 29-bit CAN UDS EV diagnostics, 12 V DC/DC converter check, built-in demo car, live data and SFD boundary.",
+      "fr": "VAG Scope sur VW ID.4 (MEB, 2021+) : diagnostic électrique UDS 29 bits, contrôle convertisseur 12 V DC/DC, voiture de démo intégrée et SFD."
+    },
+    "answer": {
+      "en": "Yes for EV diagnostics, live data and pre-purchase checks: VAG Scope supports the Volkswagen ID.4 (MEB, 2021+) over 29-bit CAN UDS with 4-hex module addresses and includes a built-in 2023 ID.4 GTX demo car. Because MEB modules use SFD/SFD2 write protection, offline reading and guided procedures work while online SFD write unlock is not supported.",
+      "fr": "Oui pour le diagnostic électrique, les mesures en direct et le bilan avant achat : VAG Scope gère le Volkswagen ID.4 (MEB, 2021+) en UDS CAN 29 bits avec adresses à 4 chiffres hexa, et intègre même un ID.4 GTX 2023 en voiture de démo. Lecture, scan et procédures guidées marchent hors ligne ; le déverrouillage SFD en ligne pour l'écriture protégée n'est pas géré."
+    },
     "note": {
-      "en": "Included as a built-in demo car (VW ID.4 GTX 2023) with a bundled 12 V DC/DC guided procedure. Uses 29-bit CAN UDS; offline reads, scans, live data and health checks work, while online SFD write unlock is not supported.",
-      "fr": "Présente en voiture de démonstration intégrée (VW ID.4 GTX 2023) avec une procédure guidée dédiée au convertisseur 12 V DC/DC. En UDS 29 bits : lecture, scan, mesures en direct et bilan de santé hors ligne ; pas de déverrouillage SFD en ligne."
+      "en": "Built-in demo car (2023 ID.4 GTX) with a bundled 12 V DC/DC converter guided procedure; 29-bit CAN UDS offline reads work, online SFD write unlock not supported.",
+      "fr": "Voiture de démo intégrée (ID.4 GTX 2023) avec procédure guidée convertisseur 12 V DC/DC ; lecture UDS 29 bits hors ligne, pas de déverrouillage SFD en ligne."
+    },
+    "obdPort": {
+      "en": "Under the dashboard on the driver's side, to the left of the steering column above the footwell trim.",
+      "fr": "Sous le tableau de bord côté conducteur, à gauche de la colonne de direction."
+    },
+    "mileageReality": {
+      "en": "On MEB electric vehicles, the instrument/cockpit electronics, drive control units and gateway expose distance and fault freeze frames over 29-bit UDS. Running the Health Check before buying a used EV captures faults, mileage readings and VINs in one signed PDF.",
+      "fr": "Sur la plateforme électrique MEB, plusieurs calculateurs UDS 29 bits publient distance et trames figées de défauts. Le bilan de santé avant achat rassemble défauts, kilométrage et VIN dans un rapport PDF signé hors ligne."
+    },
+    "checkpoints": {
+      "en": [
+        "Run the bundled 12 V DC/DC converter guided procedure (also previewable on the built-in ID.4 GTX demo car) to verify auxiliary charging voltage health.",
+        "Scan 29-bit EV modules (addresses 800B through C003 and the F1B7 wide gateway list) for high-voltage battery cell warnings, thermal valve faults or coolant pump errors.",
+        "Check 12 V battery low-voltage logs, which are a common source of cascading driver-assistance alerts on early MEB software builds.",
+        "Verify steering, radar and heat-pump / A/C compressor modules before buying, as heat-pump valve and compressor repairs on MEB cars are costly out of warranty."
+      ],
+      "fr": [
+        "Lancez la procédure guidée intégrée du convertisseur 12 V DC/DC (testable dès l'écran d'accueil sur l'ID.4 GTX de démo) pour vérifier la bonne charge de la batterie auxiliaire.",
+        "Scannez les calculateurs électriques en UDS 29 bits (adresses 800B à C003 et passerelle F1B7) pour repérer d'éventuels défauts sur la batterie haute tension ou les vannes thermiques.",
+        "Surveillez l'historique de sous-tension 12 V, souvent responsable d'alertes en cascade sur les premiers millésimes MEB.",
+        "Contrôlez les modules de pompe à chaleur et de compresseur de climatisation avant achat, deux organes coûteux hors garantie sur MEB."
+      ]
+    },
+    "faqs": {
+      "en": [
+        {
+          "q": "Can I test VAG Scope's ID.4 support before buying an adapter?",
+          "a": "Yes. A 2023 VW ID.4 GTX is built right into the home screen as a demo car, including 29-bit UDS control units and the 12 V DC/DC converter procedure."
+        },
+        {
+          "q": "Why doesn't VAG Scope code SFD-locked modules on the ID.4?",
+          "a": "MEB cars protect write access with SFD/SFD2, which requires an online manufacturer server token. VAG Scope deliberately has zero internet permission, so it stays 100% offline and read-focused on SFD units."
+        },
+        {
+          "q": "Does an ELM327 adapter work on an electric VW ID.4?",
+          "a": "Yes, provided the adapter handles 29-bit CAN extended addressing cleanly. A vLinker MC+ or vGate iCar Pro 2S is tested and recommended."
+        },
+        {
+          "q": "Does this also apply to the VW ID.3, Škoda Enyaq and Audi Q4 e-tron?",
+          "a": "Yes. They share the same MEB 29-bit CAN UDS architecture and 4-hex module addressing."
+        }
+      ],
+      "fr": [
+        {
+          "q": "Puis-je tester l'interface ID.4 dans VAG Scope sans boîtier OBD ?",
+          "a": "Oui. Une VW ID.4 GTX 2023 est intégrée en voiture de démonstration dès l'écran d'accueil, avec ses calculateurs UDS 29 bits et la procédure 12 V DC/DC."
+        },
+        {
+          "q": "Pourquoi VAG Scope ne déverrouille-t-elle pas SFD sur l'ID.4 ?",
+          "a": "Le déverrouillage SFD/SFD2 impose une connexion aux serveurs constructeurs. VAG Scope est conçue sans aucune permission réseau pour rester 100 % privée et hors ligne."
+        },
+        {
+          "q": "Un adaptateur ELM327 lit-il vraiment une voiture électrique MEB ?",
+          "a": "Oui, s'il gère proprement les trames CAN 29 bits. C'est le cas du vLinker MC+ et du vGate iCar Pro 2S."
+        },
+        {
+          "q": "Est-ce identique sur ID.3, Škoda Enyaq ou Audi Q4 e-tron ?",
+          "a": "Oui, tous reposent sur la même architecture MEB en UDS 29 bits."
+        }
+      ]
     }
   },
   {
     "slug": "audi-a1-8x",
     "brand": "Audi",
-    "model": "A1 (8X)",
+    "model": "Audi A1 (8X)",
+    "codes": ["8X", "8X1", "8XA", "PQ25"],
     "years": "2010-2018",
     "platform": "PQ25",
     "protocol": "mixed",
     "sfd": false,
     "status": "demo",
+    "page": true,
+    "frName": "l'Audi A1 (8X)",
+    "seoTitle": {
+      "en": "Audi A1 (8X) OBD diagnostics & mileage",
+      "fr": "Diagnostic Audi A1 (8X, 2010-2018)"
+    },
+    "metaDesc": {
+      "en": "VAG Scope on the Audi A1 (8X, 2010-2018): mixed TP 2.0 and 11-bit UDS support, built-in demo car, TFSI/TDI/DSG checks, mileage check and offline coding.",
+      "fr": "VAG Scope sur Audi A1 (8X, 2010-2018) : mixte TP 2.0 et UDS 11 bits, démo intégrée, points de contrôle TFSI/TDI/S-tronic, kilométrage et codage."
+    },
+    "answer": {
+      "en": "Yes: VAG Scope supports the Audi A1 (8X, 2010-2018) across both TP 2.0 and 11-bit UDS modules, and includes an Audi A1 8X right on the home screen as a built-in demo car. All scans, mileage and VIN checks, live data and coding run 100% offline with an open ELM327 adapter.",
+      "fr": "Oui : VAG Scope gère l'Audi A1 (8X, 2010-2018) sur ses modules TP 2.0 comme UDS 11 bits, et propose même une Audi A1 8X en voiture de démo dès l'accueil. Scans, contrôle du kilométrage, VIN, mesures en direct et codage fonctionnent 100 % hors ligne avec un ELM327 ouvert."
+    },
     "note": {
-      "en": "Included as a built-in demo car (mixed TP 2.0 and 11-bit UDS). You can preview the control units, fault codes, mileage check and coding right from the home screen before connecting an adapter.",
-      "fr": "Présente en voiture de démonstration intégrée (mixte TP 2.0 et UDS 11 bits). Vous pouvez tester le scan, les codes défaut, le contrôle kilométrage et le codage dès l’écran d’accueil avant même de brancher un boîtier."
+      "en": "Built-in demo car (mixed TP 2.0 and 11-bit UDS). Preview control units, mileage check and coding on your phone before buying an adapter.",
+      "fr": "Voiture de démo intégrée (mixte TP 2.0 et UDS 11 bits). Testez le scan, le contrôle kilométrage et le codage avant même d'acheter un boîtier."
+    },
+    "obdPort": {
+      "en": "Under the lower dashboard trim on the driver's side, just to the left of the steering column above the bonnet release.",
+      "fr": "Sous la planche de bord côté conducteur, à gauche de la colonne de direction, au-dessus de la tirette de capot."
+    },
+    "mileageReality": {
+      "en": "On the PQ25 platform, UDS engine ECUs (1.6 TDI, 1.4 TFSI / 1.0 TFSI) and S-tronic gearboxes typically expose distance alongside the instrument cluster and fault freeze frames. Always treat agreement as one clue next to invoices and inspection records.",
+      "fr": "Sur la plateforme PQ25, le calculateur moteur UDS, la boîte S-tronic et les trames figées de défauts complètent souvent le combiné d'instruments pour croiser le kilométrage avant achat, en gardant à l'esprit que le résultat reste indicatif."
+    },
+    "checkpoints": {
+      "en": [
+        "On 1.4 TFSI (122 / 185 PS) and 1.2 TFSI early models, scan 01 Engine for camshaft timing correlation or misfire faults linked to chain stretch.",
+        "On 7-speed S-tronic (DQ200) cars, check 02 Transmission for mechatronic hydraulic pressure faults and clutch wear limits.",
+        "On 1.6 TDI models, inspect DPF soot/ash accumulation and injector balance blocks, especially on city-driven examples.",
+        "Check 5F Information Electronics / MMI and gateway coding if retrofit screens or Bluetooth modules were installed."
+      ],
+      "fr": [
+        "Sur les premiers 1.2 TFSI et 1.4 TFSI, vérifiez dans 01 Moteur l'absence de défauts de déphasage ou de ratés d'allumage liés à la chaîne de distribution.",
+        "Sur boîte S-tronic 7 (DQ200), contrôlez 02 Boîte automatique pour repérer toute alerte de pression hydraulique ou d'embrayage.",
+        "Sur 1.6 TDI, regardez la masse de cendres du FAP et l'équilibre des injecteurs sur les modèles ayant beaucoup roulé en ville.",
+        "Vérifiez la mémoire de l'infodivertissement et de la passerelle CAN si un écran ou un module Bluetooth secondaire a été ajouté."
+      ]
+    },
+    "faqs": {
+      "en": [
+        {
+          "q": "Can I try the Audi A1 8X in VAG Scope without a car?",
+          "a": "Yes. An Audi A1 8X demo vehicle is built into the home screen so you can inspect how mixed TP 2.0 and UDS modules look before connecting to a real car."
+        },
+        {
+          "q": "Does the Audi A1 8X have SFD protection?",
+          "a": "No. The 8X generation (2010-2018) has no SFD lock, so offline reading and supported coding work directly."
+        },
+        {
+          "q": "Where is the OBD socket on an Audi A1 8X?",
+          "a": "Under the driver's side dashboard, just above the bonnet release lever on the left."
+        },
+        {
+          "q": "Can I monitor boost and oil temp while driving?",
+          "a": "Yes. Pin up to 4 live values per dashboard to Android Auto (or CarPlay when iOS ships) without touching your phone while driving."
+        }
+      ],
+      "fr": [
+        {
+          "q": "Puis-je essayer le mode démo Audi A1 8X avant d'acheter ?",
+          "a": "Oui. L'Audi A1 8X fait partie des quatre voitures de démonstration intégrées à l'écran d'accueil."
+        },
+        {
+          "q": "L'Audi A1 8X a-t-elle un verrouillage SFD ?",
+          "a": "Non. Toute la génération 8X (2010-2018) est dépourvue de SFD."
+        },
+        {
+          "q": "Où se trouve la prise diag sur une Audi A1 8X ?",
+          "a": "Sous le tableau de bord côté conducteur, à gauche au-dessus du levier d'ouverture du capot."
+        },
+        {
+          "q": "Peut-on afficher la pression de turbo sur l'écran de la voiture ?",
+          "a": "Oui via Android Auto (jusqu'à 4 valeurs en direct par tableau de bord) avec un ELM327 ouvert."
+        }
+      ]
     }
   },
   {
     "slug": "audi-a3-8p",
     "brand": "Audi",
-    "model": "A3 (8P)",
+    "model": "Audi A3 (8P)",
+    "codes": ["8P", "8P1", "8PA", "Sportback"],
     "years": "2004-2012",
     "platform": "PQ35",
     "protocol": "tp20",
     "sfd": false,
     "status": "protocol",
+    "page": true,
+    "frName": "l'Audi A3 (8P)",
+    "seoTitle": {
+      "en": "Audi A3 (8P) OBD diagnostics & coding",
+      "fr": "Diagnostic Audi A3 (8P, 2004-2012)"
+    },
+    "metaDesc": {
+      "en": "VAG Scope on the Audi A3 (8P, 2004-2012): CAN TP 2.0 and late UDS support, TDI/TFSI/S-tronic checks, mileage check, coding and open ELM327 setup.",
+      "fr": "VAG Scope sur Audi A3 8P (2004-2012) : TP 2.0 et UDS, points de contrôle TDI/TFSI/S-tronic, vérification kilométrage, codage et ELM327 ouvert."
+    },
+    "answer": {
+      "en": "Yes: VAG Scope supports the Audi A3 (8P, 2004-2012) over CAN TP 2.0 (plus 11-bit UDS on late 2010-2012 modules) with an open Bluetooth ELM327 adapter. Note that a few very early 2003-2004 builds with K-line-only comfort modules are outside CAN TP 2.0.",
+      "fr": "Oui : VAG Scope prend en charge l'Audi A3 8P (2004-2012) en CAN TP 2.0 (ainsi que les calculateurs passés en UDS 11 bits sur les fins de série 2010-2012) avec un ELM327 Bluetooth ouvert. Attention simplement aux tout premiers millésimes 2003 si certains modules restent en ligne K pure."
+    },
     "note": {
-      "en": "TP 2.0 on early 8P models, with some late 2010-2012 units moving to 11-bit UDS. Ideal for reading full fault lists, TFSI/TDI measuring blocks, DSG data and coding without a Windows laptop.",
-      "fr": "TP 2.0 sur les premières A3 8P, avec quelques modules en UDS 11 bits sur les fins de série 2010-2012. Parfait pour lire tous les défauts, suivre les blocs TFSI/TDI ou DSG et coder sans PC Windows."
+      "en": "TP 2.0 across 2004-2009 builds, mixing 11-bit UDS on late 2010-2012 engines and clusters.",
+      "fr": "TP 2.0 sur 2004-2009, puis mixte avec UDS 11 bits sur les fins de série 2010-2012."
+    },
+    "obdPort": {
+      "en": "In the driver's footwell under the lower dash panel, to the left of the steering column.",
+      "fr": "Sous le tableau de bord côté conducteur, à gauche de la colonne de direction."
+    },
+    "mileageReality": {
+      "en": "On 2004-2009 TP 2.0 builds, only selected modules (cluster, EDC16 TDI ECU and fault freeze frames) store distance. Later 2009-2012 Common Rail TDI and TFSI UDS cars provide richer multi-unit mileage evidence. Agreement never proves genuine mileage.",
+      "fr": "Sur les A3 8P de 2004 à 2009 en TP 2.0, le combiné, certains TDI EDC16 et les trames figées de défauts fournissent les meilleurs indices. Les versions restylées 2009-2012 en UDS offrent davantage de points de comparaison."
+    },
+    "checkpoints": {
+      "en": [
+        "On 2.0 TDI PD (BKD/BMN) and Common Rail engines, check injector balancing values, glow plug faults and DPF ash load.",
+        "On 2.0 TFSI and 3.2 VR6 models, read fuel pressure blocks (HPFP/LPFP) and camshaft phase blocks (groups 208/209 on VR6) to spot chain stretch.",
+        "Scan 02 Transmission on S-tronic (DQ250 / DQ200) cars for mechatronic pressure or clutch temperature warnings.",
+        "Check 03 ABS (Teves MK60) and 44 Steering Assist for intermittent angle/pressure sensor faults."
+      ],
+      "fr": [
+        "Sur 2.0 TDI injecteurs-pompes ou Common Rail, contrôlez la correction des injecteurs, les bougies de préchauffage et la charge du FAP.",
+        "Sur 2.0 TFSI et 3.2 VR6, surveillez la pression de carburant et les blocs de déphasage d'arbres à cames (notamment groupes 208/209 sur le VR6 pour la chaîne).",
+        "Scannez 02 Boîte automatique sur les modèles S-tronic pour vérifier l'absence d'alertes mécatronique.",
+        "Vérifiez 03 ABS et 44 Direction assistée (capteur d'angle ou de pression)."
+      ]
+    },
+    "faqs": {
+      "en": [
+        {
+          "q": "Does VAG Scope work on a 2004 Audi A3 8P?",
+          "a": "Most 2004+ A3 8P cars use CAN TP 2.0 on main modules and work well. Very early 2003-2004 cars with K-line-only modules are not supported on CAN-only ELM327 paths."
+        },
+        {
+          "q": "Can I reset the service reminder on an Audi A3 8P?",
+          "a": "Yes. Service interval reset works on both TP 2.0 and late UDS A3 8P instrument clusters."
+        },
+        {
+          "q": "Where is the OBD port on an A3 8P?",
+          "a": "Under the lower dash on the driver's side, left of the steering column."
+        },
+        {
+          "q": "Can I run VAG Scope without a Windows laptop?",
+          "a": "Yes. Everything runs on your Android phone (or upcoming iOS app) over Bluetooth."
+        }
+      ],
+      "fr": [
+        {
+          "q": "VAG Scope marche-t-elle sur une Audi A3 8P de 2004 ?",
+          "a": "Oui sur la majorité des 8P à partir de 2004 en CAN TP 2.0. Sur de très précoces 2003 en ligne K pure, certains modules ne répondent pas via ELM327 CAN."
+        },
+        {
+          "q": "Puis-je remettre à zéro le témoin d'entretien sur A3 8P ?",
+          "a": "Oui, aussi bien sur les combinés TP 2.0 que sur les versions UDS de fin de série."
+        },
+        {
+          "q": "Où se branche l'adaptateur sur une A3 8P ?",
+          "a": "Sous le tableau de bord côté conducteur, à gauche de la colonne de direction."
+        },
+        {
+          "q": "Quel boîtier ELM327 conseillez-vous ?",
+          "a": "Un vLinker MC+ ou un vGate iCar Pro 2S pour une connexion TP 2.0 stable sans coupure."
+        }
+      ]
     }
   },
   {
     "slug": "audi-a3-8v",
     "brand": "Audi",
-    "model": "A3 / S3 (8V)",
+    "model": "Audi A3 / S3 (8V)",
+    "codes": ["8V", "8V1", "8VA", "S3 8V"],
     "years": "2012-2020",
     "platform": "MQB",
     "protocol": "uds11",
     "sfd": false,
     "status": "demo",
+    "page": true,
+    "frName": "l'Audi A3 / S3 (8V)",
+    "seoTitle": {
+      "en": "Audi A3 & S3 (8V) OBD diagnostics",
+      "fr": "Diagnostic Audi A3 et S3 (8V, 2012-2020)"
+    },
+    "metaDesc": {
+      "en": "VAG Scope on the Audi A3 & S3 (8V, 2012-2020): 11-bit UDS diagnostics, built-in S3 8V demo car, Haldex/S-tronic checks, mileage check and offline coding.",
+      "fr": "VAG Scope sur Audi A3 et S3 8V (2012-2020) : diagnostic UDS 11 bits, S3 8V en démo intégrée, contrôle Haldex/S-tronic, kilométrage et codage."
+    },
+    "answer": {
+      "en": "Yes: VAG Scope supports the Audi A3 and S3 (8V, 2012-2020) over 11-bit CAN UDS completely offline, and includes an Audi S3 8V as a built-in demo car. Full scanning, mileage and VIN checks, Performance Hub timing, coding and adaptations work with no SFD lock.",
+      "fr": "Oui : VAG Scope gère les Audi A3 et S3 8V (2012-2020) en UDS CAN 11 bits, 100 % hors ligne, et intègre même une Audi S3 8V en voiture de démonstration. Scan complet, contrôle du kilométrage, VIN, Performance Hub, codage et adaptations fonctionnent sans verrouillage SFD."
+    },
     "note": {
-      "en": "Included as a built-in demo car (Audi S3 8V, 11-bit UDS). Full offline control-unit scan, mileage/VIN checks, live data, Performance Hub timing, coding, adaptations and basic settings without SFD restrictions.",
-      "fr": "Présente en voiture de démonstration intégrée (Audi S3 8V en UDS 11 bits). Scan complet, contrôles kilométrage et VIN, mesures en direct, Performance Hub, codage, adaptations et réglages de base hors ligne, sans verrouillage SFD."
-    }
-  },
-  {
-    "slug": "audi-a3-8y",
-    "brand": "Audi",
-    "model": "A3 (8Y)",
-    "years": "2020-",
-    "platform": "MQB-evo",
-    "protocol": "uds29",
-    "sfd": true,
-    "status": "protocol",
-    "note": {
-      "en": "MQB-evo architecture with 11-bit and 29-bit UDS modules. Offline scanning, fault codes, live data, mileage, VIN and health checks work; online SFD unlock for protected writes is not supported.",
-      "fr": "Architecture MQB-evo avec calculateurs UDS 11 bits et 29 bits. Scan, défauts, mesures en direct et contrôles kilométrage, VIN et santé fonctionnent hors ligne ; pas de déverrouillage SFD en ligne pour l’écriture protégée."
-    }
-  },
-  {
-    "slug": "audi-a4-b7",
-    "brand": "Audi",
-    "model": "A4 (B7)",
-    "years": "2005-2008",
-    "platform": "B7",
-    "protocol": "tp20",
-    "sfd": false,
-    "status": "protocol",
-    "note": {
-      "en": "CAN TP 2.0 on main drivetrain modules (note: some early B7 comfort or K-line-only modules do not sit on CAN and cannot be reached over CAN-only ELM327 paths). Engine, transmission and ABS over TP 2.0 work offline.",
-      "fr": "CAN TP 2.0 sur les calculateurs principaux (à noter : certains modules confort anciens uniquement en ligne K ne passent pas par le bus CAN d’un ELM327). Moteur, boîte et ABS en TP 2.0 fonctionnent hors ligne."
+      "en": "Built-in demo car (Audi S3 8V, 11-bit UDS). Full offline diagnostics, mileage/VIN checks, Performance Hub timing and coding with zero SFD restrictions.",
+      "fr": "Voiture de démo intégrée (Audi S3 8V en UDS 11 bits). Diagnostic complet, kilométrage, VIN, Performance Hub et codage hors ligne sans SFD."
+    },
+    "obdPort": {
+      "en": "Under the lower dash trim in the driver's footwell, left of the steering column above the bonnet lever.",
+      "fr": "Sous le tableau de bord côté conducteur, à gauche de la colonne de direction au-dessus du levier de capot."
+    },
+    "mileageReality": {
+      "en": "MQB 11-bit UDS cars like the A3/S3 8V store distance across multiple independent units (engine, S-tronic, ABS, cluster, gateway) plus fault freeze frames, making pre-purchase verification thorough and quick. Agreement remains indicative only.",
+      "fr": "Sur la base MQB de l'A3/S3 8V, le moteur, la boîte S-tronic, l'ABS, le combiné et la passerelle publient souvent leur kilométrage ou des trames figées. Un bilan très complet avant achat, tout en restant un indice à croiser avec l'historique."
+    },
+    "checkpoints": {
+      "en": [
+        "On S3 8V and quattro models, scan 22 All Wheel Drive (Haldex Gen 5) for pump motor faults, which frequently fail silently without triggering a dash warning light.",
+        "On 2.0 TFSI / S3 EA888 engines, monitor coolant temperature stability, boost pressure and ignition timing pull under load.",
+        "On S-tronic (DQ250, DQ381 or dry DQ200), read gearbox fault history and clutch/oil temperatures before hard test-drive pulls.",
+        "On 1.6 TDI and 2.0 TDI models, check DPF ash mass and SCR/AdBlue fault logs."
+      ],
+      "fr": [
+        "Sur S3 8V et versions quattro, scannez impérativement le module 22 Transmission intégrale (Haldex Gen 5) : la pompe Haldex tombe souvent en défaut sans allumer de voyant au compteur.",
+        "Sur 2.0 TFSI et S3, suivez la pression de turbo, la température de refroidissement (boîtier thermostat) et les corrections d'allumage en charge.",
+        "Sur boîte S-tronic (DQ200, DQ250 ou DQ381), vérifiez la mémoire de défauts et les températures d'huile avant d'acheter.",
+        "Sur 1.6 TDI et 2.0 TDI, contrôlez la charge en cendres du FAP et l'historique AdBlue."
+      ]
+    },
+    "faqs": {
+      "en": [
+        {
+          "q": "Can I preview the Audi S3 8V in VAG Scope right now?",
+          "a": "Yes. An Audi S3 8V is built into the home screen as a demo car so you can explore UDS modules, coding, live charts and Performance Hub before buying an adapter."
+        },
+        {
+          "q": "Does VAG Scope detect a dead Haldex pump on an S3 8V?",
+          "a": "Yes. Scanning unit 22 All Wheel Drive reveals Haldex pump electrical/mechanical faults and lets you run output tests on the pump."
+        },
+        {
+          "q": "Can I log 0-100 km/h and virtual dyno pulls on an S3 8V?",
+          "a": "Yes. Performance Hub combines OBD vehicle speed with 100 Hz phone IMU data for centisecond timing, shift detection and virtual dyno curves, 100% offline."
+        },
+        {
+          "q": "Is SFD active on an A3 or S3 8V?",
+          "a": "No. The 8V generation (2012-2020) has no SFD protection."
+        }
+      ],
+      "fr": [
+        {
+          "q": "Puis-je tester l'Audi S3 8V dans VAG Scope sans boîtier ?",
+          "a": "Oui, l'Audi S3 8V fait partie des véhicules de démonstration intégrés dès l'accueil."
+        },
+        {
+          "q": "VAG Scope voit-elle une pompe Haldex HS sur une S3 8V ?",
+          "a": "Oui : le scan du calculateur 22 Transmission intégrale remonte les défauts de pompe Haldex (souvent silencieux au tableau de bord) et propose même un test actionneur."
+        },
+        {
+          "q": "Peut-on faire un chrono 0-100 km/h ou banc virtuel sur S3 8V ?",
+          "a": "Oui, via le Performance Hub (fusion vitesse OBD + IMU 100 Hz), sans boîtier GPS externe et sans permission réseau."
+        },
+        {
+          "q": "Y a-t-il du SFD sur l'A3 / S3 8V ?",
+          "a": "Non, la génération 8V (2012-2020) n'a aucun verrouillage SFD."
+        }
+      ]
     }
   },
   {
     "slug": "audi-a4-b8",
     "brand": "Audi",
-    "model": "A4 (B8)",
+    "model": "Audi A4 (B8)",
+    "codes": ["B8", "B8.5", "8K", "8K2", "8K5"],
     "years": "2008-2015",
     "platform": "MLB",
     "protocol": "uds11",
     "sfd": false,
     "status": "protocol",
+    "page": true,
+    "frName": "l'Audi A4 (B8)",
+    "seoTitle": {
+      "en": "Audi A4 (B8, 8K) OBD diagnostics & checks",
+      "fr": "Diagnostic Audi A4 B8 (8K, 2008-2015)"
+    },
+    "metaDesc": {
+      "en": "VAG Scope on the Audi A4 B8 / B8.5 (8K, 2008-2015): 11-bit UDS scan, TFSI & TDI checks, S-tronic/Multitronic logs, mileage check and offline coding.",
+      "fr": "VAG Scope sur Audi A4 B8 et B8.5 (8K, 2008-2015) : scan UDS 11 bits, points de contrôle TFSI/TDI/S-tronic, vérification kilométrage et codage."
+    },
+    "answer": {
+      "en": "Yes: VAG Scope supports the Audi A4 B8 and B8.5 (8K, 2008-2015) over 11-bit CAN UDS (plus any early 2008-2009 TP 2.0 units automatically) with an open Bluetooth ELM327 adapter, 100% offline. It is well suited for checking TFSI/TDI health, mileage consistency and coding without a laptop.",
+      "fr": "Oui : VAG Scope prend en charge l'Audi A4 B8 et B8.5 (8K, 2008-2015) en UDS CAN 11 bits (ainsi que les rares modules TP 2.0 des premiers modèles 2008-2009) avec un ELM327 Bluetooth ouvert, 100 % hors ligne. Idéal pour vérifier une occasion ou coder sans PC portable."
+    },
     "note": {
-      "en": "MLB 11-bit UDS platform (with a few early TP 2.0 units on 2008-2009 cars). Strong candidate for pre-purchase mileage/VIN verification, TFSI oil-consumption/misfire logging, coding and service resets.",
-      "fr": "Plateforme MLB en UDS 11 bits (avec encore quelques modules TP 2.0 sur 2008-2009). Très adaptée au contrôle kilométrage/VIN avant achat, au suivi des ratés ou pressions sur TFSI/TDI, au codage et aux remises à zéro d’entretien."
+      "en": "MLB 11-bit UDS platform (with occasional TP 2.0 units on 2008-2009 cars); strong multi-unit mileage and VIN coverage.",
+      "fr": "Plateforme MLB en UDS 11 bits (avec parfois quelques modules TP 2.0 sur 2008-2009) ; très complète pour le contrôle kilométrique et le VIN."
+    },
+    "obdPort": {
+      "en": "Under the driver's side lower dashboard trim on the left side, near the bonnet release lever.",
+      "fr": "Sous le tableau de bord côté conducteur, à gauche près du levier d'ouverture du capot."
+    },
+    "mileageReality": {
+      "en": "The MLB A4 B8 stores mileage across several UDS units (engine, S-tronic/Multitronic, ABS, cluster) and fault freeze frames. Because B8s are popular high-mileage estate and saloon buys, running the Health Check before paying catches mismatched donor units or logged contradictions.",
+      "fr": "L'A4 B8 MLB enregistre la distance dans plusieurs calculateurs UDS (moteur, boîte, ABS, combiné) et dans les trames figées de défauts. Sur ce modèle très diffusé en occasion, le bilan de santé permet de repérer rapidement un module remplacé ou un écart manifeste."
+    },
+    "checkpoints": {
+      "en": [
+        "On 2.0 TFSI EA888 Gen 1/2 (2008-2012, known for oil consumption and chain tensioner wear), check misfire counters, camshaft phase adaptation and low-oil-pressure warnings.",
+        "On 2.0 TDI and 3.0 TDI V6 models, read DPF soot/ash mass, glow-plug/swirl-flap faults and timing-chain rattle codes on cold start.",
+        "Scan 02 Transmission carefully on Multitronic (CVT) or DL501 7-speed S-tronic cars for clutch pressure, sensor module and cooling-valve faults.",
+        "Check 09 Central Electronics, 46 Comfort and 5F MMI for battery-drain or water-ingress errors in the boot side compartments."
+      ],
+      "fr": [
+        "Sur les 2.0 TFSI EA888 de 2008-2012 (sensibles à la consommation d'huile et au tendeur de chaîne), contrôlez les ratés d'allumage et le déphasage d'arbre à cames.",
+        "Sur 2.0 TDI et 3.0 TDI V6, vérifiez la masse de cendres du FAP, les volets d'admission et l'absence de défauts de distribution.",
+        "Sur Multitronic ou S-tronic DL501 (7 rapports longitudinale), scannez 02 Boîte automatique pour déceler toute alerte de pression d'embrayage ou de mécatronique.",
+        "Jetez un œil à 46 Module confort et 5F MMI pour vérifier l'absence de défauts d'alimentation ou d'humidité."
+      ]
+    },
+    "faqs": {
+      "en": [
+        {
+          "q": "Does VAG Scope work on both A4 B8 and B8.5 facelift?",
+          "a": "Yes. Both 2008-2011 B8 and 2012-2015 B8.5 models are supported offline across TP 2.0 and 11-bit UDS modules."
+        },
+        {
+          "q": "Can VAG Scope reset the service light and electronic parking brake on an A4 B8?",
+          "a": "Yes. Service resets and basic settings / adaptations for rear brake pad changes run from your phone with explicit confirmation and backup."
+        },
+        {
+          "q": "Where is the OBD port on an Audi A4 B8?",
+          "a": "Under the lower driver-side dashboard panel, to the left of the steering wheel."
+        },
+        {
+          "q": "Is there any VIN limit or annual subscription?",
+          "a": "No. VAG Scope is one payment with unlimited VINs, no account and no subscription."
+        }
+      ],
+      "fr": [
+        {
+          "q": "L'A4 B8 et la B8.5 restylée sont-elles toutes deux prises en charge ?",
+          "a": "Oui, de 2008 à 2015, y compris les premiers modèles qui mêlent encore un peu de TP 2.0 à l'UDS 11 bits."
+        },
+        {
+          "q": "Peut-on ouvrir les étriers de frein arrière électriques (EPB) pour changer les plaquettes ?",
+          "a": "Oui, via les réglages de base du calculateur de frein de stationnement, avec sauvegarde et confirmation."
+        },
+        {
+          "q": "Où se trouve la prise OBD sur une Audi A4 B8 ?",
+          "a": "Sous le tableau de bord côté conducteur, tout à gauche."
+        },
+        {
+          "q": "Y a-t-il une limite de VIN ou un abonnement ?",
+          "a": "Non. Un paiement unique, VIN illimités et fonctionnement 100 % hors ligne."
+        }
+      ]
     }
   },
   {
     "slug": "audi-a4-b9",
     "brand": "Audi",
-    "model": "A4 (B9)",
+    "model": "Audi A4 (B9)",
+    "codes": ["B9", "8W", "8W2", "8W5"],
     "years": "2016-2023",
     "platform": "MLB-evo",
     "protocol": "uds11",
     "sfd": false,
     "status": "protocol",
+    "page": true,
+    "frName": "l'Audi A4 (B9)",
+    "seoTitle": {
+      "en": "Audi A4 (B9, 8W) OBD diagnostics",
+      "fr": "Diagnostic Audi A4 B9 (8W, 2016-2023)"
+    },
+    "metaDesc": {
+      "en": "VAG Scope on the Audi A4 B9 (8W, 2016-2023): MLB-evo 11-bit UDS scan, Virtual Cockpit & S-tronic checks, mileage check, coding and SFD boundary.",
+      "fr": "VAG Scope sur Audi A4 B9 (8W, 2016-2023) : scan MLB-evo UDS 11 bits, points de contrôle TDI/TFSI/S-tronic, kilométrage, codage et note SFD."
+    },
+    "answer": {
+      "en": "Yes: VAG Scope supports the Audi A4 B9 (8W, 2016-2023) over 11-bit CAN UDS with an open Bluetooth ELM327 adapter, 100% offline. Most 2016-2021 builds have no SFD lock, while late 2022-2023 facelift modules with SFD still support full offline reading, live data and health checks.",
+      "fr": "Oui : VAG Scope gère l'Audi A4 B9 (8W, 2016-2023) en UDS CAN 11 bits avec un ELM327 Bluetooth ouvert, 100 % hors ligne. Les modèles 2016-2021 n'ont pas de verrouillage SFD ; sur les tout derniers millésimes 2022-2023 protégés par SFD, la lecture, le scan et le bilan de santé restent 100 % accessibles hors ligne."
+    },
     "note": {
-      "en": "MLB-evo 11-bit UDS platform. Full offline control-unit scanning, fault codes, mileage/VIN/health checks, live data, coding and adaptations (note: very late 2022-2023 units may introduce SFD on selected modules).",
-      "fr": "Plateforme MLB-evo en UDS 11 bits. Scan complet, codes défaut, bilans kilométrage/VIN/santé, mesures en direct, codage et adaptations hors ligne (quelques modules très récents de 2022-2023 peuvent activer SFD)."
+      "en": "MLB-evo 11-bit UDS platform; full offline reading, mileage/VIN checks and coding on pre-SFD builds (late 2022-2023 units may use SFD on selected modules).",
+      "fr": "Plateforme MLB-evo en UDS 11 bits ; lecture, kilométrage, VIN et codage hors ligne (quelques modules des millésimes 2022-2023 peuvent activer SFD)."
+    },
+    "obdPort": {
+      "en": "In the driver's footwell under the lower dashboard trim, to the left of the steering column.",
+      "fr": "Sous la planche de bord côté conducteur, à gauche de la colonne de direction."
+    },
+    "mileageReality": {
+      "en": "MLB-evo A4 B9 models expose distance across engine, S-tronic/Tiptronic, ABS, Virtual Cockpit / cluster and gateway modules, giving strong pre-purchase visibility. Always compare with digital Audi service records.",
+      "fr": "L'architecture MLB-evo de l'A4 B9 stocke des données kilométriques dans plusieurs calculateurs UDS (moteur, boîte, ABS, combiné/Virtual Cockpit, passerelle), ce qui offre un excellent contrôle croisé avant achat."
+    },
+    "checkpoints": {
+      "en": [
+        "On 2.0 TDI and 3.0 TDI models, check DPF ash mass, AdBlue/SCR injector and NOx sensor fault history.",
+        "On 2.0 TFSI and S4 B9 (3.0 V6), inspect coolant pump/thermostat control faults and boost/IAT telemetry.",
+        "Scan 02 Transmission (DL382 7-speed S-tronic or ZF 8-speed on S4/3.0 TDI) for mechatronic or pressure warnings.",
+        "Check driver-assistance cameras/radars (A5, 13) for calibration faults caused by windscreen replacements or bumper bumps."
+      ],
+      "fr": [
+        "Sur 2.0 TDI et 3.0 TDI, vérifiez la masse de cendres du FAP, la pompe AdBlue et les sondes NOx.",
+        "Sur 2.0 TFSI et S4 B9 (V6 3.0), contrôlez l'historique de gestion thermique et les températures d'admission/suralimentation.",
+        "Scannez 02 Boîte automatique (S-tronic DL382 ou Tiptronic ZF8) pour vérifier l'absence d'alertes hydrauliques.",
+        "Inspectez les calculateurs d'aides à la conduite (caméra pare-brise A5, radar 13) : un changement de pare-brise mal recalibré y laisse souvent un défaut."
+      ]
+    },
+    "faqs": {
+      "en": [
+        {
+          "q": "Does VAG Scope work on an Audi A4 B9 Virtual Cockpit?",
+          "a": "Yes. Module 17 Instrument Cluster (both analogue and Virtual Cockpit) communicates over 11-bit UDS for identification, faults, mileage comparison and service resets."
+        },
+        {
+          "q": "Does the Audi A4 B9 have SFD?",
+          "a": "2016-2021 builds generally do not. Selected late 2022-2023 facelift modules may enable SFD, where offline reading and scanning still work without internet."
+        },
+        {
+          "q": "Can I use a vGate iCar Pro 2S on an A4 B9?",
+          "a": "Yes. Both vLinker MC+ and vGate iCar Pro 2S work cleanly on MLB-evo 11-bit UDS."
+        },
+        {
+          "q": "Does VAG Scope require an internet connection?",
+          "a": "Never. It works 100% offline, even in an underground garage."
+        }
+      ],
+      "fr": [
+        {
+          "q": "VAG Scope lit-elle les A4 B9 équipées du Virtual Cockpit ?",
+          "a": "Oui. Le combiné 17 (aiguilles ou Virtual Cockpit) communique en UDS 11 bits pour les défauts, l'identification, le kilométrage et la remise à zéro d'entretien."
+        },
+        {
+          "q": "L'A4 B9 est-elle touchée par SFD ?",
+          "a": "Pas sur les millésimes 2016-2021. Quelques modules sur les dernières 2022-2023 peuvent activer SFD en écriture, sans bloquer la lecture et le diagnostic."
+        },
+        {
+          "q": "Un vGate iCar Pro 2S suffit-il sur A4 B9 ?",
+          "a": "Oui, il fonctionne très bien en UDS 11 bits, tout comme le vLinker MC+ qui reste encore plus rapide."
+        },
+        {
+          "q": "Puis-je l'utiliser sans réseau dans un parking souterrain ?",
+          "a": "Oui, VAG Scope n'a aucune permission réseau et fonctionne 100 % hors ligne."
+        }
+      ]
     }
   },
   {
     "slug": "audi-a6-c6",
     "brand": "Audi",
-    "model": "A6 / RS6 (C6)",
+    "model": "Audi A6 / RS6 (C6)",
+    "codes": ["C6", "4F", "4F2", "4F5", "RS6 C6"],
     "years": "2004-2011",
     "platform": "C6 (4F)",
     "protocol": "tp20",
     "sfd": false,
     "status": "real_car",
+    "page": true,
+    "frName": "l'Audi A6 / RS6 (C6)",
+    "seoTitle": {
+      "en": "Audi A6 & RS6 (C6, 4F) OBD diagnostics",
+      "fr": "Diagnostic Audi A6 et RS6 C6 (4F, 2004-2011)"
+    },
+    "metaDesc": {
+      "en": "VAG Scope on the Audi A6 & RS6 C6 (4F, 2004-2011): real-car tested in TP 2.0 with vLinker MC+, air suspension & LPFP checks, Android Auto and coding.",
+      "fr": "VAG Scope sur Audi A6 et RS6 C6 (4F, 2004-2011) : testée sur vraie voiture en TP 2.0 avec vLinker MC+, suspension pneumatique, LPFP et Android Auto."
+    },
+    "answer": {
+      "en": "Yes: VAG Scope was developed and extensively field-tested on a real 2010 Audi RS6 C6 over CAN TP 2.0 using a vLinker MC+ over BLE, and includes an RS6 C6 built-in demo car. Full TP 2.0 scans, Android Auto dashboards, Performance Hub timing, coding and the bundled LPFP guided procedure run 100% offline.",
+      "fr": "Oui : VAG Scope a été développée et testée sur route sur une vraie Audi RS6 C6 de 2010 en CAN TP 2.0 avec un vLinker MC+ en BLE, et intègre une RS6 C6 en voiture de démonstration. Scan complet, tableaux de bord Android Auto, Performance Hub, codage et procédure pompe basse pression tournent 100 % hors ligne."
+    },
     "note": {
-      "en": "Tested extensively on a real 2010 Audi RS6 C6 with a vLinker MC+ over BLE, including Android Auto live dashboards, LPFP guided procedure, mileage check, coding and Performance Hub. Also included as a built-in demo car.",
-      "fr": "Testée en profondeur sur une vraie Audi RS6 C6 de 2010 avec un vLinker MC+ en BLE, y compris les tableaux de bord Android Auto, la procédure pompe basse pression, le contrôle kilométrage, le codage et le Performance Hub. Également intégrée en voiture de démo."
+      "en": "Tested extensively on a real 2010 Audi RS6 C6 (vLinker MC+ over BLE), including Android Auto dashboards, LPFP procedure, mileage check, coding and Performance Hub.",
+      "fr": "Testée en profondeur sur une vraie Audi RS6 C6 de 2010 (vLinker MC+ en BLE), dont tableaux de bord Android Auto, procédure LPFP, kilométrage, codage et Performance Hub."
+    },
+    "obdPort": {
+      "en": "Under the lower driver-side dashboard trim, to the left of the steering column just above the bonnet release lever.",
+      "fr": "Sous le tableau de bord côté conducteur, tout à gauche au-dessus du levier d'ouverture du capot."
+    },
+    "mileageReality": {
+      "en": "On the C6 (4F) TP 2.0 platform, the instrument cluster, EDC16/EDC17 diesel ECUs and fault-code freeze frames often record mileage, while some petrol ECUs expose fewer dedicated distance channels. Always weigh OBD readings alongside service history and MOT/inspection records.",
+      "fr": "Sur la plateforme C6 (4F) en TP 2.0, le combiné d'instruments, les calculateurs TDI et les trames figées de défauts fournissent de précieux relevés, alors que certains calculateurs essence exposent peu de compteurs dédiés. Le résultat reste toujours un indice."
+    },
+    "checkpoints": {
+      "en": [
+        "Scan 34 Level Control on air-suspension models for compressor overheat warnings, valve-block leaks or ride-height sensor errors.",
+        "On 5.0 TFSI V10 (RS6) and FSI/TFSI petrol engines, use the bundled low-pressure fuel pump (LPFP) guided procedure or live measuring blocks to verify fuel supply under load.",
+        "On 2.7 TDI and 3.0 TDI V6 engines, check injector correction values, intake-manifold swirl-flap faults (P2015 family) and DPF ash load.",
+        "Check 61 Battery Regulation and 07/5F MMI modules for quiescent current or MOST fibre-optic ring breaks (amplifier/tuner water ingress in the boot)."
+      ],
+      "fr": [
+        "Scannez le calculateur 34 Correcteur d'assiette sur les versions à suspension pneumatique pour repérer une surchauffe de compresseur, une fuite de bloc vannes ou un capteur de hauteur.",
+        "Sur 5.0 TFSI V10 (RS6) et moteurs essence FSI/TFSI, lancez la procédure guidée pompe basse pression (LPFP) ou suivez les pressions de carburant en direct.",
+        "Sur 2.7 TDI et 3.0 TDI V6, contrôlez les injecteurs, les volets d'admission (très courants sur ce bloc) et la charge en cendres du FAP.",
+        "Vérifiez 61 Régulation de batterie et le bus optique MOST (MMI / ampli dans l'aile arrière gauche, sensible aux infiltrations d'eau)."
+      ]
+    },
+    "faqs": {
+      "en": [
+        {
+          "q": "Has VAG Scope actually been tested on a real Audi A6 / RS6 C6?",
+          "a": "Yes. A 2010 Audi RS6 C6 is the primary real-car TP 2.0 test vehicle for VAG Scope, including Android Auto live gauges, coding, adaptations and Performance Hub pulls."
+        },
+        {
+          "q": "Can I preview the RS6 C6 in the app before buying an adapter?",
+          "a": "Yes. An Audi RS6 C6 demo car is built into the home screen with realistic TP 2.0 measuring blocks, fault codes and virtual dyno behaviour."
+        },
+        {
+          "q": "Why does my A6 C6 fail to connect with a cheap blue ELM327?",
+          "a": "C6 modules use TP 2.0 with strict channel keep-alives (every 0.6 s). Cheap clones drop frames and time out; a vLinker MC+ over BLE or Classic handles it reliably."
+        },
+        {
+          "q": "Can I code battery replacement or service resets on an A6 C6?",
+          "a": "Yes. Service interval resets, battery coding in module 61, adaptations and long coding run offline after confirmation and backup."
+        }
+      ],
+      "fr": [
+        {
+          "q": "VAG Scope a-t-elle vraiment été testée sur une vraie Audi C6 ?",
+          "a": "Oui. Une Audi RS6 C6 de 2010 sert de voiture d'essai principale en TP 2.0, y compris pour Android Auto, les procédures, le codage et le Performance Hub."
+        },
+        {
+          "q": "Puis-je essayer le profil RS6 C6 sans adaptateur ?",
+          "a": "Oui, la RS6 C6 est directement accessible en voiture de démonstration sur l'écran d'accueil."
+        },
+        {
+          "q": "Pourquoi mon ELM327 premier prix décroche-t-il sur une A6 C6 ?",
+          "a": "Le protocole TP 2.0 des C6 exige un maintien de canal régulier toutes les 0,6 s que les clones bas de gamme ne tiennent pas. Un vLinker MC+ ou vGate iCar Pro 2S résout le problème."
+        },
+        {
+          "q": "Peut-on coder une nouvelle batterie dans le module 61 ou remettre l'entretien à zéro ?",
+          "a": "Oui, codage, adaptations et remise à zéro d'entretien se font hors ligne avec sauvegarde automatique."
+        }
+      ]
     }
   },
   {
     "slug": "audi-a6-c7",
     "brand": "Audi",
-    "model": "A6 (C7)",
+    "model": "Audi A6 (C7)",
+    "codes": ["C7", "C7.5", "4G", "4G2", "4G5"],
     "years": "2011-2018",
     "platform": "C7 (4G)",
     "protocol": "uds11",
     "sfd": false,
     "status": "protocol",
+    "page": true,
+    "frName": "l'Audi A6 (C7)",
+    "seoTitle": {
+      "en": "Audi A6 (C7, 4G) OBD diagnostics",
+      "fr": "Diagnostic Audi A6 C7 (4G, 2011-2018)"
+    },
+    "metaDesc": {
+      "en": "VAG Scope on the Audi A6 C7 / C7.5 (4G, 2011-2018): 11-bit UDS diagnostics, V6 TDI & S-tronic checks, mileage/VIN verification and offline coding.",
+      "fr": "VAG Scope sur Audi A6 C7 et C7.5 (4G, 2011-2018) : diagnostic UDS 11 bits, points de contrôle V6 TDI / S-tronic, kilométrage, VIN et codage."
+    },
+    "answer": {
+      "en": "Yes: VAG Scope supports the Audi A6 and S6/RS6 C7 (4G, 2011-2018) over 11-bit CAN UDS with an open Bluetooth ELM327 adapter, 100% offline. Multi-unit mileage and VIN checks, coding, adaptations and Performance Hub work with zero SFD locks.",
+      "fr": "Oui : VAG Scope gère l'Audi A6 C7 et C7.5 (4G, 2011-2018) en UDS CAN 11 bits avec un ELM327 Bluetooth ouvert, 100 % hors ligne. Contrôles du kilométrage et du VIN multi-calculateurs, codage, adaptations et Performance Hub fonctionnent sans verrouillage SFD."
+    },
     "note": {
-      "en": "Full 11-bit UDS architecture with rich multi-unit mileage and VIN data across engine, S-tronic/Tiptronic, ABS and air suspension. Full offline diagnostics and coding without SFD.",
-      "fr": "Architecture complète en UDS 11 bits avec de multiples calculateurs (moteur, S-tronic/Tiptronic, ABS, suspension pneumatique) qui gardent kilométrage et VIN. Diagnostic et codage complets hors ligne, sans SFD."
+      "en": "Full 11-bit UDS architecture with rich mileage and VIN data across engine, S-tronic/Tiptronic, ABS and air suspension, with no SFD lock.",
+      "fr": "Architecture UDS 11 bits complète avec kilométrage et VIN dans de nombreux modules (moteur, boîte, ABS, suspension pneumatique), sans SFD."
+    },
+    "obdPort": {
+      "en": "Under the lower driver-side dash trim on the left side, just above the bonnet release handle.",
+      "fr": "Sous le tableau de bord côté conducteur, à gauche juste au-dessus de la tirette de capot."
+    },
+    "mileageReality": {
+      "en": "The C7 (4G) stores distance and fault freeze-frame mileages across engine, gearbox, ABS, cluster and chassis modules, making pre-purchase cross-checks very informative on imported or high-mileage motorway cruisers.",
+      "fr": "La génération C7 (4G) enregistre distance et trames figées de défauts dans le moteur, la boîte, l'ABS, le combiné et le châssis : très utile avant d'acheter une routière souvent importée ou très kilométrée."
+    },
+    "checkpoints": {
+      "en": [
+        "On 3.0 TDI V6 (including 313/320/326 PS BiTDI), scan 01 Engine for EGR cooler, coolant shut-off valve, timing chain or AdBlue/SCR faults.",
+        "On 7-speed S-tronic (DL501) cars, read 02 Transmission for mechatronic circuit board / temperature faults and clutch adaptation errors.",
+        "On air-suspension models, inspect 34 Level Control for compressor pressure limits and ride-height sensor faults.",
+        "Verify 13 Auto Dist. Reg (ACC radars) and 8E Image Processing for misalignment faults after front bumper or windscreen work."
+      ],
+      "fr": [
+        "Sur 3.0 TDI V6 (y compris BiTDI), vérifiez 01 Moteur pour l'EGR, la vanne de coupure de liquide de refroidissement (fuite dans le V), la distribution et le système AdBlue.",
+        "Sur boîte S-tronic 7 (DL501), inspectez 02 Boîte automatique pour les défauts de faisceau/carte mécatronique ou de pression d'embrayage.",
+        "Sur suspension pneumatique, scannez 34 Correcteur d'assiette pour vérifier l'état du compresseur et des capteurs de niveau.",
+        "Contrôlez les radars ACC (13) et caméra pare-brise (8E) pour repérer un défaut de calibrage après un choc avant."
+      ]
+    },
+    "faqs": {
+      "en": [
+        {
+          "q": "Does the Audi A6 C7 have SFD protection?",
+          "a": "No. Both 4G pre-facelift (2011-2014) and C7.5 facelift (2015-2018) models have zero SFD protection."
+        },
+        {
+          "q": "Can I check if an imported A6 C7 has had its mileage altered?",
+          "a": "The Health Check compares the cluster against engine, gearbox, ABS and fault freeze frames and outputs a signed PDF. Discrepancies above the odometer are a strong warning, though agreement is indicative only."
+        },
+        {
+          "q": "Does VAG Scope work on an S6 or RS6 C7?",
+          "a": "Yes. Both use the same 11-bit CAN UDS architecture, and Performance Hub supports 0-500 km/h timing and virtual dyno."
+        },
+        {
+          "q": "Where is the OBD port on an Audi A6 C7?",
+          "a": "Under the lower driver's dash on the left side, above the bonnet release."
+        }
+      ],
+      "fr": [
+        {
+          "q": "L'Audi A6 C7 a-t-elle un verrouillage SFD ?",
+          "a": "Non. Aucun verrouillage SFD sur toute la génération 4G (2011-2018), phase 1 comme C7.5 restylée."
+        },
+        {
+          "q": "Puis-je contrôler le kilométrage d'une A6 C7 importée ?",
+          "a": "Oui : le bilan de santé croise le compteur avec les valeurs des autres calculateurs UDS et les trames figées dans un PDF signé (résultat toujours indicatif)."
+        },
+        {
+          "q": "VAG Scope marche-t-elle sur S6 et RS6 C7 ?",
+          "a": "Oui, même architecture UDS 11 bits, et le Performance Hub gère jusqu'à 500 km/h pour les chronos et le banc virtuel."
+        },
+        {
+          "q": "Où est la prise OBD sur une A6 C7 ?",
+          "a": "Sous le tableau de bord côté conducteur, tout à gauche."
+        }
+      ]
+    }
+  },
+  {
+    "slug": "skoda-octavia-3",
+    "brand": "Škoda",
+    "model": "Octavia 3",
+    "codes": ["5E", "Mk3", "vRS", "MQB"],
+    "years": "2013-2020",
+    "platform": "MQB",
+    "protocol": "uds11",
+    "sfd": false,
+    "status": "protocol",
+    "page": true,
+    "frName": "la Škoda Octavia 3",
+    "seoTitle": {
+      "en": "Škoda Octavia 3 (5E) OBD diagnostics",
+      "fr": "Diagnostic Škoda Octavia 3 (5E, 2013-2020)"
+    },
+    "metaDesc": {
+      "en": "VAG Scope on the Škoda Octavia 3 (5E, 2013-2020): MQB 11-bit UDS diagnostics, TDI/vRS checks, mileage/VIN verification and offline coding without SFD.",
+      "fr": "VAG Scope sur Škoda Octavia 3 (5E, 2013-2020) : diagnostic MQB UDS 11 bits, suivi TDI et vRS, contrôle kilométrage/VIN et codage hors ligne sans SFD."
+    },
+    "answer": {
+      "en": "Yes: VAG Scope supports the Škoda Octavia 3 (5E, 2013-2020) over 11-bit CAN UDS with an open Bluetooth ELM327 adapter, 100% offline. Because the 5E generation has no SFD lock, full scanning, mileage and VIN checks, live DPF/boost logging and coding work without subscriptions or credits.",
+      "fr": "Oui : VAG Scope prend en charge la Škoda Octavia 3 (5E, 2013-2020) en UDS CAN 11 bits avec un ELM327 Bluetooth ouvert, 100 % hors ligne. Sans verrouillage SFD, scan complet, contrôles kilométrage/VIN, suivi FAP/turbo en direct et codage fonctionnent sans abonnement ni crédits."
+    },
+    "note": {
+      "en": "MQB 11-bit UDS platform with no SFD write lock; very popular with DIY owners for offline coding, DPF monitoring and pre-purchase checks.",
+      "fr": "Plateforme MQB en UDS 11 bits sans SFD ; très appréciée pour le codage long, le suivi FAP/TDI et les bilans avant achat hors ligne."
+    },
+    "obdPort": {
+      "en": "In the driver's footwell under the lower dashboard trim, to the left of the steering column above the bonnet lever.",
+      "fr": "Sous le tableau de bord côté conducteur, à gauche de la colonne de direction."
+    },
+    "mileageReality": {
+      "en": "As an MQB 11-bit UDS car, the Octavia 3 exposes mileage across engine, DSG, ABS, cluster and gateway modules, which is valuable when checking ex-taxi or high-mileage fleet estates.",
+      "fr": "Sur base MQB UDS 11 bits, l'Octavia 3 expose des distances dans plusieurs calculateurs (moteur, DSG, ABS, combiné, passerelle) : un vrai plus avant d'acheter un break souvent utilisé comme taxi ou véhicule de société."
+    },
+    "checkpoints": {
+      "en": [
+        "On 1.6 TDI and 2.0 TDI (including vRS TDI), check DPF oil ash volume, differential pressure and AdBlue/EGR history.",
+        "On 2.0 TSI vRS models, monitor coolant temperature regulation (thermostat housing), boost actual vs specified and ignition timing pull.",
+        "Scan 02 Transmission on DSG cars (DQ200 7-speed or DQ250/DQ381 6/7-speed) for clutch or mechatronic fault codes.",
+        "Check 5F Infotainment and 09 Central Electronics for clean coding and absence of rear-camera or towbar retrofit faults."
+      ],
+      "fr": [
+        "Sur 1.6 TDI et 2.0 TDI (y compris vRS TDI), contrôlez la masse de cendres du FAP, la pression différentielle et l'historique EGR/AdBlue.",
+        "Sur Octavia vRS 2.0 TSI, suivez la stabilité de température moteur (boîtier thermostat), la pression de turbo et les corrections d'allumage.",
+        "Scannez 02 Boîte automatique sur les versions DSG (DQ200, DQ250 ou DQ381) pour vérifier l'état de la mécatronique.",
+        "Contrôlez 09 Centrale électrique et 5F Infodivertissement en cas d'attelage ou de caméra de recul ajoutés."
+      ]
+    },
+    "faqs": {
+      "en": [
+        {
+          "q": "Does VAG Scope work on the Škoda Octavia 3 vRS and Scout?",
+          "a": "Yes. Petrol, diesel, DSG and Haldex 4x4 Scout variants all share the MQB 11-bit UDS architecture."
+        },
+        {
+          "q": "Can I code features on an Octavia 3 without buying credits?",
+          "a": "Yes. VAG Scope has no credits and no subscription: long coding, adaptations, basic settings and output tests are all included after one upfront payment."
+        },
+        {
+          "q": "Is SFD active on the Octavia 3?",
+          "a": "No. SFD arrived on the Octavia 4 (NX) in 2020; the Octavia 3 (5E) is completely SFD-free."
+        },
+        {
+          "q": "Where is the OBD socket on a Škoda Octavia 3?",
+          "a": "Under the driver's side dashboard, left of the steering column."
+        }
+      ],
+      "fr": [
+        {
+          "q": "VAG Scope gère-t-elle aussi l'Octavia 3 vRS et Scout 4x4 ?",
+          "a": "Oui, toutes les motorisations essence, TDI, DSG et transmission intégrale Haldex 5E utilisent le même UDS 11 bits."
+        },
+        {
+          "q": "Faut-il acheter des crédits pour coder une Octavia 3 ?",
+          "a": "Jamais. Pas de crédits ni d'abonnement : codage long, adaptations, réglages de base et tests actionneurs sont inclus."
+        },
+        {
+          "q": "L'Octavia 3 est-elle bloquée par SFD ?",
+          "a": "Non, SFD n'est apparu que sur l'Octavia 4 (NX) à partir de 2020."
+        },
+        {
+          "q": "Où se trouve la prise OBD sur Octavia 3 ?",
+          "a": "Sous le tableau de bord côté conducteur, à gauche de la colonne de direction."
+        }
+      ]
+    }
+  },
+  {
+    "slug": "seat-leon-3",
+    "brand": "Seat",
+    "model": "Leon 3",
+    "codes": ["5F", "Mk3", "Cupra 5F", "MQB"],
+    "years": "2012-2020",
+    "platform": "MQB",
+    "protocol": "uds11",
+    "sfd": false,
+    "status": "protocol",
+    "page": true,
+    "frName": "la Seat Leon 3",
+    "seoTitle": {
+      "en": "Seat Leon 3 & Cupra (5F) OBD diagnostics",
+      "fr": "Diagnostic Seat Leon 3 et Cupra (5F)"
+    },
+    "metaDesc": {
+      "en": "VAG Scope on the Seat Leon 3 & Cupra (5F, 2012-2020): MQB 11-bit UDS scan, Performance Hub timing/dyno, mileage check and offline coding without SFD.",
+      "fr": "VAG Scope sur Seat Leon 3 et Cupra (5F, 2012-2020) : scan MQB UDS 11 bits, Performance Hub chronos/banc virtuel, kilométrage et codage sans SFD."
+    },
+    "answer": {
+      "en": "Yes: VAG Scope supports the Seat Leon 3 and Leon Cupra (5F, 2012-2020) over 11-bit CAN UDS with an open Bluetooth ELM327 adapter, 100% offline. Coding, adaptations, live boost/fuel logging, Performance Hub 0-500 km/h timing and pre-purchase checks work with no SFD lock.",
+      "fr": "Oui : VAG Scope prend en charge la Seat Leon 3 et la Leon Cupra (5F, 2012-2020) en UDS CAN 11 bits avec un ELM327 Bluetooth ouvert, 100 % hors ligne. Codage, adaptations, suivi turbo/carburant, Performance Hub et bilan avant achat fonctionnent sans aucun verrouillage SFD."
+    },
+    "note": {
+      "en": "MQB 11-bit UDS platform (including Cupra 5F) with no SFD lock; great fit for offline coding, Performance Hub and pre-buy checks.",
+      "fr": "Plateforme MQB UDS 11 bits (Cupra 5F incluse) sans SFD : idéale pour le codage, le Performance Hub et le contrôle avant achat."
+    },
+    "obdPort": {
+      "en": "In the driver's footwell under the lower dash panel on the left side, above the bonnet release.",
+      "fr": "Sous le tableau de bord côté conducteur, à gauche au-dessus du levier d'ouverture du capot."
+    },
+    "mileageReality": {
+      "en": "MQB 11-bit UDS modules on the Leon 5F (engine, DSG, ABS, cluster, gateway) provide strong cross-checks for mileage and donor-part VINs before purchase, though results remain indicative alongside service records.",
+      "fr": "Les calculateurs UDS 11 bits de la Leon 5F (moteur, DSG, ABS, combiné, passerelle) permettent un croisement fiable du kilométrage et du VIN avant achat, en complément du suivi d'entretien."
+    },
+    "checkpoints": {
+      "en": [
+        "On Cupra 280/290/300 (EA888 Gen 3), monitor coolant temperature stability, boost actual vs specified, intake air temperature (IAT) and ignition timing pull.",
+        "On Cupra ST 4Drive models, scan 22 All Wheel Drive (Haldex Gen 5) for pump faults and run the pump output test if rear-axle traction feels absent.",
+        "On 1.4 TSI / 1.5 TSI and 1.6/2.0 TDI cars, inspect DSG fault memory and DPF ash load.",
+        "Check full-LED headlight modules and DCC adaptive dampers for levelling sensor faults."
+      ],
+      "fr": [
+        "Sur Cupra 280/290/300 (EA888 Gen 3), surveillez la stabilité thermique (thermostat), la pression de turbo, la température d'admission (IAT) et les corrections d'allumage.",
+        "Sur Cupra ST 4Drive, scannez 22 Transmission intégrale (Haldex Gen 5) pour repérer un défaut de pompe Haldex.",
+        "Sur 1.4/1.5 TSI et 1.6/2.0 TDI, contrôlez la mémoire DSG et la charge en cendres du FAP.",
+        "Vérifiez les calculateurs de phares Full LED et de suspension pilotée DCC (capteurs d'assiette)."
+      ]
+    },
+    "faqs": {
+      "en": [
+        {
+          "q": "Can I use Performance Hub to log 100-200 km/h on a Leon Cupra 5F?",
+          "a": "Yes. Performance Hub fuses ECU vehicle speed with 100 Hz phone IMU data for centisecond 0-100 and 100-200 km/h timing plus virtual dyno curves, with zero GPS permission."
+        },
+        {
+          "q": "Does the Seat Leon 5F have SFD protection?",
+          "a": "No. The 5F generation (2012-2020) has no SFD lock, so offline coding and adaptations work directly."
+        },
+        {
+          "q": "Can I check if a used Leon Cupra was tuned or had modules swapped?",
+          "a": "VAG Scope's VIN check flags donor modules with another car's VIN, and reading fault freeze frames plus live boost/timing logs helps spot existing issues before buying."
+        },
+        {
+          "q": "Where is the OBD port on a Seat Leon 5F?",
+          "a": "Under the lower dashboard on the driver's side, left of the steering column."
+        }
+      ],
+      "fr": [
+        {
+          "q": "Peut-on mesurer un 100-200 km/h sur une Leon Cupra 5F avec VAG Scope ?",
+          "a": "Oui. Le Performance Hub combine la vitesse OBD et les capteurs 100 Hz du téléphone pour chronométrer au centième et tracer une courbe de banc virtuel, sans GPS."
+        },
+        {
+          "q": "La Seat Leon 5F a-t-elle le verrouillage SFD ?",
+          "a": "Non. Toute la génération 5F (2012-2020) est libre de SFD."
+        },
+        {
+          "q": "Peut-on repérer un calculateur remplacé sur une Leon d'occasion ?",
+          "a": "Oui, le contrôle du VIN compare les 17 caractères dans chaque module et signale toute provenance différente."
+        },
+        {
+          "q": "Où est la prise OBD sur une Leon 5F ?",
+          "a": "Sous le tableau de bord côté conducteur, à gauche de la colonne de direction."
+        }
+      ]
+    }
+  },
+  {
+    "slug": "seat-leon-4",
+    "brand": "Seat",
+    "model": "Leon 4 & Cupra",
+    "codes": ["KL", "KL1", "KL8", "Formentor"],
+    "years": "2020-",
+    "platform": "MQB-evo",
+    "protocol": "uds29",
+    "sfd": true,
+    "status": "protocol",
+    "page": true,
+    "frName": "la Seat / Cupra Leon 4 et Formentor",
+    "seoTitle": {
+      "en": "Seat Leon 4 & Cupra Formentor (KL) OBD",
+      "fr": "Diagnostic Leon 4 et Cupra Formentor (KL)"
+    },
+    "metaDesc": {
+      "en": "VAG Scope on Seat Leon 4 & Cupra Formentor (MQB-evo, 2020+): 29-bit UDS offline scan, live data, Performance Hub, mileage/VIN check and SFD boundary.",
+      "fr": "VAG Scope sur Seat/Cupra Leon 4 et Formentor (MQB-evo, 2020+) : scan UDS 29 bits hors ligne, mesures, Performance Hub, kilométrage et limite SFD."
+    },
+    "answer": {
+      "en": "Yes for scanning, fault reading, live telemetry, Performance Hub and pre-purchase checks: VAG Scope supports Seat Leon 4 and Cupra Leon / Formentor (KL, 2020+) over 11-bit and 29-bit CAN UDS completely offline. Because MQB-evo modules lock write access with SFD/SFD2, online SFD unlock for protected coding is not supported.",
+      "fr": "Oui pour le scan, la lecture de défauts, les mesures en direct, le Performance Hub et le bilan avant achat : VAG Scope gère les Seat/Cupra Leon 4 et Formentor (KL, 2020+) en UDS CAN 11 et 29 bits, 100 % hors ligne. En revanche, l'écriture sur les modules verrouillés SFD/SFD2 demande un déverrouillage en ligne non géré."
+    },
+    "note": {
+      "en": "MQB-evo 11-bit and 29-bit UDS (Leon KL and Cupra Formentor). Offline reads, live data, Performance Hub and health checks work; online SFD unlock not supported.",
+      "fr": "MQB-evo UDS 11 et 29 bits (Leon KL et Cupra Formentor). Lecture, mesures, Performance Hub et bilan de santé hors ligne ; pas de déverrouillage SFD en ligne."
+    },
+    "obdPort": {
+      "en": "Under the lower driver-side dashboard trim, to the left of the steering column.",
+      "fr": "Sous le tableau de bord côté conducteur, à gauche de la colonne de direction."
+    },
+    "mileageReality": {
+      "en": "MQB-evo 29-bit UDS modules and fault freeze frames expose cross-checkable mileage and VINs even when SFD locks writes, making pre-purchase Health Checks fast and completely offline.",
+      "fr": "Même avec SFD en écriture, les calculateurs UDS 29 bits et trames figées des MQB-evo exposent kilométrage et VIN en lecture seule pour un bilan de santé hors ligne avant achat."
+    },
+    "checkpoints": {
+      "en": [
+        "On Cupra Formentor VZ / Leon VZ (300/310 PS) and 2.5 TFSI VZ5, use Performance Hub to log offline 0-100 / 100-200 timing and virtual dyno pulls alongside IAT and boost telemetry.",
+        "On e-HYBRID plug-in models, scan 29-bit high-voltage battery and charging modules (4-hex addresses) for thermal or isolation errors.",
+        "Check infotainment and driver-assistance modules for 12 V low-voltage or sensor calibration alerts on early 2020-2021 cars.",
+        "Keep the SFD boundary in mind: great for diagnostics, live dashboards and pre-buy checks, not for coding SFD2-locked modules."
+      ],
+      "fr": [
+        "Sur Cupra Formentor VZ / Leon VZ (300/310 ch) et VZ5, exploitez le Performance Hub hors ligne pour mesurer vos chronos et tracer un passage au banc virtuel avec suivi de la température d'admission.",
+        "Sur les versions e-HYBRID rechargeables, scannez les modules haute tension UDS 29 bits (adresses 4 caractères) pour vérifier batterie et chargeur.",
+        "Surveillez les historiques de sous-tension 12 V ou d'aides à la conduite sur les premiers millésimes 2020-2021.",
+        "Gardez la limite SFD à l'esprit : idéale pour diagnostiquer, suivre vos valeurs sur Android Auto et vérifier une occasion, mais sans déverrouillage SFD en ligne."
+      ]
+    },
+    "faqs": {
+      "en": [
+        {
+          "q": "Does VAG Scope work on the Cupra Formentor?",
+          "a": "Yes. The Cupra Formentor shares the MQB-evo 11-bit and 29-bit CAN UDS architecture with the Leon 4 (KL). Offline scanning, live data, Performance Hub and health checks work."
+        },
+        {
+          "q": "Can VAG Scope unlock SFD on a Leon KL or Formentor?",
+          "a": "No. SFD/SFD2 write unlock requires an online server token. VAG Scope has zero internet permission by design and never performs online unlocks."
+        },
+        {
+          "q": "Do I need a special dongle for 29-bit MQB-evo cars?",
+          "a": "No proprietary dongle is needed: an open vLinker MC+ or vGate iCar Pro 2S handles 29-bit CAN UDS cleanly."
+        },
+        {
+          "q": "Can I use Android Auto live gauges on a Formentor?",
+          "a": "Yes. Pin up to 4 live values per dashboard to display on your car screen while driving."
+        }
+      ],
+      "fr": [
+        {
+          "q": "VAG Scope est-elle compatible avec le Cupra Formentor ?",
+          "a": "Oui. Le Formentor partage l'architecture MQB-evo (UDS 11 et 29 bits) de la Leon 4 (KL) : scan complet, mesures, Performance Hub et bilan de santé fonctionnent hors ligne."
+        },
+        {
+          "q": "Peut-on coder des options verrouillées par SFD sur un Formentor ?",
+          "a": "Non. Le déverrouillage SFD/SFD2 demande un jeton serveur en ligne, ce que VAG Scope ne fait pas (aucune permission réseau)."
+        },
+        {
+          "q": "Faut-il un boîtier propriétaire pour les MQB-evo en 29 bits ?",
+          "a": "Non, un ELM327 ouvert fiable comme le vLinker MC+ ou le vGate iCar Pro 2S gère très bien l'UDS 29 bits."
+        },
+        {
+          "q": "Puis-je afficher les températures et la pression de turbo sur Android Auto ?",
+          "a": "Oui, jusqu'à 4 mesures en direct par tableau de bord sur l'écran du véhicule."
+        }
+      ]
+    }
+  },
+  {
+    "slug": "vw-passat-b6",
+    "brand": "Volkswagen",
+    "model": "Passat B6",
+    "codes": ["B6", "3C", "3C2", "3C5"],
+    "years": "2005-2010",
+    "platform": "PQ46",
+    "protocol": "tp20",
+    "sfd": false,
+    "status": "protocol",
+    "page": false,
+    "sibling": "vw-golf-5",
+    "frName": "la Volkswagen Passat B6",
+    "note": {
+      "en": "CAN TP 2.0 platform covering engine, DSG, electronic parking brake (EPB), ABS and comfort modules without a Windows laptop.",
+      "fr": "Plateforme TP 2.0 couvrant moteur, DSG, frein de parking électrique (EPB), ABS et confort sans PC portable."
+    }
+  },
+  {
+    "slug": "vw-passat-b7",
+    "brand": "Volkswagen",
+    "model": "Passat B7",
+    "codes": ["B7", "36", "362", "365"],
+    "years": "2010-2014",
+    "platform": "PQ46",
+    "protocol": "mixed",
+    "sfd": false,
+    "status": "protocol",
+    "page": false,
+    "sibling": "vw-golf-6",
+    "frName": "la Volkswagen Passat B7",
+    "note": {
+      "en": "Mixes 11-bit UDS (engine, cluster) and TP 2.0 (older chassis and comfort units). Handled automatically unit by unit.",
+      "fr": "Mélange UDS 11 bits (moteur, combiné) et TP 2.0 (châssis et confort). Géré automatiquement module par module."
+    }
+  },
+  {
+    "slug": "vw-polo-6r",
+    "brand": "Volkswagen",
+    "model": "Polo 6R / 6C",
+    "codes": ["6R", "6C"],
+    "years": "2009-2017",
+    "platform": "PQ25",
+    "protocol": "mixed",
+    "sfd": false,
+    "status": "protocol",
+    "page": false,
+    "sibling": "audi-a1-8x",
+    "frName": "la Volkswagen Polo 6R / 6C",
+    "note": {
+      "en": "Shares PQ25 electronics with the Audi A1 8X: mixed TP 2.0 and 11-bit UDS on 6R, mostly 11-bit UDS on 6C facelift.",
+      "fr": "Partage l'électronique PQ25 de l'Audi A1 8X : mixte TP 2.0 et UDS 11 bits sur 6R, majoritairement UDS 11 bits sur 6C."
+    }
+  },
+  {
+    "slug": "vw-polo-aw",
+    "brand": "Volkswagen",
+    "model": "Polo AW",
+    "codes": ["AW", "AW1", "MQB-A0"],
+    "years": "2017-",
+    "platform": "MQB-A0",
+    "protocol": "uds11",
+    "sfd": false,
+    "status": "protocol",
+    "page": false,
+    "sibling": "vw-golf-7",
+    "frName": "la Volkswagen Polo AW",
+    "note": {
+      "en": "MQB-A0 11-bit UDS platform; late facelift builds may add SFD on selected units while offline reads and health checks work normally.",
+      "fr": "Plateforme MQB-A0 en UDS 11 bits ; quelques versions restylées récentes peuvent activer SFD sur certains modules, lecture hors ligne OK."
+    }
+  },
+  {
+    "slug": "vw-tiguan-1",
+    "brand": "Volkswagen",
+    "model": "Tiguan 1 (5N)",
+    "codes": ["5N", "5N1", "5N2"],
+    "years": "2007-2016",
+    "platform": "PQ35",
+    "protocol": "mixed",
+    "sfd": false,
+    "status": "protocol",
+    "page": false,
+    "sibling": "vw-golf-6",
+    "frName": "le Volkswagen Tiguan 1 (5N)",
+    "note": {
+      "en": "Early 5N models use TP 2.0 and facelifts mix TP 2.0 with 11-bit UDS, including Haldex AWD and EPB modules.",
+      "fr": "Les premiers 5N sont en TP 2.0 puis les restylés mêlent TP 2.0 et UDS 11 bits, y compris Haldex et frein de parking électrique."
+    }
+  },
+  {
+    "slug": "vw-tiguan-2",
+    "brand": "Volkswagen",
+    "model": "Tiguan 2 (AD)",
+    "codes": ["AD", "AD1", "BW2", "Allspace"],
+    "years": "2016-2023",
+    "platform": "MQB",
+    "protocol": "uds11",
+    "sfd": false,
+    "status": "protocol",
+    "page": false,
+    "sibling": "vw-golf-7",
+    "frName": "le Volkswagen Tiguan 2 (AD)",
+    "note": {
+      "en": "MQB 11-bit UDS SUV with full multi-unit scanning, mileage/VIN checks, live data, adaptations and offline coding.",
+      "fr": "SUV MQB en UDS 11 bits : scan complet, contrôles kilométrage/VIN, mesures en direct, adaptations et codage hors ligne."
+    }
+  },
+  {
+    "slug": "vw-id3",
+    "brand": "Volkswagen",
+    "model": "ID.3",
+    "codes": ["E1", "E11", "MEB"],
+    "years": "2020-",
+    "platform": "MEB",
+    "protocol": "uds29",
+    "sfd": true,
+    "status": "protocol",
+    "page": false,
+    "sibling": "vw-id4",
+    "frName": "la Volkswagen ID.3",
+    "note": {
+      "en": "Shares MEB 29-bit CAN UDS electronics with the ID.4: offline scanning, EV telemetry and health checks work; online SFD unlock not supported.",
+      "fr": "Même électronique MEB UDS 29 bits que l'ID.4 : scan, données batterie/DC-DC et bilan de santé hors ligne ; pas de déverrouillage SFD en ligne."
+    }
+  },
+  {
+    "slug": "audi-a3-8y",
+    "brand": "Audi",
+    "model": "Audi A3 (8Y)",
+    "codes": ["8Y", "8Y1", "8YA", "S3 8Y"],
+    "years": "2020-",
+    "platform": "MQB-evo",
+    "protocol": "uds29",
+    "sfd": true,
+    "status": "protocol",
+    "page": false,
+    "sibling": "vw-golf-8",
+    "frName": "l'Audi A3 (8Y)",
+    "note": {
+      "en": "MQB-evo 11-bit and 29-bit UDS architecture; offline scanning, faults, live data and mileage/VIN checks work, online SFD unlock not supported.",
+      "fr": "Architecture MQB-evo en UDS 11 et 29 bits : scan, défauts, mesures en direct et bilans kilométrage/VIN hors ligne ; pas de SFD en ligne."
+    }
+  },
+  {
+    "slug": "audi-a4-b7",
+    "brand": "Audi",
+    "model": "Audi A4 (B7)",
+    "codes": ["B7", "8E", "8EC", "8ED"],
+    "years": "2005-2008",
+    "platform": "B7",
+    "protocol": "tp20",
+    "sfd": false,
+    "status": "protocol",
+    "page": false,
+    "sibling": "audi-a6-c6",
+    "frName": "l'Audi A4 (B7)",
+    "note": {
+      "en": "CAN TP 2.0 on main drivetrain modules (note: some early B7 comfort or K-line-only units do not sit on CAN-only ELM327 paths).",
+      "fr": "CAN TP 2.0 sur les calculateurs principaux (certains anciens modules confort en ligne K pure ne passent pas via ELM327 CAN)."
     }
   },
   {
     "slug": "audi-a6-c8",
     "brand": "Audi",
-    "model": "A6 (C8)",
+    "model": "Audi A6 (C8)",
+    "codes": ["C8", "4K", "4K2", "4K5"],
     "years": "2018-",
     "platform": "MLB-evo",
     "protocol": "uds11",
     "sfd": true,
     "status": "protocol",
+    "page": false,
+    "sibling": "audi-a4-b9",
+    "frName": "l'Audi A6 (C8)",
     "note": {
-      "en": "MLB-evo UDS architecture; later model years add SFD protection on selected units. Offline scanning, fault codes, live data, mileage, VIN and health checks work; online SFD unlock for protected writes is not supported.",
-      "fr": "Architecture MLB-evo en UDS ; les millésimes récents ajoutent la protection SFD sur certains modules. Scan, codes défaut, mesures en direct et bilans kilométrage/VIN/santé marchent hors ligne ; pas de déverrouillage SFD en ligne."
+      "en": "MLB-evo UDS architecture with SFD on newer model years; offline scanning, live data, mileage and VIN health checks work cleanly.",
+      "fr": "Architecture MLB-evo en UDS avec SFD sur les millésimes récents ; scan, mesures et bilans kilométrage/VIN fonctionnent hors ligne."
     }
   },
   {
     "slug": "audi-q5-8r",
     "brand": "Audi",
-    "model": "Q5 (8R)",
+    "model": "Audi Q5 (8R)",
+    "codes": ["8R", "8RB"],
     "years": "2008-2017",
     "platform": "MLB",
     "protocol": "uds11",
     "sfd": false,
     "status": "protocol",
+    "page": false,
+    "sibling": "audi-a4-b8",
+    "frName": "l'Audi Q5 (8R)",
     "note": {
-      "en": "MLB 11-bit UDS platform sharing electronics with the A4 B8. Covers full fault scans, mileage/VIN checks, live TDI/TFSI/S-tronic data, service resets and coding offline.",
-      "fr": "Plateforme MLB en UDS 11 bits proche de l’A4 B8. Couvre le scan complet, les contrôles kilométrage/VIN, les mesures TDI/TFSI/S-tronic, les remises à zéro d’entretien et le codage hors ligne."
+      "en": "MLB 11-bit UDS SUV sharing electronics with the A4 B8: full offline fault scans, mileage/VIN checks, live data and coding.",
+      "fr": "SUV MLB UDS 11 bits proche de l'A4 B8 : scan complet, contrôles kilométrage/VIN, mesures en direct et codage hors ligne."
     }
   },
   {
     "slug": "audi-q5-fy",
     "brand": "Audi",
-    "model": "Q5 (FY)",
+    "model": "Audi Q5 (FY)",
+    "codes": ["FY", "FYB"],
     "years": "2017-2024",
     "platform": "MLB-evo",
     "protocol": "uds11",
     "sfd": false,
     "status": "protocol",
+    "page": false,
+    "sibling": "audi-a4-b9",
+    "frName": "l'Audi Q5 (FY)",
     "note": {
-      "en": "MLB-evo 11-bit UDS SUV. Full offline reading, scanning, health checks, live data and coding (selected late 2022+ facelift modules may require online SFD unlock for writes).",
-      "fr": "SUV MLB-evo en UDS 11 bits. Lecture, scan, bilan de santé, mesures en direct et codage hors ligne (certains modules des versions restylées 2022+ peuvent demander un déverrouillage SFD en ligne pour l’écriture)."
+      "en": "MLB-evo 11-bit UDS SUV; full offline reading, health checks and coding (selected 2022+ facelift modules may require online SFD for writes).",
+      "fr": "SUV MLB-evo UDS 11 bits ; lecture, bilan de santé et codage hors ligne (quelques modules 2022+ peuvent demander SFD en ligne)."
     }
   },
   {
     "slug": "skoda-octavia-2",
     "brand": "Škoda",
     "model": "Octavia 2 (1Z)",
+    "codes": ["1Z", "1Z3", "1Z5"],
     "years": "2004-2013",
     "platform": "PQ35",
     "protocol": "mixed",
     "sfd": false,
     "status": "protocol",
+    "page": false,
+    "sibling": "vw-golf-6",
+    "frName": "la Škoda Octavia 2 (1Z)",
     "note": {
-      "en": "Early 1Z cars use TP 2.0 and post-2009 facelifts mix TP 2.0 with 11-bit UDS. VAG Scope switches automatically unit by unit for full scans, measuring blocks, fault codes and coding.",
-      "fr": "Les premières Octavia 2 sont en TP 2.0 et les restylées après 2009 mélangent TP 2.0 et UDS 11 bits. VAG Scope gère les deux automatiquement pour les scans, blocs de mesures, défauts et codages."
-    }
-  },
-  {
-    "slug": "skoda-octavia-3",
-    "brand": "Škoda",
-    "model": "Octavia 3 (5E)",
-    "years": "2013-2020",
-    "platform": "MQB",
-    "protocol": "uds11",
-    "sfd": false,
-    "status": "protocol",
-    "note": {
-      "en": "MQB 11-bit UDS platform with no SFD write lock. Very popular with DIY owners for offline long coding, adaptations, DPF/TDI live monitoring and pre-purchase mileage/VIN checks.",
-      "fr": "Plateforme MQB en UDS 11 bits sans verrouillage SFD. Très appréciée des bricoleurs pour le codage long, les adaptations, le suivi FAP/TDI en direct et les contrôles kilométrage/VIN avant achat, le tout hors ligne."
+      "en": "Early 1Z builds use TP 2.0 and post-2009 facelifts mix TP 2.0 with 11-bit UDS, switched automatically unit by unit.",
+      "fr": "TP 2.0 sur les premières 1Z et mixte TP 2.0 + UDS 11 bits après le restylage de 2009, gérés automatiquement."
     }
   },
   {
     "slug": "skoda-octavia-4",
     "brand": "Škoda",
     "model": "Octavia 4 (NX)",
+    "codes": ["NX", "NX3", "NX5"],
     "years": "2020-",
     "platform": "MQB-evo",
     "protocol": "uds29",
     "sfd": true,
     "status": "protocol",
+    "page": false,
+    "sibling": "vw-golf-8",
+    "frName": "la Škoda Octavia 4 (NX)",
     "note": {
-      "en": "MQB-evo 11-bit and 29-bit UDS architecture. Offline scanning, fault reading, live data, mileage, VIN and health checks work; online SFD unlock for protected writes is not supported.",
-      "fr": "Architecture MQB-evo en UDS 11 bits et 29 bits. Scan, lecture des défauts, mesures en direct et bilans kilométrage/VIN/santé fonctionnent hors ligne ; pas de déverrouillage SFD en ligne pour l’écriture protégée."
+      "en": "MQB-evo 11-bit and 29-bit UDS architecture; offline scanning, faults, live data and health/mileage/VIN checks work, online SFD unlock not supported.",
+      "fr": "MQB-evo UDS 11 et 29 bits : scan, défauts, mesures et bilans santé/kilométrage/VIN hors ligne ; pas de déverrouillage SFD en ligne."
     }
   },
   {
     "slug": "skoda-superb-3",
     "brand": "Škoda",
     "model": "Superb 3 (3V)",
+    "codes": ["3V", "3V3", "3V5"],
     "years": "2015-2023",
     "platform": "MQB",
     "protocol": "uds11",
     "sfd": false,
     "status": "protocol",
+    "page": false,
+    "sibling": "vw-passat-b8",
+    "frName": "la Škoda Superb 3 (3V)",
     "note": {
-      "en": "MQB 11-bit UDS platform. Full offline control-unit scan, pre-purchase health/mileage/VIN PDF reports, live data, adaptations, coding and service resets.",
-      "fr": "Plateforme MQB en UDS 11 bits. Scan complet des calculateurs, rapports PDF santé/kilométrage/VIN avant achat, mesures en direct, adaptations, codage et remises à zéro d’entretien hors ligne."
+      "en": "MQB 11-bit UDS saloon/estate sharing electronics with the Passat B8: offline scanning, health PDFs, live data and coding.",
+      "fr": "Plateforme MQB UDS 11 bits proche de la Passat B8 : scan complet, rapports PDF santé/kilométrage/VIN, mesures et codage hors ligne."
     }
   },
   {
     "slug": "seat-leon-2",
     "brand": "Seat",
     "model": "Leon 2 (1P)",
+    "codes": ["1P", "1P1"],
     "years": "2005-2012",
     "platform": "PQ35",
     "protocol": "mixed",
     "sfd": false,
     "status": "protocol",
+    "page": false,
+    "sibling": "vw-golf-6",
+    "frName": "la Seat Leon 2 (1P)",
     "note": {
-      "en": "Shares PQ35 electronics with the Golf 5/6: TP 2.0 on early cars, mixed TP 2.0 and 11-bit UDS on late facelifts. Full offline diagnostics, boost/fuel logging and coding from a phone.",
-      "fr": "Partage l’électronique PQ35 des Golf 5/6 : TP 2.0 sur les premières, mixte TP 2.0 et UDS 11 bits sur les restylées. Diagnostic complet, logs turbo/carburant et codage hors ligne depuis un téléphone."
-    }
-  },
-  {
-    "slug": "seat-leon-3",
-    "brand": "Seat",
-    "model": "Leon 3 (5F)",
-    "years": "2012-2020",
-    "platform": "MQB",
-    "protocol": "uds11",
-    "sfd": false,
-    "status": "protocol",
-    "note": {
-      "en": "MQB 11-bit UDS platform (including Cupra 5F) with no SFD lock. Full offline coding, adaptations, Performance Hub timing/dyno, live charts and used-car mileage/VIN checks.",
-      "fr": "Plateforme MQB en UDS 11 bits (y compris Cupra 5F) sans verrouillage SFD. Codage, adaptations, chronos et banc virtuel du Performance Hub, graphiques en direct et contrôles kilométrage/VIN hors ligne."
-    }
-  },
-  {
-    "slug": "seat-leon-4",
-    "brand": "Seat",
-    "model": "Leon 4 (KL) & Cupra",
-    "years": "2020-",
-    "platform": "MQB-evo",
-    "protocol": "uds29",
-    "sfd": true,
-    "status": "protocol",
-    "note": {
-      "en": "MQB-evo 11-bit and 29-bit UDS platform (Seat Leon KL and Cupra Leon / Formentor). Offline scanning, fault codes, live data, Performance Hub and health/mileage/VIN checks work; online SFD unlock for protected writes is not supported.",
-      "fr": "Plateforme MQB-evo en UDS 11 bits et 29 bits (Seat Leon KL et Cupra Leon / Formentor). Scan, défauts, mesures en direct, Performance Hub et bilans santé/kilométrage/VIN marchent hors ligne ; pas de déverrouillage SFD en ligne."
+      "en": "Shares PQ35 electronics with Golf 5/6: TP 2.0 on early builds, mixed TP 2.0 and 11-bit UDS on late facelifts.",
+      "fr": "Partage l'électronique PQ35 des Golf 5/6 : TP 2.0 au début, mixte TP 2.0 et UDS 11 bits sur les versions restylées."
     }
   }
 ]

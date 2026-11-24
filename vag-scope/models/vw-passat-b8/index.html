@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Volkswagen Passat B8 (2015-2023) diagnostics | VAG Scope</title>
-  <meta name="description" content="VAG Scope compatibility for Volkswagen Passat B8 (2015-2023, MQB): 11-bit CAN UDS protocol, mileage check, fault codes, offline coding and ELM327 adapter.">
+  <title>VW Passat B8 (3G) OBD diagnostics | VAG Scope</title>
+  <meta name="description" content="VAG Scope on the VW Passat B8 (3G, 2015-2023): 11-bit UDS diagnostics, fleet mileage verification, TDI/GTE checks, coding and open ELM327 support.">
   <meta name="theme-color" content="#0b3f4b">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="/assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
@@ -23,15 +23,16 @@
   <meta property="og:site_name" content="mtmagicapps">
   <meta property="og:locale" content="en_GB">
   <meta property="og:url" content="https://mtmagicapps.github.io/vag-scope/models/vw-passat-b8/">
-  <meta property="og:title" content="Volkswagen Passat B8 (2015-2023) diagnostics | VAG Scope">
-  <meta property="og:description" content="VAG Scope compatibility for Volkswagen Passat B8 (2015-2023, MQB): 11-bit CAN UDS protocol, mileage check, fault codes, offline coding and ELM327 adapter.">
+  <meta property="og:title" content="VW Passat B8 (3G) OBD diagnostics | VAG Scope">
+  <meta property="og:description" content="VAG Scope on the VW Passat B8 (3G, 2015-2023): 11-bit UDS diagnostics, fleet mileage verification, TDI/GTE checks, coding and open ELM327 support.">
   <meta property="og:image" content="https://mtmagicapps.github.io/assets/img/og-vag-scope-en.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="VAG Scope: check a used VW, Audi, Seat or Škoda before you buy">
   <meta name="twitter:card" content="summary_large_image">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Volkswagen Passat B8 (2015-2023)","description":"VAG Scope compatibility for Volkswagen Passat B8 (2015-2023, MQB): 11-bit CAN UDS protocol, mileage check, fault codes, offline coding and ELM327 adapter.","inLanguage":"en","datePublished":"2026-11-24","dateModified":"2026-11-24","url":"https://mtmagicapps.github.io/vag-scope/models/vw-passat-b8/","image":"https://mtmagicapps.github.io/assets/img/og-vag-scope-en.jpg","author":{"@type":"Organization","name":"mtmagicapps","url":"https://mtmagicapps.github.io/"},"publisher":{"@type":"Organization","name":"mtmagicapps","logo":{"@type":"ImageObject","url":"https://mtmagicapps.github.io/favicon.svg"}},"about":{"@type":"SoftwareApplication","name":"VAG Scope","url":"https://mtmagicapps.github.io/vag-scope/"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Volkswagen Passat B8 (2015-2023)","description":"VAG Scope on the VW Passat B8 (3G, 2015-2023): 11-bit UDS diagnostics, fleet mileage verification, TDI/GTE checks, coding and open ELM327 support.","inLanguage":"en","datePublished":"2026-11-24","dateModified":"2026-11-24","url":"https://mtmagicapps.github.io/vag-scope/models/vw-passat-b8/","image":"https://mtmagicapps.github.io/assets/img/og-vag-scope-en.jpg","author":{"@type":"Organization","name":"mtmagicapps","url":"https://mtmagicapps.github.io/"},"publisher":{"@type":"Organization","name":"mtmagicapps","logo":{"@type":"ImageObject","url":"https://mtmagicapps.github.io/favicon.svg"}},"about":[{"@type":"SoftwareApplication","name":"VAG Scope","url":"https://mtmagicapps.github.io/vag-scope/"},{"@type":"Car","name":"Volkswagen Passat B8","brand":{"@type":"Brand","name":"Volkswagen"},"vehicleModelDate":"2015-2023"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"VAG Scope","item":"https://mtmagicapps.github.io/vag-scope/"},{"@type":"ListItem","position":2,"name":"Compatible models","item":"https://mtmagicapps.github.io/vag-scope/models/"},{"@type":"ListItem","position":3,"name":"Volkswagen Passat B8 (2015-2023)","item":"https://mtmagicapps.github.io/vag-scope/models/vw-passat-b8/"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does VAG Scope work on a Passat B8 2.0 TDI or GTE?","acceptedAnswer":{"@type":"Answer","text":"Yes. Both TDI/TSI and GTE plug-in hybrid Passat B8 variants use 11-bit CAN UDS across their main drivetrain and chassis modules."}},{"@type":"Question","name":"Is SFD active on the Passat B8?","acceptedAnswer":{"@type":"Answer","text":"Most 2015-2021 Passat B8 models have no SFD lock at all. Very late 2022-2023 cars may protect selected modules with SFD, where offline reading and scanning still work normally."}},{"@type":"Question","name":"Can I reset the service interval on a Passat B8?","acceptedAnswer":{"@type":"Answer","text":"Yes. Oil and inspection service resets work directly from your phone after confirmation."}},{"@type":"Question","name":"Do I need internet in an underground car park to check a used Passat B8?","acceptedAnswer":{"@type":"Answer","text":"No. VAG Scope has zero network permission and runs 100% offline via Bluetooth."}}]}</script>
   <!-- /build:head -->
 </head>
 <body>
@@ -61,25 +62,36 @@
   <main id="main">
     <article class="wrap doc model-page">
       <p class="doc-back"><a href="/vag-scope/models/">← All compatible models</a></p>
-      <h1>Volkswagen Passat B8 (2015-2023)</h1>
+      <h1>Volkswagen Passat B8 (B8 / 3G, 2015-2023)</h1>
       <p class="guide-meta">Updated <time datetime="2026-11-24">24 November 2026</time></p>
-      <p class="answer">Yes: VAG Scope supports the Volkswagen Passat B8 (2015-2023, MQB platform) over 11-bit CAN UDS with an open Bluetooth ELM327 adapter, 100% offline with no subscription. Full control-unit scans, mileage and VIN checks, live data, coding and adaptations work offline.</p>
+      <p class="answer">Yes: VAG Scope supports the Volkswagen Passat B8 (3G, 2015-2023) over 11-bit CAN UDS with an open Bluetooth ELM327 adapter, 100% offline. It is particularly useful for inspecting high-mileage ex-fleet Passat B8 diesels and GTE hybrids before buying.</p>
       <h2>Technical overview</h2>
       <div class="table-wrap"><table>
         <thead><tr><th scope="col">Item</th><th scope="col">Detail</th></tr></thead>
         <tbody>
-          <tr><td data-label="Spec">Brand &amp; model</td><td data-label="Value">Volkswagen Passat B8</td></tr>
-          <tr><td data-label="Spec">Model years</td><td data-label="Value">2015-2023</td></tr>
-          <tr><td data-label="Spec">Platform</td><td data-label="Value">MQB</td></tr>
-          <tr><td data-label="Spec">Protocol</td><td data-label="Value">11-bit CAN UDS</td></tr>
-          <tr><td data-label="Spec">Verification status</td><td data-label="Value">Protocol supported (testers welcome)</td></tr>
-          <tr><td data-label="Spec">SFD write protection</td><td data-label="Value">No SFD write lock (offline reading and coding supported)</td></tr>
-          <tr><td data-label="Spec">Recommended adapter</td><td data-label="Value">Open Bluetooth ELM327 (vLinker MC+ or vGate iCar Pro 2S; Classic or BLE on Android, BLE on iPhone)</td></tr>
+          <tr><td data-label="Item">Brand &amp; model</td><td data-label="Detail">Volkswagen Passat B8</td></tr>
+          <tr><td data-label="Item">Chassis / type codes</td><td data-label="Detail">B8, 3G, 3G2, 3G5</td></tr>
+          <tr><td data-label="Item">Model years</td><td data-label="Detail">2015-2023</td></tr>
+          <tr><td data-label="Item">Platform</td><td data-label="Detail">MQB</td></tr>
+          <tr><td data-label="Item">Protocol</td><td data-label="Detail">11-bit CAN UDS</td></tr>
+          <tr><td data-label="Item">Verification status</td><td data-label="Detail">Protocol supported (testers welcome)</td></tr>
+          <tr><td data-label="Item">SFD write protection</td><td data-label="Detail">No SFD write lock (offline reading and coding supported)</td></tr>
+          <tr><td data-label="Item">Recommended adapter</td><td data-label="Detail">Open Bluetooth ELM327 (vLinker MC+ or vGate iCar Pro 2S; Classic or BLE on Android, BLE on iPhone)</td></tr>
         </tbody>
       </table></div>
-      <h2>Generation notes</h2>
-      <p>MQB 11-bit UDS platform with broad multi-unit mileage and VIN coverage. Full offline diagnostics, adaptations, coding, basic settings and service resets work with an open ELM327 adapter.</p>
-      <h2>What works on this generation</h2>
+      <h2>Where is the OBD-II port?</h2>
+      <p>Located under the left side of the dashboard in the driver's footwell, directly above the bonnet release.</p>
+      <h2>Mileage &amp; VIN check on this generation</h2>
+      <p>Passat B8 cars are heavily used by fleets and long-distance drivers, making mileage verification high value. Engine, DSG, ABS, cluster and gateway modules store cross-checkable distances on MQB 11-bit UDS, though clean results never replace official service records. <a href="/vag-scope/guides/used-car-mileage-check/">Read the mileage check guide</a> · <a href="/vag-scope/guides/vin-check/">VIN check guide</a></p>
+      <h2>What to check before buying or maintaining</h2>
+      <ul>
+        <li>On 2.0 TDI (150, 190 and 240 PS BiTDI) cars, read DPF soot/ash mass, SCR AdBlue pump/NOx sensor faults and dual-mass flywheel or DSG clutch warnings.</li>
+        <li>On Passat GTE plug-in hybrids, inspect hybrid battery and charging module fault memory for isolation or high-voltage heater errors.</li>
+        <li>Check 03 ABS / EPB rear caliper actuators and DCC adaptive damper modules if equipped.</li>
+        <li>Compare VINs across engine, gearbox and instrument cluster to confirm no major donor control units were fitted.</li>
+      </ul>
+      <h2>What VAG Scope supports on this chassis</h2>
+      <p>MQB 11-bit UDS platform with broad multi-unit mileage and VIN coverage; pre-2022 builds have no SFD lock.</p>
       <ul>
         <li>Pre-purchase health check: fault codes, cross-module mileage comparison and VIN check in one signed PDF report.</li>
         <li>Full control-unit scan, advanced identification and fault clearing with automatic backup and confirmation.</li>
@@ -87,14 +99,23 @@
         <li>Performance Hub: 0-500 km/h timing (100 Hz OBD + phone IMU fusion), virtual dyno and signed PNG/PDF proof cards without GPS permission.</li>
         <li>Coding, long coding, gateway installation list, adaptations, basic settings, output tests and service reset with automatic backup and read-back.</li>
       </ul>
+      <h2>Frequently asked questions</h2>
+      <div class="faq-list">
+        <details data-faq><summary>Does VAG Scope work on a Passat B8 2.0 TDI or GTE?</summary><p>Yes. Both TDI/TSI and GTE plug-in hybrid Passat B8 variants use 11-bit CAN UDS across their main drivetrain and chassis modules.</p></details>
+        <details data-faq><summary>Is SFD active on the Passat B8?</summary><p>Most 2015-2021 Passat B8 models have no SFD lock at all. Very late 2022-2023 cars may protect selected modules with SFD, where offline reading and scanning still work normally.</p></details>
+        <details data-faq><summary>Can I reset the service interval on a Passat B8?</summary><p>Yes. Oil and inspection service resets work directly from your phone after confirmation.</p></details>
+        <details data-faq><summary>Do I need internet in an underground car park to check a used Passat B8?</summary><p>No. VAG Scope has zero network permission and runs 100% offline via Bluetooth.</p></details>
+      </div>
+      <h2>Same-platform siblings (MQB)</h2>
+      <p class="peer-links"><a href="/vag-scope/models/vw-golf-7/">Volkswagen Golf 7 (2013-2020)</a> · <a href="/vag-scope/models/audi-a3-8v/">Audi Audi A3 / S3 (8V) (2012-2020)</a> · <a href="/vag-scope/models/skoda-octavia-3/">Škoda Octavia 3 (2013-2020)</a> · <a href="/vag-scope/models/seat-leon-3/">Seat Leon 3 (2012-2020)</a></p>
+      <h2>Other models from Volkswagen</h2>
+      <p class="peer-links"><a href="/vag-scope/models/vw-golf-5/">Volkswagen Golf 5 (2004-2008)</a> · <a href="/vag-scope/models/vw-golf-6/">Volkswagen Golf 6 (2009-2012)</a> · <a href="/vag-scope/models/vw-golf-8/">Volkswagen Golf 8 (2020-)</a> · <a href="/vag-scope/models/vw-id4/">Volkswagen ID.4 (2021-)</a></p>
       <h2>Helpful guides for this car</h2>
       <ul>
         <li><a href="/vag-scope/guides/best-elm327-adapter-vw-audi/">Best ELM327 Bluetooth adapter for VW, Audi, Seat and Škoda</a></li>
         <li><a href="/vag-scope/guides/used-car-mileage-check/">How to check the mileage of a used VW, Audi, Seat or Škoda</a></li>
         <li><a href="/vag-scope/guides/vin-check/">Where to find and check the VIN</a></li>
       </ul>
-      <h2>Other models from Volkswagen</h2>
-      <p class="peer-links"><a href="/vag-scope/models/vw-golf-5/">Volkswagen Golf 5 (Mk5) (2004-2008)</a> · <a href="/vag-scope/models/vw-golf-6/">Volkswagen Golf 6 (Mk6) (2009-2012)</a> · <a href="/vag-scope/models/vw-golf-7/">Volkswagen Golf 7 (Mk7) (2013-2020)</a> · <a href="/vag-scope/models/vw-golf-8/">Volkswagen Golf 8 (Mk8) (2020-)</a> · <a href="/vag-scope/models/vw-passat-b6/">Volkswagen Passat B6 (2005-2010)</a> · <a href="/vag-scope/models/vw-passat-b7/">Volkswagen Passat B7 (2010-2014)</a></p>
       <aside class="guide-cta" aria-labelledby="guide-cta-h">
         <h2 id="guide-cta-h" data-i18n="gcta_h">Run the check on your own car</h2>
         <p data-i18n="gcta_p">VAG Scope does it from your phone and a Bluetooth ELM327 adapter: no account, no network, and every result shows its evidence.</p>

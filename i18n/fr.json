@@ -127,6 +127,7 @@
   "gcta_p": "VAG Scope la fait depuis votre téléphone et un adaptateur ELM327 Bluetooth : aucun compte, aucun réseau, et chaque résultat montre ses preuves.",
   "nav_guides": "Guides",
   "nav_models": "Modèles",
+  "compat_models": "Voir les modèles et protocoles compatibles",
   "mi_guide": "Le guide : vérifier le kilométrage d’une occasion",
   "ck_guide_link": "Comment lire le résultat"
 }
