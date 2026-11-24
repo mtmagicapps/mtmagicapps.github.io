@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Guides to checking a VW, Audi, Seat or Škoda | VAG Scope</title>
-  <meta name="description" content="Practical guides to checking a used VW, Audi, Seat or Škoda and reading its control units with a phone and a Bluetooth OBD adapter.">
+  <title>VW, Audi, Seat and Škoda OBD guides | VAG Scope</title>
+  <meta name="description" content="Practical guides to checking a used VW, Audi, Seat or Škoda, choosing an open Bluetooth ELM327 adapter and diagnosing control units from your phone.">
   <meta name="theme-color" content="#0b3f4b">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="/assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
@@ -22,8 +22,8 @@
   <meta property="og:site_name" content="mtmagicapps">
   <meta property="og:locale" content="en_GB">
   <meta property="og:url" content="https://mtmagicapps.github.io/vag-scope/guides/">
-  <meta property="og:title" content="Guides to checking a VW, Audi, Seat or Škoda | VAG Scope">
-  <meta property="og:description" content="Practical guides to checking a used VW, Audi, Seat or Škoda and reading its control units with a phone and a Bluetooth OBD adapter.">
+  <meta property="og:title" content="VW, Audi, Seat and Škoda OBD guides | VAG Scope">
+  <meta property="og:description" content="Practical guides to checking a used VW, Audi, Seat or Škoda, choosing an open Bluetooth ELM327 adapter and diagnosing control units from your phone.">
   <meta property="og:image" content="https://mtmagicapps.github.io/assets/img/og-vag-scope-en.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -44,6 +44,7 @@
       </a>
       <nav class="nav" aria-label="Main">
         <a href="/vag-scope/">VAG Scope</a>
+        <a href="/vag-scope/models/" data-i18n="nav_models">Models</a>
         <a href="/vag-scope/guides/" data-i18n="nav_guides">Guides</a>
         <a href="/vag-scope/privacy.html" data-i18n="nav_privacy">Privacy</a>
         <a href="/vag-scope/changelog.html" data-i18n="nav_changelog">Changelog</a>
@@ -59,12 +60,25 @@
     <section class="wrap doc guides">
       <p class="doc-back"><a href="/vag-scope/">← VAG Scope</a></p>
       <h1>VAG Scope guides</h1>
-      <p class="answer">Practical guides to checking a used VW, Audi, Seat or Škoda and reading its control units with a phone and a Bluetooth OBD adapter.</p>
-      <ul class="guide-list">
-        <li><a href="/vag-scope/guides/best-elm327-adapter-vw-audi/"><h2>Best ELM327 Bluetooth adapter for VW, Audi, Seat and Škoda</h2><p>Which Bluetooth ELM327 adapter works with VW-group TP 2.0 and UDS cars, why cheap clones fail, and why an open adapter beats locked dongles.</p></a></li>
-        <li><a href="/vag-scope/guides/used-car-mileage-check/"><h2>How to check the mileage of a used VW, Audi, Seat or Škoda</h2><p>Compare the odometer with the distance the control units store, read the mileage logged with fault codes, and know what the result can and cannot prove.</p></a></li>
-        <li><a href="/vag-scope/guides/vin-check/"><h2>Where to find the VIN on a VW, Audi, Seat or Škoda, and how to check it</h2><p>Where the VIN is marked on VW-group cars, how to read its 17 characters, and what it means when a control unit holds another car’s VIN.</p></a></li>
-      </ul>
+      <p class="answer">Practical guides to checking a used VW, Audi, Seat or Škoda, choosing an open Bluetooth ELM327 adapter and diagnosing control units from your phone.</p>
+      <aside class="note">
+        <p><strong>Checking a specific car model?</strong> Browse the compatibility directory by generation to see protocol support (TP 2.0, 11-bit and 29-bit UDS) and SFD notes. <a href="/vag-scope/models/">Check model compatibility →</a></p>
+      </aside>
+      <section class="guide-cluster" id="cluster-buying">
+        <h2>Used-car mileage &amp; VIN checks</h2>
+        <p>How to verify odometer readings and control-unit VINs before you buy.</p>
+        <ul class="guide-list">
+          <li><a href="/vag-scope/guides/used-car-mileage-check/"><h3>How to check the mileage of a used VW, Audi, Seat or Škoda</h3><p>Compare the odometer with the distance the control units store, read the mileage logged with fault codes, and know what the result can and cannot prove.</p></a></li>
+          <li><a href="/vag-scope/guides/vin-check/"><h3>Where to find the VIN on a VW, Audi, Seat or Škoda, and how to check it</h3><p>Where the VIN is marked on VW-group cars, how to read its 17 characters, and what it means when a control unit holds another car’s VIN.</p></a></li>
+        </ul>
+      </section>
+      <section class="guide-cluster" id="cluster-adapters">
+        <h2>Open ELM327 adapters &amp; setup</h2>
+        <p>Which Bluetooth adapters handle VW-group protocols cleanly and why open hardware beats locked dongles.</p>
+        <ul class="guide-list">
+          <li><a href="/vag-scope/guides/best-elm327-adapter-vw-audi/"><h3>Best ELM327 Bluetooth adapter for VW, Audi, Seat and Škoda</h3><p>Which Bluetooth ELM327 adapter works with VW-group TP 2.0 and UDS cars, why cheap clones fail, and why an open adapter beats locked dongles.</p></a></li>
+        </ul>
+      </section>
     </section>
   </main>
 
@@ -79,6 +93,7 @@
       </div>
       <nav class="foot-nav" aria-label="Footer">
         <a href="/vag-scope/">VAG Scope</a>
+        <a href="/vag-scope/models/" data-i18n="nav_models">Models</a>
         <a href="/vag-scope/check/" data-i18n="nav_check">Check a car</a>
         <a href="/vag-scope/guides/" data-i18n="nav_guides">Guides</a>
         <a href="/vag-scope/privacy.html" data-i18n="nav_privacy">Privacy</a>
@@ -92,5 +107,6 @@
     </div>
   </footer>
 
+  
   </body>
 </html>

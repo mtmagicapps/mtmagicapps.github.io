@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Guides pour vérifier une VW, Audi, Seat ou Škoda | VAG Scope</title>
-  <meta name="description" content="Des guides pratiques pour vérifier une VW, Audi, Seat ou Škoda d’occasion et lire ses calculateurs avec un téléphone et un adaptateur OBD Bluetooth.">
+  <title>Guides OBD pour VW, Audi, Seat et Škoda | VAG Scope</title>
+  <meta name="description" content="Guides pratiques pour vérifier une VW, Audi, Seat ou Škoda d’occasion, choisir un ELM327 Bluetooth ouvert et diagnostiquer vos calculateurs.">
   <meta name="theme-color" content="#0b3f4b">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="/assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
@@ -22,8 +22,8 @@
   <meta property="og:site_name" content="mtmagicapps">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:url" content="https://mtmagicapps.github.io/fr/vag-scope/guides/">
-  <meta property="og:title" content="Guides pour vérifier une VW, Audi, Seat ou Škoda | VAG Scope">
-  <meta property="og:description" content="Des guides pratiques pour vérifier une VW, Audi, Seat ou Škoda d’occasion et lire ses calculateurs avec un téléphone et un adaptateur OBD Bluetooth.">
+  <meta property="og:title" content="Guides OBD pour VW, Audi, Seat et Škoda | VAG Scope">
+  <meta property="og:description" content="Guides pratiques pour vérifier une VW, Audi, Seat ou Škoda d’occasion, choisir un ELM327 Bluetooth ouvert et diagnostiquer vos calculateurs.">
   <meta property="og:image" content="https://mtmagicapps.github.io/assets/img/og-vag-scope-fr.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -44,6 +44,7 @@
       </a>
       <nav class="nav" aria-label="Main">
         <a href="/fr/vag-scope/">VAG Scope</a>
+        <a href="/fr/vag-scope/models/" data-i18n="nav_models">Modèles</a>
         <a href="/fr/vag-scope/guides/" data-i18n="nav_guides">Guides</a>
         <a href="/fr/vag-scope/privacy.html" data-i18n="nav_privacy">Confidentialité</a>
         <a href="/fr/vag-scope/changelog.html" data-i18n="nav_changelog">Nouveautés</a>
@@ -59,12 +60,25 @@
     <section class="wrap doc guides">
       <p class="doc-back"><a href="/fr/vag-scope/">← VAG Scope</a></p>
       <h1>Guides VAG Scope</h1>
-      <p class="answer">Des guides pratiques pour vérifier une VW, Audi, Seat ou Škoda d’occasion et lire ses calculateurs avec un téléphone et un adaptateur OBD Bluetooth.</p>
-      <ul class="guide-list">
-        <li><a href="/fr/vag-scope/guides/best-elm327-adapter-vw-audi/"><h2>Quel adaptateur ELM327 Bluetooth choisir pour VW, Audi, Seat et Škoda</h2><p>Quel ELM327 Bluetooth choisir pour diagnostiquer une VW, Audi, Seat ou Škoda (TP 2.0 et UDS), éviter les clones instables et garder un boîtier ouvert.</p></a></li>
-        <li><a href="/fr/vag-scope/guides/used-car-mileage-check/"><h2>Comment vérifier le kilométrage d’une VW, Audi, Seat ou Škoda d’occasion</h2><p>Comparez le compteur à la distance gardée par les calculateurs, lisez le kilométrage noté avec les codes défaut, et sachez ce que le résultat prouve ou non.</p></a></li>
-        <li><a href="/fr/vag-scope/guides/vin-check/"><h2>Où trouver le VIN d’une VW, Audi, Seat ou Škoda, et comment le vérifier</h2><p>Où le VIN est marqué sur les voitures du groupe VW, comment lire ses 17 caractères, et ce que signifie un calculateur qui porte le VIN d’une autre voiture.</p></a></li>
-      </ul>
+      <p class="answer">Guides pratiques pour vérifier une VW, Audi, Seat ou Škoda d’occasion, choisir un ELM327 Bluetooth ouvert et diagnostiquer vos calculateurs.</p>
+      <aside class="note">
+        <p><strong>Vous vérifiez un modèle précis ?</strong> Consultez la liste de compatibilité par génération pour voir le protocole (TP 2.0, UDS 11 bits ou 29 bits) et le statut SFD. <a href="/fr/vag-scope/models/">Voir les modèles compatibles →</a></p>
+      </aside>
+      <section class="guide-cluster" id="cluster-buying">
+        <h2>Achat d’occasion : kilométrage et VIN</h2>
+        <p>Comparer le compteur aux calculateurs et vérifier le VIN avant de signer.</p>
+        <ul class="guide-list">
+          <li><a href="/fr/vag-scope/guides/used-car-mileage-check/"><h3>Comment vérifier le kilométrage d’une VW, Audi, Seat ou Škoda d’occasion</h3><p>Comparez le compteur à la distance gardée par les calculateurs, lisez le kilométrage noté avec les codes défaut, et sachez ce que le résultat prouve ou non.</p></a></li>
+          <li><a href="/fr/vag-scope/guides/vin-check/"><h3>Où trouver le VIN d’une VW, Audi, Seat ou Škoda, et comment le vérifier</h3><p>Où le VIN est marqué sur les voitures du groupe VW, comment lire ses 17 caractères, et ce que signifie un calculateur qui porte le VIN d’une autre voiture.</p></a></li>
+        </ul>
+      </section>
+      <section class="guide-cluster" id="cluster-adapters">
+        <h2>Adaptateurs ELM327 ouverts</h2>
+        <p>Quels boîtiers Bluetooth tiennent la route en TP 2.0 et UDS, et pourquoi éviter les clones et boîtiers verrouillés.</p>
+        <ul class="guide-list">
+          <li><a href="/fr/vag-scope/guides/best-elm327-adapter-vw-audi/"><h3>Quel adaptateur ELM327 Bluetooth choisir pour VW, Audi, Seat et Škoda</h3><p>Quel ELM327 Bluetooth choisir pour diagnostiquer une VW, Audi, Seat ou Škoda (TP 2.0 et UDS), éviter les clones instables et garder un boîtier ouvert.</p></a></li>
+        </ul>
+      </section>
     </section>
   </main>
 
@@ -79,6 +93,7 @@
       </div>
       <nav class="foot-nav" aria-label="Footer">
         <a href="/fr/vag-scope/">VAG Scope</a>
+        <a href="/fr/vag-scope/models/" data-i18n="nav_models">Modèles</a>
         <a href="/fr/vag-scope/check/" data-i18n="nav_check">Vérifier une voiture</a>
         <a href="/fr/vag-scope/guides/" data-i18n="nav_guides">Guides</a>
         <a href="/fr/vag-scope/privacy.html" data-i18n="nav_privacy">Confidentialité</a>
@@ -92,5 +107,6 @@
     </div>
   </footer>
 
+  
   </body>
 </html>

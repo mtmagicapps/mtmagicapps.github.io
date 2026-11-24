@@ -271,6 +271,15 @@ h1,h2,h3{font-family:var(--display);font-optical-sizing:auto;text-wrap:balance;l
 .guide-list li{margin:0}
 .guide-list a{display:block;padding:1.3rem 1.5rem;background:var(--surface);border:1px solid var(--line);border-radius:1.25rem;text-decoration:none;transition:border-color .2s,transform .25s var(--ease)}
 .guide-list a:hover{border-color:var(--teal);transform:translateY(-2px)}
-.doc .guide-list h2{margin:0;padding:0;border:0;font-size:1.3rem;text-wrap:pretty}
+.doc .guide-list h2,.doc .guide-list h3{margin:0;padding:0;border:0;font-size:1.25rem;text-wrap:pretty}
 .guide-list p{margin-top:.4rem!important;color:var(--ink-2)}
+.related-guides{margin-top:2.25rem}
+.model-controls{margin-top:1.5rem;display:grid;gap:.85rem}
+.model-controls label{font-weight:600;font-size:.95rem}
+.model-controls input[type=search]{width:100%;padding:.75rem 1rem;font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:.85rem}
+.model-controls input[type=search]:focus{outline:2px solid var(--teal);outline-offset:2px}
+.pill-row{display:flex;flex-wrap:wrap;gap:.5rem}
+.pill-btn{padding:.45rem .95rem;font:600 .9rem/1.2 inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;cursor:pointer}
+.pill-btn[aria-pressed=true]{background:var(--teal);color:#fff;border-color:var(--teal)}
+.peer-links{line-height:1.8}
 @media (prefers-reduced-motion:reduce){.guide-list a{transition:none}}

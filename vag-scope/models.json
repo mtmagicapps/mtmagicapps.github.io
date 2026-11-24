@@ -1,0 +1,450 @@
+[
+  {
+    "slug": "vw-golf-5",
+    "brand": "Volkswagen",
+    "model": "Golf 5 (Mk5)",
+    "years": "2004–2008",
+    "platform": "PQ35",
+    "protocol": "tp20",
+    "sfd": false,
+    "status": "protocol",
+    "note": {
+      "en": "Uses CAN TP 2.0 across engine, DSG, ABS, instrument cluster and comfort units. Generic OBD apps only see basic engine emissions on a Mk5; VAG Scope reads all control units, measuring blocks, coding and adaptations from a phone.",
+      "fr": "La Golf 5 dialogue en CAN TP 2.0 sur le moteur, la boîte DSG, l’ABS, le combiné et les modules de confort. Là où une appli OBD générique ne voit que la dépollution moteur, VAG Scope accède à tous les calculateurs, blocs de mesures, codages et adaptations depuis un téléphone."
+    }
+  },
+  {
+    "slug": "vw-golf-6",
+    "brand": "Volkswagen",
+    "model": "Golf 6 (Mk6)",
+    "years": "2009–2012",
+    "platform": "PQ35",
+    "protocol": "mixed",
+    "sfd": false,
+    "status": "protocol",
+    "note": {
+      "en": "Transition generation: some control units (such as newer TDI/TSI engine ECUs and instrument clusters) use 11-bit UDS while others remain on TP 2.0. VAG Scope switches protocol automatically unit by unit.",
+      "fr": "Génération charnière : certains calculateurs (moteurs TDI/TSI récents, combiné) parlent déjà en UDS 11 bits tandis que d’autres restent en TP 2.0. VAG Scope bascule automatiquement de protocole calculateur par calculateur."
+    }
+  },
+  {
+    "slug": "vw-golf-7",
+    "brand": "Volkswagen",
+    "model": "Golf 7 (Mk7)",
+    "years": "2013–2020",
+    "platform": "MQB",
+    "protocol": "uds11",
+    "sfd": false,
+    "status": "protocol",
+    "note": {
+      "en": "Full 11-bit CAN UDS architecture with rich mileage storage across engine, DSG, ABS and gateway modules, making pre-purchase mileage and VIN checks especially informative. No SFD write lock on Mk7/Mk7.5.",
+      "fr": "Architecture complète en UDS CAN 11 bits, avec un kilométrage souvent mémorisé dans plusieurs calculateurs (moteur, DSG, ABS, passerelle) : idéal pour un bilan avant achat. Pas de verrouillage SFD sur Golf 7 et 7.5."
+    }
+  },
+  {
+    "slug": "vw-golf-8",
+    "brand": "Volkswagen",
+    "model": "Golf 8 (Mk8)",
+    "years": "2020–",
+    "platform": "MQB-evo",
+    "protocol": "uds29",
+    "sfd": true,
+    "status": "protocol",
+    "note": {
+      "en": "Uses 11-bit and 29-bit CAN UDS with 4-hex module addresses. Scanning, fault codes, live data, health, mileage and VIN checks work offline; protected writes on SFD-locked units require online unlock, which VAG Scope does not perform.",
+      "fr": "Fonctionne en UDS CAN 11 bits et 29 bits avec adresses sur 4 caractères hexadécimaux. Le scan, les codes défaut, les mesures en direct et les contrôles de santé, kilométrage et VIN marchent hors ligne ; l’écriture sur les modules verrouillés SFD demande un déverrouillage en ligne non géré par VAG Scope."
+    }
+  },
+  {
+    "slug": "vw-passat-b6",
+    "brand": "Volkswagen",
+    "model": "Passat B6",
+    "years": "2005–2010",
+    "platform": "PQ46",
+    "protocol": "tp20",
+    "sfd": false,
+    "status": "protocol",
+    "note": {
+      "en": "TP 2.0 platform covering engine, DSG, electronic parking brake (EPB), ABS and comfort modules. Useful for checking EPB faults, TDI boost/DPF measuring blocks and service resets without carrying a Windows laptop.",
+      "fr": "Plateforme TP 2.0 couvrant moteur, DSG, frein de parking électrique (EPB), ABS et modules de confort. Pratique pour lire les défauts d’EPB, suivre le FAP ou la pression de turbo d’un TDI et remettre l’entretien à zéro sans PC portable."
+    }
+  },
+  {
+    "slug": "vw-passat-b7",
+    "brand": "Volkswagen",
+    "model": "Passat B7",
+    "years": "2010–2014",
+    "platform": "PQ46",
+    "protocol": "mixed",
+    "sfd": false,
+    "status": "protocol",
+    "note": {
+      "en": "Mixes 11-bit UDS (engine, cluster) and TP 2.0 (older chassis and comfort units). VAG Scope handles both transparently in a single scan and health check.",
+      "fr": "Mélange UDS 11 bits (moteur, combiné) et TP 2.0 (châssis et confort plus anciens). VAG Scope gère les deux dans le même scan et le même bilan de santé."
+    }
+  },
+  {
+    "slug": "vw-passat-b8",
+    "brand": "Volkswagen",
+    "model": "Passat B8",
+    "years": "2015–2023",
+    "platform": "MQB",
+    "protocol": "uds11",
+    "sfd": false,
+    "status": "protocol",
+    "note": {
+      "en": "MQB 11-bit UDS platform with broad multi-unit mileage and VIN coverage. Full offline diagnostics, adaptations, coding, basic settings and service resets work with an open ELM327 adapter.",
+      "fr": "Plateforme MQB en UDS 11 bits avec de nombreux calculateurs qui conservent kilométrage et VIN. Diagnostic complet, adaptations, codage, réglages de base et remises à zéro d’entretien fonctionnent hors ligne avec un ELM327 ouvert."
+    }
+  },
+  {
+    "slug": "vw-polo-6r",
+    "brand": "Volkswagen",
+    "model": "Polo 6R / 6C",
+    "years": "2009–2017",
+    "platform": "PQ25",
+    "protocol": "mixed",
+    "sfd": false,
+    "status": "protocol",
+    "note": {
+      "en": "Polo 6R mixes TP 2.0 and 11-bit UDS depending on engine and model year; the 6C facelift moves largely to UDS. Both work unit by unit with VAG Scope.",
+      "fr": "La Polo 6R mélange TP 2.0 et UDS 11 bits selon le moteur et l’année, puis la phase 6C passe majoritairement en UDS. Les deux sont pris en charge calculateur par calculateur."
+    }
+  },
+  {
+    "slug": "vw-polo-aw",
+    "brand": "Volkswagen",
+    "model": "Polo AW",
+    "years": "2017–",
+    "platform": "MQB-A0",
+    "protocol": "uds11",
+    "sfd": false,
+    "status": "protocol",
+    "note": {
+      "en": "MQB-A0 11-bit UDS platform. Late facelift cars may protect selected modules with SFD; reading, scanning, health checks and live data remain 100% offline.",
+      "fr": "Plateforme MQB-A0 en UDS 11 bits. Certains exemplaires restylés récents peuvent activer SFD sur quelques calculateurs ; la lecture, le scan, le bilan de santé et les mesures en direct restent 100 % hors ligne."
+    }
+  },
+  {
+    "slug": "vw-tiguan-1",
+    "brand": "Volkswagen",
+    "model": "Tiguan 1 (5N)",
+    "years": "2007–2016",
+    "platform": "PQ35",
+    "protocol": "mixed",
+    "sfd": false,
+    "status": "protocol",
+    "note": {
+      "en": "Early 5N models use TP 2.0 and later facelifts mix TP 2.0 with 11-bit UDS, including Haldex AWD and EPB modules. VAG Scope reads both protocols automatically.",
+      "fr": "Les premiers 5N sont en TP 2.0 et les restylés mélangent TP 2.0 et UDS 11 bits, y compris sur les modules Haldex et frein de parking électrique. VAG Scope gère les deux sans réglage."
+    }
+  },
+  {
+    "slug": "vw-tiguan-2",
+    "brand": "Volkswagen",
+    "model": "Tiguan 2 (AD)",
+    "years": "2016–2023",
+    "platform": "MQB",
+    "protocol": "uds11",
+    "sfd": false,
+    "status": "protocol",
+    "note": {
+      "en": "MQB 11-bit UDS SUV with full multi-unit scanning, mileage/VIN checks, live data, adaptations and coding offline with an open ELM327 adapter.",
+      "fr": "SUV MQB en UDS 11 bits : scan complet des calculateurs, contrôles kilométrage et VIN, mesures en direct, adaptations et codage hors ligne avec un ELM327 ouvert."
+    }
+  },
+  {
+    "slug": "vw-id3",
+    "brand": "Volkswagen",
+    "model": "ID.3",
+    "years": "2020–",
+    "platform": "MEB",
+    "protocol": "uds29",
+    "sfd": true,
+    "status": "protocol",
+    "note": {
+      "en": "Electric MEB platform using 29-bit CAN UDS and 4-hex module addresses (including HV battery and DC/DC units). Offline scanning, fault reading, live EV telemetry and health checks work; online SFD unlock for protected writes is not supported.",
+      "fr": "Plateforme électrique MEB en UDS CAN 29 bits avec adresses sur 4 caractères hexadécimaux (batterie haute tension, convertisseur DC/DC). Scan, codes défaut, données batterie en direct et bilan de santé fonctionnent hors ligne ; pas de déverrouillage SFD en ligne."
+    }
+  },
+  {
+    "slug": "vw-id4",
+    "brand": "Volkswagen",
+    "model": "ID.4",
+    "years": "2021–",
+    "platform": "MEB",
+    "protocol": "uds29",
+    "sfd": true,
+    "status": "demo",
+    "note": {
+      "en": "Included as a built-in demo car (VW ID.4 GTX 2023) with a bundled 12 V DC/DC guided procedure. Uses 29-bit CAN UDS; offline reads, scans, live data and health checks work, while online SFD write unlock is not supported.",
+      "fr": "Présente en voiture de démonstration intégrée (VW ID.4 GTX 2023) avec une procédure guidée dédiée au convertisseur 12 V DC/DC. En UDS 29 bits : lecture, scan, mesures en direct et bilan de santé hors ligne ; pas de déverrouillage SFD en ligne."
+    }
+  },
+  {
+    "slug": "audi-a1-8x",
+    "brand": "Audi",
+    "model": "A1 (8X)",
+    "years": "2010–2018",
+    "platform": "PQ25",
+    "protocol": "mixed",
+    "sfd": false,
+    "status": "demo",
+    "note": {
+      "en": "Included as a built-in demo car (mixed TP 2.0 and 11-bit UDS). You can preview the control units, fault codes, mileage check and coding right from the home screen before connecting an adapter.",
+      "fr": "Présente en voiture de démonstration intégrée (mixte TP 2.0 et UDS 11 bits). Vous pouvez tester le scan, les codes défaut, le contrôle kilométrage et le codage dès l’écran d’accueil avant même de brancher un boîtier."
+    }
+  },
+  {
+    "slug": "audi-a3-8p",
+    "brand": "Audi",
+    "model": "A3 (8P)",
+    "years": "2004–2012",
+    "platform": "PQ35",
+    "protocol": "tp20",
+    "sfd": false,
+    "status": "protocol",
+    "note": {
+      "en": "TP 2.0 on early 8P models, with some late 2010–2012 units moving to 11-bit UDS. Ideal for reading full fault lists, TFSI/TDI measuring blocks, DSG data and coding without a Windows laptop.",
+      "fr": "TP 2.0 sur les premières A3 8P, avec quelques modules en UDS 11 bits sur les fins de série 2010–2012. Parfait pour lire tous les défauts, suivre les blocs TFSI/TDI ou DSG et coder sans PC Windows."
+    }
+  },
+  {
+    "slug": "audi-a3-8v",
+    "brand": "Audi",
+    "model": "A3 / S3 (8V)",
+    "years": "2012–2020",
+    "platform": "MQB",
+    "protocol": "uds11",
+    "sfd": false,
+    "status": "demo",
+    "note": {
+      "en": "Included as a built-in demo car (Audi S3 8V, 11-bit UDS). Full offline control-unit scan, mileage/VIN checks, live data, Performance Hub timing, coding, adaptations and basic settings without SFD restrictions.",
+      "fr": "Présente en voiture de démonstration intégrée (Audi S3 8V en UDS 11 bits). Scan complet, contrôles kilométrage et VIN, mesures en direct, Performance Hub, codage, adaptations et réglages de base hors ligne, sans verrouillage SFD."
+    }
+  },
+  {
+    "slug": "audi-a3-8y",
+    "brand": "Audi",
+    "model": "A3 (8Y)",
+    "years": "2020–",
+    "platform": "MQB-evo",
+    "protocol": "uds29",
+    "sfd": true,
+    "status": "protocol",
+    "note": {
+      "en": "MQB-evo architecture with 11-bit and 29-bit UDS modules. Offline scanning, fault codes, live data, mileage, VIN and health checks work; online SFD unlock for protected writes is not supported.",
+      "fr": "Architecture MQB-evo avec calculateurs UDS 11 bits et 29 bits. Scan, défauts, mesures en direct et contrôles kilométrage, VIN et santé fonctionnent hors ligne ; pas de déverrouillage SFD en ligne pour l’écriture protégée."
+    }
+  },
+  {
+    "slug": "audi-a4-b7",
+    "brand": "Audi",
+    "model": "A4 (B7)",
+    "years": "2005–2008",
+    "platform": "B7",
+    "protocol": "tp20",
+    "sfd": false,
+    "status": "protocol",
+    "note": {
+      "en": "CAN TP 2.0 on main drivetrain modules (note: some early B7 comfort or K-line-only modules do not sit on CAN and cannot be reached over CAN-only ELM327 paths). Engine, transmission and ABS over TP 2.0 work offline.",
+      "fr": "CAN TP 2.0 sur les calculateurs principaux (à noter : certains modules confort anciens uniquement en ligne K ne passent pas par le bus CAN d’un ELM327). Moteur, boîte et ABS en TP 2.0 fonctionnent hors ligne."
+    }
+  },
+  {
+    "slug": "audi-a4-b8",
+    "brand": "Audi",
+    "model": "A4 (B8)",
+    "years": "2008–2015",
+    "platform": "MLB",
+    "protocol": "uds11",
+    "sfd": false,
+    "status": "protocol",
+    "note": {
+      "en": "MLB 11-bit UDS platform (with a few early TP 2.0 units on 2008–2009 cars). Strong candidate for pre-purchase mileage/VIN verification, TFSI oil-consumption/misfire logging, coding and service resets.",
+      "fr": "Plateforme MLB en UDS 11 bits (avec encore quelques modules TP 2.0 sur 2008–2009). Très adaptée au contrôle kilométrage/VIN avant achat, au suivi des ratés ou pressions sur TFSI/TDI, au codage et aux remises à zéro d’entretien."
+    }
+  },
+  {
+    "slug": "audi-a4-b9",
+    "brand": "Audi",
+    "model": "A4 (B9)",
+    "years": "2016–2023",
+    "platform": "MLB-evo",
+    "protocol": "uds11",
+    "sfd": false,
+    "status": "protocol",
+    "note": {
+      "en": "MLB-evo 11-bit UDS platform. Full offline control-unit scanning, fault codes, mileage/VIN/health checks, live data, coding and adaptations (note: very late 2022–2023 units may introduce SFD on selected modules).",
+      "fr": "Plateforme MLB-evo en UDS 11 bits. Scan complet, codes défaut, bilans kilométrage/VIN/santé, mesures en direct, codage et adaptations hors ligne (quelques modules très récents de 2022–2023 peuvent activer SFD)."
+    }
+  },
+  {
+    "slug": "audi-a6-c6",
+    "brand": "Audi",
+    "model": "A6 / RS6 (C6)",
+    "years": "2004–2011",
+    "platform": "C6 (4F)",
+    "protocol": "tp20",
+    "sfd": false,
+    "status": "real_car",
+    "note": {
+      "en": "Tested extensively on a real 2010 Audi RS6 C6 with a vLinker MC+ over BLE, including Android Auto live dashboards, LPFP guided procedure, mileage check, coding and Performance Hub. Also included as a built-in demo car.",
+      "fr": "Testée en profondeur sur une vraie Audi RS6 C6 de 2010 avec un vLinker MC+ en BLE, y compris les tableaux de bord Android Auto, la procédure pompe basse pression, le contrôle kilométrage, le codage et le Performance Hub. Également intégrée en voiture de démo."
+    }
+  },
+  {
+    "slug": "audi-a6-c7",
+    "brand": "Audi",
+    "model": "A6 (C7)",
+    "years": "2011–2018",
+    "platform": "C7 (4G)",
+    "protocol": "uds11",
+    "sfd": false,
+    "status": "protocol",
+    "note": {
+      "en": "Full 11-bit UDS architecture with rich multi-unit mileage and VIN data across engine, S-tronic/Tiptronic, ABS and air suspension. Full offline diagnostics and coding without SFD.",
+      "fr": "Architecture complète en UDS 11 bits avec de multiples calculateurs (moteur, S-tronic/Tiptronic, ABS, suspension pneumatique) qui gardent kilométrage et VIN. Diagnostic et codage complets hors ligne, sans SFD."
+    }
+  },
+  {
+    "slug": "audi-a6-c8",
+    "brand": "Audi",
+    "model": "A6 (C8)",
+    "years": "2018–",
+    "platform": "MLB-evo",
+    "protocol": "uds11",
+    "sfd": true,
+    "status": "protocol",
+    "note": {
+      "en": "MLB-evo UDS architecture; later model years add SFD protection on selected units. Offline scanning, fault codes, live data, mileage, VIN and health checks work; online SFD unlock for protected writes is not supported.",
+      "fr": "Architecture MLB-evo en UDS ; les millésimes récents ajoutent la protection SFD sur certains modules. Scan, codes défaut, mesures en direct et bilans kilométrage/VIN/santé marchent hors ligne ; pas de déverrouillage SFD en ligne."
+    }
+  },
+  {
+    "slug": "audi-q5-8r",
+    "brand": "Audi",
+    "model": "Q5 (8R)",
+    "years": "2008–2017",
+    "platform": "MLB",
+    "protocol": "uds11",
+    "sfd": false,
+    "status": "protocol",
+    "note": {
+      "en": "MLB 11-bit UDS platform sharing electronics with the A4 B8. Covers full fault scans, mileage/VIN checks, live TDI/TFSI/S-tronic data, service resets and coding offline.",
+      "fr": "Plateforme MLB en UDS 11 bits proche de l’A4 B8. Couvre le scan complet, les contrôles kilométrage/VIN, les mesures TDI/TFSI/S-tronic, les remises à zéro d’entretien et le codage hors ligne."
+    }
+  },
+  {
+    "slug": "audi-q5-fy",
+    "brand": "Audi",
+    "model": "Q5 (FY)",
+    "years": "2017–2024",
+    "platform": "MLB-evo",
+    "protocol": "uds11",
+    "sfd": false,
+    "status": "protocol",
+    "note": {
+      "en": "MLB-evo 11-bit UDS SUV. Full offline reading, scanning, health checks, live data and coding (selected late 2022+ facelift modules may require online SFD unlock for writes).",
+      "fr": "SUV MLB-evo en UDS 11 bits. Lecture, scan, bilan de santé, mesures en direct et codage hors ligne (certains modules des versions restylées 2022+ peuvent demander un déverrouillage SFD en ligne pour l’écriture)."
+    }
+  },
+  {
+    "slug": "skoda-octavia-2",
+    "brand": "Škoda",
+    "model": "Octavia 2 (1Z)",
+    "years": "2004–2013",
+    "platform": "PQ35",
+    "protocol": "mixed",
+    "sfd": false,
+    "status": "protocol",
+    "note": {
+      "en": "Early 1Z cars use TP 2.0 and post-2009 facelifts mix TP 2.0 with 11-bit UDS. VAG Scope switches automatically unit by unit for full scans, measuring blocks, fault codes and coding.",
+      "fr": "Les premières Octavia 2 sont en TP 2.0 et les restylées après 2009 mélangent TP 2.0 et UDS 11 bits. VAG Scope gère les deux automatiquement pour les scans, blocs de mesures, défauts et codages."
+    }
+  },
+  {
+    "slug": "skoda-octavia-3",
+    "brand": "Škoda",
+    "model": "Octavia 3 (5E)",
+    "years": "2013–2020",
+    "platform": "MQB",
+    "protocol": "uds11",
+    "sfd": false,
+    "status": "protocol",
+    "note": {
+      "en": "MQB 11-bit UDS platform with no SFD write lock. Very popular with DIY owners for offline long coding, adaptations, DPF/TDI live monitoring and pre-purchase mileage/VIN checks.",
+      "fr": "Plateforme MQB en UDS 11 bits sans verrouillage SFD. Très appréciée des bricoleurs pour le codage long, les adaptations, le suivi FAP/TDI en direct et les contrôles kilométrage/VIN avant achat, le tout hors ligne."
+    }
+  },
+  {
+    "slug": "skoda-octavia-4",
+    "brand": "Škoda",
+    "model": "Octavia 4 (NX)",
+    "years": "2020–",
+    "platform": "MQB-evo",
+    "protocol": "uds29",
+    "sfd": true,
+    "status": "protocol",
+    "note": {
+      "en": "MQB-evo 11-bit and 29-bit UDS architecture. Offline scanning, fault reading, live data, mileage, VIN and health checks work; online SFD unlock for protected writes is not supported.",
+      "fr": "Architecture MQB-evo en UDS 11 bits et 29 bits. Scan, lecture des défauts, mesures en direct et bilans kilométrage/VIN/santé fonctionnent hors ligne ; pas de déverrouillage SFD en ligne pour l’écriture protégée."
+    }
+  },
+  {
+    "slug": "skoda-superb-3",
+    "brand": "Škoda",
+    "model": "Superb 3 (3V)",
+    "years": "2015–2023",
+    "platform": "MQB",
+    "protocol": "uds11",
+    "sfd": false,
+    "status": "protocol",
+    "note": {
+      "en": "MQB 11-bit UDS platform. Full offline control-unit scan, pre-purchase health/mileage/VIN PDF reports, live data, adaptations, coding and service resets.",
+      "fr": "Plateforme MQB en UDS 11 bits. Scan complet des calculateurs, rapports PDF santé/kilométrage/VIN avant achat, mesures en direct, adaptations, codage et remises à zéro d’entretien hors ligne."
+    }
+  },
+  {
+    "slug": "seat-leon-2",
+    "brand": "Seat",
+    "model": "Leon 2 (1P)",
+    "years": "2005–2012",
+    "platform": "PQ35",
+    "protocol": "mixed",
+    "sfd": false,
+    "status": "protocol",
+    "note": {
+      "en": "Shares PQ35 electronics with the Golf 5/6: TP 2.0 on early cars, mixed TP 2.0 and 11-bit UDS on late facelifts. Full offline diagnostics, boost/fuel logging and coding from a phone.",
+      "fr": "Partage l’électronique PQ35 des Golf 5/6 : TP 2.0 sur les premières, mixte TP 2.0 et UDS 11 bits sur les restylées. Diagnostic complet, logs turbo/carburant et codage hors ligne depuis un téléphone."
+    }
+  },
+  {
+    "slug": "seat-leon-3",
+    "brand": "Seat",
+    "model": "Leon 3 (5F)",
+    "years": "2012–2020",
+    "platform": "MQB",
+    "protocol": "uds11",
+    "sfd": false,
+    "status": "protocol",
+    "note": {
+      "en": "MQB 11-bit UDS platform (including Cupra 5F) with no SFD lock. Full offline coding, adaptations, Performance Hub timing/dyno, live charts and used-car mileage/VIN checks.",
+      "fr": "Plateforme MQB en UDS 11 bits (y compris Cupra 5F) sans verrouillage SFD. Codage, adaptations, chronos et banc virtuel du Performance Hub, graphiques en direct et contrôles kilométrage/VIN hors ligne."
+    }
+  },
+  {
+    "slug": "seat-leon-4",
+    "brand": "Seat",
+    "model": "Leon 4 (KL) & Cupra",
+    "years": "2020–",
+    "platform": "MQB-evo",
+    "protocol": "uds29",
+    "sfd": true,
+    "status": "protocol",
+    "note": {
+      "en": "MQB-evo 11-bit and 29-bit UDS platform (Seat Leon KL and Cupra Leon / Formentor). Offline scanning, fault codes, live data, Performance Hub and health/mileage/VIN checks work; online SFD unlock for protected writes is not supported.",
+      "fr": "Plateforme MQB-evo en UDS 11 bits et 29 bits (Seat Leon KL et Cupra Leon / Formentor). Scan, défauts, mesures en direct, Performance Hub et bilans santé/kilométrage/VIN marchent hors ligne ; pas de déverrouillage SFD en ligne."
+    }
+  }
+]

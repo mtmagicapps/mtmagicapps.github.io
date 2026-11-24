@@ -9,3 +9,4 @@ exclude:
   - vag-scope/privacy_en.md
   - vag-scope/privacy_fr.md
   - vag-scope/adapters.json
+  - vag-scope/models.json

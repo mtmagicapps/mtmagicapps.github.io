@@ -4,7 +4,7 @@
 
 - Cars: Volkswagen, Audi, Seat and Škoda using TP 2.0 (about 2004–2010) or UDS on 11-bit and 29-bit CAN ids (about 2012 and later, including MEB electric models and MQB-evo cars such as the Golf 8 generation); mixed cars work unit by unit. Reading, scanning and live data work offline on 2020+ models; online SFD unlock for protected writes is not supported because the app has no network access.
 - Adapter: any good open Bluetooth ELM327 adapter (Classic or BLE on Android, BLE only on iPhone), with no proprietary locked dongle required - the same adapter works across your other cars and apps. Tested with a vLinker MC+ and vGate iCar Pro 2S.
-- Features: health check (fault codes, mileage and VIN in one run and one signed PDF report), mileage check (odometer against the distance stored in each control unit), VIN check, control-unit scan and advanced identification, fault codes with freeze frames and where to look, searchable live data, dashboards (also on Android Auto), coding, long coding, gateway installation list, adaptation, basic settings with guided functions, output tests, community procedures, four demo cars.
+- Features: health check (fault codes, mileage and VIN in one run and one signed PDF report), mileage check (odometer against the distance stored in each control unit), VIN check, control-unit scan and advanced identification, fault codes with freeze frames and where to look, searchable live data, dashboards (also on Android Auto), Performance Hub (0–500 km/h timing with 100 Hz OBD + phone IMU sensor fusion, virtual dyno, PNG proof cards and signed PDFs, zero GPS permission), coding, long coding, gateway installation list, adaptation, basic settings with guided functions, output tests, community procedures, four demo cars.
 - Results are indicative: the app never says a car is genuine or that its mileage is correct.
 - Privacy & offline: works 100% offline, even in an underground garage with no mobile signal. No network permission, no account, no advertising, no analytics.
 - Platforms: Android 9 or later. An iPhone version with Apple CarPlay is planned.
@@ -19,6 +19,7 @@
 - [Check the car yourself | VAG Scope](https://mtmagicapps.github.io/vag-scope/check/): Someone shared a VAG Scope report with you? Run the same mileage and VIN check on the car yourself, with your phone and a Bluetooth ELM327 adapter.
 - [Privacy policy | VAG Scope](https://mtmagicapps.github.io/vag-scope/privacy.html): Privacy policy of the VAG Scope Android and iOS app.
 - [Changelog | VAG Scope](https://mtmagicapps.github.io/vag-scope/changelog.html): Changelog of the VAG Scope Android and iOS app.
+- [Compatible VW, Audi, Seat & Škoda models | VAG Scope](https://mtmagicapps.github.io/vag-scope/models/): Check which diagnostic protocol your Volkswagen, Audi, Seat, Škoda or Cupra uses (TP 2.0, 11-bit UDS or 29-bit UDS), whether SFD write protection applies,
 
 ## Guides
 
@@ -33,7 +34,8 @@
 - [Vérifiez la voiture vous-même | VAG Scope](https://mtmagicapps.github.io/fr/vag-scope/check/): Un rapport VAG Scope vous a été transmis ? Vérifiez vous-même le kilométrage et le VIN de la voiture, avec votre téléphone et un adaptateur Bluetooth.
 - [Politique de confidentialité | VAG Scope](https://mtmagicapps.github.io/fr/vag-scope/privacy.html): Politique de confidentialité de l’appli VAG Scope pour Android et iOS.
 - [Journal des modifications | VAG Scope](https://mtmagicapps.github.io/fr/vag-scope/changelog.html): Journal des modifications de l’appli VAG Scope pour Android et iOS.
-- [Guides pour vérifier une VW, Audi, Seat ou Škoda | VAG Scope](https://mtmagicapps.github.io/fr/vag-scope/guides/): Des guides pratiques pour vérifier une VW, Audi, Seat ou Škoda d’occasion et lire ses calculateurs avec un téléphone et un adaptateur OBD Bluetooth.
+- [Guides OBD pour VW, Audi, Seat et Škoda | VAG Scope](https://mtmagicapps.github.io/fr/vag-scope/guides/): Guides pratiques pour vérifier une VW, Audi, Seat ou Škoda d’occasion, choisir un ELM327 Bluetooth ouvert et diagnostiquer vos calculateurs.
 - [Quel adaptateur ELM327 pour VW, Audi, Seat et Škoda | VAG Scope](https://mtmagicapps.github.io/fr/vag-scope/guides/best-elm327-adapter-vw-audi/): Quel ELM327 Bluetooth choisir pour diagnostiquer une VW, Audi, Seat ou Škoda (TP 2.0 et UDS), éviter les clones instables et garder un boîtier ouvert.
 - [Vérifier le kilométrage d’une VW, Audi, Seat ou Škoda | VAG Scope](https://mtmagicapps.github.io/fr/vag-scope/guides/used-car-mileage-check/): Comparez le compteur à la distance gardée par les calculateurs, lisez le kilométrage noté avec les codes défaut, et sachez ce que le résultat prouve ou non.
 - [Trouver et vérifier le VIN d’une VW, Audi, Seat ou Škoda | VAG Scope](https://mtmagicapps.github.io/fr/vag-scope/guides/vin-check/): Où le VIN est marqué sur les voitures du groupe VW, comment lire ses 17 caractères, et ce que signifie un calculateur qui porte le VIN d’une autre voiture.
+- [Modèles VW, Audi, Seat et Škoda compatibles | VAG Scope](https://mtmagicapps.github.io/fr/vag-scope/models/): Vérifiez le protocole de diagnostic de votre Volkswagen, Audi, Seat, Škoda ou Cupra (TP 2.0, UDS 11 bits ou UDS 29 bits), la présence éventuelle de SFD et

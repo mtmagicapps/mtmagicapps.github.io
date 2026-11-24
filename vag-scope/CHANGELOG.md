@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.0-rc25
+
+- Fix small UI and UX bugs
+
+## 1.0.0-rc24
+
+- Added performance hub: Pulls and dyno
+- Android Auto UX fixes
+
 ## 1.0.0-rc23
 
 - First production release 🎉

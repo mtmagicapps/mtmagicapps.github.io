@@ -85,8 +85,12 @@ const GUIDES = AUDIT ? [] : [...new Set(fs.readdirSync(CONTENT)
   }
   return g;
 });
+const MODELS = AUDIT || !fs.existsSync(path.join(ROOT, 'vag-scope/models.json')) ? [] : readJson('vag-scope/models.json').map((m) => ({
+  ...m, path: `vag-scope/models/${m.slug}/index.html`, generated: 'model', jsonld: ['TechArticle', 'BreadcrumbList'],
+}));
 const ALL = [...cfg.pages,
-  ...(GUIDES.length ? [{ path: 'vag-scope/guides/index.html', generated: 'guides', jsonld: ['BreadcrumbList'] }] : []), ...GUIDES];
+  ...(GUIDES.length ? [{ path: 'vag-scope/guides/index.html', generated: 'guides', jsonld: ['BreadcrumbList'] }] : []), ...GUIDES,
+  ...(MODELS.length ? [{ path: 'vag-scope/models/index.html', generated: 'models', jsonld: ['BreadcrumbList'] }] : []), ...MODELS];
 const PAGES = ALL.map((p) => p.path);
 // "vag-scope/index.html" -> "/vag-scope/", "vag-scope/privacy.html" -> "/vag-scope/privacy.html"
 function urlPath(file, lang) { return (lang === 'fr' ? '/fr/' : '/') + file.replace(/(^|\/)index\.html$/, '$1'); }
@@ -219,29 +223,134 @@ function renderGuideMd(md) {
 
 const GUIDE_UI = {
   en: { guides: 'Guides', all: '← All guides', updated: 'Updated', h1: 'VAG Scope guides',
-    seo: 'Guides to checking a VW, Audi, Seat or Škoda',
-    intro: 'Practical guides to checking a used VW, Audi, Seat or Škoda and reading its control units with a phone and a Bluetooth OBD adapter.' },
+    seo: 'VW, Audi, Seat and Škoda OBD guides',
+    intro: 'Practical guides to checking a used VW, Audi, Seat or Škoda, choosing an open Bluetooth ELM327 adapter and diagnosing control units from your phone.',
+    related: 'Related guides',
+    compatBannerH: 'Checking a specific car model?',
+    compatBannerP: 'Browse the compatibility directory by generation to see protocol support (TP 2.0, 11-bit and 29-bit UDS) and SFD notes.',
+    compatBannerA: 'Check model compatibility →',
+    clusters: {
+      buying: { title: 'Used-car mileage & VIN checks', desc: 'How to verify odometer readings and control-unit VINs before you buy.' },
+      adapters: { title: 'Open ELM327 adapters & setup', desc: 'Which Bluetooth adapters handle VW-group protocols cleanly and why open hardware beats locked dongles.' },
+      diy: { title: 'Offline DIY diagnostics & coding', desc: 'Scanning, live data, coding and service resets without subscriptions, credits or laptops.' },
+      performance: { title: 'Live data, procedures & Performance Hub', desc: 'Measuring blocks, guided procedures, 0–500 km/h timing and virtual dyno.' },
+      general: { title: 'More guides', desc: '' },
+    } },
   fr: { guides: 'Guides', all: '← Tous les guides', updated: 'Mis à jour le', h1: 'Guides VAG Scope',
-    seo: 'Guides pour vérifier une VW, Audi, Seat ou Škoda',
-    intro: 'Des guides pratiques pour vérifier une VW, Audi, Seat ou Škoda d’occasion et lire ses calculateurs avec un téléphone et un adaptateur OBD Bluetooth.' },
+    seo: 'Guides OBD pour VW, Audi, Seat et Škoda',
+    intro: 'Guides pratiques pour vérifier une VW, Audi, Seat ou Škoda d’occasion, choisir un ELM327 Bluetooth ouvert et diagnostiquer vos calculateurs.',
+    related: 'Autres guides utiles',
+    compatBannerH: 'Vous vérifiez un modèle précis ?',
+    compatBannerP: 'Consultez la liste de compatibilité par génération pour voir le protocole (TP 2.0, UDS 11 bits ou 29 bits) et le statut SFD.',
+    compatBannerA: 'Voir les modèles compatibles →',
+    clusters: {
+      buying: { title: 'Achat d’occasion : kilométrage et VIN', desc: 'Comparer le compteur aux calculateurs et vérifier le VIN avant de signer.' },
+      adapters: { title: 'Adaptateurs ELM327 ouverts', desc: 'Quels boîtiers Bluetooth tiennent la route en TP 2.0 et UDS, et pourquoi éviter les clones et boîtiers verrouillés.' },
+      diy: { title: 'Diagnostic et codage hors ligne', desc: 'Scan complet, mesures en direct, codage et entretien sans abonnement, sans crédits et sans PC portable.' },
+      performance: { title: 'Mesures en direct, procédures et Performance Hub', desc: 'Blocs de mesures, procédures guidées, chronos 0–500 km/h et banc virtuel.' },
+      general: { title: 'Autres guides', desc: '' },
+    } },
 };
+const MODEL_UI = {
+  en: {
+    hub: 'Compatible models', all: '← All compatible models',
+    h1: 'Compatible VW, Audi, Seat and Škoda models',
+    seo: 'Compatible VW, Audi, Seat & Škoda models',
+    intro: 'Check which diagnostic protocol your Volkswagen, Audi, Seat, Škoda or Cupra uses (TP 2.0, 11-bit UDS or 29-bit UDS), whether SFD write protection applies, and which Bluetooth ELM327 adapter to use.',
+    searchLabel: 'Filter by model, year or platform',
+    searchPh: 'e.g. Golf 7, A4 B8, Octavia, MQB, 2016…',
+    allBrands: 'All brands',
+    empty: 'No matching generation in this list yet. Any 2004–2010 TP 2.0 or 2012+ UDS VW-group car is supported by protocol.',
+    cols: ['Model', 'Years', 'Platform', 'Protocol', 'SFD / Status'],
+    proto: {
+      tp20: 'CAN TP 2.0',
+      mixed: 'Mixed TP 2.0 + 11-bit UDS',
+      uds11: '11-bit CAN UDS',
+      uds29: '11-bit & 29-bit CAN UDS',
+    },
+    status: {
+      real_car: 'Tested on real car + demo',
+      demo: 'Built-in demo car + protocol support',
+      protocol: 'Protocol supported (testers welcome)',
+    },
+    sfdYes: 'SFD on selected 2020+ modules (offline read/scan works; online SFD write unlock not supported)',
+    sfdNo: 'No SFD write lock (offline reading and coding supported)',
+    sfdShortYes: 'Read/scan offline · SFD write lock',
+    sfdShortNo: 'Full offline read & coding',
+    whatWorksH: 'What works on this generation',
+    notesH: 'Generation notes',
+    specH: 'Technical overview',
+    specRows: ['Brand & model', 'Model years', 'Platform', 'Protocol', 'Verification status', 'SFD write protection', 'Recommended adapter'],
+    adapterVal: 'Open Bluetooth ELM327 (vLinker MC+ or vGate iCar Pro 2S; Classic or BLE on Android, BLE on iPhone)',
+    peersH: 'Other models from',
+    guidesH: 'Helpful guides for this car',
+    updated: '2026-11-24',
+  },
+  fr: {
+    hub: 'Modèles compatibles', all: '← Tous les modèles compatibles',
+    h1: 'Modèles VW, Audi, Seat et Škoda compatibles',
+    seo: 'Modèles VW, Audi, Seat et Škoda compatibles',
+    intro: 'Vérifiez le protocole de diagnostic de votre Volkswagen, Audi, Seat, Škoda ou Cupra (TP 2.0, UDS 11 bits ou UDS 29 bits), la présence éventuelle de SFD et l’adaptateur ELM327 Bluetooth adapté.',
+    searchLabel: 'Filtrer par modèle, année ou plateforme',
+    searchPh: 'ex. Golf 7, A4 B8, Octavia, MQB, 2016…',
+    allBrands: 'Toutes les marques',
+    empty: 'Aucune génération correspondante dans cette liste. Toute voiture du groupe VW en TP 2.0 (2004–2010) ou UDS (2012+) est prise en charge par protocole.',
+    cols: ['Modèle', 'Années', 'Plateforme', 'Protocole', 'SFD / Statut'],
+    proto: {
+      tp20: 'CAN TP 2.0',
+      mixed: 'Mixte TP 2.0 + UDS 11 bits',
+      uds11: 'UDS CAN 11 bits',
+      uds29: 'UDS CAN 11 et 29 bits',
+    },
+    status: {
+      real_car: 'Testée sur vraie voiture + démo',
+      demo: 'Voiture de démo intégrée + protocole',
+      protocol: 'Prise en charge par protocole',
+    },
+    sfdYes: 'Protection SFD sur certains modules 2020+ (lecture/scan hors ligne OK ; pas de déverrouillage SFD en ligne)',
+    sfdNo: 'Pas de verrouillage SFD (lecture et codage hors ligne)',
+    sfdShortYes: 'Lecture/scan hors ligne · SFD en écriture',
+    sfdShortNo: 'Lecture et codage hors ligne',
+    whatWorksH: 'Ce qui fonctionne sur cette génération',
+    notesH: 'Notes techniques sur ce modèle',
+    specH: 'Fiche technique',
+    specRows: ['Marque et modèle', 'Années', 'Plateforme', 'Protocole', 'Statut de vérification', 'Protection SFD', 'Adaptateur recommandé'],
+    adapterVal: 'ELM327 Bluetooth ouvert (vLinker MC+ ou vGate iCar Pro 2S ; Classique ou BLE sur Android, BLE sur iPhone)',
+    peersH: 'Autres modèles',
+    guidesH: 'Guides utiles pour cette voiture',
+    updated: '2026-11-24',
+  },
+};
+const CLUSTER_ORDER = ['buying', 'adapters', 'diy', 'performance', 'general'];
 const fmtDate = (d, lang) => new Date(d + 'T00:00:00Z').toLocaleDateString(lang === 'fr' ? 'fr-FR' : 'en-GB',
   { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
 
 function renderGenerated(page, lang) {
   const ui = GUIDE_UI[lang];
-  let title, desc, main;
+  const mui = MODEL_UI[lang];
+  let title, desc, main, extraScript = '';
   if (page.generated === 'guide') {
     const { meta, body } = page.lang[lang];
     title = `${meta.seo_title || meta.title} | VAG Scope`;
     desc = meta.description;
     const badges = read('tools/templates/stores.html').replace(/\{\{utm\}\}/g, 'guide_' + page.slug.replace(/-/g, '_'));
+    const cluster = meta.cluster || 'general';
+    const others = GUIDES.filter((g) => g.slug !== page.slug && g.lang[lang])
+      .sort((a, b) => Number((b.lang[lang].meta.cluster || 'general') === cluster) - Number((a.lang[lang].meta.cluster || 'general') === cluster) ||
+        b.lang[lang].meta.updated.localeCompare(a.lang[lang].meta.updated))
+      .slice(0, 3);
+    const relatedHtml = others.length ? `\n      <section class="related-guides" aria-labelledby="related-h">
+        <h2 id="related-h">${ui.related}</h2>
+        <ul class="guide-list">${others.map((g) => `
+          <li><a href="/vag-scope/guides/${g.slug}/"><h3>${esc(g.lang[lang].meta.title)}</h3><p>${esc(g.lang[lang].meta.description)}</p></a></li>`).join('')}
+        </ul>
+      </section>` : '';
     main = `    <article class="wrap doc guide">
       <p class="doc-back"><a href="/vag-scope/guides/">${ui.all}</a></p>
       <h1>${esc(meta.title)}</h1>
       <p class="guide-meta">${ui.updated} <time datetime="${meta.updated}">${fmtDate(meta.updated, lang)}</time></p>
       <p class="answer">${inlineMd(meta.answer)}</p>
-${renderGuideMd(body)}
+${renderGuideMd(body)}${relatedHtml}
       <aside class="guide-cta" aria-labelledby="guide-cta-h">
         <h2 id="guide-cta-h" data-i18n="gcta_h">Run the check on your own car</h2>
         <p data-i18n="gcta_p">VAG Scope does it from your phone and a Bluetooth ELM327 adapter: no account, no network, and every result shows its evidence.</p>
@@ -250,22 +359,141 @@ ${renderGuideMd(body)}
 ${badges}        </div>
       </aside>
     </article>`;
-  } else {
+  } else if (page.generated === 'guides') {
     title = `${ui.seo} | VAG Scope`;
     desc = ui.intro;
-    const items = GUIDES.filter((g) => g.lang[lang])
-      .sort((a, b) => b.lang[lang].meta.updated.localeCompare(a.lang[lang].meta.updated) || a.slug.localeCompare(b.slug));
+    const byCluster = new Map();
+    for (const g of GUIDES.filter((x) => x.lang[lang])) {
+      const c = g.lang[lang].meta.cluster || 'general';
+      if (!byCluster.has(c)) byCluster.set(c, []);
+      byCluster.get(c).push(g);
+    }
+    const sections = CLUSTER_ORDER.filter((c) => byCluster.has(c)).map((c) => {
+      const info = ui.clusters[c] || ui.clusters.general;
+      const items = byCluster.get(c).sort((a, b) => b.lang[lang].meta.updated.localeCompare(a.lang[lang].meta.updated) || a.slug.localeCompare(b.slug));
+      return `      <section class="guide-cluster" id="cluster-${c}">
+        <h2>${esc(info.title)}</h2>${info.desc ? `\n        <p>${esc(info.desc)}</p>` : ''}
+        <ul class="guide-list">${items.map((g) => `
+          <li><a href="/vag-scope/guides/${g.slug}/"><h3>${esc(g.lang[lang].meta.title)}</h3><p>${esc(g.lang[lang].meta.description)}</p></a></li>`).join('')}
+        </ul>
+      </section>`;
+    }).join('\n');
+    const compatBox = MODELS.length ? `\n      <aside class="note">
+        <p><strong>${esc(ui.compatBannerH)}</strong> ${esc(ui.compatBannerP)} <a href="/vag-scope/models/">${esc(ui.compatBannerA)}</a></p>
+      </aside>` : '';
     main = `    <section class="wrap doc guides">
       <p class="doc-back"><a href="/vag-scope/">← VAG Scope</a></p>
       <h1>${ui.h1}</h1>
-      <p class="answer">${ui.intro}</p>
-      <ul class="guide-list">${items.map((g) => `
-        <li><a href="/vag-scope/guides/${g.slug}/"><h2>${esc(g.lang[lang].meta.title)}</h2><p>${esc(g.lang[lang].meta.description)}</p></a></li>`).join('')}
-      </ul>
+      <p class="answer">${ui.intro}</p>${compatBox}
+${sections}
     </section>`;
+  } else if (page.generated === 'models') {
+    title = `${mui.seo} | VAG Scope`;
+    desc = mui.intro.slice(0, 155);
+    extraScript = '\n  <script src="/assets/models.js" defer></script>';
+    const brands = [...new Set(MODELS.map((m) => m.brand))];
+    const pills = `<button type="button" class="pill-btn" data-brand-filter="all" aria-pressed="true">${esc(mui.allBrands)}</button>` +
+      brands.map((b) => `<button type="button" class="pill-btn" data-brand-filter="${esc(b)}" aria-pressed="false">${esc(b)}</button>`).join('');
+    const rows = MODELS.map((m) => {
+      const search = `${m.brand} ${m.model} ${m.years} ${m.platform} ${mui.proto[m.protocol]}`;
+      return `          <tr data-model-row data-brand="${esc(m.brand)}" data-search="${esc(search)}">
+            <td data-label="${esc(mui.cols[0])}"><a href="/vag-scope/models/${m.slug}/">${esc(m.brand)} ${esc(m.model)}</a></td>
+            <td data-label="${esc(mui.cols[1])}">${esc(m.years)}</td>
+            <td data-label="${esc(mui.cols[2])}">${esc(m.platform)}</td>
+            <td data-label="${esc(mui.cols[3])}">${esc(mui.proto[m.protocol])}</td>
+            <td data-label="${esc(mui.cols[4])}">${esc(m.sfd ? mui.sfdShortYes : mui.sfdShortNo)}</td>
+          </tr>`;
+    }).join('\n');
+    main = `    <section class="wrap doc models-hub">
+      <p class="doc-back"><a href="/vag-scope/">← VAG Scope</a></p>
+      <h1>${esc(mui.h1)}</h1>
+      <p class="answer">${esc(mui.intro)}</p>
+      <div class="model-controls">
+        <label for="model-q">${esc(mui.searchLabel)}</label>
+        <input id="model-q" type="search" placeholder="${esc(mui.searchPh)}" autocomplete="off">
+        <div class="pill-row" role="group" aria-label="${esc(mui.allBrands)}">${pills}</div>
+      </div>
+      <div class="table-wrap"><table>
+        <thead><tr>${mui.cols.map((c) => `<th scope="col">${esc(c)}</th>`).join('')}</tr></thead>
+        <tbody>
+${rows}
+        </tbody>
+      </table></div>
+      <p id="model-empty" class="note" hidden>${esc(mui.empty)}</p>
+    </section>`;
+  } else if (page.generated === 'model') {
+    const m = page;
+    const car = `${m.brand} ${m.model}`;
+    const proto = mui.proto[m.protocol];
+    const badges = read('tools/templates/stores.html').replace(/\{\{utm\}\}/g, 'model_' + m.slug.replace(/-/g, '_'));
+    if (lang === 'fr') {
+      title = `${car} (${m.years}) : diagnostic | VAG Scope`;
+      desc = `Compatibilité VAG Scope sur ${car} (${m.years}, ${m.platform}) : protocole ${proto}, kilométrage, codes défaut, codage hors ligne et adaptateur ELM327.`;
+    } else {
+      title = `${car} (${m.years}) diagnostics | VAG Scope`;
+      desc = `VAG Scope compatibility for ${car} (${m.years}, ${m.platform}): ${proto} protocol, mileage check, fault codes, offline coding and ELM327 adapter.`;
+    }
+    if (desc.length > 158) desc = desc.slice(0, 155).replace(/\s+\S*$/, '') + '.';
+    const answer = lang === 'fr'
+      ? `Oui : VAG Scope prend en charge la ${car} (${m.years}, plateforme ${m.platform}) en ${proto} avec un adaptateur ELM327 Bluetooth ouvert, 100 % hors ligne et sans abonnement.${m.sfd ? ' Sur cette génération récente, le scan, les codes défaut, les mesures en direct et les bilans kilométrage/VIN fonctionnent hors ligne ; les écritures protégées par SFD ne sont pas déverrouillées en ligne.' : ' Scan complet, contrôle du kilométrage, VIN, mesures en direct, codage et adaptations fonctionnent hors ligne.'}`
+      : `Yes: VAG Scope supports the ${car} (${m.years}, ${m.platform} platform) over ${proto} with an open Bluetooth ELM327 adapter, 100% offline with no subscription.${m.sfd ? ' On this generation, scanning, fault codes, live data and mileage/VIN health checks work offline; online SFD unlock for protected writes is not supported.' : ' Full control-unit scans, mileage and VIN checks, live data, coding and adaptations work offline.'}`;
+    const worksList = lang === 'fr' ? [
+      'Bilan de santé avant achat : codes défaut, comparaison du kilométrage entre calculateurs et contrôle du VIN dans un rapport PDF signé.',
+      'Scan complet des calculateurs et identification avancée, effacement des défauts après sauvegarde et confirmation.',
+      'Mesures en direct (blocs de mesures / DIDs), graphiques sur 60 s, export CSV, tableaux de bord sur téléphone et Android Auto.',
+      'Performance Hub : chronos 0–500 km/h (fusion OBD + capteurs téléphone 100 Hz), banc virtuel et fiches PNG/PDF signées sans GPS.',
+      m.sfd
+        ? 'Écriture et codage : possibles hors ligne sur les calculateurs non verrouillés SFD ; le déverrouillage SFD en ligne n’est pas géré (aucune permission réseau).'
+        : 'Codage, codage long, liste d’installation passerelle, adaptations, réglages de base, tests actionneurs et remise à zéro d’entretien (sauvegarde et relecture automatiques).',
+    ] : [
+      'Pre-purchase health check: fault codes, cross-module mileage comparison and VIN check in one signed PDF report.',
+      'Full control-unit scan, advanced identification and fault clearing with automatic backup and confirmation.',
+      'Searchable live data (measuring blocks / UDS DIDs), 60-second charts, CSV logging and Android Auto dashboards.',
+      'Performance Hub: 0–500 km/h timing (100 Hz OBD + phone IMU fusion), virtual dyno and signed PNG/PDF proof cards without GPS permission.',
+      m.sfd
+        ? 'Coding and adaptations: offline writes work on non-SFD modules; online SFD unlock for protected 2020+ modules is not supported because the app has no network permission.'
+        : 'Coding, long coding, gateway installation list, adaptations, basic settings, output tests and service reset with automatic backup and read-back.',
+    ];
+    const peers = MODELS.filter((x) => x.brand === m.brand && x.slug !== m.slug).slice(0, 6);
+    const specVals = [car, m.years, m.platform, proto, mui.status[m.status], m.sfd ? mui.sfdYes : mui.sfdNo, mui.adapterVal];
+    const specRows = mui.specRows.map((k, i) => `          <tr><td data-label="Spec">${esc(k)}</td><td data-label="Value">${esc(specVals[i])}</td></tr>`).join('\n');
+    main = `    <article class="wrap doc model-page">
+      <p class="doc-back"><a href="/vag-scope/models/">${esc(mui.all)}</a></p>
+      <h1>${esc(car)} (${esc(m.years)})</h1>
+      <p class="guide-meta">${ui.updated} <time datetime="${mui.updated}">${fmtDate(mui.updated, lang)}</time></p>
+      <p class="answer">${esc(answer)}</p>
+      <h2>${esc(mui.specH)}</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th scope="col">${lang === 'fr' ? 'Élément' : 'Item'}</th><th scope="col">${lang === 'fr' ? 'Détail' : 'Detail'}</th></tr></thead>
+        <tbody>
+${specRows}
+        </tbody>
+      </table></div>
+      <h2>${esc(mui.notesH)}</h2>
+      <p>${esc(m.note[lang] || m.note.en)}</p>
+      <h2>${esc(mui.whatWorksH)}</h2>
+      <ul>
+${worksList.map((w) => `        <li>${esc(w)}</li>`).join('\n')}
+      </ul>
+      <h2>${esc(mui.guidesH)}</h2>
+      <ul>
+        <li><a href="/vag-scope/guides/best-elm327-adapter-vw-audi/">${lang === 'fr' ? 'Quel adaptateur ELM327 Bluetooth choisir' : 'Best ELM327 Bluetooth adapter for VW, Audi, Seat and Škoda'}</a></li>
+        <li><a href="/vag-scope/guides/used-car-mileage-check/">${lang === 'fr' ? 'Comment vérifier le kilométrage d’une occasion' : 'How to check the mileage of a used VW, Audi, Seat or Škoda'}</a></li>
+        <li><a href="/vag-scope/guides/vin-check/">${lang === 'fr' ? 'Où trouver et vérifier le VIN' : 'Where to find and check the VIN'}</a></li>
+      </ul>${peers.length ? `\n      <h2>${esc(mui.peersH)} ${esc(m.brand)}</h2>
+      <p class="peer-links">${peers.map((p) => `<a href="/vag-scope/models/${p.slug}/">${esc(p.brand)} ${esc(p.model)} (${esc(p.years)})</a>`).join(' · ')}</p>` : ''}
+      <aside class="guide-cta" aria-labelledby="guide-cta-h">
+        <h2 id="guide-cta-h" data-i18n="gcta_h">Run the check on your own car</h2>
+        <p data-i18n="gcta_p">VAG Scope does it from your phone and a Bluetooth ELM327 adapter: no account, no network, and every result shows its evidence.</p>
+        <div class="actions">
+          <a class="cta" href="${cfg.waitlist}" target="_blank" rel="noopener" data-until-live="play" data-i18n="cta_notify">Get notified at launch</a>
+${badges}        </div>
+      </aside>
+    </article>`;
   }
   return read('tools/templates/page.html').replace(/^<!-- Shell of generated pages[^\n]*\n/m, '')
-    .replace('{{title}}', esc(title)).replace('{{description}}', esc(desc)).replace('{{main}}', () => main);
+    .replace('{{title}}', esc(title)).replace('{{description}}', esc(desc))
+    .replace('{{main}}', () => main).replace('</body>', () => extraScript + '\n  </body>');
 }
 
 // ---- regions ----------------------------------------------------------------------------------------------------
@@ -296,6 +524,7 @@ function stores(html, lang) {
 // so sign-ups can be counted per page and written to in the right language: source is <page>_<cta|bar|link>.
 function pageId(page) {
   if (page.generated === 'guide') return 'guide_' + page.slug.replace(/-/g, '_');
+  if (page.generated === 'model') return 'model_' + page.slug.replace(/-/g, '_');
   return page.path.replace(/(^|\/)index\.html$/, '').replace(/\.html$/, '').replace(/[/-]+/g, '_').replace(/_$/, '') || 'home';
 }
 function waitlistLinks(html, page, lang) {
@@ -336,17 +565,23 @@ function jsonLd(page, lang, html) {
     if (type === 'BreadcrumbList') {
       const crumbs = [[cfg.app.name, 'vag-scope/index.html']];
       if (page.path.startsWith('vag-scope/guides/')) crumbs.push([GUIDE_UI[lang].guides, 'vag-scope/guides/index.html']);
+      if (page.path.startsWith('vag-scope/models/')) crumbs.push([MODEL_UI[lang].hub, 'vag-scope/models/index.html']);
       if (page.generated === 'guide') crumbs.push([page.lang[lang].meta.title, page.path]);
-      else if (page.generated !== 'guides') {
+      else if (page.generated === 'model') crumbs.push([`${page.brand} ${page.model} (${page.years})`, page.path]);
+      else if (page.generated !== 'guides' && page.generated !== 'models') {
         crumbs.push([text((/<title[^>]*>([\s\S]*?)<\/title>/.exec(html) || [])[1] || '').split(' | ')[0], page.path]);
       }
       out.push({ '@type': 'BreadcrumbList', itemListElement: crumbs.map(([name, p], i) =>
         ({ '@type': 'ListItem', position: i + 1, name, item: absUrl(p, lang) })) });
     }
     if (type === 'TechArticle') {
-      const { meta } = page.lang[lang];
-      out.push({ '@type': 'TechArticle', headline: meta.title, description: meta.description, inLanguage: lang,
-        datePublished: meta.published, dateModified: meta.updated, url: absUrl(page.path, lang),
+      const isModel = page.generated === 'model';
+      const headline = isModel ? `${page.brand} ${page.model} (${page.years})` : page.lang[lang].meta.title;
+      const desc = isModel ? ((/<meta name="description" content="([^"]*)"/.exec(html) || [])[1] || '') : page.lang[lang].meta.description;
+      const published = isModel ? MODEL_UI[lang].updated : page.lang[lang].meta.published;
+      const updated = isModel ? MODEL_UI[lang].updated : page.lang[lang].meta.updated;
+      out.push({ '@type': 'TechArticle', headline, description: desc, inLanguage: lang,
+        datePublished: published, dateModified: updated, url: absUrl(page.path, lang),
         image: BASE + '/' + (cfg.ogImage[lang] || cfg.ogImage.en).src,
         author: { '@type': 'Organization', name: cfg.org.name, url: BASE + '/' },
         publisher: { '@type': 'Organization', name: cfg.org.name, logo: { '@type': 'ImageObject', url: BASE + '/' + cfg.org.logo } },
@@ -384,8 +619,9 @@ function head(page, lang, html) {
     `<link rel="canonical" href="${url}">`,
     ...LANGS.map((l) => `<link rel="alternate" hreflang="${l}" href="${absUrl(page.path, l)}">`),
     `<link rel="alternate" hreflang="x-default" href="${absUrl(page.path, 'en')}">`,
-    `<meta property="og:type" content="${page.generated === 'guide' ? 'article' : 'website'}">`,
+    `<meta property="og:type" content="${page.generated === 'guide' || page.generated === 'model' ? 'article' : 'website'}">`,
     ...(page.generated === 'guide' ? [`<meta property="article:modified_time" content="${page.lang[lang].meta.updated}">`] : []),
+    ...(page.generated === 'model' ? [`<meta property="article:modified_time" content="${MODEL_UI[lang].updated}">`] : []),
     `<meta property="og:site_name" content="${esc(cfg.org.name)}">`,
     `<meta property="og:locale" content="${lang === 'fr' ? 'fr_FR' : 'en_GB'}">`,
     `<meta property="og:url" content="${url}">`,
@@ -415,7 +651,7 @@ const GENERATED = (file) => `<!-- Generated by tools/build.mjs from ${file}: edi
 // served (no Markdown, tools, notes or config). Pages and assets have no front matter, so Jekyll copies them as they
 // are. Any other Markdown or script file fails the build.
 const UNPUBLISHED = ['README.md', 'CLAUDE.md', 'tools', 'i18n', 'site.config.json', 'vag-scope/CHANGELOG.md',
-  'vag-scope/privacy_en.md', 'vag-scope/privacy_fr.md', 'vag-scope/adapters.json'];
+  'vag-scope/privacy_en.md', 'vag-scope/privacy_fr.md', 'vag-scope/adapters.json', 'vag-scope/models.json'];
 const unpublished = (rel) => UNPUBLISHED.some((u) => rel === u || rel.startsWith(u + '/'));
 (function checkUnpublished(dir) {
   for (const e of fs.readdirSync(path.join(ROOT, dir), { withFileTypes: true })) {
@@ -453,7 +689,10 @@ for (const page of ALL) {
     html = waitlistLinks(html, page, lang);
     html = region(html, 'lang', langSwitch(page, lang), page.path);
     html = region(html, 'head', head(page, lang, html), page.path);
-    const from = page.generated === 'guide' ? `the guide ${page.slug} (vagscope_growth)` : page.generated ? 'the guides' : page.path;
+    const from = page.generated === 'guide' ? `the guide ${page.slug} (vagscope_growth)`
+      : page.generated === 'model' ? `vag-scope/models.json (${page.slug})`
+      : page.generated === 'models' ? 'vag-scope/models.json'
+      : page.generated ? 'the guides' : page.path;
     if (lang === 'fr' || page.generated) html = html.replace(/^<!doctype html>\n/i, (d) => d + GENERATED(from));
     write(outFile(page.path, lang), html);
   }
@@ -464,7 +703,7 @@ for (const page of ALL) {
 write('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n' +
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' +
   ALL.flatMap((p) => LANGS.map((lang) => '  <url>\n    <loc>' + absUrl(p.path, lang) + '</loc>\n' +
-    (p.generated === 'guide' ? `    <lastmod>${p.lang[lang].meta.updated}</lastmod>\n` : '') +
+    (p.generated === 'guide' ? `    <lastmod>${p.lang[lang].meta.updated}</lastmod>\n` : p.generated === 'model' ? `    <lastmod>${MODEL_UI[lang].updated}</lastmod>\n` : '') +
     LANGS.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${absUrl(p.path, l)}"/>\n`).join('') +
     '  </url>\n')).join('') + '</urlset>\n');
 
@@ -481,11 +720,11 @@ function pageInfo(file, lang) {
 if (!CHECK || !changed.length) {
   write('llms.txt', `# ${cfg.app.name}\n\n> ${cfg.app.description.en}\n\n` +
     cfg.llms.facts.map((f) => `- ${f}`).join('\n') + '\n\n## Pages\n\n' +
-    cfg.pages.map((p) => { const i = pageInfo(p.path, 'en'); return `- [${i.title}](${absUrl(p.path, 'en')}): ${i.desc}`; }).join('\n') +
+    [...cfg.pages, ...(MODELS.length ? [{ path: 'vag-scope/models/index.html' }] : [])].map((p) => { const i = pageInfo(p.path, 'en'); return `- [${i.title}](${absUrl(p.path, 'en')}): ${i.desc}`; }).join('\n') +
     (GUIDES.length ? '\n\n## Guides\n\n' + GUIDES.map((g) =>
       `- [${g.lang.en.meta.title}](${absUrl(g.path, 'en')}): ${text(inlineMd(g.lang.en.meta.answer))}`).join('\n') : '') +
     '\n\n## En français\n\n' +
-    PAGES.map((f) => { const i = pageInfo(f, 'fr'); return `- [${i.title}](${absUrl(f, 'fr')}): ${i.desc}`; }).join('\n') + '\n');
+    PAGES.filter((f) => !/^vag-scope\/models\/[^/]+\/index\.html$/.test(f)).map((f) => { const i = pageInfo(f, 'fr'); return `- [${i.title}](${absUrl(f, 'fr')}): ${i.desc}`; }).join('\n') + '\n');
 }
 
 }
