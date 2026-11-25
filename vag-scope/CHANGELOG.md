@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.0-rc26
+
+- Fix small UI and UX bugs
+
 ## 1.0.0-rc25
 
 - Fix small UI and UX bugs
