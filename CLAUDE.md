@@ -16,7 +16,7 @@ outside it.
 
 Every change is held to it and checked in a browser before it is called done.
 
-- **Performance**: no script on a page that does not need one (`site.js` only for the contact form and the carousel,
+- **Performance**: no script on a page that does not need one (`site.js` only for the contact form and the carousel, `models.js` only on the models hub,
   loaded with `defer`; language memory is inline in `<head>`); screenshots through `srcset` (`tools/images.sh` makes
   the 400/800 variants) with `width`/`height`; only the hero images load eagerly; no layout shift; no third-party request, script, font or tracker; nothing shipped
   that a page does not use. Measure LCP and CLS on the page you changed.

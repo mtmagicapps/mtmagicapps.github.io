@@ -39,11 +39,19 @@ already printed in reports keep working.
 ## Files
 
 - Guides: sources (drafts included) live in the private `../vagscope_growth/content/guides/<slug>.{en,fr}.md`, never in
-  this public repository. Front matter: status (draft or published), title, seo_title, description, answer,
-  published, updated. The build renders published ones into `tools/templates/page.html` at `/vag-scope/guides/<slug>/`,
-  with a list page, article structured data and sitemap dates. Titles stop at 70 characters, descriptions at 160.
+  this public repository. Front matter: status (draft or published), cluster (the topic the list page groups it
+  under), title, seo_title, description, answer, published, updated. The build renders published ones into
+  `tools/templates/page.html` at `/vag-scope/guides/<slug>/`, with a list page grouped by topic, related guides at the
+  end of each, article structured data and sitemap dates. Titles stop at 70 characters, descriptions at 160.
+- Models: `vag-scope/models.json` lists the compatible generations (brand, model, years, chassis codes, platform,
+  protocol, SFD note, OBD port, mileage reality, checkpoints, FAQs, EN/FR texts). The build writes the hub
+  `/vag-scope/models/` (protocol table, `ItemList` and `FAQPage` data) and a page per entry with `page: true` at
+  `/vag-scope/models/<slug>/`; entries with `page: false` stay in the hub and link to a sibling page.
+  `assets/models.js` is the hub's offline brand and search filter (the static list works without it).
 - `index.html`, `vag-scope/index.html`: the pages. `vag-scope/check/`: landing page for the QR code on shared reports.
-- `assets/site.css`: styles. `assets/site.js`: car-screen carousel and mailto contact form (the EN/FR choice is
+  `llms.txt` also lists the flagship model pages.
+- `assets/site.css`: styles. `assets/site.js`: car-screen carousel and mailto contact form; `assets/models.js`: the
+  models hub filter (the EN/FR choice is
   remembered by a small script the build writes inline in each page's `<head>`).
 - `vag-scope/adapters.json`: recommended adapters (name, EN/FR note, sellers with an affiliate flag), rendered by the
   build; affiliate links get `rel="sponsored"` and a visible label.
