@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.0.0-rc26
+
+- Fix small UI and UX bugs
+
+## 1.0.0-rc25
+
+- Fix small UI and UX bugs
+
+## 1.0.0-rc24
+
+- Added performance hub: Pulls and dyno
+- Android Auto UX fixes
+
 ## 1.0.0-rc23
 
 - First production release 🎉
@@ -18,7 +31,7 @@
 
 ## 1.0.0-rc20
 
-- UDS 29-bit CAN support across MEB and MQB-evo vehicles, including 4-hex control unit addresses (`800B`–`C003`), `F1B7` wide gateway installation lists, dual-homed 11-bit/29-bit unit probing, and ODX/XPA dataset resolution.
+- UDS 29-bit CAN support across MEB and MQB-evo vehicles, including 4-hex control unit addresses (`800B`-`C003`), `F1B7` wide gateway installation lists, dual-homed 11-bit/29-bit unit probing, and ODX/XPA dataset resolution.
 - Gateway (`19`) installation list editor and long coding byte/field editor on UDS control units.
 - Demo VW ID.4 GTX (2023 MEB 29-bit UDS simulator) and bundled 12 V DC/DC converter guided procedure.
 - UDS Adaptation, coding and basic settings fixes
