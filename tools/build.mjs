@@ -542,7 +542,7 @@ ${badges}        </div>
       'Bilan de santé avant achat : codes défaut, comparaison du kilométrage entre calculateurs et contrôle du VIN dans un rapport PDF signé.',
       'Scan complet des calculateurs et identification avancée, effacement des défauts après sauvegarde et confirmation.',
       'Mesures en direct (blocs de mesures / DIDs), graphiques sur 60 s, export CSV, tableaux de bord sur téléphone et Android Auto.',
-      'Performance Hub : chronos 0-500 km/h (fusion OBD + capteurs téléphone 100 Hz), banc virtuel et fiches PNG/PDF signées sans GPS.',
+      'Performance Hub : chronos 0-500 km/h (fusion OBD + capteurs téléphone 100 Hz), banc virtuel, cartes JPG et fiches PDF signées, sans GPS.',
       m.sfd
         ? 'Écriture et codage : possibles hors ligne sur les calculateurs non verrouillés SFD ; le déverrouillage SFD en ligne n’est pas géré (aucune permission réseau).'
         : 'Codage, codage long, liste d’installation passerelle, adaptations, réglages de base, tests actionneurs et remise à zéro d’entretien (sauvegarde et relecture automatiques).',
@@ -550,7 +550,7 @@ ${badges}        </div>
       'Pre-purchase health check: fault codes, cross-module mileage comparison and VIN check in one signed PDF report.',
       'Full control-unit scan, advanced identification and fault clearing with automatic backup and confirmation.',
       'Searchable live data (measuring blocks / UDS DIDs), 60-second charts, CSV logging and Android Auto dashboards.',
-      'Performance Hub: 0-500 km/h timing (100 Hz OBD + phone IMU fusion), virtual dyno and signed PNG/PDF proof cards without GPS permission.',
+      'Performance Hub: 0-500 km/h timing (100 Hz OBD + phone IMU fusion), virtual dyno, JPG cards and signed PDF run sheets, without GPS permission.',
       m.sfd
         ? 'Coding and adaptations: offline writes work on non-SFD modules; online SFD unlock for protected 2020+ modules is not supported because the app has no network permission.'
         : 'Coding, long coding, gateway installation list, adaptations, basic settings, output tests and service reset with automatic backup and read-back.',
